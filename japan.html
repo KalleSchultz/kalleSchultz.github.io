@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Japanresa 2026 - Kultur, Natur & Harmoni</title>
-    
+
     <!-- Tailwind CSS för modern design -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
+
     <!-- Chart.js för budgetvisualisering -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
@@ -44,7 +44,7 @@
 
     <!-- Chosen Palette: Stone (Neutral), Matcha (Traditional Green), Momiji (Autumn Red) -->
     <!-- Application Structure Plan: Dashboard approach with a sticky header. Tabs for itinerary to prevent scrolling fatigue. Responsive grid for logistics and hotel cards. Integrated booking checklist. -->
-    <!-- Visualization & Content Choices: 
+    <!-- Visualization & Content Choices:
          1. Budget Overview -> Doughnut Chart (Chart.js)
          2. Daily Schedule -> Interactive JS-rendered tabs
          3. Logistics -> High-contrast info cards
@@ -119,7 +119,7 @@
         <!-- SECTION: RESPLAN -->
         <section id="itinerary" class="mb-24 scroll-mt-20">
             <h2 class="text-3xl font-bold mb-10 text-center uppercase tracking-tighter">Detaljerad Dag-för-Dag</h2>
-            
+
             <div class="flex flex-col lg:flex-row gap-8">
                 <!-- Day List -->
                 <div class="lg:w-1/3">
@@ -143,7 +143,7 @@
         <section id="hotels" class="mb-24 scroll-mt-20">
             <h2 class="text-3xl font-bold mb-4 border-l-8 border-momiji pl-4">Boendeförslag</h2>
             <p class="text-stone-500 mb-10">Utvalda för karaktär, läge och service (väskhantering).</p>
-            
+
             <div id="hotel-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- JS populated -->
             </div>
@@ -287,7 +287,7 @@
         function renderItinerary() {
             const list = document.getElementById('day-tabs-list');
             const content = document.getElementById('day-content-area');
-            
+
             itinerary.forEach((d, idx) => {
                 // List item
                 const btn = document.createElement('button');
