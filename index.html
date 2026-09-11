@@ -56,24 +56,9 @@
     flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center;
     text-align:center; padding:min(10vh,90px) 24px 48px;
   }
-  .mark{
-    width:44px; height:44px; border-radius:12px; background:rgba(255,255,255,0.08);
-    border:1px solid rgba(255,255,255,0.16); backdrop-filter:blur(6px);
-    display:flex; align-items:center; justify-content:center;
-    font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:0.95rem;
-    color:var(--snow); margin:0 auto 26px;
-  }
-  .content h1{
-    font-size:clamp(2.1rem,5vw,3.4rem); color:#fff; line-height:1.08;
-  }
-  .content p.sub{
-    margin:18px auto 0; max-width:46ch; color:var(--text-dim);
-    font-size:clamp(1rem,1.6vw,1.15rem); line-height:1.7;
-  }
-
   .choices{
     display:grid; grid-template-columns:1fr 1fr; gap:20px;
-    max-width:760px; width:100%; margin-top:52px;
+    max-width:760px; width:100%;
   }
   .choice{
     position:relative; text-decoration:none; text-align:left;
@@ -95,6 +80,10 @@
   }
   .choice.cv .icon{background:rgba(60,108,255,0.18); color:var(--accent-cv);}
   .choice.jp .icon{background:rgba(194,84,47,0.22); color:#ffab84;}
+  .choice .icon-photo{
+    width:38px; height:38px; border-radius:50%; object-fit:cover;
+    margin-bottom:4px; border:1px solid rgba(255,255,255,0.3);
+  }
   .choice:hover.cv{border-color:rgba(60,108,255,0.55);}
   .choice:hover.jp{border-color:rgba(194,84,47,0.55);}
   .choice h2{font-size:1.15rem; color:#fff;}
@@ -128,12 +117,9 @@
   <div class="overlay"></div>
 
   <div class="content">
-    <div class="mark">KS</div>
-    <p class="sub">Choose where you'd like to go.</p>
-
     <div class="choices">
       <a href="cv.html" class="choice cv">
-        <span class="icon">◆</span>
+        <img class="icon-photo" src="img/kalle-profile.jpg" alt="Kalle Schultz">
         <h2>Profile</h2>
         <p>Experience, leadership, and the work on AI &amp; ALT at Good Accelerator.</p>
         <span class="go">View profile →</span>
