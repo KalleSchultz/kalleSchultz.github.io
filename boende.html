@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boendeöversikt - Japanresa 2026</title>
+
+    <!-- Tailwind CSS för modern design -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'stone-bg': '#fafaf9',
+                        'matcha': '#166534',
+                        'momiji': '#9f1239',
+                        'ink': '#1c1917'
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { background-color: #fafaf9; scroll-behavior: smooth; color: #1c1917; }
+        .nav-sticky { position: sticky; top: 0; z-index: 50; backdrop-filter: blur(12px); background: rgba(250, 250, 249, 0.9); }
+    </style>
+</head>
+<body class="font-sans antialiased">
+
+    <!-- Navigation -->
+    <nav class="nav-sticky border-b border-stone-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center space-x-2">
+                    <span class="text-2xl">🍁</span>
+                    <span class="font-bold text-xl tracking-tight uppercase">Japan 2026</span>
+                </div>
+                <div class="hidden md:flex space-x-6 text-sm font-bold uppercase tracking-widest">
+                    <a href="index.html" class="hover:text-momiji transition">Start</a>
+                    <a href="japan.html" class="hover:text-momiji transition">Resplan</a>
+                    <a href="japan.html#hotels" class="hover:text-momiji transition">Boende</a>
+                    <a href="boende.html" class="text-momiji transition">Boendeöversikt</a>
+                </div>
+                <div class="md:hidden text-xs text-stone-500 font-bold">1-14 NOV</div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="bg-ink text-stone-bg py-16">
+        <div class="max-w-5xl mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Boendeöversikt</h1>
+            <p class="text-lg text-stone-400 max-w-2xl mx-auto font-light leading-relaxed">
+                Natt för natt, 1–14 november. Bokade boenden är märkta grönt — röda rader saknar fortfarande boende.
+            </p>
+        </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-4 py-16">
+
+        <section id="status-summary" class="mb-12 grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div class="bg-white p-5 rounded-2xl border border-stone-200 shadow-sm">
+                <span class="block text-3xl font-bold text-matcha" id="stat-booked">-</span>
+                <span class="text-sm text-stone-500">bokade nätter</span>
+            </div>
+            <div class="bg-white p-5 rounded-2xl border border-stone-200 shadow-sm">
+                <span class="block text-3xl font-bold text-momiji" id="stat-missing">-</span>
+                <span class="text-sm text-stone-500">nätter utan boende</span>
+            </div>
+            <div class="bg-white p-5 rounded-2xl border border-stone-200 shadow-sm">
+                <span class="block text-3xl font-bold text-ink" id="stat-total">-</span>
+                <span class="text-sm text-stone-500">nätter totalt (1–14 nov)</span>
+            </div>
+        </section>
+
+        <section id="table-section" class="mb-16">
+            <div class="overflow-x-auto bg-white rounded-2xl border border-stone-200 shadow-sm">
+                <table class="w-full text-left text-sm">
+                    <thead class="bg-stone-100 text-stone-500 uppercase text-xs tracking-widest">
+                        <tr>
+                            <th class="px-4 py-3">Datum</th>
+                            <th class="px-4 py-3">Stad</th>
+                            <th class="px-4 py-3">Boende</th>
+                            <th class="px-4 py-3">Adress</th>
+                            <th class="px-4 py-3">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="nights-table">
+                        <!-- JS populated -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="gaps" class="mb-16">
+            <h2 class="text-2xl font-bold mb-4 border-l-8 border-momiji pl-4">Saknas: boende behöver bokas</h2>
+            <div class="space-y-4">
+                <div class="bg-momiji/5 border border-momiji/30 p-6 rounded-2xl">
+                    <h3 class="font-bold text-momiji">2–4 november · Kanazawa (enligt resplanen)</h3>
+                    <p class="text-sm text-stone-600 mt-1">2 nätter saknar bokat boende. Förslag i resplanen: UAN Kanazawa — men inget är bokat än.</p>
+                </div>
+                <div class="bg-momiji/5 border border-momiji/30 p-6 rounded-2xl">
+                    <h3 class="font-bold text-momiji">8–10 november · Hakone / okänt</h3>
+                    <p class="text-sm text-stone-600 mt-1">2 nätter saknar bokat boende. Resplanen nämner Hakone (8 nov) men har ingen aktivitet för 9 nov — natten den 9:e är helt öppen. Förslag: Mount View Hakone (Ryokan) — men inget är bokat än.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-stone-200 py-12 text-center text-stone-500 text-sm">
+        <p class="font-bold text-stone-800 mb-2 uppercase tracking-widest">Resa Japan 2026</p>
+        <p>Boendeöversikt — håll den uppdaterad när fler nätter bokas.</p>
+    </footer>
+
+    <script>
+        // Varje natt 1–13 nov (utcheckning 14 nov). booked=false markerar saknat boende.
+        const nights = [
+            { date: "1 nov", city: "Tokyo", name: "DoubleTree by Hilton Tokyo", address: "3-7-3 Ariake, Koto-ku, Tokyo 135-0063, Japan", booked: true },
+            { date: "2 nov", city: "Kanazawa (enligt resplan)", name: "—", address: "—", booked: false },
+            { date: "3 nov", city: "Kanazawa (enligt resplan)", name: "—", address: "—", booked: false },
+            { date: "4 nov", city: "Kyoto", name: "Hilton Garden Inn Kyoto", address: "397 Gojokarasumacho, Shimogyo Ward, Kyoto 600-8418, Japan", booked: true },
+            { date: "5 nov", city: "Kyoto", name: "Airbnb i Kyoto", address: "10 Imakumano Naginomorichō 3, Kyoto, Kyoto 605-0971, Japan", booked: true },
+            { date: "6 nov", city: "Kyoto", name: "Airbnb i Kyoto", address: "10 Imakumano Naginomorichō 3, Kyoto, Kyoto 605-0971, Japan", booked: true },
+            { date: "7 nov", city: "Kyoto", name: "Airbnb i Kyoto", address: "10 Imakumano Naginomorichō 3, Kyoto, Kyoto 605-0971, Japan", booked: true },
+            { date: "8 nov", city: "Hakone (enligt resplan)", name: "—", address: "—", booked: false },
+            { date: "9 nov", city: "Okänt — saknas i resplanen", name: "—", address: "—", booked: false },
+            { date: "10 nov", city: "Tokyo, Taitō-ku", name: "Airbnb i Taitō-ku", address: "1-chōme-15-4 Senzoku, Taito City, Tokyo 111-0031, Japan", booked: true },
+            { date: "11 nov", city: "Tokyo, Taitō-ku", name: "Airbnb i Taitō-ku", address: "1-chōme-15-4 Senzoku, Taito City, Tokyo 111-0031, Japan", booked: true },
+            { date: "12 nov", city: "Tokyo, Taitō-ku", name: "Airbnb i Taitō-ku", address: "1-chōme-15-4 Senzoku, Taito City, Tokyo 111-0031, Japan", booked: true },
+            { date: "13 nov", city: "Tokyo, Taitō-ku", name: "Airbnb i Taitō-ku", address: "1-chōme-15-4 Senzoku, Taito City, Tokyo 111-0031, Japan", booked: true }
+        ];
+
+        function renderTable() {
+            const tbody = document.getElementById('nights-table');
+            nights.forEach(n => {
+                const row = document.createElement('tr');
+                row.className = `border-t border-stone-100 ${n.booked ? '' : 'bg-momiji/5'}`;
+                row.innerHTML = `
+                    <td class="px-4 py-3 font-bold">${n.date}</td>
+                    <td class="px-4 py-3">${n.city}</td>
+                    <td class="px-4 py-3">${n.name}</td>
+                    <td class="px-4 py-3 text-stone-500">${n.address}</td>
+                    <td class="px-4 py-3">
+                        ${n.booked
+                            ? `<span class="text-xs font-bold text-white bg-matcha px-2 py-1 rounded-full">✓ BOKAT</span>`
+                            : `<span class="text-xs font-bold text-white bg-momiji px-2 py-1 rounded-full">SAKNAS</span>`}
+                    </td>
+                `;
+                tbody.appendChild(row);
+            });
+
+            const bookedCount = nights.filter(n => n.booked).length;
+            document.getElementById('stat-booked').textContent = bookedCount;
+            document.getElementById('stat-missing').textContent = nights.length - bookedCount;
+            document.getElementById('stat-total').textContent = nights.length;
+        }
+
+        window.onload = renderTable;
+    </script>
+</body>
+</html>

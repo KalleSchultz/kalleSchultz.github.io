@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kalle Schultz</title>
+<meta name="description" content="Kalle Schultz — profile and Japan Trip 2026.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230a0f1a'/%3E%3Ctext x='50' y='68' font-size='52' font-family='sans-serif' font-weight='700' fill='%233c6cff' text-anchor='middle'%3EKS%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --sky-top:#040611;
+    --snow:#eef2ff;
+    --text:#f3f1ea;
+    --text-dim:#c7cbd6;
+    --accent-cv:#3c6cff;
+    --accent-jp:#c2542f;
+  }
+  *{box-sizing:border-box;}
+  html,body{height:100%;}
+  body{
+    margin:0;
+    min-height:100dvh;
+    background:var(--sky-top);
+    color:var(--text);
+    font-family:'Inter',system-ui,-apple-system,sans-serif;
+    display:flex; flex-direction:column;
+  }
+  h1,h2,.display{
+    font-family:'Space Grotesk',system-ui,sans-serif;
+    font-weight:700; letter-spacing:-0.02em; margin:0;
+  }
+  a{color:inherit;}
+
+  .scene{
+    position:relative; flex:1;
+    display:flex; flex-direction:column;
+    overflow:hidden;
+    min-height:100dvh;
+  }
+  .bg-photo{
+    position:absolute; inset:0; width:100%; height:100%;
+    object-fit:cover; object-position:center 32%;
+    z-index:0;
+  }
+  .overlay{
+    position:absolute; inset:0; z-index:1;
+    background:
+      linear-gradient(180deg, rgba(4,8,20,0.72) 0%, rgba(4,8,20,0.32) 32%, rgba(4,8,20,0.38) 62%, rgba(4,8,20,0.8) 100%);
+  }
+
+  .content{
+    position:relative; z-index:2;
+    flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center;
+    text-align:center; padding:min(10vh,90px) 24px 48px;
+  }
+  .choices{
+    display:grid; grid-template-columns:1fr 1fr; gap:20px;
+    max-width:760px; width:100%;
+  }
+  .choice{
+    position:relative; text-decoration:none; text-align:left;
+    background:rgba(12,16,28,0.55);
+    border:1px solid rgba(255,255,255,0.14);
+    backdrop-filter:blur(10px);
+    border-radius:18px; padding:28px 26px;
+    transition:transform .2s ease, border-color .2s ease, background .2s ease;
+    display:flex; flex-direction:column; gap:10px;
+  }
+  .choice:hover{
+    transform:translateY(-4px);
+    background:rgba(16,20,34,0.72);
+  }
+  .choice .icon{
+    width:38px; height:38px; border-radius:10px;
+    display:flex; align-items:center; justify-content:center;
+    font-size:1.1rem; margin-bottom:4px;
+  }
+  .choice.cv .icon{background:rgba(60,108,255,0.18); color:var(--accent-cv);}
+  .choice.jp .icon{background:rgba(194,84,47,0.22); color:#ffab84;}
+  .choice .icon-photo{
+    width:38px; height:38px; border-radius:50%; object-fit:cover;
+    margin-bottom:4px; border:1px solid rgba(255,255,255,0.3);
+  }
+  .choice:hover.cv{border-color:rgba(60,108,255,0.55);}
+  .choice:hover.jp{border-color:rgba(194,84,47,0.55);}
+  .choice h2{font-size:1.15rem; color:#fff;}
+  .choice p{margin:0; font-size:0.92rem; color:var(--text-dim); line-height:1.55;}
+  .choice .go{
+    margin-top:8px; font-size:0.82rem; font-weight:600; letter-spacing:0.02em;
+    color:var(--text-dim); display:inline-flex; align-items:center; gap:6px;
+  }
+  .choice:hover .go{color:#fff;}
+
+  footer{
+    position:relative; z-index:2; text-align:center;
+    padding:22px 0 30px; font-size:0.8rem; color:var(--text-dim);
+  }
+
+  @media (max-width:640px){
+    .choices{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<div class="scene">
+  <img
+    class="bg-photo"
+    src="img/mountain.jpg"
+    srcset="img/mountain-sm.jpg 900w, img/mountain.jpg 1800w"
+    sizes="100vw"
+    alt="Snow-capped alpine peaks on a clear day"
+  >
+  <div class="overlay"></div>
+
+  <div class="content">
+    <div class="choices">
+      <a href="cv.html" class="choice cv">
+        <img class="icon-photo" src="img/kalle-profile.jpg" alt="Kalle Schultz">
+        <h2>Profile</h2>
+        <p>Experience, leadership, and the work on AI &amp; ALT at Good Accelerator.</p>
+        <span class="go">View profile →</span>
+      </a>
+      <a href="japan.html" class="choice jp">
+        <span class="icon">✈</span>
+        <h2>Japan Trip 2026</h2>
+        <p>Itinerary, accommodation, and practical information for the November trip.</p>
+        <span class="go">View itinerary →</span>
+      </a>
+    </div>
+  </div>
+
+  <footer>© <span id="year"></span></footer>
+</div>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
