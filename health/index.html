@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Data</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'stone-bg': '#fafaf9',
+                        'accent': '#0e7490',
+                        'ink': '#1c1917'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { background-color: #fafaf9; color: #1c1917; }
+        .chart-container { position: relative; width: 100%; height: 280px; }
+        .card { background: white; border: 1px solid #e7e5e4; border-radius: 0.75rem; }
+    </style>
+</head>
+<body class="font-sans antialiased">
+
+    <header class="border-b border-stone-200 bg-white/90 backdrop-blur sticky top-0 z-10">
+        <div class="max-w-5xl mx-auto px-4 py-4 flex items-center justify-between">
+            <h1 class="text-xl font-bold text-ink">Health Data</h1>
+            <span id="updated-at" class="text-sm text-stone-500">Loading…</span>
+        </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-4 py-8 space-y-8">
+
+        <div id="empty-state" class="card p-6 text-stone-600 hidden">
+            No data yet. Run the <strong>Sync Polar Health Data</strong> workflow
+            from this repo's GitHub Actions tab (see <code>health/README.md</code>
+            for one-time setup), then reload this page.
+        </div>
+
+        <div id="dashboard" class="hidden space-y-8">
+            <section class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="card p-5">
+                    <p class="text-sm text-stone-500">Steps (latest day)</p>
+                    <p id="stat-steps" class="text-3xl font-bold text-accent mt-1">–</p>
+                </div>
+                <div class="card p-5">
+                    <p class="text-sm text-stone-500">Sleep (latest night)</p>
+                    <p id="stat-sleep" class="text-3xl font-bold text-accent mt-1">–</p>
+                </div>
+                <div class="card p-5">
+                    <p class="text-sm text-stone-500">Resting HR (avg, latest)</p>
+                    <p id="stat-hr" class="text-3xl font-bold text-accent mt-1">–</p>
+                </div>
+            </section>
+
+            <section class="card p-5">
+                <h2 class="font-semibold mb-3">Daily steps</h2>
+                <div class="chart-container"><canvas id="steps-chart"></canvas></div>
+            </section>
+
+            <section class="card p-5">
+                <h2 class="font-semibold mb-3">Sleep duration</h2>
+                <div class="chart-container"><canvas id="sleep-chart"></canvas></div>
+            </section>
+
+            <section class="card p-5">
+                <h2 class="font-semibold mb-3">Heart rate (daily average)</h2>
+                <div class="chart-container"><canvas id="hr-chart"></canvas></div>
+            </section>
+
+            <section class="card p-5">
+                <h2 class="font-semibold mb-3">Recent exercises</h2>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-sm text-left">
+                        <thead class="text-stone-500 border-b border-stone-200">
+                            <tr>
+                                <th class="py-2 pr-4">Date</th>
+                                <th class="py-2 pr-4">Sport</th>
+                                <th class="py-2 pr-4">Duration</th>
+                                <th class="py-2 pr-4">Calories</th>
+                            </tr>
+                        </thead>
+                        <tbody id="exercise-rows"></tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script>
+        const numberFmt = (n) => (n === null || n === undefined ? '–' : Number(n).toLocaleString());
+
+        function formatDurationSeconds(seconds) {
+            if (!seconds) return '–';
+            const h = Math.floor(seconds / 3600);
+            const m = Math.round((seconds % 3600) / 60);
+            return `${h}h ${m}m`;
+        }
+
+        function parseIsoDuration(value) {
+            // Polar durations sometimes arrive as ISO 8601 (e.g. "PT7H30M") or as seconds.
+            if (typeof value === 'number') return value;
+            if (typeof value !== 'string') return null;
+            const match = value.match(/PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+(?:\.\d+)?)S)?/);
+            if (!match) return null;
+            const hours = parseInt(match[1] || '0', 10);
+            const minutes = parseInt(match[2] || '0', 10);
+            const seconds = parseFloat(match[3] || '0');
+            return hours * 3600 + minutes * 60 + seconds;
+        }
+
+        async function loadDashboard() {
+            let summary;
+            try {
+                const res = await fetch('data/summary.json', { cache: 'no-store' });
+                summary = await res.json();
+            } catch (e) {
+                document.getElementById('empty-state').classList.remove('hidden');
+                return;
+            }
+
+            const hasData = (summary.activity || []).length || (summary.sleep || []).length
+                || (summary.exercise || []).length || (summary.continuous_heart_rate || []).length;
+
+            if (!hasData) {
+                document.getElementById('empty-state').classList.remove('hidden');
+                return;
+            }
+
+            document.getElementById('dashboard').classList.remove('hidden');
+            document.getElementById('updated-at').textContent = summary.updated_at
+                ? `Updated ${new Date(summary.updated_at).toLocaleString()}`
+                : '';
+
+            const activity = summary.activity || [];
+            const sleep = summary.sleep || [];
+            const hr = summary.continuous_heart_rate || [];
+            const exercise = summary.exercise || [];
+
+            if (activity.length) {
+                document.getElementById('stat-steps').textContent = numberFmt(activity[activity.length - 1].steps);
+            }
+            if (sleep.length) {
+                const seconds = parseIsoDuration(sleep[sleep.length - 1].total_sleep_seconds);
+                document.getElementById('stat-sleep').textContent = formatDurationSeconds(seconds);
+            }
+            if (hr.length) {
+                document.getElementById('stat-hr').textContent = hr[hr.length - 1].avg_bpm
+                    ? `${hr[hr.length - 1].avg_bpm} bpm` : '–';
+            }
+
+            new Chart(document.getElementById('steps-chart'), {
+                type: 'bar',
+                data: {
+                    labels: activity.map(d => d.date),
+                    datasets: [{ label: 'Steps', data: activity.map(d => d.steps), backgroundColor: '#0e7490' }]
+                },
+                options: { responsive: true, maintainAspectRatio: false }
+            });
+
+            new Chart(document.getElementById('sleep-chart'), {
+                type: 'line',
+                data: {
+                    labels: sleep.map(d => d.date),
+                    datasets: [{
+                        label: 'Sleep (hours)',
+                        data: sleep.map(d => {
+                            const s = parseIsoDuration(d.total_sleep_seconds);
+                            return s ? +(s / 3600).toFixed(2) : null;
+                        }),
+                        borderColor: '#0e7490',
+                        backgroundColor: 'rgba(14,116,144,0.15)',
+                        tension: 0.3,
+                        fill: true
+                    }]
+                },
+                options: { responsive: true, maintainAspectRatio: false }
+            });
+
+            new Chart(document.getElementById('hr-chart'), {
+                type: 'line',
+                data: {
+                    labels: hr.map(d => d.date),
+                    datasets: [{
+                        label: 'Avg BPM',
+                        data: hr.map(d => d.avg_bpm),
+                        borderColor: '#9f1239',
+                        backgroundColor: 'rgba(159,18,57,0.1)',
+                        tension: 0.3,
+                        fill: true
+                    }]
+                },
+                options: { responsive: true, maintainAspectRatio: false }
+            });
+
+            const tbody = document.getElementById('exercise-rows');
+            tbody.innerHTML = exercise.slice().reverse().map(ex => `
+                <tr class="border-b border-stone-100">
+                    <td class="py-2 pr-4">${ex.date || '–'}</td>
+                    <td class="py-2 pr-4">${ex.sport || '–'}</td>
+                    <td class="py-2 pr-4">${formatDurationSeconds(parseIsoDuration(ex.duration))}</td>
+                    <td class="py-2 pr-4">${numberFmt(ex.calories)}</td>
+                </tr>
+            `).join('');
+        }
+
+        loadDashboard();
+    </script>
+</body>
+</html>
