@@ -4,13 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Japanresa 2026 - Kultur, Natur & Harmoni</title>
-
+    
     <!-- Tailwind CSS för modern design -->
     <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- Chart.js för budgetvisualisering -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
+    
     <script>
         tailwind.config = {
             theme: {
@@ -32,7 +29,6 @@
 
     <style>
         body { background-color: #fafaf9; scroll-behavior: smooth; color: #1c1917; }
-        .chart-container { position: relative; width: 100%; max-width: 500px; height: 350px; margin: auto; }
         .day-tab-content { display: none; }
         .day-tab-content.active { display: block; animation: fadeIn 0.4s ease-out; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
@@ -45,9 +41,8 @@
     <!-- Chosen Palette: Stone (Neutral), Matcha (Traditional Green), Momiji (Autumn Red) -->
     <!-- Application Structure Plan: Dashboard approach with a sticky header. Tabs for itinerary to prevent scrolling fatigue. Responsive grid for logistics and hotel cards. Integrated booking checklist. -->
     <!-- Visualization & Content Choices:
-         1. Budget Overview -> Doughnut Chart (Chart.js)
-         2. Daily Schedule -> Interactive JS-rendered tabs
-         3. Logistics -> High-contrast info cards
+         1. Daily Schedule -> Interactive JS-rendered tabs
+         2. Logistics -> High-contrast info cards
     -->
     <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
 
@@ -89,29 +84,20 @@
 
         <!-- SECTION: ÖVERSIKT -->
         <section id="overview" class="mb-24 scroll-mt-20">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                <div>
-                    <h2 class="text-3xl font-bold mb-6 border-l-8 border-matcha pl-4">Resans Strategi</h2>
-                    <p class="text-lg text-stone-600 mb-6 leading-relaxed">
-                        Denna resa är skräddarsydd för att balansera kultur, natur och bekvämlighet. Vi använder <strong>Takkyubin</strong> för att resa utan bagage och fokuserar på <strong>tidiga morgonbesök</strong> för att uppleva tempel och trädgårdar i stillhet innan de stora folkmassorna anländer.
-                    </p>
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="bg-white p-4 rounded-xl shadow-sm border border-stone-100">
-                            <span class="block font-bold text-matcha">ANKOMST</span>
-                            <span class="text-sm">Tokyo Haneda (1/11)</span>
-                        </div>
-                        <div class="bg-white p-4 rounded-xl shadow-sm border border-stone-100">
-                            <span class="block font-bold text-momiji">HÖSTFÄRGER</span>
-                            <span class="text-sm">Topp i Kanazawa/Kyoto</span>
-                        </div>
+            <div class="max-w-3xl">
+                <h2 class="text-3xl font-bold mb-6 border-l-8 border-matcha pl-4">Resans Strategi</h2>
+                <p class="text-lg text-stone-600 mb-6 leading-relaxed">
+                    Denna resa är skräddarsydd för att balansera kultur, natur och bekvämlighet. Vi använder <strong>Takkyubin</strong> för att resa utan bagage och fokuserar på <strong>tidiga morgonbesök</strong> för att uppleva tempel och trädgårdar i stillhet innan de stora folkmassorna anländer.
+                </p>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-white p-4 rounded-xl shadow-sm border border-stone-100">
+                        <span class="block font-bold text-matcha">ANKOMST</span>
+                        <span class="text-sm">Tokyo Haneda (1/11)</span>
                     </div>
-                </div>
-                <div class="bg-white p-8 rounded-3xl shadow-xl border border-stone-200">
-                    <h3 class="text-center font-bold text-lg mb-4 uppercase tracking-widest">Budgetestimat per person (SEK)</h3>
-                    <div class="chart-container">
-                        <canvas id="budgetChart"></canvas>
+                    <div class="bg-white p-4 rounded-xl shadow-sm border border-stone-100">
+                        <span class="block font-bold text-momiji">HÖSTFÄRGER</span>
+                        <span class="text-sm">Topp i Kanazawa/Kyoto</span>
                     </div>
-                    <div class="mt-6 text-center text-sm text-stone-500 italic">Exklusive flyg Sverige-Japan.</div>
                 </div>
             </div>
         </section>
@@ -119,7 +105,7 @@
         <!-- SECTION: RESPLAN -->
         <section id="itinerary" class="mb-24 scroll-mt-20">
             <h2 class="text-3xl font-bold mb-10 text-center uppercase tracking-tighter">Detaljerad Dag-för-Dag</h2>
-
+            
             <div class="flex flex-col lg:flex-row gap-8">
                 <!-- Day List -->
                 <div class="lg:w-1/3">
@@ -143,7 +129,7 @@
         <section id="hotels" class="mb-24 scroll-mt-20">
             <h2 class="text-3xl font-bold mb-4 border-l-8 border-momiji pl-4">Boendeförslag</h2>
             <p class="text-stone-500 mb-10">Utvalda för karaktär, läge och service (väskhantering).</p>
-
+            
             <div id="hotel-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- JS populated -->
             </div>
@@ -276,18 +262,20 @@
         ];
 
         const hotels = [
-            { city: "Tokyo", name: "Mimaru Ueno East", type: "Lägenhetshotell", desc: "Stora lägenheter perfekt för 4 personer. Nära flygstget.", link: "https://mimaruhotels.com/en/hotel/ueno-east/" },
+            { city: "Tokyo", dates: "1–2 nov", name: "DoubleTree by Hilton Tokyo", type: "Hotell", desc: "Bekväm start på resan nära Haneda.", link: "https://www.hilton.com/en/doubletree/" },
+            { city: "Kyoto", dates: "4–5 nov", name: "Hilton Garden Inn Kyoto", type: "Hotell", desc: "Pålitlig standard inför övergången till Airbnb-boendet.", link: "https://www.hilton.com/en/hilton-garden-inn/" },
+            { city: "Kyoto", dates: "5–8 nov", name: "Airbnb i Kyoto", type: "Airbnb", desc: "Eget boende mitt i Kyoto för den kulturtäta delen av resan.", link: "https://www.airbnb.se/rooms/1483717915831012225?unique_share_id=50c7c647-c8aa-48ec-a603-688d83e9d00a&viralityEntryPoint=1&s=76" },
             { city: "Kanazawa", name: "UAN Kanazawa", type: "Kulturhotell", desc: "Modern design med djupa japanska rötter. Bjuder på soba på kvällen.", link: "https://www.uan-kanazawa.com/en/" },
-            { city: "Kyoto", name: "The Celestine Kyoto Gion", type: "Boutique", desc: "Högsta klass i hjärtat av de gamla kvarteren. Fantastiskt frukost.", link: "https://www.celestinehotels.jp/kyoto-gion/en/" },
             { city: "Hakone", name: "Mount View Hakone", type: "Ryokan", desc: "Berömt för sitt mjölkvita onsen-vatten. Klassisk upplevelse.", link: "https://www.mvhakone.jp/en/" },
-            { city: "Wazuka", name: "Tea Moon", type: "Machiya", desc: "Bo mitt i tefälten i ett renoverat gammalt hus.", link: "https://teamoon-kyoto.com/" }
+            { city: "Wazuka", name: "Tea Moon", type: "Machiya", desc: "Bo mitt i tefälten i ett renoverat gammalt hus.", link: "https://teamoon-kyoto.com/" },
+            { city: "Tokyo", dates: "10–14 nov", name: "Airbnb i Taitō-ku, Tokyo", type: "Airbnb", desc: "Eget boende i Taitō-ku för den avslutande delen av resan i Tokyo.", link: "https://www.airbnb.se/properties/1715247060050778213?unique_share_id=6c6fd708-05ad-499a-8243-f298d4883119&viralityEntryPoint=1&s=76&anchor_room_id=1474498497601884034" }
         ];
 
         // --- RENDER LOGIC ---
         function renderItinerary() {
             const list = document.getElementById('day-tabs-list');
             const content = document.getElementById('day-content-area');
-
+            
             itinerary.forEach((d, idx) => {
                 // List item
                 const btn = document.createElement('button');
@@ -349,7 +337,10 @@
                 const card = document.createElement('div');
                 card.className = "bg-white p-6 rounded-2xl shadow-sm border border-stone-100 flex flex-col link-card transition duration-300";
                 card.innerHTML = `
-                    <div class="text-xs font-bold text-momiji uppercase mb-1">${h.city}</div>
+                    <div class="flex items-center justify-between mb-1">
+                        <div class="text-xs font-bold text-momiji uppercase">${h.city}</div>
+                        ${h.dates ? `<div class="text-xs font-bold text-stone-400">${h.dates}</div>` : ''}
+                    </div>
                     <h4 class="text-xl font-bold mb-2">${h.name}</h4>
                     <div class="text-xs font-bold text-stone-400 mb-4">${h.type}</div>
                     <p class="text-sm text-stone-600 mb-6 flex-grow">${h.desc}</p>
@@ -359,32 +350,9 @@
             });
         }
 
-        function initChart() {
-            const ctx = document.getElementById('budgetChart').getContext('2d');
-            new Chart(ctx, {
-                type: 'doughnut',
-                data: {
-                    labels: ['Boende', 'Mat/Dryck', 'Transport', 'Aktiviteter'],
-                    datasets: [{
-                        data: [14000, 7500, 4500, 3000],
-                        backgroundColor: ['#1c1917', '#9f1239', '#166534', '#d6d3d1'],
-                        borderWidth: 0,
-                        hoverOffset: 10
-                    }]
-                },
-                options: {
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: { position: 'bottom', labels: { usePointStyle: true, padding: 20 } }
-                    }
-                }
-            });
-        }
-
         window.onload = () => {
             renderItinerary();
             renderHotels();
-            initChart();
         };
     </script>
 </body>
