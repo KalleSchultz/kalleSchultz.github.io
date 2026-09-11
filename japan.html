@@ -59,6 +59,7 @@
                     <a href="#overview" class="hover:text-momiji transition">Översikt</a>
                     <a href="#itinerary" class="hover:text-momiji transition">Resplan</a>
                     <a href="#hotels" class="hover:text-momiji transition">Boende</a>
+                    <a href="boende.html" class="hover:text-momiji transition">Boendeöversikt</a>
                     <a href="#logistics" class="hover:text-momiji transition">Praktiskt</a>
                     <a href="#booking" class="hover:text-momiji transition">Boka</a>
                 </div>
@@ -127,9 +128,10 @@
 
         <!-- SECTION: BOENDE -->
         <section id="hotels" class="mb-24 scroll-mt-20">
-            <h2 class="text-3xl font-bold mb-4 border-l-8 border-momiji pl-4">Boendeförslag</h2>
-            <p class="text-stone-500 mb-10">Utvalda för karaktär, läge och service (väskhantering).</p>
-            
+            <h2 class="text-3xl font-bold mb-4 border-l-8 border-momiji pl-4">Boende</h2>
+            <p class="text-stone-500 mb-2">Utvalda för karaktär, läge och service (väskhantering). Boenden märkta <span class="font-bold text-matcha">✓ BOKAT</span> är bekräftade — resten är bara förslag.</p>
+            <p class="mb-10"><a href="boende.html" class="text-momiji font-bold underline">Se full boendeöversikt med datum, stad och adress →</a></p>
+
             <div id="hotel-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- JS populated -->
             </div>
@@ -262,13 +264,13 @@
         ];
 
         const hotels = [
-            { city: "Tokyo", dates: "1–2 nov", name: "DoubleTree by Hilton Tokyo", type: "Hotell", desc: "Bekväm start på resan nära Haneda.", link: "https://www.hilton.com/en/doubletree/" },
-            { city: "Kyoto", dates: "4–5 nov", name: "Hilton Garden Inn Kyoto", type: "Hotell", desc: "Pålitlig standard inför övergången till Airbnb-boendet.", link: "https://www.hilton.com/en/hilton-garden-inn/" },
-            { city: "Kyoto", dates: "5–8 nov", name: "Airbnb i Kyoto", type: "Airbnb", desc: "Eget boende mitt i Kyoto för den kulturtäta delen av resan.", link: "https://www.airbnb.se/rooms/1483717915831012225?unique_share_id=50c7c647-c8aa-48ec-a603-688d83e9d00a&viralityEntryPoint=1&s=76" },
-            { city: "Kanazawa", name: "UAN Kanazawa", type: "Kulturhotell", desc: "Modern design med djupa japanska rötter. Bjuder på soba på kvällen.", link: "https://www.uan-kanazawa.com/en/" },
-            { city: "Hakone", name: "Mount View Hakone", type: "Ryokan", desc: "Berömt för sitt mjölkvita onsen-vatten. Klassisk upplevelse.", link: "https://www.mvhakone.jp/en/" },
-            { city: "Wazuka", name: "Tea Moon", type: "Machiya", desc: "Bo mitt i tefälten i ett renoverat gammalt hus.", link: "https://teamoon-kyoto.com/" },
-            { city: "Tokyo", dates: "10–14 nov", name: "Airbnb i Taitō-ku, Tokyo", type: "Airbnb", desc: "Eget boende i Taitō-ku för den avslutande delen av resan i Tokyo.", link: "https://www.airbnb.se/properties/1715247060050778213?unique_share_id=6c6fd708-05ad-499a-8243-f298d4883119&viralityEntryPoint=1&s=76&anchor_room_id=1474498497601884034" }
+            { city: "Tokyo", dates: "1–2 nov", name: "DoubleTree by Hilton Tokyo", type: "Hotell", booked: true, desc: "Bekväm start på resan nära Haneda.", link: "https://www.hilton.com/en/doubletree/" },
+            { city: "Kyoto", dates: "4–5 nov", name: "Hilton Garden Inn Kyoto", type: "Hotell", booked: true, desc: "Pålitlig standard inför övergången till Airbnb-boendet.", link: "https://www.hilton.com/en/hilton-garden-inn/" },
+            { city: "Kyoto", dates: "5–8 nov", name: "Airbnb i Kyoto", type: "Airbnb", booked: true, desc: "Eget boende mitt i Kyoto för den kulturtäta delen av resan.", link: "https://www.airbnb.se/rooms/1483717915831012225?unique_share_id=50c7c647-c8aa-48ec-a603-688d83e9d00a&viralityEntryPoint=1&s=76" },
+            { city: "Kanazawa", name: "UAN Kanazawa", type: "Kulturhotell", booked: false, desc: "Förslag — inget boende bokat än för Kanazawa (2–4 nov).", link: "https://www.uan-kanazawa.com/en/" },
+            { city: "Hakone", name: "Mount View Hakone", type: "Ryokan", booked: false, desc: "Förslag — inget boende bokat än för Hakone (8–10 nov).", link: "https://www.mvhakone.jp/en/" },
+            { city: "Wazuka", name: "Tea Moon", type: "Machiya", booked: false, desc: "Förslag — ej bokat, och krockar med bokade Kyoto-boendet 5–8 nov.", link: "https://teamoon-kyoto.com/" },
+            { city: "Tokyo", dates: "10–14 nov", name: "Airbnb i Taitō-ku, Tokyo", type: "Airbnb", booked: true, desc: "Eget boende i Taitō-ku för den avslutande delen av resan i Tokyo.", link: "https://www.airbnb.se/properties/1715247060050778213?unique_share_id=6c6fd708-05ad-499a-8243-f298d4883119&viralityEntryPoint=1&s=76&anchor_room_id=1474498497601884034" }
         ];
 
         // --- RENDER LOGIC ---
@@ -342,7 +344,12 @@
                         ${h.dates ? `<div class="text-xs font-bold text-stone-400">${h.dates}</div>` : ''}
                     </div>
                     <h4 class="text-xl font-bold mb-2">${h.name}</h4>
-                    <div class="text-xs font-bold text-stone-400 mb-4">${h.type}</div>
+                    <div class="flex items-center gap-2 mb-4">
+                        <div class="text-xs font-bold text-stone-400">${h.type}</div>
+                        ${h.booked
+                            ? `<span class="text-xs font-bold text-white bg-matcha px-2 py-0.5 rounded-full">✓ BOKAT</span>`
+                            : `<span class="text-xs font-bold text-white bg-momiji px-2 py-0.5 rounded-full">EJ BOKAT</span>`}
+                    </div>
                     <p class="text-sm text-stone-600 mb-6 flex-grow">${h.desc}</p>
                     <a href="${h.link}" target="_blank" class="block text-center w-full py-2 rounded-full border border-ink text-ink font-bold text-xs hover:bg-ink hover:text-white transition uppercase tracking-widest">Visa & Boka</a>
                 `;
