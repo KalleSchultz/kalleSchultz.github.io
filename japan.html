@@ -276,11 +276,13 @@
         ];
 
         const hotels = [
-            { city: "Tokyo", name: "Mimaru Ueno East", type: "Lägenhetshotell", desc: "Stora lägenheter perfekt för 4 personer. Nära flygstget.", link: "https://mimaruhotels.com/en/hotel/ueno-east/" },
+            { city: "Tokyo", dates: "1–2 nov", name: "DoubleTree by Hilton Tokyo", type: "Hotell", desc: "Bekväm start på resan nära Haneda.", link: "https://www.hilton.com/en/doubletree/" },
+            { city: "Kyoto", dates: "4–5 nov", name: "Hilton Garden Inn Kyoto", type: "Hotell", desc: "Pålitlig standard inför övergången till Airbnb-boendet.", link: "https://www.hilton.com/en/hilton-garden-inn/" },
+            { city: "Kyoto", dates: "5–8 nov", name: "Airbnb i Kyoto", type: "Airbnb", desc: "Eget boende mitt i Kyoto för den kulturtäta delen av resan.", link: "https://www.airbnb.se/rooms/1483717915831012225?unique_share_id=50c7c647-c8aa-48ec-a603-688d83e9d00a&viralityEntryPoint=1&s=76" },
             { city: "Kanazawa", name: "UAN Kanazawa", type: "Kulturhotell", desc: "Modern design med djupa japanska rötter. Bjuder på soba på kvällen.", link: "https://www.uan-kanazawa.com/en/" },
-            { city: "Kyoto", name: "The Celestine Kyoto Gion", type: "Boutique", desc: "Högsta klass i hjärtat av de gamla kvarteren. Fantastiskt frukost.", link: "https://www.celestinehotels.jp/kyoto-gion/en/" },
             { city: "Hakone", name: "Mount View Hakone", type: "Ryokan", desc: "Berömt för sitt mjölkvita onsen-vatten. Klassisk upplevelse.", link: "https://www.mvhakone.jp/en/" },
-            { city: "Wazuka", name: "Tea Moon", type: "Machiya", desc: "Bo mitt i tefälten i ett renoverat gammalt hus.", link: "https://teamoon-kyoto.com/" }
+            { city: "Wazuka", name: "Tea Moon", type: "Machiya", desc: "Bo mitt i tefälten i ett renoverat gammalt hus.", link: "https://teamoon-kyoto.com/" },
+            { city: "Tokyo", dates: "10–14 nov", name: "Airbnb i Taitō-ku, Tokyo", type: "Airbnb", desc: "Eget boende i Taitō-ku för den avslutande delen av resan i Tokyo.", link: "https://www.airbnb.se/properties/1715247060050778213?unique_share_id=6c6fd708-05ad-499a-8243-f298d4883119&viralityEntryPoint=1&s=76&anchor_room_id=1474498497601884034" }
         ];
 
         // --- RENDER LOGIC ---
@@ -349,7 +351,10 @@
                 const card = document.createElement('div');
                 card.className = "bg-white p-6 rounded-2xl shadow-sm border border-stone-100 flex flex-col link-card transition duration-300";
                 card.innerHTML = `
-                    <div class="text-xs font-bold text-momiji uppercase mb-1">${h.city}</div>
+                    <div class="flex items-center justify-between mb-1">
+                        <div class="text-xs font-bold text-momiji uppercase">${h.city}</div>
+                        ${h.dates ? `<div class="text-xs font-bold text-stone-400">${h.dates}</div>` : ''}
+                    </div>
                     <h4 class="text-xl font-bold mb-2">${h.name}</h4>
                     <div class="text-xs font-bold text-stone-400 mb-4">${h.type}</div>
                     <p class="text-sm text-stone-600 mb-6 flex-grow">${h.desc}</p>
