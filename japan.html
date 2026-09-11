@@ -8,9 +8,6 @@
     <!-- Tailwind CSS för modern design -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Chart.js för budgetvisualisering -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
     <script>
         tailwind.config = {
             theme: {
@@ -32,7 +29,6 @@
 
     <style>
         body { background-color: #fafaf9; scroll-behavior: smooth; color: #1c1917; }
-        .chart-container { position: relative; width: 100%; max-width: 500px; height: 350px; margin: auto; }
         .day-tab-content { display: none; }
         .day-tab-content.active { display: block; animation: fadeIn 0.4s ease-out; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
@@ -44,10 +40,9 @@
 
     <!-- Chosen Palette: Stone (Neutral), Matcha (Traditional Green), Momiji (Autumn Red) -->
     <!-- Application Structure Plan: Dashboard approach with a sticky header. Tabs for itinerary to prevent scrolling fatigue. Responsive grid for logistics and hotel cards. Integrated booking checklist. -->
-    <!-- Visualization & Content Choices: 
-         1. Budget Overview -> Doughnut Chart (Chart.js)
-         2. Daily Schedule -> Interactive JS-rendered tabs
-         3. Logistics -> High-contrast info cards
+    <!-- Visualization & Content Choices:
+         1. Daily Schedule -> Interactive JS-rendered tabs
+         2. Logistics -> High-contrast info cards
     -->
     <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
 
@@ -89,29 +84,20 @@
 
         <!-- SECTION: ÖVERSIKT -->
         <section id="overview" class="mb-24 scroll-mt-20">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                <div>
-                    <h2 class="text-3xl font-bold mb-6 border-l-8 border-matcha pl-4">Resans Strategi</h2>
-                    <p class="text-lg text-stone-600 mb-6 leading-relaxed">
-                        Denna resa är skräddarsydd för att balansera kultur, natur och bekvämlighet. Vi använder <strong>Takkyubin</strong> för att resa utan bagage och fokuserar på <strong>tidiga morgonbesök</strong> för att uppleva tempel och trädgårdar i stillhet innan de stora folkmassorna anländer.
-                    </p>
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="bg-white p-4 rounded-xl shadow-sm border border-stone-100">
-                            <span class="block font-bold text-matcha">ANKOMST</span>
-                            <span class="text-sm">Tokyo Haneda (1/11)</span>
-                        </div>
-                        <div class="bg-white p-4 rounded-xl shadow-sm border border-stone-100">
-                            <span class="block font-bold text-momiji">HÖSTFÄRGER</span>
-                            <span class="text-sm">Topp i Kanazawa/Kyoto</span>
-                        </div>
+            <div class="max-w-3xl">
+                <h2 class="text-3xl font-bold mb-6 border-l-8 border-matcha pl-4">Resans Strategi</h2>
+                <p class="text-lg text-stone-600 mb-6 leading-relaxed">
+                    Denna resa är skräddarsydd för att balansera kultur, natur och bekvämlighet. Vi använder <strong>Takkyubin</strong> för att resa utan bagage och fokuserar på <strong>tidiga morgonbesök</strong> för att uppleva tempel och trädgårdar i stillhet innan de stora folkmassorna anländer.
+                </p>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-white p-4 rounded-xl shadow-sm border border-stone-100">
+                        <span class="block font-bold text-matcha">ANKOMST</span>
+                        <span class="text-sm">Tokyo Haneda (1/11)</span>
                     </div>
-                </div>
-                <div class="bg-white p-8 rounded-3xl shadow-xl border border-stone-200">
-                    <h3 class="text-center font-bold text-lg mb-4 uppercase tracking-widest">Budgetestimat per person (SEK)</h3>
-                    <div class="chart-container">
-                        <canvas id="budgetChart"></canvas>
+                    <div class="bg-white p-4 rounded-xl shadow-sm border border-stone-100">
+                        <span class="block font-bold text-momiji">HÖSTFÄRGER</span>
+                        <span class="text-sm">Topp i Kanazawa/Kyoto</span>
                     </div>
-                    <div class="mt-6 text-center text-sm text-stone-500 italic">Exklusive flyg Sverige-Japan.</div>
                 </div>
             </div>
         </section>
@@ -364,32 +350,9 @@
             });
         }
 
-        function initChart() {
-            const ctx = document.getElementById('budgetChart').getContext('2d');
-            new Chart(ctx, {
-                type: 'doughnut',
-                data: {
-                    labels: ['Boende', 'Mat/Dryck', 'Transport', 'Aktiviteter'],
-                    datasets: [{
-                        data: [14000, 7500, 4500, 3000],
-                        backgroundColor: ['#1c1917', '#9f1239', '#166534', '#d6d3d1'],
-                        borderWidth: 0,
-                        hoverOffset: 10
-                    }]
-                },
-                options: {
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: { position: 'bottom', labels: { usePointStyle: true, padding: 20 } }
-                    }
-                }
-            });
-        }
-
         window.onload = () => {
             renderItinerary();
             renderHotels();
-            initChart();
         };
     </script>
 </body>
