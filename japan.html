@@ -171,18 +171,25 @@
                 <div class="bg-white p-6 rounded-2xl border border-stone-200 flex flex-col md:flex-row justify-between items-center gap-4">
                     <div>
                         <span class="bg-momiji text-white text-xs font-bold px-2 py-1 rounded">6 MÅN INNAN</span>
-                        <h4 class="font-bold text-lg mt-1">Hakone Ryokan & Kyoto Boende</h4>
-                        <p class="text-sm text-stone-500">Boka de mest populära Onsen-hotellen innan de tar slut.</p>
+                        <h4 class="font-bold text-lg mt-1">Hakone Ryokan & Kanazawa Boende</h4>
+                        <p class="text-sm text-stone-500">Boka de mest populära Onsen-hotellen innan de tar slut — se <a href="boende.html" class="underline font-bold">boendeöversikten</a> för vilka nätter som saknar boende.</p>
                     </div>
                     <a href="https://www.booking.com" target="_blank" class="bg-ink text-white px-6 py-2 rounded-full font-bold text-sm hover:bg-momiji transition">Gå till Booking.com</a>
                 </div>
                 <div class="bg-white p-6 rounded-2xl border border-stone-200 flex flex-col md:flex-row justify-between items-center gap-4">
                     <div>
                         <span class="bg-matcha text-white text-xs font-bold px-2 py-1 rounded">3 MÅN INNAN</span>
-                        <h4 class="font-bold text-lg mt-1">Teplantage (Wazuka) & Geisha-show</h4>
-                        <p class="text-sm text-stone-500">Boka d:matchas guidade tur och Gion Corner-biljetter.</p>
+                        <h4 class="font-bold text-lg mt-1">Teplantage (Wazuka)</h4>
+                        <p class="text-sm text-stone-500">Boka d:matchas guidade tur på tefälten, 5 nov.</p>
                     </div>
                     <a href="https://dmatcha.com/collections/tea-farm-tours" target="_blank" class="bg-ink text-white px-6 py-2 rounded-full font-bold text-sm hover:bg-matcha transition">Boka Teplantage</a>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-stone-200 flex flex-col md:flex-row justify-between items-center gap-4">
+                    <div>
+                        <span class="bg-matcha text-white text-xs font-bold px-2 py-1 rounded">3 MÅN INNAN</span>
+                        <h4 class="font-bold text-lg mt-1">Geisha-show (Gion Corner)</h4>
+                        <p class="text-sm text-stone-500">Separat bokning från teplantagen — sök efter "Gion Corner" biljetter online, 6 nov kväll.</p>
+                    </div>
                 </div>
                 <div class="bg-white p-6 rounded-2xl border border-stone-200 flex flex-col md:flex-row justify-between items-center gap-4">
                     <div>
@@ -207,59 +214,171 @@
         const itinerary = [
             {
                 day: 1, date: "1 Nov", loc: "Tokyo", title: "Ankomst & Lugn",
-                m: "Ankomst Haneda (HND). Ta monorail till Hamamatsucho och vidare till hotellet i Ueno.",
-                a: "Checka in. Ta en lätt promenad i <a href='https://www.kensetsu.metro.tokyo.lg.jp/jimusho/toubuk/ueno/en_index.html' target='_blank' class='text-matcha underline'>Ueno Park</a>.",
-                e: "Tidig middag och vila för att hantera jetlag.",
+                m: [
+                    "Ankomst Haneda (HND). Ta monorail till Hamamatsucho och vidare till hotellet i Ueno.",
+                    "Hämta pocket-wifi/SIM och växla lite kontanter direkt på flygplatsen.",
+                    "Kort fika på Haneda Airport Garden innan ni åker in till stan, om tid finns."
+                ],
+                a: [
+                    "Checka in. Ta en lätt promenad i <a href='https://www.kensetsu.metro.tokyo.lg.jp/jimusho/toubuk/ueno/en_index.html' target='_blank' class='text-matcha underline'>Ueno Park</a>.",
+                    "Besök Tokyo National Museum om ni orkar hålla er vakna (stänger tidigt).",
+                    "Sitt en stund vid Shinobazu Pond och se lokallivet."
+                ],
+                e: [
+                    "Tidig middag och vila för att hantera jetlag.",
+                    "Kort kvällspromenad i Ameyoko-gatans marknadsstråk (mysig stämning, öppet till sent).",
+                    "Tidigt i säng — natten blir ändå kort med jetlag."
+                ],
                 tips: "Hämta ut Pocket WiFi på flygplatsen innan ni lämnar terminalen.",
-                rest: "Yoshiike Shokudo (färsk fisk med utsikt i Ueno)."
+                rest: [
+                    "Yoshiike Shokudo — färsk fisk med utsikt i Ueno.",
+                    "Innsyoutei — klassisk trädgårdsrestaurang inne i Ueno Park, vacker miljö.",
+                    "Ueno Sakuragi Atari — mysiga gamla småhus omvandlade till kaféer och restauranger."
+                ]
             },
             {
                 day: 2, date: "2 Nov", loc: "Kanazawa", title: "Samurajernas Stad",
-                m: "Hokuriku Shinkansen till Kanazawa (ca 2.5h). Vackra vyer över bergen.",
-                a: "Besök <a href='http://www.nomurake.com/index_en.html' target='_blank' class='text-matcha underline'>Nomura Samurai House</a> i Nagamachi.",
-                e: "Promenad i Kazuemachi Chaya (geishadistrikt) i skymningen.",
+                m: [
+                    "Hokuriku Shinkansen till Kanazawa (ca 2.5h). Vackra vyer över bergen.",
+                    "Frukost/kaffe på tåget eller i Kanazawa Station innan utforskandet börjar.",
+                    "Promenad genom det dramatiska trägallerverket vid stationens Tsuzumi-mon-port."
+                ],
+                a: [
+                    "Besök <a href='http://www.nomurake.com/index_en.html' target='_blank' class='text-matcha underline'>Nomura Samurai House</a> i Nagamachi.",
+                    "Utforska Nagamachi Bukeyashiki-distriktet med lerklädda samurajmurar.",
+                    "Kort stopp i Omicho Market för färska skaldjur och lokal atmosfär."
+                ],
+                e: [
+                    "Promenad i Kazuemachi Chaya (geishadistrikt) i skymningen.",
+                    "Solnedgång vid Asano-floden, precis nedanför Kazuemachi.",
+                    "En drink på någon av de små barerna i Higashi Chaya."
+                ],
                 tips: "Skicka stora väskor med Takkyubin på morgonen från hotellet i Tokyo direkt till Kyoto.",
-                rest: "Fuwari (magisk Izakaya i ett renoverat gammalt hus)."
+                rest: [
+                    "Fuwari — magisk Izakaya i ett renoverat gammalt hus.",
+                    "Ippuku An — soba i traditionell miljö.",
+                    "Jugetsuki — kaiseki med utsikt över en japansk trädgård."
+                ]
             },
             {
                 day: 3, date: "3 Nov", loc: "Kanazawa", title: "Världens vackraste trädgård",
-                m: "Besök <a href='http://www.pref.ishikawa.jp/siro-niwa/kenrokuen/e/' target='_blank' class='text-matcha underline'>Kenroku-en</a> kl 07:00 (öppning) för att slippa trängseln.",
-                a: "D.T. Suzuki Museum – arkitektur och Zen-filosofi i världsklass.",
-                e: "Higashi Chaya-distriktet. Drick te och titta på guldhantverk.",
+                m: [
+                    "Besök <a href='http://www.pref.ishikawa.jp/siro-niwa/kenrokuen/e/' target='_blank' class='text-matcha underline'>Kenroku-en</a> kl 07:00 (öppning) för att slippa trängseln.",
+                    "Fortsätt direkt till Kanazawa Castle Park, precis intill trädgården.",
+                    "Frukost/kaffe vid Kanazawa Castle Park efteråt."
+                ],
+                a: [
+                    "D.T. Suzuki Museum – arkitektur och Zen-filosofi i världsklass.",
+                    "21st Century Museum of Contemporary Art, om samtidskonst lockar.",
+                    "Shopping efter Kutani-keramik och guldbladshantverk i Higashi Chaya."
+                ],
+                e: [
+                    "Higashi Chaya-distriktet. Drick te och titta på guldhantverk.",
+                    "Prova guldbladsglass — en Kanazawa-specialitet — i Higashi Chaya.",
+                    "Kvällspromenad längs Asano-floden."
+                ],
                 tips: "Köp Kutani-keramik i de små butikerna nära samurajkvarteren.",
-                rest: "Kotobukiya (Kaiseki-middag i historisk miljö)."
+                rest: [
+                    "Kotobukiya — kaiseki-middag i historisk miljö.",
+                    "Jiyuken — klassisk lokal restaurang sedan 1909.",
+                    "Omicho Ichiba Shokudo — färsk sushi mitt i marknaden."
+                ]
             },
             {
                 day: 5, date: "5 Nov", loc: "Wazuka", title: "Teplantage-idyll",
-                m: "Tåg söderut mot Kyoto och vidare till Wazuka.",
-                a: "Guidad tur på tefälten hos <a href='https://dmatcha.com/' target='_blank' class='text-matcha underline'>d:matcha Kyoto</a>. Prova olika sorters matcha.",
-                e: "Övernattning mitt bland tebuskarna på Tea Moon eller lokal machiya.",
+                m: [
+                    "Tåg söderut mot Kyoto och vidare till Wazuka.",
+                    "Frukost i Kyoto Station innan tåget vidare mot Wazuka.",
+                    "Kort promenad längs floden i Wazuka innan teturen börjar."
+                ],
+                a: [
+                    "Guidad tur på tefälten hos <a href='https://dmatcha.com/' target='_blank' class='text-matcha underline'>d:matcha Kyoto</a>. Prova olika sorters matcha.",
+                    "Besök ett lokalt te-torkeri och se hur bladen bearbetas.",
+                    "Matcha-provning med jämförelse av olika kvaliteter och skördar."
+                ],
+                e: [
+                    "Tåg tillbaka till Kyoto på kvällen och incheckning i ert Airbnb-boende.",
+                    "Lugn middag nära boendet — resans mest avslappnade kväll.",
+                    "Kvällspromenad i närområdet för att bekanta er med Kyoto inför de intensiva dagarna."
+                ],
                 tips: "Detta är resans lugnaste del. Njut av tystnaden på landsbygden.",
-                rest: "Middag serverad på ert te-boende."
+                rest: [
+                    "Chagenkyo Wazuka — enkel lunch med utsikt över tefälten.",
+                    "Lokal restaurang/café i Wazuka vid te-odlingarna.",
+                    "Omen Kawaramachi (vid återkomst till Kyoto) — udon i lugn, klassisk miljö."
+                ]
             },
             {
                 day: 6, date: "6 Nov", loc: "Uji / Kyoto", title: "Det heliga teet",
-                m: "Besök <a href='https://www.byodoin.or.jp/en/' target='_blank' class='text-matcha underline'>Byodoin-templet</a> i Uji (avbildat på 10-yen-myntet).",
-                a: "Delta i en teceremoni i tehuset Taihoan (Uji stads tehus).",
-                e: "Tåg till Kyoto. Kvällsbesök vid Fushimi Inari (tusen portar) efter solnedgången.",
+                m: [
+                    "Besök <a href='https://www.byodoin.or.jp/en/' target='_blank' class='text-matcha underline'>Byodoin-templet</a> i Uji (avbildat på 10-yen-myntet).",
+                    "Promenad längs Uji-floden och de klassiska tebutikerna.",
+                    "Besök Ujigami-templet — en av Japans äldsta Shinto-helgedomar, alldeles intill."
+                ],
+                a: [
+                    "Delta i en teceremoni i tehuset Taihoan (Uji stads tehus).",
+                    "Provsmakning av Uji-matcha i någon av de anrika tebutikerna på huvudgatan.",
+                    "Besök Byodoin Museum Hoshokan för konst och skatter från templet."
+                ],
+                e: [
+                    "Tåg till Kyoto. Kvällsbesök vid Fushimi Inari (tusen portar) efter solnedgången.",
+                    "Gion Corner — geisha/maiko-föreställning med dans, teceremoni och bunraku, ca 1 timme (bokas separat).",
+                    "Kvällspromenad i Gion med chans att skymta en geisha/maiko på väg till en tillställning."
+                ],
                 tips: "Fushimi Inari är öppet 24/7. På kvällen är det nästan tomt på folk.",
-                rest: "Katsukura (Kyoto Station) – Japans bästa Tonkatsu."
+                rest: [
+                    "Katsukura (Kyoto Station) — Japans bästa Tonkatsu.",
+                    "Izuju (Gion) — klassisk sushi i historisk atmosfär, sedan 1912.",
+                    "Gion Karyo — kaiseki med utsikt över Shirakawa-kanalen."
+                ]
             },
             {
                 day: 8, date: "8 Nov", loc: "Hakone", title: "Onsen & Ryokan-lyx",
-                m: "Shinkansen till Odawara, sedan bergståg in i Hakone-dalen.",
-                a: "Hakone Loop: Linbana över Owakudani (vulkanisk dal) och piratskepp på Lake Ashi.",
-                e: "Checka in på er Ryokan. Bada onsen och njut av 10-rätters middag i Yukata.",
+                m: [
+                    "Shinkansen till Odawara, sedan bergståg in i Hakone-dalen.",
+                    "Stopp vid Hakone-Yumoto för en tidig kaffe/fika innan vidare resa.",
+                    "Åk Hakone Tozan-tåget genom de branta bergsskogarna — en klassisk sträcka i sig."
+                ],
+                a: [
+                    "Hakone Loop: Linbana över Owakudani (vulkanisk dal) och piratskepp på Lake Ashi.",
+                    "Prova de svarta 'kuro-tamago'-äggen vid Owakudani, kokta i vulkaniskt vatten.",
+                    "Besök Hakone Shrine vid sjön med den berömda torii:n i vattnet."
+                ],
+                e: [
+                    "Checka in på er Ryokan. Bada onsen och njut av 10-rätters middag i Yukata.",
+                    "Kvällsonsen under bar himmel om vädret tillåter — extra avkopplande efter en aktiv dag.",
+                    "Tidig kväll — njut av tystnaden och den långsamma Ryokan-rytmen."
+                ],
                 tips: "Vid klart väder ser ni Fuji från linbanan och sjön.",
-                rest: "Kaiseki-middag ingår på er Ryokan."
+                rest: [
+                    "Kaiseki-middag ingår på er Ryokan.",
+                    "Hatsuhana (nära Hakone-Yumoto) — soba i vacker trädgårdsmiljö.",
+                    "Gyoza Center — enkelt alternativ om ni vill äta utanför Ryokanen någon gång."
+                ]
             },
             {
                 day: 11, date: "11 Nov", loc: "Tokyo", title: "Shogunatets Historia",
-                m: "Besök Edo-Tokyo Open Air Museum – räddade historiska byggnader.",
-                a: "Zojoji Templet bredvid Tokyo Tower (familjen Tokugawas tempel).",
-                e: "Strosa i Yanaka Ginza – det gamla Tokyo som överlevde kriget.",
+                m: [
+                    "Besök Edo-Tokyo Open Air Museum – räddade historiska byggnader.",
+                    "Fika i museets historiska kafé, inrymt i en gammal byggnad.",
+                    "Kort promenad i Koganei Park som omger museet."
+                ],
+                a: [
+                    "Zojoji Templet bredvid Tokyo Tower (familjen Tokugawas tempel).",
+                    "Utsikt över Tokyo från Tokyo Tower om vädret är klart.",
+                    "Promenad genom Shiba Park runt templet."
+                ],
+                e: [
+                    "Strosa i Yanaka Ginza – det gamla Tokyo som överlevde kriget.",
+                    "Sensoji-templet i Asakusa, vackert upplyst kvällstid (kort tågresa bort).",
+                    "Avslutande kvällsfika på ett lokalt kaffehus i Yanaka."
+                ],
                 tips: "Yanaka är perfekt för att köpa hantverk och se en mer personlig sida av Tokyo.",
-                rest: "Edomae Kisu (Yanaka) – traditionell tempura."
+                rest: [
+                    "Edomae Kisu (Yanaka) — traditionell tempura.",
+                    "Hantei (Nezu) — kushiage i vacker gammal trähusmiljö, sedan 1887.",
+                    "Sasa-no-yuki (Uguisudani) — tofu-kaiseki i anrik trädgårdsrestaurang."
+                ]
             }
         ];
 
@@ -290,6 +409,9 @@
                 const div = document.createElement('div');
                 div.id = `day-panel-${idx}`;
                 div.className = `day-tab-content ${idx === 0 ? 'active' : ''}`;
+                const suggestionList = (items) => `<ul class="space-y-2">${items.map(i => `<li class="text-stone-700 flex gap-2"><span class="text-stone-300">•</span><span>${i}</span></li>`).join('')}</ul>`;
+                const restList = (items) => `<ul class="space-y-2">${items.map(i => `<li class="text-sm font-bold flex gap-2"><span class="text-momiji">🍴</span><span>${i}</span></li>`).join('')}</ul>`;
+
                 div.innerHTML = `
                     <div class="mb-8">
                         <span class="text-momiji font-bold tracking-widest uppercase text-sm">${d.date} • DAG ${d.day}</span>
@@ -298,22 +420,22 @@
                     <div class="space-y-8">
                         <div class="flex gap-6">
                             <div class="w-16 h-16 rounded-full bg-matcha/10 text-matcha flex items-center justify-center shrink-0 font-bold">FÖRM</div>
-                            <p class="text-stone-700 pt-2">${d.m}</p>
+                            <div class="pt-2 flex-1">${suggestionList(d.m)}</div>
                         </div>
                         <div class="flex gap-6">
                             <div class="w-16 h-16 rounded-full bg-momiji/10 text-momiji flex items-center justify-center shrink-0 font-bold">EFTE</div>
-                            <p class="text-stone-700 pt-2">${d.a}</p>
+                            <div class="pt-2 flex-1">${suggestionList(d.a)}</div>
                         </div>
                         <div class="flex gap-6">
                             <div class="w-16 h-16 rounded-full bg-ink/10 text-ink flex items-center justify-center shrink-0 font-bold">KVÄL</div>
-                            <p class="text-stone-700 pt-2">${d.e}</p>
+                            <div class="pt-2 flex-1">${suggestionList(d.e)}</div>
                         </div>
                     </div>
                     <div class="mt-12 p-6 bg-stone-50 rounded-2xl border border-stone-100">
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
-                                <h4 class="font-bold text-sm uppercase text-stone-400 mb-2">Restaurangförslag</h4>
-                                <p class="text-sm font-bold">${d.rest}</p>
+                                <h4 class="font-bold text-sm uppercase text-stone-400 mb-2">Restaurangförslag (bra mat, vacker miljö)</h4>
+                                ${restList(d.rest)}
                             </div>
                             <div>
                                 <h4 class="font-bold text-sm uppercase text-stone-400 mb-2">Trängsel-tips</h4>
