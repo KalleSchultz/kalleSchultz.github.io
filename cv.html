@@ -104,6 +104,13 @@
     pointer-events:none;
   }
   .hero .wrap{position:relative; z-index:1;}
+  .hero-grid{display:grid; grid-template-columns:1.3fr 0.7fr; gap:48px; align-items:center;}
+  .hero-photo-wrap{display:flex; justify-content:center;}
+  .hero-photo{
+    width:100%; max-width:320px; aspect-ratio:1/1; object-fit:cover;
+    border-radius:28px; border:1px solid rgba(255,255,255,0.14);
+    box-shadow:0 30px 60px -20px rgba(0,0,0,0.6), 0 0 0 8px rgba(60,108,255,0.08);
+  }
   .eyebrow{
     display:inline-flex; align-items:center; gap:8px;
     font-size:0.82rem; font-weight:600; letter-spacing:0.06em; text-transform:uppercase;
@@ -220,7 +227,10 @@
   .reveal.in{opacity:1; transform:translateY(0);}
 
   @media (max-width:860px){
-    .about-grid, .alt-grid{grid-template-columns:1fr;}
+    .about-grid, .alt-grid, .hero-grid{grid-template-columns:1fr;}
+    .hero-grid{gap:32px;}
+    .hero-photo-wrap{order:-1;}
+    .hero-photo{max-width:220px;}
     .leader-grid{grid-template-columns:1fr;}
     nav.links{
       position:fixed; inset:64px 16px auto 16px; background:#fff; border:1px solid var(--line);
@@ -260,17 +270,24 @@
 
 <section class="hero" id="top">
   <div class="wrap">
-    <span class="eyebrow">Associate, Good Accelerator — Advania ALT</span>
-    <h1>Builder at heart. <em>Art of the possible</em> in practice.</h1>
-    <p class="lead">
-      I've helped drive digital transformation since the early 2000s — from building one of
-      Northern Europe's largest private clouds, via AWS, to today driving the work with ALT at
-      Advania, helping organisations approach AI in a completely new way.
-    </p>
-    <div class="cta-row">
-      <a href="mailto:Kalle.schultz12@icloud.com" class="btn btn-primary">Email me</a>
-      <a href="https://linkedin.com/in/kalleschultz" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn ↗</a>
-      <a href="https://www.goodaccelerator.com/om-oss" target="_blank" rel="noopener" class="btn btn-ghost">Good Accelerator ↗</a>
+    <div class="hero-grid">
+      <div>
+        <span class="eyebrow">Associate, Good Accelerator — Advania ALT</span>
+        <h1>Builder at heart. <em>Art of the possible</em> in practice.</h1>
+        <p class="lead">
+          I've helped drive digital transformation since the early 2000s — from building one of
+          Northern Europe's largest private clouds, via AWS, to today driving the work with ALT at
+          Advania, helping organisations approach AI in a completely new way.
+        </p>
+        <div class="cta-row">
+          <a href="mailto:Kalle.schultz12@icloud.com" class="btn btn-primary">Email me</a>
+          <a href="https://linkedin.com/in/kalleschultz" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn ↗</a>
+          <a href="https://www.goodaccelerator.com/om-oss" target="_blank" rel="noopener" class="btn btn-ghost">Good Accelerator ↗</a>
+        </div>
+      </div>
+      <div class="hero-photo-wrap">
+        <img class="hero-photo" src="img/kalle-profile.jpg" alt="Kalle Schultz">
+      </div>
     </div>
   </div>
 </section>
