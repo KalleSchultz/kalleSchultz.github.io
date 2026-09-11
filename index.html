@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="sv">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kalle Schultz</title>
-<meta name="description" content="Kalle Schultz — visitkort och Japanresa 2026.">
+<meta name="description" content="Kalle Schultz — profile and Japan Trip 2026.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230a0f1a'/%3E%3Ctext x='50' y='68' font-size='52' font-family='sans-serif' font-weight='700' fill='%233c6cff' text-anchor='middle'%3EKS%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,15 +12,9 @@
 <style>
   :root{
     --sky-top:#040611;
-    --sky-mid:#0b1330;
-    --sky-glow:#2c3d78;
-    --peak-far:#3a4a78;
-    --peak-mid:#232f57;
-    --peak-near:#141a30;
     --snow:#eef2ff;
-    --alpenglow:#ff9d6c;
     --text:#f3f1ea;
-    --text-dim:#aeb3c4;
+    --text-dim:#c7cbd6;
     --accent-cv:#3c6cff;
     --accent-jp:#c2542f;
   }
@@ -46,21 +40,16 @@
     overflow:hidden;
     min-height:100dvh;
   }
-  .sky{
-    position:absolute; inset:0;
+  .bg-photo{
+    position:absolute; inset:0; width:100%; height:100%;
+    object-fit:cover; object-position:center 32%;
+    z-index:0;
+  }
+  .overlay{
+    position:absolute; inset:0; z-index:1;
     background:
-      radial-gradient(ellipse 60% 40% at 50% 28%, var(--sky-glow), transparent 70%),
-      linear-gradient(180deg, var(--sky-top) 0%, var(--sky-mid) 55%, #1a1030 100%);
+      linear-gradient(180deg, rgba(4,8,20,0.72) 0%, rgba(4,8,20,0.32) 32%, rgba(4,8,20,0.38) 62%, rgba(4,8,20,0.8) 100%);
   }
-  .stars{position:absolute; inset:0 0 40% 0;}
-  .stars span{
-    position:absolute; width:2px; height:2px; border-radius:50%;
-    background:#fff; opacity:.7; animation:twinkle 4s ease-in-out infinite;
-  }
-  @keyframes twinkle{0%,100%{opacity:.25;} 50%{opacity:.9;}}
-
-  .mountains{position:absolute; left:0; right:0; bottom:0; width:100%; line-height:0;}
-  .mountains svg{width:100%; height:auto; display:block;}
 
   .content{
     position:relative; z-index:2;
@@ -129,66 +118,32 @@
 <body>
 
 <div class="scene">
-  <div class="sky"></div>
-  <div class="stars" id="stars"></div>
-
-  <div class="mountains" aria-hidden="true">
-    <svg viewBox="0 0 1440 620" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <linearGradient id="far" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stop-color="#4a5a92"/>
-          <stop offset="100%" stop-color="#2b355c"/>
-        </linearGradient>
-        <linearGradient id="mid" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stop-color="#2c3660"/>
-          <stop offset="100%" stop-color="#181f3a"/>
-        </linearGradient>
-        <linearGradient id="near" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stop-color="#141a30"/>
-          <stop offset="100%" stop-color="#0a0e1c"/>
-        </linearGradient>
-        <linearGradient id="glow" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stop-color="#ffcf9e"/>
-          <stop offset="100%" stop-color="#ff9d6c" stop-opacity="0"/>
-        </linearGradient>
-      </defs>
-
-      <!-- alpenglow behind the tallest far peak -->
-      <ellipse cx="740" cy="270" rx="90" ry="55" fill="url(#glow)" opacity="0.35" />
-
-      <!-- far ridge -->
-      <polygon fill="url(#far)" opacity="0.55" points="0,340 90,300 180,330 260,270 340,310 430,250 520,300 610,260 700,300 800,270 900,320 1000,280 1100,310 1200,270 1300,320 1440,290 1440,620 0,620" />
-
-      <!-- mid range -->
-      <polygon fill="url(#mid)" opacity="0.85" points="0,420 60,380 150,410 230,350 300,390 360,300 430,360 520,260 600,340 660,290 740,240 820,320 900,270 980,330 1080,300 1180,360 1260,320 1350,380 1440,350 1440,620 0,620" />
-      <polygon fill="#eef2ff" opacity="0.75" points="740,240 706,292 774,292" />
-
-      <!-- near range -->
-      <polygon fill="url(#near)" points="0,500 80,460 170,500 250,440 340,480 420,420 480,460 540,380 600,440 640,400 700,460 780,410 860,470 940,430 1040,480 1120,440 1220,490 1320,450 1440,480 1440,620 0,620" />
-
-      <!-- snow caps on near peaks, tips matched exactly to the ridge points above -->
-      <polygon fill="#eef2ff" opacity="0.9" points="540,380 516,412 564,404" />
-      <polygon fill="#eef2ff" opacity="0.8" points="640,400 624,416 664,424" />
-    </svg>
-  </div>
+  <img
+    class="bg-photo"
+    src="img/mountain.jpg"
+    srcset="img/mountain-sm.jpg 900w, img/mountain.jpg 1800w"
+    sizes="100vw"
+    alt="Snow-capped alpine peaks on a clear day"
+  >
+  <div class="overlay"></div>
 
   <div class="content">
     <div class="mark">KS</div>
     <h1>Kalle Schultz</h1>
-    <p class="sub">Välj vart du vill gå.</p>
+    <p class="sub">Choose where you'd like to go.</p>
 
     <div class="choices">
       <a href="cv.html" class="choice cv">
         <span class="icon">◆</span>
-        <h2>Visitkort</h2>
-        <p>Erfarenhet, ledarskap och arbetet med AI &amp; ALT på Good Accelerator.</p>
-        <span class="go">Till visitkortet →</span>
+        <h2>Profile</h2>
+        <p>Experience, leadership, and the work on AI &amp; ALT at Good Accelerator.</p>
+        <span class="go">View profile →</span>
       </a>
       <a href="japan.html" class="choice jp">
         <span class="icon">✈</span>
-        <h2>Japanresa 2026</h2>
-        <p>Resplan, boenden och praktisk information för resan i november.</p>
-        <span class="go">Till resplanen →</span>
+        <h2>Japan Trip 2026</h2>
+        <p>Itinerary, accommodation, and practical information for the November trip.</p>
+        <span class="go">View itinerary →</span>
       </a>
     </div>
   </div>
@@ -198,18 +153,6 @@
 
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
-
-  const starField = document.getElementById('stars');
-  const n = 70;
-  let html = '';
-  for (let i = 0; i < n; i++) {
-    const x = Math.random() * 100;
-    const y = Math.random() * 100;
-    const delay = (Math.random() * 4).toFixed(2);
-    const size = (Math.random() * 1.6 + 1).toFixed(1);
-    html += `<span style="left:${x}%; top:${y}%; width:${size}px; height:${size}px; animation-delay:${delay}s;"></span>`;
-  }
-  starField.innerHTML = html;
 </script>
 
 </body>
