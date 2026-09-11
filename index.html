@@ -3,474 +3,213 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kalle Schultz — Builder. Intraprenör. Art of the possible.</title>
-<meta name="description" content="Kalle Schultz, Associate på Good Accelerator. Driver AI-evolutionen och arbetet med ALT — från digital transformation och privata moln till AWS och dagens AI-resa.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230b0e14'/%3E%3Ctext x='50' y='68' font-size='52' font-family='sans-serif' font-weight='700' fill='%233c6cff' text-anchor='middle'%3EKS%3C/text%3E%3C/svg%3E">
+<title>Kalle Schultz</title>
+<meta name="description" content="Kalle Schultz — visitkort och Japanresa 2026.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230a0f1a'/%3E%3Ctext x='50' y='68' font-size='52' font-family='sans-serif' font-weight='700' fill='%233c6cff' text-anchor='middle'%3EKS%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --ink:#0b0e14;
-    --ink-soft:#121722;
-    --paper:#f7f5f0;
-    --paper-dim:#ece8df;
-    --ink-text:#e9e6dd;
-    --ink-text-dim:#9aa1af;
-    --body-text:#3a372f;
-    --body-text-dim:#6b6759;
-    --accent:#3c6cff;
-    --accent-soft:#dbe4ff;
-    --amber:#ffb020;
-    --line:#dedad0;
-    --line-dark:#232a38;
-    --radius:18px;
-    --maxw:1080px;
+    --sky-top:#040611;
+    --sky-mid:#0b1330;
+    --sky-glow:#2c3d78;
+    --peak-far:#3a4a78;
+    --peak-mid:#232f57;
+    --peak-near:#141a30;
+    --snow:#eef2ff;
+    --alpenglow:#ff9d6c;
+    --text:#f3f1ea;
+    --text-dim:#aeb3c4;
+    --accent-cv:#3c6cff;
+    --accent-jp:#c2542f;
   }
   *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
+  html,body{height:100%;}
   body{
     margin:0;
-    background:var(--paper);
-    color:var(--body-text);
+    min-height:100dvh;
+    background:var(--sky-top);
+    color:var(--text);
     font-family:'Inter',system-ui,-apple-system,sans-serif;
-    line-height:1.6;
-    -webkit-font-smoothing:antialiased;
+    display:flex; flex-direction:column;
   }
-  h1,h2,h3,.display{
+  h1,h2,.display{
     font-family:'Space Grotesk',system-ui,sans-serif;
-    font-weight:700;
-    letter-spacing:-0.02em;
-    margin:0;
+    font-weight:700; letter-spacing:-0.02em; margin:0;
   }
-  img{max-width:100%;}
   a{color:inherit;}
-  .wrap{max-width:var(--maxw); margin:0 auto; padding-inline:24px;}
-  section{padding-block:clamp(56px,9vw,104px);}
 
-  /* NAV */
-  header.nav{
-    position:sticky; top:0; z-index:50;
-    background:rgba(247,245,240,0.86);
-    backdrop-filter:blur(10px);
-    border-bottom:1px solid var(--line);
+  .scene{
+    position:relative; flex:1;
+    display:flex; flex-direction:column;
+    overflow:hidden;
+    min-height:100dvh;
   }
-  .nav-inner{
-    max-width:var(--maxw); margin:0 auto; padding:16px 24px;
-    display:flex; align-items:center; justify-content:space-between; gap:16px;
-  }
-  .brand{
-    display:flex; align-items:center; gap:10px;
-    font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:1.05rem;
-    text-decoration:none; color:var(--ink);
-  }
-  .brand .mark{
-    width:34px; height:34px; border-radius:9px; background:var(--ink);
-    color:var(--accent); display:flex; align-items:center; justify-content:center;
-    font-size:0.9rem; font-weight:700;
-  }
-  nav.links{display:flex; gap:28px; align-items:center;}
-  nav.links a{
-    text-decoration:none; color:var(--body-text-dim); font-size:0.92rem; font-weight:500;
-    transition:color .15s ease;
-  }
-  nav.links a:hover{color:var(--ink);}
-  .btn{
-    display:inline-flex; align-items:center; gap:8px;
-    padding:11px 20px; border-radius:999px; font-weight:600; font-size:0.92rem;
-    text-decoration:none; border:1px solid transparent; white-space:nowrap;
-    transition:transform .15s ease, box-shadow .15s ease, background .15s ease;
-  }
-  .btn-primary{background:var(--ink); color:var(--paper);}
-  .btn-primary:hover{transform:translateY(-1px); box-shadow:0 8px 20px rgba(11,14,20,0.25);}
-  .btn-ghost{border-color:var(--line); color:var(--ink); background:transparent;}
-  .btn-ghost:hover{border-color:var(--ink);}
-  .menu-toggle{
-    display:none; background:none; border:none; cursor:pointer; padding:6px;
-  }
-  .menu-toggle span{display:block; width:22px; height:2px; background:var(--ink); margin:5px 0; transition:.2s;}
-
-  /* HERO */
-  .hero{
-    background:var(--ink); color:var(--ink-text);
-    padding-block:clamp(72px,12vw,140px);
-    position:relative; overflow:hidden;
-  }
-  .hero::before{
-    content:""; position:absolute; inset:0;
+  .sky{
+    position:absolute; inset:0;
     background:
-      radial-gradient(600px 300px at 85% -10%, rgba(60,108,255,0.28), transparent 60%),
-      radial-gradient(500px 260px at 5% 110%, rgba(255,176,32,0.14), transparent 60%);
-    pointer-events:none;
+      radial-gradient(ellipse 60% 40% at 50% 28%, var(--sky-glow), transparent 70%),
+      linear-gradient(180deg, var(--sky-top) 0%, var(--sky-mid) 55%, #1a1030 100%);
   }
-  .hero .wrap{position:relative; z-index:1;}
-  .eyebrow{
-    display:inline-flex; align-items:center; gap:8px;
-    font-size:0.82rem; font-weight:600; letter-spacing:0.06em; text-transform:uppercase;
-    color:var(--accent); margin-bottom:22px;
+  .stars{position:absolute; inset:0 0 40% 0;}
+  .stars span{
+    position:absolute; width:2px; height:2px; border-radius:50%;
+    background:#fff; opacity:.7; animation:twinkle 4s ease-in-out infinite;
   }
-  .eyebrow::before{content:""; width:8px; height:8px; border-radius:50%; background:var(--accent); display:inline-block;}
-  .hero h1{
-    font-size:clamp(2.4rem,5.4vw,4.1rem); line-height:1.06; color:#fff;
-    max-width:16ch;
-  }
-  .hero h1 em{font-style:normal; color:var(--accent);}
-  .hero p.lead{
-    margin-top:26px; font-size:clamp(1.05rem,1.6vw,1.25rem); color:var(--ink-text-dim);
-    max-width:56ch; line-height:1.7;
-  }
-  .hero .cta-row{display:flex; flex-wrap:wrap; gap:14px; margin-top:38px;}
-  .hero .btn-ghost{border-color:var(--line-dark); color:var(--ink-text);}
-  .hero .btn-ghost:hover{border-color:var(--ink-text-dim);}
+  @keyframes twinkle{0%,100%{opacity:.25;} 50%{opacity:.9;}}
 
-  /* SECTION HEADS */
-  .kicker{
-    font-size:0.82rem; font-weight:600; letter-spacing:0.08em; text-transform:uppercase;
-    color:var(--accent); margin-bottom:14px; display:block;
-  }
-  .sec-head{max-width:60ch; margin-bottom:48px;}
-  .sec-head h2{font-size:clamp(1.7rem,3vw,2.3rem); color:var(--ink); line-height:1.15;}
-  .sec-head p{margin-top:14px; color:var(--body-text-dim); font-size:1.05rem;}
+  .mountains{position:absolute; left:0; right:0; bottom:0; width:100%; line-height:0;}
+  .mountains svg{width:100%; height:auto; display:block;}
 
-  /* OM MIG */
-  .about-grid{display:grid; grid-template-columns:1.1fr 0.9fr; gap:56px; align-items:start;}
-  .about-grid p{font-size:1.08rem; color:var(--body-text); margin:0 0 18px;}
-  .pillars{display:grid; gap:16px;}
-  .pillar{
-    background:#fff; border:1px solid var(--line); border-radius:var(--radius);
-    padding:20px 22px;
+  .content{
+    position:relative; z-index:2;
+    flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center;
+    text-align:center; padding:min(10vh,90px) 24px 48px;
   }
-  .pillar .n{font-family:'Space Grotesk',sans-serif; font-weight:700; color:var(--accent); font-size:0.85rem;}
-  .pillar h4{margin:6px 0 6px; font-size:1.02rem; font-family:'Space Grotesk',sans-serif; color:var(--ink);}
-  .pillar p{margin:0; font-size:0.94rem; color:var(--body-text-dim);}
+  .mark{
+    width:44px; height:44px; border-radius:12px; background:rgba(255,255,255,0.08);
+    border:1px solid rgba(255,255,255,0.16); backdrop-filter:blur(6px);
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:0.95rem;
+    color:var(--snow); margin:0 auto 26px;
+  }
+  .content h1{
+    font-size:clamp(2.1rem,5vw,3.4rem); color:#fff; line-height:1.08;
+  }
+  .content p.sub{
+    margin:18px auto 0; max-width:46ch; color:var(--text-dim);
+    font-size:clamp(1rem,1.6vw,1.15rem); line-height:1.7;
+  }
 
-  /* TIMELINE */
-  .timeline{position:relative; margin-top:8px;}
-  .timeline::before{
-    content:""; position:absolute; left:11px; top:6px; bottom:6px; width:2px;
-    background:var(--line);
+  .choices{
+    display:grid; grid-template-columns:1fr 1fr; gap:20px;
+    max-width:760px; width:100%; margin-top:52px;
   }
-  .t-item{position:relative; padding-left:44px; margin-bottom:44px;}
-  .t-item:last-child{margin-bottom:0;}
-  .t-item::before{
-    content:""; position:absolute; left:2px; top:4px; width:20px; height:20px;
-    border-radius:50%; background:var(--paper); border:3px solid var(--accent);
+  .choice{
+    position:relative; text-decoration:none; text-align:left;
+    background:rgba(12,16,28,0.55);
+    border:1px solid rgba(255,255,255,0.14);
+    backdrop-filter:blur(10px);
+    border-radius:18px; padding:28px 26px;
+    transition:transform .2s ease, border-color .2s ease, background .2s ease;
+    display:flex; flex-direction:column; gap:10px;
   }
-  .t-year{
-    font-family:'Space Grotesk',sans-serif; font-weight:700; color:var(--ink);
-    font-size:1.05rem; letter-spacing:0.01em;
+  .choice:hover{
+    transform:translateY(-4px);
+    background:rgba(16,20,34,0.72);
   }
-  .t-item h3{margin:6px 0 10px; font-size:1.25rem; color:var(--ink);}
-  .t-item p{margin:0; color:var(--body-text-dim); max-width:62ch;}
+  .choice .icon{
+    width:38px; height:38px; border-radius:10px;
+    display:flex; align-items:center; justify-content:center;
+    font-size:1.1rem; margin-bottom:4px;
+  }
+  .choice.cv .icon{background:rgba(60,108,255,0.18); color:var(--accent-cv);}
+  .choice.jp .icon{background:rgba(194,84,47,0.22); color:#ffab84;}
+  .choice:hover.cv{border-color:rgba(60,108,255,0.55);}
+  .choice:hover.jp{border-color:rgba(194,84,47,0.55);}
+  .choice h2{font-size:1.15rem; color:#fff;}
+  .choice p{margin:0; font-size:0.92rem; color:var(--text-dim); line-height:1.55;}
+  .choice .go{
+    margin-top:8px; font-size:0.82rem; font-weight:600; letter-spacing:0.02em;
+    color:var(--text-dim); display:inline-flex; align-items:center; gap:6px;
+  }
+  .choice:hover .go{color:#fff;}
 
-  /* LEADERSHIP */
-  .leader-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:24px;}
-  .lcard{
-    background:var(--ink); color:var(--ink-text); border-radius:var(--radius);
-    padding:32px 26px; position:relative; overflow:hidden;
+  footer{
+    position:relative; z-index:2; text-align:center;
+    padding:22px 0 30px; font-size:0.8rem; color:var(--text-dim);
   }
-  .lcard .tag{
-    font-family:'Space Grotesk',sans-serif; font-size:2.2rem; font-weight:700;
-    color:rgba(255,255,255,0.12); position:absolute; top:14px; right:20px;
-  }
-  .lcard h3{color:#fff; font-size:1.18rem; margin-bottom:12px; position:relative;}
-  .lcard p{color:var(--ink-text-dim); font-size:0.96rem; margin:0; position:relative;}
 
-  /* ALT / AI */
-  .alt-section{background:var(--ink); color:var(--ink-text);}
-  .alt-section .kicker{color:var(--accent);}
-  .alt-section .sec-head h2{color:#fff;}
-  .alt-section .sec-head p{color:var(--ink-text-dim);}
-  .alt-grid{display:grid; grid-template-columns:1.15fr 0.85fr; gap:48px; align-items:center;}
-  .alt-grid p{color:var(--ink-text-dim); font-size:1.06rem; margin:0 0 16px;}
-  .alt-card{
-    background:var(--ink-soft); border:1px solid var(--line-dark); border-radius:var(--radius);
-    padding:30px;
-  }
-  .alt-badge{
-    display:inline-block; background:rgba(60,108,255,0.15); color:var(--accent);
-    font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:0.85rem;
-    padding:6px 12px; border-radius:999px; margin-bottom:16px;
-  }
-  .alt-card h3{color:#fff; font-size:1.3rem; margin-bottom:10px;}
-  .alt-card p{color:var(--ink-text-dim); font-size:0.98rem;}
-  .alt-list{list-style:none; padding:0; margin:20px 0 0; display:grid; gap:12px;}
-  .alt-list li{padding-left:22px; position:relative; font-size:0.94rem; color:var(--ink-text-dim);}
-  .alt-list li::before{content:"→"; position:absolute; left:0; color:var(--accent);}
-
-  /* TAL */
-  .talk-card{
-    display:flex; justify-content:space-between; align-items:center; gap:24px;
-    background:#fff; border:1px solid var(--line); border-radius:var(--radius);
-    padding:34px 38px; flex-wrap:wrap;
-  }
-  .talk-card h3{font-size:1.3rem; color:var(--ink); margin-bottom:10px;}
-  .talk-card p{margin:0; color:var(--body-text-dim); max-width:56ch;}
-
-  /* CONTACT / FOOTER */
-  .contact{background:var(--paper-dim); border-top:1px solid var(--line);}
-  .contact .inner{
-    display:flex; justify-content:space-between; align-items:flex-end; gap:32px; flex-wrap:wrap;
-  }
-  .contact h2{font-size:clamp(1.9rem,4vw,2.8rem); color:var(--ink);}
-  .contact-links{display:flex; gap:14px; flex-wrap:wrap;}
-  footer{padding:28px 0; text-align:center; color:var(--body-text-dim); font-size:0.85rem;}
-
-  .reveal{opacity:0; transform:translateY(18px); transition:opacity .6s ease, transform .6s ease;}
-  .reveal.in{opacity:1; transform:translateY(0);}
-
-  @media (max-width:860px){
-    .about-grid, .alt-grid{grid-template-columns:1fr;}
-    .leader-grid{grid-template-columns:1fr;}
-    nav.links{
-      position:fixed; inset:64px 16px auto 16px; background:#fff; border:1px solid var(--line);
-      border-radius:16px; flex-direction:column; align-items:flex-start; padding:18px;
-      box-shadow:0 20px 40px rgba(0,0,0,0.12);
-      display:none; gap:6px;
-    }
-    nav.links.open{display:flex;}
-    nav.links a{padding:8px 6px; width:100%;}
-    .menu-toggle{display:block;}
-    .nav-cta{display:none;}
-    .talk-card{flex-direction:column; align-items:flex-start;}
-    .contact .inner{align-items:flex-start;}
+  @media (max-width:640px){
+    .choices{grid-template-columns:1fr;}
   }
 </style>
 </head>
 <body>
 
-<header class="nav">
-  <div class="nav-inner">
-    <a href="#top" class="brand"><span class="mark">KS</span> Kalle Schultz</a>
-    <nav class="links" id="navLinks">
-      <a href="#om-mig">Om mig</a>
-      <a href="#erfarenhet">Erfarenhet</a>
-      <a href="#ledarskap">Ledarskap</a>
-      <a href="#alt">AI &amp; ALT</a>
-      <a href="#tal">Tal &amp; samtal</a>
-      <a href="#kontakt">Kontakt</a>
-    </nav>
-    <a href="mailto:Kalle.schultz12@icloud.com" class="btn btn-primary nav-cta">Kontakta mig</a>
-    <button class="menu-toggle" id="menuToggle" aria-label="Öppna meny" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-</header>
+<div class="scene">
+  <div class="sky"></div>
+  <div class="stars" id="stars"></div>
 
-<section class="hero" id="top">
-  <div class="wrap">
-    <span class="eyebrow">Associate, Good Accelerator</span>
-    <h1>Builder i grunden. <em>Art of the possible</em> i praktiken.</h1>
-    <p class="lead">
-      Jag har varit med och drivit digital transformation sedan tidigt 2000-tal — från att bygga
-      ett av Nordeuropas största privata moln, via AWS, till att idag driva arbetet med ALT och
-      hjälpa verksamheter ta sig an AI på ett helt nytt sätt.
-    </p>
-    <div class="cta-row">
-      <a href="mailto:Kalle.schultz12@icloud.com" class="btn btn-primary">E-post mig</a>
-      <a href="https://linkedin.com/in/kalleschultz" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn ↗</a>
-      <a href="https://www.goodaccelerator.com/om-oss" target="_blank" rel="noopener" class="btn btn-ghost">Good Accelerator ↗</a>
-    </div>
-  </div>
-</section>
+  <div class="mountains" aria-hidden="true">
+    <svg viewBox="0 0 1440 620" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="far" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#4a5a92"/>
+          <stop offset="100%" stop-color="#2b355c"/>
+        </linearGradient>
+        <linearGradient id="mid" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#2c3660"/>
+          <stop offset="100%" stop-color="#181f3a"/>
+        </linearGradient>
+        <linearGradient id="near" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#141a30"/>
+          <stop offset="100%" stop-color="#0a0e1c"/>
+        </linearGradient>
+        <linearGradient id="glow" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#ffcf9e"/>
+          <stop offset="100%" stop-color="#ff9d6c" stop-opacity="0"/>
+        </linearGradient>
+      </defs>
 
-<section id="om-mig">
-  <div class="wrap">
-    <div class="about-grid">
-      <div class="reveal">
-        <span class="kicker">Om mig</span>
-        <h2 style="font-size:clamp(1.7rem,3vw,2.3rem); color:var(--ink); margin-bottom:22px;">
-          Entreprenör och byggare i blodet
-        </h2>
-        <p>
-          Jag trivs bäst där förändringstrycket är som störst — där kraven på tydlighet och
-          fokus är som högst, och där man måste skapa ordning i komplexitet snarare än vänta på
-          att den löser sig själv.
-        </p>
-        <p>
-          Den röda tråden genom hela min karriär är densamma: att bygga nytt. Ofta inifrån en
-          redan etablerad verksamhet, som intraprenör snarare än renodlad entreprenör — att skapa
-          nytt i en befintlig affärsmiljö är sin egen disciplin, och den jag trivs bäst i.
-        </p>
-        <p>
-          Idag handlar det arbetet om AI: att bygga en verksamhet som hjälper våra kunder ta sig
-          an AI på ett helt nytt sätt.
-        </p>
-      </div>
-      <div class="pillars reveal">
-        <div class="pillar">
-          <span class="n">01</span>
-          <h4>Builder</h4>
-          <p>Från privata moln till AWS till AI — jag bygger det som ännu inte finns.</p>
-        </div>
-        <div class="pillar">
-          <span class="n">02</span>
-          <h4>Intraprenör</h4>
-          <p>Nytt skapas ofta bäst inifrån, med redan befintlig skala och resurser.</p>
-        </div>
-        <div class="pillar">
-          <span class="n">03</span>
-          <h4>Art of the possible</h4>
-          <p>Jag hittar vägen som faktiskt går att gå — inte den perfekta som aldrig blir av.</p>
-        </div>
-      </div>
+      <!-- alpenglow behind the tallest far peak -->
+      <ellipse cx="740" cy="270" rx="90" ry="55" fill="url(#glow)" opacity="0.35" />
+
+      <!-- far ridge -->
+      <polygon fill="url(#far)" opacity="0.55" points="0,340 90,300 180,330 260,270 340,310 430,250 520,300 610,260 700,300 800,270 900,320 1000,280 1100,310 1200,270 1300,320 1440,290 1440,620 0,620" />
+
+      <!-- mid range -->
+      <polygon fill="url(#mid)" opacity="0.85" points="0,420 60,380 150,410 230,350 300,390 360,300 430,360 520,260 600,340 660,290 740,240 820,320 900,270 980,330 1080,300 1180,360 1260,320 1350,380 1440,350 1440,620 0,620" />
+      <polygon fill="#eef2ff" opacity="0.75" points="740,240 706,292 774,292" />
+
+      <!-- near range -->
+      <polygon fill="url(#near)" points="0,500 80,460 170,500 250,440 340,480 420,420 480,460 540,380 600,440 640,400 700,460 780,410 860,470 940,430 1040,480 1120,440 1220,490 1320,450 1440,480 1440,620 0,620" />
+
+      <!-- snow caps on near peaks, tips matched exactly to the ridge points above -->
+      <polygon fill="#eef2ff" opacity="0.9" points="540,380 516,412 564,404" />
+      <polygon fill="#eef2ff" opacity="0.8" points="640,400 624,416 664,424" />
+    </svg>
+  </div>
+
+  <div class="content">
+    <div class="mark">KS</div>
+    <h1>Kalle Schultz</h1>
+    <p class="sub">Välj vart du vill gå.</p>
+
+    <div class="choices">
+      <a href="cv.html" class="choice cv">
+        <span class="icon">◆</span>
+        <h2>Visitkort</h2>
+        <p>Erfarenhet, ledarskap och arbetet med AI &amp; ALT på Good Accelerator.</p>
+        <span class="go">Till visitkortet →</span>
+      </a>
+      <a href="japan.html" class="choice jp">
+        <span class="icon">✈</span>
+        <h2>Japanresa 2026</h2>
+        <p>Resplan, boenden och praktisk information för resan i november.</p>
+        <span class="go">Till resplanen →</span>
+      </a>
     </div>
   </div>
-</section>
 
-<section id="erfarenhet" style="background:var(--paper-dim); border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="kicker">Erfarenhet</span>
-      <h2>Två decennier av att bygga det som kommer härnäst</h2>
-      <p>En resa från tidig digital transformation, via infrastruktur i världsklass, till dagens arbete med AI.</p>
-    </div>
-    <div class="timeline">
-      <div class="t-item reveal">
-        <div class="t-year">Tidigt 2000-tal</div>
-        <h3>Digital transformation, långt innan det blev ett buzzword</h3>
-        <p>Fick vara med och driva den digitala transformationen i sin linda. Grunden för hur jag
-          ser på förändring — och för hur jag jobbar med den än idag — lades här.</p>
-      </div>
-      <div class="t-item reveal">
-        <div class="t-year">2007</div>
-        <h3>Byggde ett av Nordeuropas största privata moln</h3>
-        <p>Tillsammans med ett team byggde jag ett av de största privata molnen i Nordeuropa —
-          infrastruktur som kanske fortfarande lever kvar än idag.</p>
-      </div>
-      <div class="t-item reveal">
-        <div class="t-year">AWS</div>
-        <h3>Hittade hem som builder</h3>
-        <p>På AWS fick jag helt nya verktyg för att driva effektiv tillväxt i en hypersnabb miljö.
-          Det var här grunderna för dagens AI-utveckling lades — och jag fick vara med och bygga dem.</p>
-      </div>
-      <div class="t-item reveal">
-        <div class="t-year">Idag</div>
-        <h3>Associate, Good Accelerator</h3>
-        <p>Jag är med och driver AI-evolutionen, där arbetet med ALT — Advania AI Layer Technology —
-          är centralt. Uppdraget: bygga en verksamhet som hjälper våra kunder ta sig an AI på ett
-          helt nytt sätt.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="ledarskap">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="kicker">Ledarskap</span>
-      <h2>Hur jag jobbar med ledarskap</h2>
-      <p>Tre principer som styr hur jag leder mig själv, mina team och de förändringar jag driver.</p>
-    </div>
-    <div class="leader-grid">
-      <div class="lcard reveal">
-        <span class="tag">01</span>
-        <h3>Tydlighet i förändringstryck</h3>
-        <p>Jag trivs bäst när trycket är som störst. Då krävs tydlighet och fokus — inte fler
-          alternativ, utan rätt riktning.</p>
-      </div>
-      <div class="lcard reveal">
-        <span class="tag">02</span>
-        <h3>Intraprenörskap</h3>
-        <p>Att skapa nytt i en befintlig affärsmiljö kräver ett annat ledarskap än att starta om
-          från noll. Jag bygger hellre inifrån.</p>
-      </div>
-      <div class="lcard reveal">
-        <span class="tag">03</span>
-        <h3>Art of the possible</h3>
-        <p>Att alltid hitta vägen som faktiskt går att gå — och få med sig organisationen dit.
-          Det är den jag är.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="alt" class="alt-section">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="kicker">AI &amp; ALT</span>
-      <h2>Jag är med och driver AI-evolutionen</h2>
-      <p>Där arbetet med ALT är centralt i allt vi gör tillsammans med våra kunder.</p>
-    </div>
-    <div class="alt-grid">
-      <div class="reveal">
-        <p>
-          Mitt uppdrag är att bygga en verksamhet som hjälper våra kunder ta sig an AI på ett helt
-          nytt sätt — inte som ett enskilt projekt, utan som en förmåga som byggs in i hela
-          organisationen.
-        </p>
-        <p>
-          De erfarenheter jag tar med mig från att bygga infrastruktur i världsklass och från AWS
-          i sin mest expansiva fas är samma erfarenheter jag använder idag: hur man driver
-          effektiv tillväxt och förändring i en hypersnabb miljö — bara att miljön nu heter AI.
-        </p>
-      </div>
-      <div class="alt-card reveal">
-        <span class="alt-badge">ALT</span>
-        <h3>Advania AI Layer Technology</h3>
-        <p>Vårt angreppssätt för att göra AI verkligt, skalbart och verksamhetsnära hos våra kunder.</p>
-        <ul class="alt-list">
-          <li>Centralt i hur vi driver AI-evolutionen hos kunder</li>
-          <li>Bygger AI-förmåga i hela organisationen, inte bara i enskilda projekt</li>
-          <li>Kopplar ledarskap och förändringsledning till den tekniska resan</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="tal">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="kicker">Tal &amp; samtal</span>
-      <h2>Jag pratar om AI, ledarskap och förändringsledning</h2>
-    </div>
-    <div class="talk-card reveal">
-      <div>
-        <h3>Aktiv i samtalet, inte bara i det operativa arbetet</h3>
-        <p>Utöver att driva arbetet med ALT är jag aktiv i det offentliga samtalet om AI,
-          ledarskap och förändringsledning — som föreläsare, panelist och rådgivare.</p>
-      </div>
-      <a href="https://www.goodaccelerator.com/om-oss" target="_blank" rel="noopener" class="btn btn-primary">Om Good Accelerator ↗</a>
-    </div>
-  </div>
-</section>
-
-<section class="contact" id="kontakt">
-  <div class="wrap inner">
-    <div>
-      <span class="kicker">Kontakt</span>
-      <h2>Hör av dig.</h2>
-    </div>
-    <div class="contact-links">
-      <a href="mailto:Kalle.schultz12@icloud.com" class="btn btn-primary">Kalle.schultz12@icloud.com</a>
-      <a href="https://linkedin.com/in/kalleschultz" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn ↗</a>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <div class="wrap">© <span id="year"></span> Kalle Schultz</div>
-</footer>
+  <footer>© <span id="year"></span> Kalle Schultz</footer>
+</div>
 
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
 
-  const toggle = document.getElementById('menuToggle');
-  const links = document.getElementById('navLinks');
-  toggle.addEventListener('click', () => {
-    const open = links.classList.toggle('open');
-    toggle.setAttribute('aria-expanded', open);
-  });
-  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-    links.classList.remove('open');
-    toggle.setAttribute('aria-expanded', 'false');
-  }));
-
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
-  }, { threshold: 0.15 });
-  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  const starField = document.getElementById('stars');
+  const n = 70;
+  let html = '';
+  for (let i = 0; i < n; i++) {
+    const x = Math.random() * 100;
+    const y = Math.random() * 100;
+    const delay = (Math.random() * 4).toFixed(2);
+    const size = (Math.random() * 1.6 + 1).toFixed(1);
+    html += `<span style="left:${x}%; top:${y}%; width:${size}px; height:${size}px; animation-delay:${delay}s;"></span>`;
+  }
+  starField.innerHTML = html;
 </script>
 
 </body>
