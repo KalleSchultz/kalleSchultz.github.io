@@ -134,19 +134,20 @@
 
     <script>
         const legs = [
-            { date: "1 nov", route: "Haneda (HND) → Ariake, Koto-ku", mode: "Flygbuss / Yurikamome / taxi", note: "Ankomst. Boende: DoubleTree by Hilton Tokyo.", missing: false },
-            { date: "2 nov", route: "Tokyo → Kanazawa", mode: "Hokuriku Shinkansen (~2.5h)", note: "Boka i Smart-EX.", missing: false },
-            { date: "3 nov", route: "I Kanazawa", mode: "Promenad / lokal buss", note: "Ingen långdistans denna dag.", missing: false },
-            { date: "4 nov", route: "Kanazawa → Kyoto", mode: "Shinkansen/Limited Express (byte, ~2.5–3h)", note: "Saknas i resplanen — lägg till som resedag. Check-in Hilton Garden Inn Kyoto.", missing: true },
-            { date: "5 nov", route: "Kyoto → Wazuka → Kyoto", mode: "JR Nara-linjen + lokalbuss", note: "Retur samma kväll, incheckning Airbnb Kyoto.", missing: false },
-            { date: "6 nov", route: "Kyoto → Uji → Kyoto", mode: "JR Nara-linjen (~20 min)", note: "Dagsutflykt.", missing: false },
-            { date: "7 nov", route: "I Kyoto", mode: "—", note: "Saknas i resplanen — trolig fri dag.", missing: true },
-            { date: "8 nov", route: "Kyoto → Hakone", mode: "Shinkansen till Odawara + Hakone Tozan-tåg", note: "Bergstågsdelen är en sevärdhet i sig.", missing: false },
-            { date: "9 nov", route: "I Hakone", mode: "—", note: "Saknas i resplanen. Natten saknar även bokat boende — se boendeöversikten.", missing: true },
-            { date: "10 nov", route: "Hakone → Tokyo, Taitō-ku", mode: "Odakyu Romancecar/tåg via Odawara–Shinagawa", note: "Incheckning Airbnb Taitō-ku.", missing: false },
+            { date: "1 nov", route: "Haneda (HND) → Ariake, Koto-ku", mode: "Tokyo Monorail + tåg / taxi", note: "Ankomst. Boende: DoubleTree by Hilton Tokyo.", missing: false },
+            { date: "2 nov", route: "Tokyo → Kanazawa", mode: "Hokuriku Shinkansen (~2,5h, ca 1 100 SEK)", note: "Boka i Smart-EX. Fönsterplats vänster för bergsvyer.", missing: false },
+            { date: "3 nov", route: "I Kanazawa", mode: "Promenad / lokal buss", note: "Ingen långdistans denna dag. Nationell helgdag (Bunka no Hi).", missing: false },
+            { date: "4 nov", route: "Kanazawa → Kyoto", mode: "Limited Express Thunderbird (~2h, ca 550 SEK)", note: "Check-in Hilton Garden Inn Kyoto. Kväll: Gion Odori.", missing: false },
+            { date: "5 nov", route: "Kyoto → Wazuka → Kyoto", mode: "Buss/tåg (heldagstur, ca 2 450 SEK)", note: "Retur samma kväll, incheckning Airbnb Kyoto.", missing: false },
+            { date: "6 nov", route: "Kyoto → Uji → Kyoto", mode: "JR Nara-linjen", note: "Dagsutflykt.", missing: false },
+            { date: "7 nov", route: "I Kyoto (Arashiyama)", mode: "Lokaltåg/buss till Arashiyama", note: "Bambuskog + keramikshopping vid Chawan-zaka.", missing: false },
+            { date: "8 nov", route: "Kyoto → Odawara → Hakone", mode: "Shinkansen (~950 SEK) + Hakone Tozan-tåg", note: "Bergstågsdelen är en sevärdhet i sig.", missing: false },
+            { date: "9 nov", route: "I Hakone (Loop)", mode: "Hakone Ropeway + båt Lake Ashi", note: "Köp Hakone Free Pass (~500 SEK). Natten saknar fortfarande bokat boende — se boendeöversikten.", missing: true },
+            { date: "10 nov", route: "Hakone → Tokyo, Taitō-ku", mode: "Tåg via Odawara–Shinagawa", note: "Incheckning Airbnb Taitō-ku.", missing: false },
             { date: "11 nov", route: "I Tokyo", mode: "Tokyo Metro / JR", note: "Lokala resor mellan sevärdheter.", missing: false },
-            { date: "12–13 nov", route: "I Tokyo", mode: "Tokyo Metro / JR", note: "Saknas i resplanen — inga aktiviteter inlagda än.", missing: true },
-            { date: "14 nov", route: "Tokyo → hemresa", mode: "Flygplatstransfer (Haneda/Narita beroende på flyg)", note: "Utcheckning från Airbnb.", missing: false }
+            { date: "12 nov", route: "I Tokyo", mode: "Tokyo Metro / JR", note: "Tsukiji, Nezu Museum, Ginza/Shibuya.", missing: false },
+            { date: "13 nov", route: "I Tokyo", mode: "Tokyo Metro / JR", note: "Meiji Jingu, Depachika-shopping, avskedsmiddag.", missing: false },
+            { date: "14 nov", route: "Ueno → Narita/Haneda → hemresa", mode: "Keisei Skyliner (~45 min från Ueno)", note: "Utcheckning från Airbnb.", missing: false }
         ];
 
         function renderLegs() {
