@@ -29,9 +29,6 @@
 
     <style>
         body { background-color: #fafaf9; scroll-behavior: smooth; color: #1c1917; }
-        .day-tab-content { display: none; }
-        .day-tab-content.active { display: block; animation: fadeIn 0.4s ease-out; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
         .nav-sticky { position: sticky; top: 0; z-index: 50; backdrop-filter: blur(12px); background: rgba(250, 250, 249, 0.9); }
         .link-card:hover { border-color: #9f1239; transform: translateY(-2px); }
     </style>
@@ -58,7 +55,7 @@
                     <a href="index.html" class="hover:text-momiji transition">Start</a>
                     <a href="#overview" class="hover:text-momiji transition">Översikt</a>
                     <a href="#festivals" class="hover:text-momiji transition">Festivaler</a>
-                    <a href="#itinerary" class="hover:text-momiji transition">Resplan</a>
+                    <a href="resplan.html" class="hover:text-momiji transition">Resplan</a>
                     <a href="#hotels" class="hover:text-momiji transition">Boende</a>
                     <a href="boende.html" class="hover:text-momiji transition">Boendeöversikt</a>
                     <a href="restauranger.html" class="hover:text-momiji transition">Restauranger</a>
@@ -73,7 +70,7 @@
                 <a href="index.html" class="py-2 border-b border-stone-100 hover:text-momiji transition">Start</a>
                 <a href="#overview" class="py-2 border-b border-stone-100 hover:text-momiji transition">Översikt</a>
                 <a href="#festivals" class="py-2 border-b border-stone-100 hover:text-momiji transition">Festivaler</a>
-                <a href="#itinerary" class="py-2 border-b border-stone-100 hover:text-momiji transition">Resplan</a>
+                <a href="resplan.html" class="py-2 border-b border-stone-100 hover:text-momiji transition">Resplan</a>
                 <a href="#hotels" class="py-2 border-b border-stone-100 hover:text-momiji transition">Boende</a>
                 <a href="boende.html" class="py-2 border-b border-stone-100 hover:text-momiji transition">Boendeöversikt</a>
                 <a href="restauranger.html" class="py-2 border-b border-stone-100 hover:text-momiji transition">Restauranger</a>
@@ -177,26 +174,16 @@
             </svg>
         </div>
 
-        <!-- SECTION: RESPLAN -->
-        <section id="itinerary" class="mb-24 scroll-mt-20">
-            <h2 class="text-3xl font-bold mb-10 text-center uppercase tracking-tighter">⛩️ Detaljerad Dag-för-Dag</h2>
-            
-            <div class="flex flex-col lg:flex-row gap-8">
-                <!-- Day List -->
-                <div class="lg:w-1/3">
-                    <div class="bg-white rounded-2xl shadow-sm border border-stone-200 overflow-hidden sticky top-24 max-h-[70vh] overflow-y-auto">
-                        <div id="day-tabs-list">
-                            <!-- JS populated -->
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Day Content -->
-                <div class="lg:w-2/3">
-                    <div id="day-content-area" class="bg-white p-8 md:p-12 rounded-3xl shadow-md border border-stone-100 min-h-[600px]">
-                        <!-- JS populated -->
-                    </div>
-                </div>
+        <!-- SECTION: RESPLAN (teaser, full innehåll på egen sida) -->
+        <section id="itinerary" class="mb-24 scroll-mt-20 relative overflow-hidden rounded-3xl text-stone-bg p-10 text-center">
+            <img src="img/fushimi-torii-tunnel.jpg" alt="Tunnel av röda torii-portar" class="absolute inset-0 w-full h-full object-cover">
+            <div class="absolute inset-0 bg-ink/80"></div>
+            <div class="relative z-10">
+                <h2 class="text-3xl font-bold mb-4 uppercase tracking-tighter">⛩️ Detaljerad Dag-för-Dag</h2>
+                <p class="text-stone-300 max-w-2xl mx-auto mb-8">
+                    Ett komplett körschema för varje dag, 1–14 november: var ni bor, vad ni gör (morgon/eftermiddag/kväll), restaurangförslag och transportsträcka — med tydlig markering av vad som är bokat och inte.
+                </p>
+                <a href="resplan.html" class="inline-block bg-momiji text-white px-8 py-3 rounded-full font-bold text-sm uppercase tracking-widest hover:bg-white hover:text-ink transition">Se hela körschemat →</a>
             </div>
         </section>
 
@@ -327,269 +314,6 @@
 
     <script>
         // --- DATA ---
-        const itinerary = [
-            {
-                day: 1, date: "1 Nov", loc: "Tokyo", title: "Ankomst & Vila",
-                m: [
-                    "Ankomst Haneda (HND). Tokyo Monorail till Hamamatsucho och vidare (Ueno enligt ursprunglig plan — bokat hotell ligger dock i Ariake, se Transporter för detaljer).",
-                    "Hämta pocket-wifi/SIM och växla lite kontanter direkt på flygplatsen."
-                ],
-                a: [
-                    "Incheckning. Promenad i Ueno Park för att se de första höstfärgerna.",
-                    "Sitt en stund vid Shinobazu Pond och se lokallivet."
-                ],
-                e: [
-                    "Tidig middag nära hotellet för att landa efter flygresan.",
-                    "Tidigt i säng — natten blir ändå kort med jetlag."
-                ],
-                tips: "Hämta ut Pocket WiFi/SIM på flygplatsen innan ni lämnar terminalen.",
-                rest: [
-                    "Yoshiike Shokudo — färsk fisk, bra utsikt i Ueno.",
-                    "Asakusa Imahan — klassisk sukiyaki.",
-                    "Innsyoutei — trädgårdsrestaurang inne i Ueno Park."
-                ]
-            },
-            {
-                day: 2, date: "2 Nov", loc: "Kanazawa", title: "Samurajernas Stad",
-                m: [
-                    "Hokuriku Shinkansen till Kanazawa (~2,5h, ca 1 100 SEK). Boka fönsterplats till vänster för bergsvyer.",
-                    "Frukost/kaffe på tåget eller i Kanazawa Station."
-                ],
-                a: [
-                    "Besök <a href='http://www.nomurake.com/index_en.html' target='_blank' class='text-matcha underline'>Nomura Samurai House</a> i de gamla kvarteren Nagamachi.",
-                    "Utforska Nagamachi Bukeyashiki-distriktet med lerklädda samurajmurar."
-                ],
-                e: [
-                    "Promenad i Kazuemachi Chaya (geishadistrikt) — vackert upplyst och betydligt färre turister än i Kyoto.",
-                    "En drink på någon av de små barerna i Higashi Chaya."
-                ],
-                tips: "Skicka stora väskor med Takkyubin på morgonen från hotellet i Tokyo (2/11) direkt till Kyoto — res med liten ryggsäck under Kanazawa-delen.",
-                rest: [
-                    "Fuwari — bästa Izakayan, boka veckor i förväg!",
-                    "Itaru — känt för lokala skaldjur.",
-                    "Jugetsuki — kaiseki med utsikt över en japansk trädgård."
-                ]
-            },
-            {
-                day: 3, date: "3 Nov", loc: "Kanazawa", title: "Spektakulär Matmarknad & Trädgård",
-                m: [
-                    "Omicho Market — Kanazawas 'kök' och en av Japans mest spektakulära matmarknader. Prova Kaisen-don (sushi-bowl) till tidig lunch.",
-                    "Ta det lugnt — idag (3 nov) är Bunka no Hi, en nationell helgdag, så det är mer folk ute än vanligt."
-                ],
-                a: [
-                    "Kenrokuen Garden — en av Japans tre vackraste trädgårdar. Gå dit efter kl 15:00 för mjukare ljus och färre grupper.",
-                    "Kanazawa Castle Park, precis intill trädgården."
-                ],
-                e: [
-                    "Middag, och gärna ett besök på D.T. Suzuki Museum för lite Zen-lugn.",
-                    "Kvällspromenad längs Asano-floden."
-                ],
-                tips: "3 november är en nationell helgdag (Bunka no Hi/Kulturdagen) — museer kan ha gratis inträde men även fler besökare, och Kenrokuen blir märkbart mer välbesökt än en vanlig dag.",
-                rest: [
-                    "Kotobukiya — kaiseki-middag i historisk miljö.",
-                    "Jiyuken — klassisk lokal restaurang sedan 1909.",
-                    "Omicho Ichiba Shokudo — färsk sushi mitt i marknaden."
-                ]
-            },
-            {
-                day: 4, date: "4 Nov", loc: "Kyoto", title: "Tåg till Kyoto & Gion Odori",
-                m: [
-                    "Limited Express Thunderbird till Kyoto (~2h, ca 550 SEK).",
-                    "Incheckning på Hilton Garden Inn Kyoto."
-                ],
-                a: [
-                    "Sanjusangendo — templet med 1001 gyllene statyer.",
-                    "Kort vila innan kvällens föreställning."
-                ],
-                e: [
-                    "Gion Odori — geisha/maiko-dansuppvisning på Gion Higashi Kaburenjo Theater, rekommenderad föreställning kl 16:00 så ni hinner checka in först (bokas separat, biljetter släpps i september).",
-                    "Promenad genom Pontocho-gränden efter föreställningen — gott om restauranger för middag."
-                ],
-                tips: "Gion Odori ges bara 1–10 november och är en mer exklusiv och autentisk dansuppvisning än den vanliga Gion Corner-showen. Reservalternativ om ni missar biljetterna: Gion Corner, Yasaka Hall, 570-2 Gionmachi Minamigawa.",
-                rest: [
-                    "Middag i Pontocho-gränden efter föreställningen."
-                ]
-            },
-            {
-                day: 5, date: "5 Nov", loc: "Wazuka", title: "Teplantage-idyll",
-                m: [
-                    "Tåg söderut mot Kyoto och vidare till Wazuka.",
-                    "Frukost i Kyoto Station innan tåget vidare mot Wazuka."
-                ],
-                a: [
-                    "Guidad heldagstur på tefälten hos <a href='https://dmatcha.com/' target='_blank' class='text-matcha underline'>d:matcha Kyoto</a> (ca 2 450 SEK) — skörd och omfattande teprovning.",
-                    "Matcha-provning med jämförelse av olika kvaliteter och skördar."
-                ],
-                e: [
-                    "Tåg tillbaka till Kyoto på kvällen och incheckning i ert Airbnb-boende.",
-                    "Lugn middag nära boendet — resans mest avslappnade kväll."
-                ],
-                tips: "Detta är en dagsutflykt — ni sover i Kyoto, inte i Wazuka.",
-                rest: [
-                    "Chagenkyo Wazuka — enkel lunch med utsikt över tefälten.",
-                    "Omen Kawaramachi (vid återkomst till Kyoto) — udon i lugn, klassisk miljö."
-                ]
-            },
-            {
-                day: 6, date: "6 Nov", loc: "Uji / Kyoto", title: "Det heliga teet",
-                m: [
-                    "Besök <a href='https://www.byodoin.or.jp/en/' target='_blank' class='text-matcha underline'>Byodoin-templet</a> i Uji (avbildat på 10-yen-myntet).",
-                    "Promenad längs Uji-floden och de klassiska tebutikerna."
-                ],
-                a: [
-                    "Delta i en teceremoni i tehuset Taihoan (Uji stads tehus) — mycket prisvärt och autentiskt, ca 170 SEK.",
-                    "Provsmakning av Uji-matcha i någon av de anrika tebutikerna på huvudgatan."
-                ],
-                e: [
-                    "Tåg till Kyoto. Kvällsbesök vid Fushimi Inari (tusen portar) efter kl 19:00, när det är nästan tomt på folk."
-                ],
-                tips: "Fushimi Inari är öppet 24/7. På kvällen är det nästan tomt på folk.",
-                rest: [
-                    "Izuju (Gion) — klassisk sushi i historisk atmosfär, sedan 1912.",
-                    "Gion Karyo — kaiseki med utsikt över Shirakawa-kanalen."
-                ]
-            },
-            {
-                day: 7, date: "7 Nov", loc: "Kyoto", title: "Bambu & Keramik",
-                m: [
-                    "Arashiyama Bambuskog kl 07:30 — innan folkmassorna kommer.",
-                    "Kort fika i Arashiyama innan ni återvänder mot centrala Kyoto."
-                ],
-                a: [
-                    "Shopping vid Chawan-zaka (Tekopps-backarna) nära Kiyomizu-dera — Japans bästa utbud av handgjord keramik.",
-                    "Besök gärna Kiyomizu-dera självt om ni har tid kvar."
-                ],
-                e: [
-                    "Fri kväll för shopping eller vila."
-                ],
-                tips: "Arashiyama är som mest folktomt strax efter soluppgång — kom tidigt.",
-                rest: [
-                    "Katsukura — Tonkatsu i världsklass.",
-                    "Gion Owatari — Kaiseki för den stora upplevelsen."
-                ]
-            },
-            {
-                day: 8, date: "8 Nov", loc: "Hakone", title: "Mot Hakone & Onsen-lyx",
-                m: [
-                    "Shinkansen från Kyoto till Odawara (~950 SEK), sedan bergståg in i Hakone-dalen."
-                ],
-                a: [
-                    "Checka in på er Ryokan. Byt om till Yukata och njut av ert första Onsen-bad."
-                ],
-                e: [
-                    "10-rätters Kaiseki-middag, serveras på rummet eller i matsalen — höjdpunkten för japansk gästfrihet (Omotenashi)."
-                ],
-                tips: "8 november sammanfaller preliminärt med Arashiyama Momiji Festival i Kyoto (traditionella båtar, musik och dans) — ett kort morgonbesök är möjligt innan tåget, men räkna med stor trängsel om ni stannar.",
-                rest: [
-                    "Kaiseki-middagen ingår på er Ryokan."
-                ]
-            },
-            {
-                day: 9, date: "9 Nov", loc: "Hakone", title: "Hakone Loop & Fuji-vyer",
-                m: [
-                    "Hakone Ropeway över den rykande dalen Owakudani — ät de berömda svarta äggen ('kuro-tamago')."
-                ],
-                a: [
-                    "Båttur över Lake Ashi med förhoppningsvis utsikt över Fuji.",
-                    "Hakone Shrine, med den berömda torii-porten i vattnet."
-                ],
-                e: [
-                    "Sista Onsen-badet och ännu en fantastisk middag på er Ryokan."
-                ],
-                tips: "Boka en Hakone Free Pass (~500 SEK) — den täcker alla resor inom Hakone, inklusive linbana och båt.",
-                rest: [
-                    "Middag ingår på er Ryokan."
-                ]
-            },
-            {
-                day: 10, date: "10 Nov", loc: "Tokyo", title: "Åter till Tokyo & Vintage-marknad",
-                m: [
-                    "Tåg till Tokyo. Incheckning i Taitō-ku (Ueno/Asakusa-området)."
-                ],
-                a: [
-                    "Shimokitazawa — Tokyos nav för vintage och second-hand: antik keramik, vintagekläder och LP-skivor."
-                ],
-                e: [
-                    "Middag i det trendiga Shibuya eller Shinjuku."
-                ],
-                tips: "Shimokitazawa är litet och lätt att gå vilse i på ett trevligt sätt — räkna med några timmar.",
-                rest: [
-                    "Gonpachi Nishi-Azabu — känd 'Kill Bill'-miljö.",
-                    "Tokyo Shiba Tofuya Ukai — middag vid foten av Tokyo Tower."
-                ]
-            },
-            {
-                day: 11, date: "11 Nov", loc: "Tokyo", title: "Shogunens Historia",
-                m: [
-                    "Besök Edo-Tokyo Open Air Museum – vandring bland historiska byggnader från Shogun-eran."
-                ],
-                a: [
-                    "Senso-ji Templet i Asakusa.",
-                    "Kappabashi-gatan (sidogatorna till Senso-ji) — knivar och porslin."
-                ],
-                e: [
-                    "Strosa i Yanaka Ginza – en av få stadsdelar med kvar känslan av det gamla Tokyo.",
-                    "Avslutande kvällsfika på ett lokalt kaffehus i Yanaka."
-                ],
-                tips: "Kappabashi är perfekt för köksknivar och porslin som present till er själva.",
-                rest: [
-                    "Edomae Kisu (Yanaka) — traditionell tempura.",
-                    "Hantei (Nezu) — kushiage i vacker gammal trähusmiljö, sedan 1887.",
-                    "Sasa-no-yuki (Uguisudani) — tofu-kaiseki i anrik trädgårdsrestaurang."
-                ]
-            },
-            {
-                day: 12, date: "12 Nov", loc: "Tokyo", title: "Tokyo Kontraster",
-                m: [
-                    "Tsukiji Outer Market — frossa i havets läckerheter till frukost/lunch."
-                ],
-                a: [
-                    "Nezu Museum — fantastisk konst och en av Tokyos vackraste trädgårdar."
-                ],
-                e: [
-                    "Fri tid för shopping i Ginza eller Shibuya."
-                ],
-                tips: "Kombinera gärna Tsukiji med en tidig start — marknadens bästa läckerheter tar slut mitt på dagen.",
-                rest: [
-                    "Frukost/lunch direkt i Tsukiji Outer Market."
-                ]
-            },
-            {
-                day: 13, date: "13 Nov", loc: "Tokyo", title: "Natur & Avsked",
-                m: [
-                    "Meiji Jingu Shrine — en oas av skog mitt i staden. Håll utkik efter familjer i kimono som firar Shichi-Go-San (barn som fyller 3, 5 eller 7 år)."
-                ],
-                a: [
-                    "Sista shoppingen på ett Depachika (varuhusens matkällare), t.ex. Daimaru vid Tokyo Station."
-                ],
-                e: [
-                    "Avskedsmiddag — Omakase Sushi."
-                ],
-                tips: "Shichi-Go-San firas som mest kring helgerna (t.ex. lördag 7 eller 14 nov) — men ni bör ändå se en del familjer vid templet på en vardag.",
-                rest: [
-                    "Sushi Kyotatsu — mycket hög kvalitet.",
-                    "Kyubey — legendariskt sushiställe."
-                ]
-            },
-            {
-                day: 14, date: "14 Nov", loc: "Tokyo", title: "Hemresa",
-                m: [
-                    "Sista lugna morgonen i Tokyo.",
-                    "Keisei Skyliner direkt från Ueno till flygplatsen (~45 min)."
-                ],
-                a: [
-                    "Avresa från Tokyo."
-                ],
-                e: [
-                    "Trevlig hemresa!"
-                ],
-                tips: "Boka Skyliner-biljett i förväg om ni vill vara säkra på avgångstid — annars går de tätt.",
-                rest: [
-                    "Sista snacks/matbutik i Ueno Station eller på flygplatsen innan avresa."
-                ]
-            }
-        ];
-
         const hotels = [
             { city: "Tokyo", dates: "1–2 nov", name: "DoubleTree by Hilton Tokyo", type: "Hotell", booked: true, desc: "Bekväm start på resan nära Haneda.", link: "https://www.hilton.com/en/doubletree/" },
             { city: "Kyoto", dates: "4–5 nov", name: "Hilton Garden Inn Kyoto", type: "Hotell", booked: true, desc: "Pålitlig standard inför övergången till Airbnb-boendet.", link: "https://www.hilton.com/en/hilton-garden-inn/" },
@@ -602,69 +326,6 @@
             { city: "Hakone", name: "Senkyoro", type: "Ryokan", booked: false, desc: "Förslag (~5 500 SEK/par inkl. middag) — klassisk traditionell lyx för den ultimata upplevelsen. Sök namnet för bokning.", link: null },
             { city: "Tokyo", dates: "10–14 nov", name: "Airbnb i Taitō-ku, Tokyo", type: "Airbnb", booked: true, desc: "Eget boende i Taitō-ku för den avslutande delen av resan i Tokyo.", link: "https://www.airbnb.se/properties/1715247060050778213?unique_share_id=6c6fd708-05ad-499a-8243-f298d4883119&viralityEntryPoint=1&s=76&anchor_room_id=1474498497601884034" }
         ];
-
-        // --- RENDER LOGIC ---
-        function renderItinerary() {
-            const list = document.getElementById('day-tabs-list');
-            const content = document.getElementById('day-content-area');
-            
-            itinerary.forEach((d, idx) => {
-                // List item
-                const btn = document.createElement('button');
-                btn.className = `w-full text-left p-4 border-b border-stone-100 hover:bg-stone-50 transition flex items-center justify-between ${idx === 0 ? 'bg-stone-50' : ''}`;
-                btn.innerHTML = `<div><span class="text-xs font-bold text-momiji">${d.date}</span><div class="font-bold">${d.loc}: ${d.title}</div></div><span class="text-stone-300">→</span>`;
-                btn.onclick = () => selectDay(idx, btn);
-                list.appendChild(btn);
-
-                // Content
-                const div = document.createElement('div');
-                div.id = `day-panel-${idx}`;
-                div.className = `day-tab-content ${idx === 0 ? 'active' : ''}`;
-                const suggestionList = (items) => `<ul class="space-y-2">${items.map(i => `<li class="text-stone-700 flex gap-2"><span class="text-stone-300">•</span><span>${i}</span></li>`).join('')}</ul>`;
-                const restList = (items) => `<ul class="space-y-2">${items.map(i => `<li class="text-sm font-bold flex gap-2"><span class="text-momiji">🍴</span><span>${i}</span></li>`).join('')}</ul>`;
-
-                div.innerHTML = `
-                    <div class="mb-8">
-                        <span class="text-momiji font-bold tracking-widest uppercase text-sm">${d.date} • DAG ${d.day}</span>
-                        <h3 class="text-3xl font-bold mt-2">${d.loc}: ${d.title}</h3>
-                    </div>
-                    <div class="space-y-8">
-                        <div class="flex gap-6">
-                            <div class="w-16 h-16 rounded-full bg-matcha/10 text-matcha flex items-center justify-center shrink-0 font-bold">FÖRM</div>
-                            <div class="pt-2 flex-1">${suggestionList(d.m)}</div>
-                        </div>
-                        <div class="flex gap-6">
-                            <div class="w-16 h-16 rounded-full bg-momiji/10 text-momiji flex items-center justify-center shrink-0 font-bold">EFTE</div>
-                            <div class="pt-2 flex-1">${suggestionList(d.a)}</div>
-                        </div>
-                        <div class="flex gap-6">
-                            <div class="w-16 h-16 rounded-full bg-ink/10 text-ink flex items-center justify-center shrink-0 font-bold">KVÄL</div>
-                            <div class="pt-2 flex-1">${suggestionList(d.e)}</div>
-                        </div>
-                    </div>
-                    <div class="mt-12 p-6 bg-stone-50 rounded-2xl border border-stone-100">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div>
-                                <h4 class="font-bold text-sm uppercase text-stone-400 mb-2">Restaurangförslag (bra mat, vacker miljö)</h4>
-                                ${restList(d.rest)}
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-sm uppercase text-stone-400 mb-2">Trängsel-tips</h4>
-                                <p class="text-sm italic">${d.tips}</p>
-                            </div>
-                        </div>
-                    </div>
-                `;
-                content.appendChild(div);
-            });
-        }
-
-        function selectDay(idx, btn) {
-            document.querySelectorAll('.day-tab-content').forEach(c => c.classList.remove('active'));
-            document.getElementById(`day-panel-${idx}`).classList.add('active');
-            document.querySelectorAll('#day-tabs-list button').forEach(b => b.classList.remove('bg-stone-50'));
-            btn.classList.add('bg-stone-50');
-        }
 
         function renderHotels() {
             const grid = document.getElementById('hotel-grid');
@@ -693,7 +354,6 @@
         }
 
         window.onload = () => {
-            renderItinerary();
             renderHotels();
         };
     </script>

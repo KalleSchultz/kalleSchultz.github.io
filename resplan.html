@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Körschema - Japanresa 2026</title>
+
+    <!-- Tailwind CSS för modern design -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'stone-bg': '#fafaf9',
+                        'matcha': '#166534',
+                        'momiji': '#9f1239',
+                        'ink': '#1c1917'
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { background-color: #fafaf9; scroll-behavior: smooth; color: #1c1917; }
+        .nav-sticky { position: sticky; top: 0; z-index: 50; backdrop-filter: blur(12px); background: rgba(250, 250, 249, 0.9); }
+    </style>
+</head>
+<body class="font-sans antialiased">
+
+    <!-- Navigation -->
+    <nav class="nav-sticky border-b border-stone-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center space-x-2">
+                    <span class="text-2xl">🍁</span>
+                    <span class="font-bold text-xl tracking-tight uppercase">Japan 2026</span>
+                </div>
+                <div class="hidden md:flex flex-wrap gap-x-5 gap-y-1 justify-end text-sm font-bold uppercase tracking-widest">
+                    <a href="index.html" class="hover:text-momiji transition">Start</a>
+                    <a href="japan.html#hotels" class="hover:text-momiji transition">Boende</a>
+                    <a href="boende.html" class="hover:text-momiji transition">Boendeöversikt</a>
+                    <a href="restauranger.html" class="hover:text-momiji transition">Restauranger</a>
+                    <a href="transporter.html" class="hover:text-momiji transition">Transporter</a>
+                    <a href="resplan.html" class="text-momiji transition">Resplan</a>
+                    <a href="japan.html#logistics" class="hover:text-momiji transition">Bokningar</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden flex items-center justify-center w-10 h-10 -mr-2" aria-label="Öppna meny" aria-expanded="false" aria-controls="mobile-menu" onclick="const m=document.getElementById('mobile-menu');const exp=this.getAttribute('aria-expanded')==='true';this.setAttribute('aria-expanded',String(!exp));m.style.display=exp?'none':'flex';">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+                </button>
+            </div>
+            <div id="mobile-menu" class="md:hidden pb-4 flex-col text-sm font-bold uppercase tracking-widest" style="display:none;">
+                <a href="index.html" class="py-2 border-b border-stone-100 hover:text-momiji transition">Start</a>
+                <a href="japan.html#hotels" class="py-2 border-b border-stone-100 hover:text-momiji transition">Boende</a>
+                <a href="boende.html" class="py-2 border-b border-stone-100 hover:text-momiji transition">Boendeöversikt</a>
+                <a href="restauranger.html" class="py-2 border-b border-stone-100 hover:text-momiji transition">Restauranger</a>
+                <a href="transporter.html" class="py-2 border-b border-stone-100 hover:text-momiji transition">Transporter</a>
+                <a href="resplan.html" class="py-2 border-b border-stone-100 text-momiji transition">Resplan</a>
+                <a href="japan.html#logistics" class="py-2 hover:text-momiji transition">Bokningar</a>
+            </div>
+        </div>
+    </nav>
+    <script>
+        document.querySelectorAll('#mobile-menu a').forEach(function(a) {
+            a.addEventListener('click', function() {
+                document.getElementById('mobile-menu').style.display = 'none';
+                document.getElementById('mobile-menu-btn').setAttribute('aria-expanded', 'false');
+            });
+        });
+    </script>
+
+    <!-- Hero -->
+    <header class="text-stone-bg py-16 relative overflow-hidden bg-ink">
+        <img src="img/fushimi-torii-tunnel.jpg" alt="Tunnel av röda torii-portar" class="absolute inset-0 w-full h-full object-cover">
+        <div class="absolute inset-0 bg-ink/80"></div>
+        <div class="max-w-5xl mx-auto px-4 text-center relative z-10">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">⛩️ Körschema, dag för dag</h1>
+            <p class="text-lg text-stone-200 max-w-2xl mx-auto font-light leading-relaxed">
+                Boende, aktiviteter, mat och transport — allt för varje dag på ett ställe. 1–14 november.
+            </p>
+            <div class="flex justify-center gap-4 mt-6 text-xs font-bold uppercase tracking-widest">
+                <span class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-matcha inline-block"></span> Boende bokat</span>
+                <span class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-momiji inline-block"></span> Boende saknas</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-4 py-16">
+        <div id="schedule" class="space-y-8">
+            <!-- JS populated -->
+        </div>
+    </main>
+
+    <footer class="bg-stone-200 py-12 text-center text-stone-500 text-sm">
+        <p class="font-bold text-stone-800 mb-2 uppercase tracking-widest">Resa Japan 2026</p>
+        <p>Körschema — se även <a href="boende.html" class="underline">boendeöversikten</a> och <a href="transporter.html" class="underline">transportöversikten</a> för mer detaljer.</p>
+    </footer>
+
+    <script>
+        // Ett körschema-objekt per dag: boende + transport + aktiviteter + mat, i en vy.
+        const schedule = [
+            {
+                day: 1, date: "1 Nov", loc: "Tokyo", title: "Ankomst & Vila",
+                stay: { name: "DoubleTree by Hilton Tokyo (Ariake, Koto-ku)", booked: true },
+                transport: { route: "Haneda (HND) → Ariake, Koto-ku", mode: "Tokyo Monorail + tåg / taxi" },
+                m: [
+                    "Ankomst Haneda (HND). Tokyo Monorail till Hamamatsucho och vidare (Ueno enligt ursprunglig plan — bokat hotell ligger dock i Ariake, se Transporter för detaljer).",
+                    "Hämta pocket-wifi/SIM och växla lite kontanter direkt på flygplatsen."
+                ],
+                a: [
+                    "Incheckning. Promenad i Ueno Park för att se de första höstfärgerna.",
+                    "Sitt en stund vid Shinobazu Pond och se lokallivet."
+                ],
+                e: [
+                    "Tidig middag nära hotellet för att landa efter flygresan.",
+                    "Tidigt i säng — natten blir ändå kort med jetlag."
+                ],
+                tips: "Hämta ut Pocket WiFi/SIM på flygplatsen innan ni lämnar terminalen.",
+                rest: [
+                    "Yoshiike Shokudo — färsk fisk, bra utsikt i Ueno.",
+                    "Asakusa Imahan — klassisk sukiyaki.",
+                    "Innsyoutei — trädgårdsrestaurang inne i Ueno Park."
+                ]
+            },
+            {
+                day: 2, date: "2 Nov", loc: "Kanazawa", title: "Samurajernas Stad",
+                stay: { name: "Kanazawa (enligt resplan) — inget bokat", booked: false },
+                transport: { route: "Tokyo → Kanazawa", mode: "Hokuriku Shinkansen (~2,5h, ca 1 100 SEK)" },
+                m: [
+                    "Hokuriku Shinkansen till Kanazawa (~2,5h, ca 1 100 SEK). Boka fönsterplats till vänster för bergsvyer.",
+                    "Frukost/kaffe på tåget eller i Kanazawa Station."
+                ],
+                a: [
+                    "Besök <a href='http://www.nomurake.com/index_en.html' target='_blank' class='text-matcha underline'>Nomura Samurai House</a> i de gamla kvarteren Nagamachi.",
+                    "Utforska Nagamachi Bukeyashiki-distriktet med lerklädda samurajmurar."
+                ],
+                e: [
+                    "Promenad i Kazuemachi Chaya (geishadistrikt) — vackert upplyst och betydligt färre turister än i Kyoto.",
+                    "En drink på någon av de små barerna i Higashi Chaya."
+                ],
+                tips: "Skicka stora väskor med Takkyubin på morgonen från hotellet i Tokyo (2/11) direkt till Kyoto — res med liten ryggsäck under Kanazawa-delen.",
+                rest: [
+                    "Fuwari — bästa Izakayan, boka veckor i förväg!",
+                    "Itaru — känt för lokala skaldjur.",
+                    "Jugetsuki — kaiseki med utsikt över en japansk trädgård."
+                ]
+            },
+            {
+                day: 3, date: "3 Nov", loc: "Kanazawa", title: "Spektakulär Matmarknad & Trädgård",
+                stay: { name: "Kanazawa (enligt resplan) — inget bokat", booked: false },
+                transport: { route: "I Kanazawa", mode: "Promenad / lokal buss" },
+                m: [
+                    "Omicho Market — Kanazawas 'kök' och en av Japans mest spektakulära matmarknader. Prova Kaisen-don (sushi-bowl) till tidig lunch.",
+                    "Ta det lugnt — idag (3 nov) är Bunka no Hi, en nationell helgdag, så det är mer folk ute än vanligt."
+                ],
+                a: [
+                    "Kenrokuen Garden — en av Japans tre vackraste trädgårdar. Gå dit efter kl 15:00 för mjukare ljus och färre grupper.",
+                    "Kanazawa Castle Park, precis intill trädgården."
+                ],
+                e: [
+                    "Middag, och gärna ett besök på D.T. Suzuki Museum för lite Zen-lugn.",
+                    "Kvällspromenad längs Asano-floden."
+                ],
+                tips: "3 november är en nationell helgdag (Bunka no Hi/Kulturdagen) — museer kan ha gratis inträde men även fler besökare, och Kenrokuen blir märkbart mer välbesökt än en vanlig dag.",
+                rest: [
+                    "Kotobukiya — kaiseki-middag i historisk miljö.",
+                    "Jiyuken — klassisk lokal restaurang sedan 1909.",
+                    "Omicho Ichiba Shokudo — färsk sushi mitt i marknaden."
+                ]
+            },
+            {
+                day: 4, date: "4 Nov", loc: "Kyoto", title: "Tåg till Kyoto & Gion Odori",
+                stay: { name: "Hilton Garden Inn Kyoto", booked: true },
+                transport: { route: "Kanazawa → Kyoto", mode: "Limited Express Thunderbird (~2h, ca 550 SEK)" },
+                m: [
+                    "Limited Express Thunderbird till Kyoto (~2h, ca 550 SEK).",
+                    "Incheckning på Hilton Garden Inn Kyoto."
+                ],
+                a: [
+                    "Sanjusangendo — templet med 1001 gyllene statyer.",
+                    "Kort vila innan kvällens föreställning."
+                ],
+                e: [
+                    "Gion Odori — geisha/maiko-dansuppvisning på Gion Higashi Kaburenjo Theater, rekommenderad föreställning kl 16:00 så ni hinner checka in först (bokas separat, biljetter släpps i september).",
+                    "Promenad genom Pontocho-gränden efter föreställningen — gott om restauranger för middag."
+                ],
+                tips: "Gion Odori ges bara 1–10 november och är en mer exklusiv och autentisk dansuppvisning än den vanliga Gion Corner-showen. Reservalternativ om ni missar biljetterna: Gion Corner, Yasaka Hall, 570-2 Gionmachi Minamigawa.",
+                rest: [
+                    "Middag i Pontocho-gränden efter föreställningen."
+                ]
+            },
+            {
+                day: 5, date: "5 Nov", loc: "Wazuka / Kyoto", title: "Teplantage-idyll",
+                stay: { name: "Airbnb i Kyoto (incheckning ikväll)", booked: true },
+                transport: { route: "Kyoto → Wazuka → Kyoto", mode: "Buss/tåg (heldagstur, ca 2 450 SEK)" },
+                m: [
+                    "Tåg söderut mot Kyoto och vidare till Wazuka.",
+                    "Frukost i Kyoto Station innan tåget vidare mot Wazuka."
+                ],
+                a: [
+                    "Guidad heldagstur på tefälten hos <a href='https://dmatcha.com/' target='_blank' class='text-matcha underline'>d:matcha Kyoto</a> (ca 2 450 SEK) — skörd och omfattande teprovning.",
+                    "Matcha-provning med jämförelse av olika kvaliteter och skördar."
+                ],
+                e: [
+                    "Tåg tillbaka till Kyoto på kvällen och incheckning i ert Airbnb-boende.",
+                    "Lugn middag nära boendet — resans mest avslappnade kväll."
+                ],
+                tips: "Detta är en dagsutflykt — ni sover i Kyoto, inte i Wazuka.",
+                rest: [
+                    "Chagenkyo Wazuka — enkel lunch med utsikt över tefälten.",
+                    "Omen Kawaramachi (vid återkomst till Kyoto) — udon i lugn, klassisk miljö."
+                ]
+            },
+            {
+                day: 6, date: "6 Nov", loc: "Uji / Kyoto", title: "Det heliga teet",
+                stay: { name: "Airbnb i Kyoto", booked: true },
+                transport: { route: "Kyoto → Uji → Kyoto", mode: "JR Nara-linjen (~20 min)" },
+                m: [
+                    "Besök <a href='https://www.byodoin.or.jp/en/' target='_blank' class='text-matcha underline'>Byodoin-templet</a> i Uji (avbildat på 10-yen-myntet).",
+                    "Promenad längs Uji-floden och de klassiska tebutikerna."
+                ],
+                a: [
+                    "Delta i en teceremoni i tehuset Taihoan (Uji stads tehus) — mycket prisvärt och autentiskt, ca 170 SEK.",
+                    "Provsmakning av Uji-matcha i någon av de anrika tebutikerna på huvudgatan."
+                ],
+                e: [
+                    "Tåg till Kyoto. Kvällsbesök vid Fushimi Inari (tusen portar) efter kl 19:00, när det är nästan tomt på folk."
+                ],
+                tips: "Fushimi Inari är öppet 24/7. På kvällen är det nästan tomt på folk.",
+                rest: [
+                    "Izuju (Gion) — klassisk sushi i historisk atmosfär, sedan 1912.",
+                    "Gion Karyo — kaiseki med utsikt över Shirakawa-kanalen."
+                ]
+            },
+            {
+                day: 7, date: "7 Nov", loc: "Kyoto", title: "Bambu & Keramik",
+                stay: { name: "Airbnb i Kyoto", booked: true },
+                transport: { route: "I Kyoto (Arashiyama)", mode: "Lokaltåg/buss till Arashiyama" },
+                m: [
+                    "Arashiyama Bambuskog kl 07:30 — innan folkmassorna kommer.",
+                    "Kort fika i Arashiyama innan ni återvänder mot centrala Kyoto."
+                ],
+                a: [
+                    "Shopping vid Chawan-zaka (Tekopps-backarna) nära Kiyomizu-dera — Japans bästa utbud av handgjord keramik.",
+                    "Besök gärna Kiyomizu-dera självt om ni har tid kvar."
+                ],
+                e: [
+                    "Fri kväll för shopping eller vila."
+                ],
+                tips: "Arashiyama är som mest folktomt strax efter soluppgång — kom tidigt.",
+                rest: [
+                    "Katsukura — Tonkatsu i världsklass.",
+                    "Gion Owatari — Kaiseki för den stora upplevelsen."
+                ]
+            },
+            {
+                day: 8, date: "8 Nov", loc: "Hakone", title: "Mot Hakone & Onsen-lyx",
+                stay: { name: "Hakone (enligt resplan) — inget bokat", booked: false },
+                transport: { route: "Kyoto → Odawara → Hakone", mode: "Shinkansen (~950 SEK) + Hakone Tozan-tåg" },
+                m: [
+                    "Shinkansen från Kyoto till Odawara (~950 SEK), sedan bergståg in i Hakone-dalen."
+                ],
+                a: [
+                    "Checka in på er Ryokan. Byt om till Yukata och njut av ert första Onsen-bad."
+                ],
+                e: [
+                    "10-rätters Kaiseki-middag, serveras på rummet eller i matsalen — höjdpunkten för japansk gästfrihet (Omotenashi)."
+                ],
+                tips: "8 november sammanfaller preliminärt med Arashiyama Momiji Festival i Kyoto (traditionella båtar, musik och dans) — ett kort morgonbesök är möjligt innan tåget, men räkna med stor trängsel om ni stannar.",
+                rest: [
+                    "Kaiseki-middagen ingår på er Ryokan."
+                ]
+            },
+            {
+                day: 9, date: "9 Nov", loc: "Hakone", title: "Hakone Loop & Fuji-vyer",
+                stay: { name: "Hakone (enligt resplan) — inget bokat", booked: false },
+                transport: { route: "I Hakone (Loop)", mode: "Hakone Ropeway + båt Lake Ashi" },
+                m: [
+                    "Hakone Ropeway över den rykande dalen Owakudani — ät de berömda svarta äggen ('kuro-tamago')."
+                ],
+                a: [
+                    "Båttur över Lake Ashi med förhoppningsvis utsikt över Fuji.",
+                    "Hakone Shrine, med den berömda torii-porten i vattnet."
+                ],
+                e: [
+                    "Sista Onsen-badet och ännu en fantastisk middag på er Ryokan."
+                ],
+                tips: "Boka en Hakone Free Pass (~500 SEK) — den täcker alla resor inom Hakone, inklusive linbana och båt.",
+                rest: [
+                    "Middag ingår på er Ryokan."
+                ]
+            },
+            {
+                day: 10, date: "10 Nov", loc: "Tokyo", title: "Åter till Tokyo & Vintage-marknad",
+                stay: { name: "Airbnb i Taitō-ku, Tokyo", booked: true },
+                transport: { route: "Hakone → Tokyo, Taitō-ku", mode: "Tåg via Odawara–Shinagawa" },
+                m: [
+                    "Tåg till Tokyo. Incheckning i Taitō-ku (Ueno/Asakusa-området)."
+                ],
+                a: [
+                    "Shimokitazawa — Tokyos nav för vintage och second-hand: antik keramik, vintagekläder och LP-skivor."
+                ],
+                e: [
+                    "Middag i det trendiga Shibuya eller Shinjuku."
+                ],
+                tips: "Shimokitazawa är litet och lätt att gå vilse i på ett trevligt sätt — räkna med några timmar.",
+                rest: [
+                    "Gonpachi Nishi-Azabu — känd 'Kill Bill'-miljö.",
+                    "Tokyo Shiba Tofuya Ukai — middag vid foten av Tokyo Tower."
+                ]
+            },
+            {
+                day: 11, date: "11 Nov", loc: "Tokyo", title: "Shogunens Historia",
+                stay: { name: "Airbnb i Taitō-ku, Tokyo", booked: true },
+                transport: { route: "I Tokyo", mode: "Tokyo Metro / JR" },
+                m: [
+                    "Besök Edo-Tokyo Open Air Museum – vandring bland historiska byggnader från Shogun-eran."
+                ],
+                a: [
+                    "Senso-ji Templet i Asakusa.",
+                    "Kappabashi-gatan (sidogatorna till Senso-ji) — knivar och porslin."
+                ],
+                e: [
+                    "Strosa i Yanaka Ginza – en av få stadsdelar med kvar känslan av det gamla Tokyo.",
+                    "Avslutande kvällsfika på ett lokalt kaffehus i Yanaka."
+                ],
+                tips: "Kappabashi är perfekt för köksknivar och porslin som present till er själva.",
+                rest: [
+                    "Edomae Kisu (Yanaka) — traditionell tempura.",
+                    "Hantei (Nezu) — kushiage i vacker gammal trähusmiljö, sedan 1887.",
+                    "Sasa-no-yuki (Uguisudani) — tofu-kaiseki i anrik trädgårdsrestaurang."
+                ]
+            },
+            {
+                day: 12, date: "12 Nov", loc: "Tokyo", title: "Tokyo Kontraster",
+                stay: { name: "Airbnb i Taitō-ku, Tokyo", booked: true },
+                transport: { route: "I Tokyo", mode: "Tokyo Metro / JR" },
+                m: [
+                    "Tsukiji Outer Market — frossa i havets läckerheter till frukost/lunch."
+                ],
+                a: [
+                    "Nezu Museum — fantastisk konst och en av Tokyos vackraste trädgårdar."
+                ],
+                e: [
+                    "Fri tid för shopping i Ginza eller Shibuya."
+                ],
+                tips: "Kombinera gärna Tsukiji med en tidig start — marknadens bästa läckerheter tar slut mitt på dagen.",
+                rest: [
+                    "Frukost/lunch direkt i Tsukiji Outer Market."
+                ]
+            },
+            {
+                day: 13, date: "13 Nov", loc: "Tokyo", title: "Natur & Avsked",
+                stay: { name: "Airbnb i Taitō-ku, Tokyo", booked: true },
+                transport: { route: "I Tokyo", mode: "Tokyo Metro / JR" },
+                m: [
+                    "Meiji Jingu Shrine — en oas av skog mitt i staden. Håll utkik efter familjer i kimono som firar Shichi-Go-San (barn som fyller 3, 5 eller 7 år)."
+                ],
+                a: [
+                    "Sista shoppingen på ett Depachika (varuhusens matkällare), t.ex. Daimaru vid Tokyo Station."
+                ],
+                e: [
+                    "Avskedsmiddag — Omakase Sushi."
+                ],
+                tips: "Shichi-Go-San firas som mest kring helgerna (t.ex. lördag 7 eller 14 nov) — men ni bör ändå se en del familjer vid templet på en vardag.",
+                rest: [
+                    "Sushi Kyotatsu — mycket hög kvalitet.",
+                    "Kyubey — legendariskt sushiställe."
+                ]
+            },
+            {
+                day: 14, date: "14 Nov", loc: "Tokyo", title: "Hemresa",
+                stay: { name: "Utcheckning från Airbnb", booked: true, checkout: true },
+                transport: { route: "Ueno → Narita/Haneda → hemresa", mode: "Keisei Skyliner (~45 min från Ueno)" },
+                m: [
+                    "Sista lugna morgonen i Tokyo.",
+                    "Keisei Skyliner direkt från Ueno till flygplatsen (~45 min)."
+                ],
+                a: [
+                    "Avresa från Tokyo."
+                ],
+                e: [
+                    "Trevlig hemresa!"
+                ],
+                tips: "Boka Skyliner-biljett i förväg om ni vill vara säkra på avgångstid — annars går de tätt.",
+                rest: [
+                    "Sista snacks/matbutik i Ueno Station eller på flygplatsen innan avresa."
+                ]
+            }
+        ];
+
+        function renderSchedule() {
+            const container = document.getElementById('schedule');
+            const suggestionList = (items) => `<ul class="space-y-1.5">${items.map(i => `<li class="text-sm text-stone-700 flex gap-2"><span class="text-stone-300">•</span><span>${i}</span></li>`).join('')}</ul>`;
+            const restList = (items) => `<ul class="space-y-1.5">${items.map(i => `<li class="text-sm flex gap-2"><span class="text-momiji">🍴</span><span>${i}</span></li>`).join('')}</ul>`;
+
+            schedule.forEach(d => {
+                const borderColor = d.stay.booked ? 'border-matcha' : 'border-momiji';
+                const card = document.createElement('div');
+                card.className = `bg-white rounded-3xl shadow-sm border-l-8 ${borderColor} border-t border-r border-b border-stone-200 p-6 md:p-8`;
+                card.innerHTML = `
+                    <div class="flex flex-wrap items-baseline justify-between gap-2 mb-6">
+                        <div>
+                            <span class="text-momiji font-bold tracking-widest uppercase text-xs">${d.date} • DAG ${d.day}</span>
+                            <h2 class="text-2xl font-bold mt-1">${d.loc}: ${d.title}</h2>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+                        <div class="bg-stone-50 rounded-2xl p-4 border border-stone-100">
+                            <div class="flex items-center justify-between mb-1">
+                                <span class="text-xs font-bold uppercase text-stone-400">🏨 Boende</span>
+                                ${d.stay.booked
+                                    ? `<span class="text-xs font-bold text-white bg-matcha px-2 py-0.5 rounded-full">✓ BOKAT</span>`
+                                    : `<span class="text-xs font-bold text-white bg-momiji px-2 py-0.5 rounded-full">EJ BOKAT</span>`}
+                            </div>
+                            <p class="text-sm font-bold">${d.stay.name}</p>
+                        </div>
+                        <div class="bg-stone-50 rounded-2xl p-4 border border-stone-100">
+                            <span class="text-xs font-bold uppercase text-stone-400 block mb-1">🚅 Transport</span>
+                            <p class="text-sm font-bold">${d.transport.route}</p>
+                            <p class="text-xs text-stone-500">${d.transport.mode}</p>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                        <div>
+                            <span class="text-xs font-bold uppercase text-matcha block mb-2">Förmiddag</span>
+                            ${suggestionList(d.m)}
+                        </div>
+                        <div>
+                            <span class="text-xs font-bold uppercase text-momiji block mb-2">Eftermiddag</span>
+                            ${suggestionList(d.a)}
+                        </div>
+                        <div>
+                            <span class="text-xs font-bold uppercase text-ink block mb-2">Kväll</span>
+                            ${suggestionList(d.e)}
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4 border-t border-stone-100">
+                        <div>
+                            <span class="text-xs font-bold uppercase text-stone-400 block mb-2">🍴 Restaurangförslag</span>
+                            ${restList(d.rest)}
+                        </div>
+                        <div>
+                            <span class="text-xs font-bold uppercase text-stone-400 block mb-2">💡 Tips</span>
+                            <p class="text-sm italic text-stone-600">${d.tips}</p>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        window.onload = renderSchedule;
+    </script>
+</body>
+</html>
