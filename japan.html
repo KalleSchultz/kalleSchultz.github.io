@@ -63,14 +63,13 @@
                     <a href="boende.html" class="hover:text-momiji transition">Boendeöversikt</a>
                     <a href="restauranger.html" class="hover:text-momiji transition">Restauranger</a>
                     <a href="transporter.html" class="hover:text-momiji transition">Transporter</a>
-                    <a href="#logistics" class="hover:text-momiji transition">Behöver Bokas</a>
-                    <a href="#booking" class="hover:text-momiji transition">Boka</a>
+                    <a href="#logistics" class="hover:text-momiji transition">Bokningar</a>
                 </div>
-                <button id="mobile-menu-btn" class="md:hidden flex items-center justify-center w-10 h-10 -mr-2" aria-label="Öppna meny" aria-expanded="false" aria-controls="mobile-menu" onclick="const m=document.getElementById('mobile-menu');const exp=this.getAttribute('aria-expanded')==='true';this.setAttribute('aria-expanded',String(!exp));m.hidden=exp;">
+                <button id="mobile-menu-btn" class="md:hidden flex items-center justify-center w-10 h-10 -mr-2" aria-label="Öppna meny" aria-expanded="false" aria-controls="mobile-menu" onclick="const m=document.getElementById('mobile-menu');const exp=this.getAttribute('aria-expanded')==='true';this.setAttribute('aria-expanded',String(!exp));m.style.display=exp?'none':'flex';">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
                 </button>
             </div>
-            <div id="mobile-menu" hidden class="md:hidden pb-4 flex flex-col text-sm font-bold uppercase tracking-widest">
+            <div id="mobile-menu" class="md:hidden pb-4 flex-col text-sm font-bold uppercase tracking-widest" style="display:none;">
                 <a href="index.html" class="py-2 border-b border-stone-100 hover:text-momiji transition">Start</a>
                 <a href="#overview" class="py-2 border-b border-stone-100 hover:text-momiji transition">Översikt</a>
                 <a href="#festivals" class="py-2 border-b border-stone-100 hover:text-momiji transition">Festivaler</a>
@@ -79,8 +78,7 @@
                 <a href="boende.html" class="py-2 border-b border-stone-100 hover:text-momiji transition">Boendeöversikt</a>
                 <a href="restauranger.html" class="py-2 border-b border-stone-100 hover:text-momiji transition">Restauranger</a>
                 <a href="transporter.html" class="py-2 border-b border-stone-100 hover:text-momiji transition">Transporter</a>
-                <a href="#logistics" class="py-2 border-b border-stone-100 hover:text-momiji transition">Behöver Bokas</a>
-                <a href="#booking" class="py-2 hover:text-momiji transition">Boka</a>
+                <a href="#logistics" class="py-2 hover:text-momiji transition">Bokningar</a>
             </div>
         </div>
     </nav>
@@ -205,91 +203,109 @@
             </div>
         </section>
 
-        <!-- SECTION: BEHÖVER BOKAS -->
+        <!-- SECTION: BOKNINGAR (Behöver Bokas + Boka slagits ihop) -->
         <section id="logistics" class="mb-24 scroll-mt-20 relative overflow-hidden rounded-3xl text-stone-bg p-10">
             <img src="img/fushimi-torii-tunnel.jpg" alt="Tunnel av röda torii-portar" class="absolute inset-0 w-full h-full object-cover">
             <div class="absolute inset-0 bg-ink/85"></div>
             <div class="relative z-10">
-                <h2 class="text-3xl font-bold mb-2 text-center">🎫 Behöver Bokas</h2>
-                <p class="text-stone-400 text-center text-sm mb-10">Praktisk info och separata bokningar som lätt glöms bort.</p>
+                <h2 class="text-3xl font-bold mb-2 text-center">📋 Bokningar</h2>
+                <p class="text-stone-400 text-center text-sm mb-10">Vad som redan är bokat, vad som behöver bokas — och när.</p>
+
+                <!-- UNDERKATEGORI: BOKAT -->
+                <h3 class="text-lg font-bold uppercase tracking-widest text-matcha mb-4">✓ Bokat</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
+                    <div class="bg-white/10 border border-matcha/40 rounded-2xl p-4">
+                        <span class="block text-xs font-bold text-matcha uppercase mb-1">1–2 nov</span>
+                        <span class="text-sm font-bold">DoubleTree by Hilton Tokyo</span>
+                    </div>
+                    <div class="bg-white/10 border border-matcha/40 rounded-2xl p-4">
+                        <span class="block text-xs font-bold text-matcha uppercase mb-1">4–5 nov</span>
+                        <span class="text-sm font-bold">Hilton Garden Inn Kyoto</span>
+                    </div>
+                    <div class="bg-white/10 border border-matcha/40 rounded-2xl p-4">
+                        <span class="block text-xs font-bold text-matcha uppercase mb-1">5–8 nov</span>
+                        <span class="text-sm font-bold">Airbnb i Kyoto</span>
+                    </div>
+                    <div class="bg-white/10 border border-matcha/40 rounded-2xl p-4">
+                        <span class="block text-xs font-bold text-matcha uppercase mb-1">10–14 nov</span>
+                        <span class="text-sm font-bold">Airbnb i Taitō-ku, Tokyo</span>
+                    </div>
+                </div>
+                <p class="text-xs text-stone-400 mb-12">Se <a href="boende.html" class="underline text-momiji">boendeöversikten</a> för adresser och vilka nätter som fortfarande saknar boende.</p>
+
+                <!-- UNDERKATEGORI: BEHÖVER BOKAS (TIDSLINJE) -->
+                <h3 class="text-lg font-bold uppercase tracking-widest text-momiji mb-4">🗓️ Behöver bokas (tidslinje)</h3>
+                <div class="space-y-4 mb-12">
+                    <div class="bg-white text-ink p-6 rounded-2xl flex flex-col md:flex-row justify-between items-center gap-4">
+                        <div>
+                            <span class="bg-momiji text-white text-xs font-bold px-2 py-1 rounded">6 MÅN INNAN</span>
+                            <h4 class="font-bold text-lg mt-1">Hakone Ryokan & Kanazawa Boende</h4>
+                            <p class="text-sm text-stone-500">Boka de mest populära Onsen-hotellen innan de tar slut — se <a href="boende.html" class="underline font-bold">boendeöversikten</a> för vilka nätter som saknar boende.</p>
+                        </div>
+                        <a href="https://www.booking.com" target="_blank" class="bg-ink text-white px-6 py-2 rounded-full font-bold text-sm hover:bg-momiji transition shrink-0">Gå till Booking.com</a>
+                    </div>
+                    <div class="bg-white text-ink p-6 rounded-2xl flex flex-col md:flex-row justify-between items-center gap-4">
+                        <div>
+                            <span class="bg-matcha text-white text-xs font-bold px-2 py-1 rounded">3 MÅN INNAN</span>
+                            <h4 class="font-bold text-lg mt-1">Teplantage (Wazuka)</h4>
+                            <p class="text-sm text-stone-500">Boka d:matchas guidade tur på tefälten, 5 nov.</p>
+                        </div>
+                        <a href="https://dmatcha.com/collections/tea-farm-tours" target="_blank" class="bg-ink text-white px-6 py-2 rounded-full font-bold text-sm hover:bg-matcha transition shrink-0">Boka Teplantage</a>
+                    </div>
+                    <div class="bg-white text-ink p-6 rounded-2xl flex flex-col md:flex-row justify-between items-center gap-4">
+                        <div>
+                            <span class="bg-matcha text-white text-xs font-bold px-2 py-1 rounded">3 MÅN INNAN</span>
+                            <h4 class="font-bold text-lg mt-1">Gion Odori (Geisha-show)</h4>
+                            <p class="text-sm text-stone-500">Separat bokning från teplantagen — biljetter till Gion Higashi Kaburenjo Theater släpps i september, för föreställningen 4 nov kväll. Reserv: Gion Corner, Yasaka Hall.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white text-ink p-6 rounded-2xl flex flex-col md:flex-row justify-between items-center gap-4">
+                        <div>
+                            <span class="bg-stone-400 text-white text-xs font-bold px-2 py-1 rounded">2 MÅN INNAN</span>
+                            <h4 class="font-bold text-lg mt-1">Exklusiva restauranger</h4>
+                            <p class="text-sm text-stone-500">Boka bord för Kaiseki/Omakase-sushi i förväg, t.ex. Sushi Kyotatsu, Kyubey, Katsukura, Gion Owatari och Fuwari — se <a href="restauranger.html" class="underline font-bold">restaurangförslagen</a> per dag.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white text-ink p-6 rounded-2xl flex flex-col md:flex-row justify-between items-center gap-4">
+                        <div>
+                            <span class="bg-stone-500 text-white text-xs font-bold px-2 py-1 rounded">30 DAGAR INNAN</span>
+                            <h4 class="font-bold text-lg mt-1">Shinkansen (Smart-EX)</h4>
+                            <p class="text-sm text-stone-500">Reservera sittplatser, särskilt om ni har stora väskor (bagage-plats).</p>
+                        </div>
+                        <a href="https://smart-ex.jp/en/" target="_blank" class="bg-ink text-white px-6 py-2 rounded-full font-bold text-sm hover:bg-stone-800 transition shrink-0">Smart-EX Officiell</a>
+                    </div>
+                    <div class="bg-white text-ink p-6 rounded-2xl flex flex-col md:flex-row justify-between items-center gap-4">
+                        <div>
+                            <span class="bg-stone-400 text-white text-xs font-bold px-2 py-1 rounded">INGEN DEADLINE</span>
+                            <h4 class="font-bold text-lg mt-1">Hakone Free Pass</h4>
+                            <p class="text-sm text-stone-500">Ca 500 SEK. Täcker alla resor inom Hakone (linbana, båt, buss) under Hakone Loop-dagen (9 nov). Köps enklast på plats eller i förväg via Odakyu.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- UNDERKATEGORI: PRAKTISK INFO -->
+                <h3 class="text-lg font-bold uppercase tracking-widest text-stone-300 mb-4">📦 Praktisk info</h3>
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                     <div class="space-y-4">
-                        <h3 class="text-xl font-bold text-matcha">📦 Takkyubin</h3>
+                        <h4 class="text-xl font-bold text-matcha">📦 Takkyubin</h4>
                         <p class="text-sm text-stone-400 leading-relaxed">
                             Skicka väskorna mellan hotellen för ca 200 SEK/väska. Maxstorlek 160 cm (L+B+H). Fyll i fraktsedeln i receptionen. Väskan anländer dagen efter. Strategi: från Tokyo (2/11) direkt till Kyoto, res lätt genom Kanazawa, skicka sedan från Kyoto (8/11) direkt till Tokyo.
                         </p>
                     </div>
                     <div class="space-y-4">
-                        <h3 class="text-xl font-bold text-matcha">🚅 Tåg & Biljetter</h3>
+                        <h4 class="text-xl font-bold text-matcha">🚅 Tåg & Biljetter</h4>
                         <p class="text-sm text-stone-400 leading-relaxed">
                             Köp Shinkansen-biljetter i appen <strong>Smart-EX</strong> (30 dagar innan). Lokaltrafik sköts enklast med ett digitalt <strong>Suica/Pasmo</strong> i er Apple/Google Wallet. Se <a href="transporter.html" class="underline text-momiji">Transporter</a> för hela resvägen.
                         </p>
                     </div>
                     <div class="space-y-4">
-                        <h3 class="text-xl font-bold text-momiji">🎭 Gion Odori (Geisha-show)</h3>
-                        <p class="text-sm text-stone-400 leading-relaxed">
-                            Gion Higashi Kaburenjo Theater, kvällen den 4 nov (rek. 16:00-föreställningen). Bokas separat från teplantagen — biljetter släpps i september. Reserv: Gion Corner, Yasaka Hall.
-                        </p>
-                    </div>
-                    <div class="space-y-4">
-                        <h3 class="text-xl font-bold text-matcha">🎟️ Hakone Free Pass</h3>
-                        <p class="text-sm text-stone-400 leading-relaxed">
-                            Ca 500 SEK. Täcker alla resor inom Hakone (linbana, båt, buss) under Hakone Loop-dagen (9 nov).
-                        </p>
-                    </div>
-                    <div class="space-y-4">
-                        <h3 class="text-xl font-bold text-matcha">📱 Appar</h3>
+                        <h4 class="text-xl font-bold text-matcha">📱 Appar</h4>
                         <ul class="text-sm text-stone-400 space-y-2">
                             <li>• <strong>Google Maps:</strong> Oumbärlig för tågplattformar.</li>
                             <li>• <strong>Papago:</strong> Bästa översättningsappen.</li>
                             <li>• <strong>Ubigi/Airalo:</strong> För eSIM-data.</li>
                         </ul>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION: BOKNINGSLISTA -->
-        <section id="booking" class="mb-24 scroll-mt-20">
-            <h2 class="text-3xl font-bold mb-10 border-l-8 border-stone-800 pl-4">🗓️ Online-bokningar (Tidslinje)</h2>
-            <div class="space-y-6">
-                <div class="bg-white p-6 rounded-2xl border border-stone-200 flex flex-col md:flex-row justify-between items-center gap-4">
-                    <div>
-                        <span class="bg-momiji text-white text-xs font-bold px-2 py-1 rounded">6 MÅN INNAN</span>
-                        <h4 class="font-bold text-lg mt-1">Hakone Ryokan & Kanazawa Boende</h4>
-                        <p class="text-sm text-stone-500">Boka de mest populära Onsen-hotellen innan de tar slut — se <a href="boende.html" class="underline font-bold">boendeöversikten</a> för vilka nätter som saknar boende.</p>
-                    </div>
-                    <a href="https://www.booking.com" target="_blank" class="bg-ink text-white px-6 py-2 rounded-full font-bold text-sm hover:bg-momiji transition">Gå till Booking.com</a>
-                </div>
-                <div class="bg-white p-6 rounded-2xl border border-stone-200 flex flex-col md:flex-row justify-between items-center gap-4">
-                    <div>
-                        <span class="bg-matcha text-white text-xs font-bold px-2 py-1 rounded">3 MÅN INNAN</span>
-                        <h4 class="font-bold text-lg mt-1">Teplantage (Wazuka)</h4>
-                        <p class="text-sm text-stone-500">Boka d:matchas guidade tur på tefälten, 5 nov.</p>
-                    </div>
-                    <a href="https://dmatcha.com/collections/tea-farm-tours" target="_blank" class="bg-ink text-white px-6 py-2 rounded-full font-bold text-sm hover:bg-matcha transition">Boka Teplantage</a>
-                </div>
-                <div class="bg-white p-6 rounded-2xl border border-stone-200 flex flex-col md:flex-row justify-between items-center gap-4">
-                    <div>
-                        <span class="bg-matcha text-white text-xs font-bold px-2 py-1 rounded">3 MÅN INNAN</span>
-                        <h4 class="font-bold text-lg mt-1">Gion Odori (Geisha-show)</h4>
-                        <p class="text-sm text-stone-500">Separat bokning från teplantagen — biljetter till Gion Higashi Kaburenjo Theater släpps i september, för föreställningen 4 nov kväll.</p>
-                    </div>
-                </div>
-                <div class="bg-white p-6 rounded-2xl border border-stone-200 flex flex-col md:flex-row justify-between items-center gap-4">
-                    <div>
-                        <span class="bg-stone-400 text-white text-xs font-bold px-2 py-1 rounded">2 MÅN INNAN</span>
-                        <h4 class="font-bold text-lg mt-1">Exklusiva restauranger</h4>
-                        <p class="text-sm text-stone-500">Boka bord för Kaiseki/Omakase-sushi i förväg, t.ex. Sushi Kyotatsu, Kyubey, Katsukura, Gion Owatari och Fuwari — se <a href="restauranger.html" class="underline font-bold">restaurangförslagen</a> per dag.</p>
-                    </div>
-                </div>
-                <div class="bg-white p-6 rounded-2xl border border-stone-200 flex flex-col md:flex-row justify-between items-center gap-4">
-                    <div>
-                        <span class="bg-stone-500 text-white text-xs font-bold px-2 py-1 rounded">30 DAGAR INNAN</span>
-                        <h4 class="font-bold text-lg mt-1">Shinkansen (Smart-EX)</h4>
-                        <p class="text-sm text-stone-500">Reservera sittplatser, särskilt om ni har stora väskor (bagage-plats).</p>
-                    </div>
-                    <a href="https://smart-ex.jp/en/" target="_blank" class="bg-ink text-white px-6 py-2 rounded-full font-bold text-sm hover:bg-stone-800 transition">Smart-EX Officiell</a>
                 </div>
             </div>
         </section>
