@@ -66,6 +66,14 @@
             </div>
         </div>
     </nav>
+    <script>
+        document.querySelectorAll('#mobile-menu a').forEach(function(a) {
+            a.addEventListener('click', function() {
+                document.getElementById('mobile-menu').style.display = 'none';
+                document.getElementById('mobile-menu-btn').setAttribute('aria-expanded', 'false');
+            });
+        });
+    </script>
 
     <!-- Hero -->
     <header class="text-stone-bg py-16 relative overflow-hidden bg-ink">
