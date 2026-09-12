@@ -42,21 +42,55 @@
                     <span class="text-2xl">🍁</span>
                     <span class="font-bold text-xl tracking-tight uppercase">Japan 2026</span>
                 </div>
-                <div class="hidden md:flex space-x-6 text-sm font-bold uppercase tracking-widest">
+                <div class="hidden md:flex flex-wrap gap-x-5 gap-y-1 justify-end text-sm font-bold uppercase tracking-widest">
                     <a href="index.html" class="hover:text-momiji transition">Start</a>
-                    <a href="japan.html" class="hover:text-momiji transition">Resplan</a>
+                    <a href="japan.html#itinerary" class="hover:text-momiji transition">Resplan</a>
                     <a href="japan.html#hotels" class="hover:text-momiji transition">Boende</a>
                     <a href="boende.html" class="text-momiji transition">Boendeöversikt</a>
+                    <a href="restauranger.html" class="hover:text-momiji transition">Restauranger</a>
+                    <a href="transporter.html" class="hover:text-momiji transition">Transporter</a>
+                    <a href="japan.html#logistics" class="hover:text-momiji transition">Behöver Bokas</a>
                 </div>
-                <div class="md:hidden text-xs text-stone-500 font-bold">1-14 NOV</div>
+                <button id="mobile-menu-btn" class="md:hidden flex items-center justify-center w-10 h-10 -mr-2" aria-label="Öppna meny" aria-expanded="false" aria-controls="mobile-menu" onclick="const m=document.getElementById('mobile-menu');const exp=this.getAttribute('aria-expanded')==='true';this.setAttribute('aria-expanded',String(!exp));m.hidden=exp;">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+                </button>
+            </div>
+            <div id="mobile-menu" hidden class="md:hidden pb-4 flex flex-col text-sm font-bold uppercase tracking-widest">
+                <a href="index.html" class="py-2 border-b border-stone-100 hover:text-momiji transition">Start</a>
+                <a href="japan.html#itinerary" class="py-2 border-b border-stone-100 hover:text-momiji transition">Resplan</a>
+                <a href="japan.html#hotels" class="py-2 border-b border-stone-100 hover:text-momiji transition">Boende</a>
+                <a href="boende.html" class="py-2 border-b border-stone-100 text-momiji transition">Boendeöversikt</a>
+                <a href="restauranger.html" class="py-2 border-b border-stone-100 hover:text-momiji transition">Restauranger</a>
+                <a href="transporter.html" class="py-2 border-b border-stone-100 hover:text-momiji transition">Transporter</a>
+                <a href="japan.html#logistics" class="py-2 hover:text-momiji transition">Behöver Bokas</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero -->
-    <header class="bg-ink text-stone-bg py-16">
-        <div class="max-w-5xl mx-auto px-4 text-center">
-            <h1 class="text-4xl md:text-5xl font-bold mb-4">Boendeöversikt</h1>
+    <header class="text-stone-bg py-16 relative overflow-hidden">
+        <svg class="absolute inset-0 w-full h-full" viewBox="0 0 800 300" preserveAspectRatio="xMidYMax slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+                <linearGradient id="boendeSky" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#1c1917"/>
+                    <stop offset="100%" stop-color="#2a1f1c"/>
+                </linearGradient>
+            </defs>
+            <rect width="800" height="300" fill="url(#boendeSky)"/>
+            <circle cx="130" cy="60" r="34" fill="#fafaf9" opacity="0.15"/>
+            <g opacity="0.5">
+                <line x1="120" y1="94" x2="120" y2="180" stroke="#9f1239" stroke-width="3"/>
+                <ellipse cx="120" cy="140" rx="26" ry="34" fill="#9f1239" opacity="0.55"/>
+                <line x1="120" y1="174" x2="120" y2="190" stroke="#9f1239" stroke-width="3"/>
+            </g>
+            <g opacity="0.4">
+                <line x1="620" y1="70" x2="620" y2="150" stroke="#9f1239" stroke-width="3"/>
+                <ellipse cx="620" cy="115" rx="20" ry="26" fill="#9f1239" opacity="0.5"/>
+            </g>
+            <path d="M0 270 Q 200 230 400 270 T 800 270 V300 H0 Z" fill="#0f0d0c" opacity="0.5"/>
+        </svg>
+        <div class="max-w-5xl mx-auto px-4 text-center relative z-10">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">🏮 Boendeöversikt</h1>
             <p class="text-lg text-stone-400 max-w-2xl mx-auto font-light leading-relaxed">
                 Natt för natt, 1–14 november. Bokade boenden är märkta grönt — röda rader saknar fortfarande boende.
             </p>
@@ -104,11 +138,11 @@
             <div class="space-y-4">
                 <div class="bg-momiji/5 border border-momiji/30 p-6 rounded-2xl">
                     <h3 class="font-bold text-momiji">2–4 november · Kanazawa (enligt resplanen)</h3>
-                    <p class="text-sm text-stone-600 mt-1">2 nätter saknar bokat boende. Förslag i resplanen: UAN Kanazawa — men inget är bokat än.</p>
+                    <p class="text-sm text-stone-600 mt-1">2 nätter saknar bokat boende. Förslag: UAN Kanazawa, KUMU Kanazawa eller Kanazawa Hakuchoro — men inget är bokat än.</p>
                 </div>
                 <div class="bg-momiji/5 border border-momiji/30 p-6 rounded-2xl">
-                    <h3 class="font-bold text-momiji">8–10 november · Hakone / okänt</h3>
-                    <p class="text-sm text-stone-600 mt-1">2 nätter saknar bokat boende. Resplanen nämner Hakone (8 nov) men har ingen aktivitet för 9 nov — natten den 9:e är helt öppen. Förslag: Mount View Hakone (Ryokan) — men inget är bokat än.</p>
+                    <h3 class="font-bold text-momiji">8–10 november · Hakone</h3>
+                    <p class="text-sm text-stone-600 mt-1">2 nätter saknar bokat boende (checka in 8 nov, ut 10 nov). Förslag: Mount View Hakone, Hakone Yutowa eller Senkyoro (Ryokan) — men inget är bokat än.</p>
                 </div>
             </div>
         </section>
@@ -131,7 +165,7 @@
             { date: "6 nov", city: "Kyoto", name: "Airbnb i Kyoto", address: "10 Imakumano Naginomorichō 3, Kyoto, Kyoto 605-0971, Japan", booked: true },
             { date: "7 nov", city: "Kyoto", name: "Airbnb i Kyoto", address: "10 Imakumano Naginomorichō 3, Kyoto, Kyoto 605-0971, Japan", booked: true },
             { date: "8 nov", city: "Hakone (enligt resplan)", name: "—", address: "—", booked: false },
-            { date: "9 nov", city: "Okänt — saknas i resplanen", name: "—", address: "—", booked: false },
+            { date: "9 nov", city: "Hakone (enligt resplan)", name: "—", address: "—", booked: false },
             { date: "10 nov", city: "Tokyo, Taitō-ku", name: "Airbnb i Taitō-ku", address: "1-chōme-15-4 Senzoku, Taito City, Tokyo 111-0031, Japan", booked: true },
             { date: "11 nov", city: "Tokyo, Taitō-ku", name: "Airbnb i Taitō-ku", address: "1-chōme-15-4 Senzoku, Taito City, Tokyo 111-0031, Japan", booked: true },
             { date: "12 nov", city: "Tokyo, Taitō-ku", name: "Airbnb i Taitō-ku", address: "1-chōme-15-4 Senzoku, Taito City, Tokyo 111-0031, Japan", booked: true },
