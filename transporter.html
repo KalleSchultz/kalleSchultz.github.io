@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transporter - Japanresa 2026</title>
+
+    <!-- Tailwind CSS för modern design -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'stone-bg': '#fafaf9',
+                        'matcha': '#166534',
+                        'momiji': '#9f1239',
+                        'ink': '#1c1917'
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { background-color: #fafaf9; scroll-behavior: smooth; color: #1c1917; }
+        .nav-sticky { position: sticky; top: 0; z-index: 50; backdrop-filter: blur(12px); background: rgba(250, 250, 249, 0.9); }
+    </style>
+</head>
+<body class="font-sans antialiased">
+
+    <!-- Navigation -->
+    <nav class="nav-sticky border-b border-stone-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center space-x-2">
+                    <span class="text-2xl">🍁</span>
+                    <span class="font-bold text-xl tracking-tight uppercase">Japan 2026</span>
+                </div>
+                <div class="hidden md:flex flex-wrap gap-x-5 gap-y-1 justify-end text-sm font-bold uppercase tracking-widest">
+                    <a href="index.html" class="hover:text-momiji transition">Start</a>
+                    <a href="japan.html#itinerary" class="hover:text-momiji transition">Resplan</a>
+                    <a href="japan.html#hotels" class="hover:text-momiji transition">Boende</a>
+                    <a href="boende.html" class="hover:text-momiji transition">Boendeöversikt</a>
+                    <a href="restauranger.html" class="hover:text-momiji transition">Restauranger</a>
+                    <a href="transporter.html" class="text-momiji transition">Transporter</a>
+                    <a href="japan.html#logistics" class="hover:text-momiji transition">Behöver Bokas</a>
+                </div>
+                <div class="md:hidden text-xs text-stone-500 font-bold">1-14 NOV</div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="text-stone-bg py-16 relative overflow-hidden">
+        <svg class="absolute inset-0 w-full h-full" viewBox="0 0 800 300" preserveAspectRatio="xMidYMax slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+                <linearGradient id="transSky" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#1c1917"/>
+                    <stop offset="100%" stop-color="#1f2e22"/>
+                </linearGradient>
+            </defs>
+            <rect width="800" height="300" fill="url(#transSky)"/>
+            <circle cx="700" cy="60" r="30" fill="#fafaf9" opacity="0.15"/>
+            <path d="M0 260 L 100 220 L 200 250 L 300 200 L 400 240 L 500 210 L 600 245 L 700 215 L 800 235" fill="none" stroke="#166534" stroke-width="4" opacity="0.35"/>
+        </svg>
+        <div class="max-w-5xl mx-auto px-4 text-center relative z-10">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">🚅 Transporter</h1>
+            <p class="text-lg text-stone-400 max-w-2xl mx-auto font-light leading-relaxed">
+                Så tar ni er mellan städerna, dag för dag — plus biljetter och appar ni behöver.
+            </p>
+        </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-4 py-16">
+
+        <section class="mb-16">
+            <div class="overflow-x-auto bg-white rounded-2xl border border-stone-200 shadow-sm">
+                <table class="w-full text-left text-sm">
+                    <thead class="bg-stone-100 text-stone-500 uppercase text-xs tracking-widest">
+                        <tr>
+                            <th class="px-4 py-3">Datum</th>
+                            <th class="px-4 py-3">Sträcka</th>
+                            <th class="px-4 py-3">Transportsätt</th>
+                            <th class="px-4 py-3">Kommentar</th>
+                        </tr>
+                    </thead>
+                    <tbody id="legs-table">
+                        <!-- JS populated -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="mb-16">
+            <h2 class="text-2xl font-bold mb-4 border-l-8 border-momiji pl-4">Obs — dubbelkolla</h2>
+            <div class="bg-momiji/5 border border-momiji/30 p-6 rounded-2xl">
+                <p class="text-sm text-stone-600">
+                    Resplanen för 1 november nämner en promenad i <strong>Ueno Park</strong>, men det bokade hotellet (DoubleTree by Hilton Tokyo) ligger i <strong>Ariake, Koto-ku</strong> — en bit därifrån. Kolla om ankomstdagens aktiviteter behöver justeras till närområdet, eller räkna med extra restid till Ueno.
+                </p>
+            </div>
+        </section>
+
+        <section class="mb-16">
+            <h2 class="text-2xl font-bold mb-6 border-l-8 border-matcha pl-4">Biljetter & appar</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm space-y-2">
+                    <h3 class="font-bold text-matcha">🎫 Smart-EX</h3>
+                    <p class="text-sm text-stone-600">Boka Shinkansen-biljetter (Tokyo–Kanazawa, Kanazawa–Kyoto, Kyoto–Odawara m.fl.) ca 30 dagar innan avresa. Reservera sittplats med bagageutrymme om ni har stora väskor.</p>
+                    <a href="https://smart-ex.jp/en/" target="_blank" class="inline-block text-xs font-bold text-momiji underline">Smart-EX Officiell →</a>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm space-y-2">
+                    <h3 class="font-bold text-matcha">💳 Suica / Pasmo</h3>
+                    <p class="text-sm text-stone-600">Digitalt reskort i Apple/Google Wallet för alla lokaltåg, tunnelbana och bussar. Ladda på kort innan avresa så slipper ni köa vid automater.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm space-y-2">
+                    <h3 class="font-bold text-matcha">📦 Takkyubin</h3>
+                    <p class="text-sm text-stone-600">Skicka de stora väskorna direkt mellan hotellen (ca 200 SEK/väska, ankommer dagen efter) så slipper ni släpa dem på tåg och trappor.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-stone-200 py-12 text-center text-stone-500 text-sm">
+        <p class="font-bold text-stone-800 mb-2 uppercase tracking-widest">Resa Japan 2026</p>
+        <p>Transportöversikt — komplement till <a href="japan.html#itinerary" class="underline">resplanen</a> och <a href="boende.html" class="underline">boendeöversikten</a>.</p>
+    </footer>
+
+    <script>
+        const legs = [
+            { date: "1 nov", route: "Haneda (HND) → Ariake, Koto-ku", mode: "Flygbuss / Yurikamome / taxi", note: "Ankomst. Boende: DoubleTree by Hilton Tokyo.", missing: false },
+            { date: "2 nov", route: "Tokyo → Kanazawa", mode: "Hokuriku Shinkansen (~2.5h)", note: "Boka i Smart-EX.", missing: false },
+            { date: "3 nov", route: "I Kanazawa", mode: "Promenad / lokal buss", note: "Ingen långdistans denna dag.", missing: false },
+            { date: "4 nov", route: "Kanazawa → Kyoto", mode: "Shinkansen/Limited Express (byte, ~2.5–3h)", note: "Saknas i resplanen — lägg till som resedag. Check-in Hilton Garden Inn Kyoto.", missing: true },
+            { date: "5 nov", route: "Kyoto → Wazuka → Kyoto", mode: "JR Nara-linjen + lokalbuss", note: "Retur samma kväll, incheckning Airbnb Kyoto.", missing: false },
+            { date: "6 nov", route: "Kyoto → Uji → Kyoto", mode: "JR Nara-linjen (~20 min)", note: "Dagsutflykt.", missing: false },
+            { date: "7 nov", route: "I Kyoto", mode: "—", note: "Saknas i resplanen — trolig fri dag.", missing: true },
+            { date: "8 nov", route: "Kyoto → Hakone", mode: "Shinkansen till Odawara + Hakone Tozan-tåg", note: "Bergstågsdelen är en sevärdhet i sig.", missing: false },
+            { date: "9 nov", route: "I Hakone", mode: "—", note: "Saknas i resplanen. Natten saknar även bokat boende — se boendeöversikten.", missing: true },
+            { date: "10 nov", route: "Hakone → Tokyo, Taitō-ku", mode: "Odakyu Romancecar/tåg via Odawara–Shinagawa", note: "Incheckning Airbnb Taitō-ku.", missing: false },
+            { date: "11 nov", route: "I Tokyo", mode: "Tokyo Metro / JR", note: "Lokala resor mellan sevärdheter.", missing: false },
+            { date: "12–13 nov", route: "I Tokyo", mode: "Tokyo Metro / JR", note: "Saknas i resplanen — inga aktiviteter inlagda än.", missing: true },
+            { date: "14 nov", route: "Tokyo → hemresa", mode: "Flygplatstransfer (Haneda/Narita beroende på flyg)", note: "Utcheckning från Airbnb.", missing: false }
+        ];
+
+        function renderLegs() {
+            const tbody = document.getElementById('legs-table');
+            legs.forEach(l => {
+                const row = document.createElement('tr');
+                row.className = `border-t border-stone-100 ${l.missing ? 'bg-momiji/5' : ''}`;
+                row.innerHTML = `
+                    <td class="px-4 py-3 font-bold">${l.date}</td>
+                    <td class="px-4 py-3">${l.route}</td>
+                    <td class="px-4 py-3">${l.mode}</td>
+                    <td class="px-4 py-3 text-stone-500">${l.note}</td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+
+        window.onload = renderLegs;
+    </script>
+</body>
+</html>

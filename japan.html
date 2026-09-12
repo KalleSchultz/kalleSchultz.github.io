@@ -54,13 +54,15 @@
                     <span class="text-2xl">🍁</span>
                     <span class="font-bold text-xl tracking-tight uppercase">Japan 2026</span>
                 </div>
-                <div class="hidden md:flex space-x-6 text-sm font-bold uppercase tracking-widest">
+                <div class="hidden md:flex flex-wrap gap-x-5 gap-y-1 justify-end text-sm font-bold uppercase tracking-widest">
                     <a href="index.html" class="hover:text-momiji transition">Start</a>
                     <a href="#overview" class="hover:text-momiji transition">Översikt</a>
                     <a href="#itinerary" class="hover:text-momiji transition">Resplan</a>
                     <a href="#hotels" class="hover:text-momiji transition">Boende</a>
                     <a href="boende.html" class="hover:text-momiji transition">Boendeöversikt</a>
-                    <a href="#logistics" class="hover:text-momiji transition">Praktiskt</a>
+                    <a href="restauranger.html" class="hover:text-momiji transition">Restauranger</a>
+                    <a href="transporter.html" class="hover:text-momiji transition">Transporter</a>
+                    <a href="#logistics" class="hover:text-momiji transition">Behöver Bokas</a>
                     <a href="#booking" class="hover:text-momiji transition">Boka</a>
                 </div>
                 <div class="md:hidden text-xs text-stone-500 font-bold">1-14 NOV</div>
@@ -69,7 +71,25 @@
     </nav>
 
     <!-- Hero -->
-    <header class="bg-ink text-stone-bg py-24 relative overflow-hidden">
+    <header class="text-stone-bg py-24 relative overflow-hidden">
+        <svg class="absolute inset-0 w-full h-full" viewBox="0 0 800 300" preserveAspectRatio="xMidYMax slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+                <linearGradient id="heroSky" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#1c1917"/>
+                    <stop offset="100%" stop-color="#3f1220"/>
+                </linearGradient>
+            </defs>
+            <rect width="800" height="300" fill="url(#heroSky)"/>
+            <circle cx="660" cy="70" r="42" fill="#fafaf9" opacity="0.18"/>
+            <polygon points="240,270 420,60 600,270" fill="#0f0d0c" opacity="0.65"/>
+            <polygon points="370,115 420,60 470,115" fill="#fafaf9" opacity="0.15"/>
+            <g fill="none" stroke="#9f1239" stroke-width="7" opacity="0.45">
+                <line x1="150" y1="190" x2="150" y2="272"/>
+                <line x1="220" y1="190" x2="220" y2="272"/>
+                <line x1="133" y1="178" x2="237" y2="178"/>
+                <line x1="141" y1="198" x2="229" y2="198"/>
+            </g>
+        </svg>
         <div class="absolute inset-0 opacity-10 flex items-center justify-center text-[250px] font-serif select-none pointer-events-none">
             和
         </div>
@@ -86,7 +106,7 @@
         <!-- SECTION: ÖVERSIKT -->
         <section id="overview" class="mb-24 scroll-mt-20">
             <div class="max-w-3xl">
-                <h2 class="text-3xl font-bold mb-6 border-l-8 border-matcha pl-4">Resans Strategi</h2>
+                <h2 class="text-3xl font-bold mb-6 border-l-8 border-matcha pl-4">🌸 Resans Strategi</h2>
                 <p class="text-lg text-stone-600 mb-6 leading-relaxed">
                     Denna resa är skräddarsydd för att balansera kultur, natur och bekvämlighet. Vi använder <strong>Takkyubin</strong> för att resa utan bagage och fokuserar på <strong>tidiga morgonbesök</strong> för att uppleva tempel och trädgårdar i stillhet innan de stora folkmassorna anländer.
                 </p>
@@ -105,7 +125,7 @@
 
         <!-- SECTION: RESPLAN -->
         <section id="itinerary" class="mb-24 scroll-mt-20">
-            <h2 class="text-3xl font-bold mb-10 text-center uppercase tracking-tighter">Detaljerad Dag-för-Dag</h2>
+            <h2 class="text-3xl font-bold mb-10 text-center uppercase tracking-tighter">⛩️ Detaljerad Dag-för-Dag</h2>
             
             <div class="flex flex-col lg:flex-row gap-8">
                 <!-- Day List -->
@@ -128,7 +148,7 @@
 
         <!-- SECTION: BOENDE -->
         <section id="hotels" class="mb-24 scroll-mt-20">
-            <h2 class="text-3xl font-bold mb-4 border-l-8 border-momiji pl-4">Boende</h2>
+            <h2 class="text-3xl font-bold mb-4 border-l-8 border-momiji pl-4">🏮 Boende</h2>
             <p class="text-stone-500 mb-2">Utvalda för karaktär, läge och service (väskhantering). Boenden märkta <span class="font-bold text-matcha">✓ BOKAT</span> är bekräftade — resten är bara förslag.</p>
             <p class="mb-10"><a href="boende.html" class="text-momiji font-bold underline">Se full boendeöversikt med datum, stad och adress →</a></p>
 
@@ -137,36 +157,59 @@
             </div>
         </section>
 
-        <!-- SECTION: LOGISTIK -->
-        <section id="logistics" class="mb-24 scroll-mt-20 bg-ink p-10 rounded-3xl text-stone-bg">
-            <h2 class="text-3xl font-bold mb-10 text-center">Praktisk Information</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="space-y-4">
-                    <h3 class="text-xl font-bold text-matcha">📦 Takkyubin</h3>
-                    <p class="text-sm text-stone-400 leading-relaxed">
-                        Skicka väskorna mellan hotellen för ca 200 SEK/väska. Maxstorlek 160 cm (L+B+H). Fyll i fraktsedeln i receptionen. Väskan anländer dagen efter.
-                    </p>
-                </div>
-                <div class="space-y-4">
-                    <h3 class="text-xl font-bold text-matcha">🚅 Tåg & Biljetter</h3>
-                    <p class="text-sm text-stone-400 leading-relaxed">
-                        Köp Shinkansen-biljetter i appen <strong>Smart-EX</strong> (30 dagar innan). Lokaltrafik sköts enklast med ett digitalt <strong>Suica/Pasmo</strong> i er Apple/Google Wallet.
-                    </p>
-                </div>
-                <div class="space-y-4">
-                    <h3 class="text-xl font-bold text-matcha">📱 Appar</h3>
-                    <ul class="text-sm text-stone-400 space-y-2">
-                        <li>• <strong>Google Maps:</strong> Oumbärlig för tågplattformar.</li>
-                        <li>• <strong>Papago:</strong> Bästa översättningsappen.</li>
-                        <li>• <strong>Ubigi/Airalo:</strong> För eSIM-data.</li>
-                    </ul>
+        <!-- SECTION: BEHÖVER BOKAS -->
+        <section id="logistics" class="mb-24 scroll-mt-20 relative overflow-hidden rounded-3xl text-stone-bg p-10">
+            <svg class="absolute inset-0 w-full h-full" viewBox="0 0 800 300" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <defs>
+                    <linearGradient id="logisticsSky" x1="0" y1="0" x2="1" y2="1">
+                        <stop offset="0%" stop-color="#1c1917"/>
+                        <stop offset="100%" stop-color="#1f2e22"/>
+                    </linearGradient>
+                </defs>
+                <rect width="800" height="300" fill="url(#logisticsSky)"/>
+                <circle cx="120" cy="60" r="30" fill="#fafaf9" opacity="0.1"/>
+                <path d="M600 300 C 630 200, 700 180, 740 90" fill="none" stroke="#166534" stroke-width="10" opacity="0.35"/>
+                <circle cx="742" cy="86" r="10" fill="#9f1239" opacity="0.45"/>
+                <circle cx="700" cy="130" r="7" fill="#9f1239" opacity="0.35"/>
+                <circle cx="660" cy="180" r="6" fill="#9f1239" opacity="0.3"/>
+            </svg>
+            <div class="relative z-10">
+                <h2 class="text-3xl font-bold mb-2 text-center">🎫 Behöver Bokas</h2>
+                <p class="text-stone-400 text-center text-sm mb-10">Praktisk info och separata bokningar som lätt glöms bort.</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="space-y-4">
+                        <h3 class="text-xl font-bold text-matcha">📦 Takkyubin</h3>
+                        <p class="text-sm text-stone-400 leading-relaxed">
+                            Skicka väskorna mellan hotellen för ca 200 SEK/väska. Maxstorlek 160 cm (L+B+H). Fyll i fraktsedeln i receptionen. Väskan anländer dagen efter.
+                        </p>
+                    </div>
+                    <div class="space-y-4">
+                        <h3 class="text-xl font-bold text-matcha">🚅 Tåg & Biljetter</h3>
+                        <p class="text-sm text-stone-400 leading-relaxed">
+                            Köp Shinkansen-biljetter i appen <strong>Smart-EX</strong> (30 dagar innan). Lokaltrafik sköts enklast med ett digitalt <strong>Suica/Pasmo</strong> i er Apple/Google Wallet. Se <a href="transporter.html" class="underline text-momiji">Transporter</a> för hela resvägen.
+                        </p>
+                    </div>
+                    <div class="space-y-4">
+                        <h3 class="text-xl font-bold text-momiji">🎭 Geisha-show</h3>
+                        <p class="text-sm text-stone-400 leading-relaxed">
+                            Gion Corner, kvällen den 6 nov. Bokas separat från teplantagen — sök "Gion Corner" biljetter online i god tid.
+                        </p>
+                    </div>
+                    <div class="space-y-4">
+                        <h3 class="text-xl font-bold text-matcha">📱 Appar</h3>
+                        <ul class="text-sm text-stone-400 space-y-2">
+                            <li>• <strong>Google Maps:</strong> Oumbärlig för tågplattformar.</li>
+                            <li>• <strong>Papago:</strong> Bästa översättningsappen.</li>
+                            <li>• <strong>Ubigi/Airalo:</strong> För eSIM-data.</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- SECTION: BOKNINGSLISTA -->
         <section id="booking" class="mb-24 scroll-mt-20">
-            <h2 class="text-3xl font-bold mb-10 border-l-8 border-stone-800 pl-4">Online-bokningar (Tidslinje)</h2>
+            <h2 class="text-3xl font-bold mb-10 border-l-8 border-stone-800 pl-4">🗓️ Online-bokningar (Tidslinje)</h2>
             <div class="space-y-6">
                 <div class="bg-white p-6 rounded-2xl border border-stone-200 flex flex-col md:flex-row justify-between items-center gap-4">
                     <div>
