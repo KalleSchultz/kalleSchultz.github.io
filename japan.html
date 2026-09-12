@@ -86,31 +86,12 @@
     </nav>
 
     <!-- Hero -->
-    <header class="text-stone-bg py-24 relative overflow-hidden">
-        <svg class="absolute inset-0 w-full h-full" viewBox="0 0 800 300" preserveAspectRatio="xMidYMax slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <defs>
-                <linearGradient id="heroSky" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stop-color="#1c1917"/>
-                    <stop offset="100%" stop-color="#3f1220"/>
-                </linearGradient>
-            </defs>
-            <rect width="800" height="300" fill="url(#heroSky)"/>
-            <circle cx="660" cy="70" r="42" fill="#fafaf9" opacity="0.18"/>
-            <polygon points="240,270 420,60 600,270" fill="#0f0d0c" opacity="0.65"/>
-            <polygon points="370,115 420,60 470,115" fill="#fafaf9" opacity="0.15"/>
-            <g fill="none" stroke="#9f1239" stroke-width="7" opacity="0.45">
-                <line x1="150" y1="190" x2="150" y2="272"/>
-                <line x1="220" y1="190" x2="220" y2="272"/>
-                <line x1="133" y1="178" x2="237" y2="178"/>
-                <line x1="141" y1="198" x2="229" y2="198"/>
-            </g>
-        </svg>
-        <div class="absolute inset-0 opacity-10 flex items-center justify-center text-[250px] font-serif select-none pointer-events-none">
-            和
-        </div>
+    <header class="text-stone-bg py-32 relative overflow-hidden bg-ink">
+        <img src="img/hero-fuji-torii.jpg" alt="Torii-port med utsikt mot Fuji, omgiven av höstlöv" class="absolute inset-0 w-full h-full object-cover">
+        <div class="absolute inset-0 bg-gradient-to-t from-ink via-ink/70 to-ink/30"></div>
         <div class="max-w-7xl mx-auto px-4 text-center relative z-10">
             <h1 class="text-5xl md:text-7xl font-bold mb-6">En resa i harmoni</h1>
-            <p class="text-xl md:text-2xl text-stone-400 max-w-3xl mx-auto font-light leading-relaxed">
+            <p class="text-xl md:text-2xl text-stone-200 max-w-3xl mx-auto font-light leading-relaxed">
                 Utforska det traditionella Japans hjärta. Från Tokyos moderna snitt till Kyotos teplantager och Hakones helande källor.
             </p>
         </div>
@@ -149,7 +130,8 @@
         <!-- SECTION: HELGDAGAR & FESTIVALER -->
         <section id="festivals" class="mb-24 scroll-mt-20">
             <h2 class="text-3xl font-bold mb-4 border-l-8 border-matcha pl-4">🎏 Helgdagar & Festivaler</h2>
-            <p class="text-stone-500 mb-8">Under resan infaller en nationell helgdag samt flera traditionella festivaler som påverkar trängsel och upplevelser.</p>
+            <p class="text-stone-500 mb-6">Under resan infaller en nationell helgdag samt flera traditionella festivaler som påverkar trängsel och upplevelser.</p>
+            <img src="img/sakura-branch.jpg" alt="Körsbärsblom framför ett traditionellt japanskt tempel" class="w-full h-56 md:h-72 object-cover rounded-3xl mb-8 shadow-md">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                 <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm">
                     <h3 class="font-bold text-momiji mb-1">Bunka no Hi (Kulturdagen) — 3 nov</h3>
@@ -225,20 +207,8 @@
 
         <!-- SECTION: BEHÖVER BOKAS -->
         <section id="logistics" class="mb-24 scroll-mt-20 relative overflow-hidden rounded-3xl text-stone-bg p-10">
-            <svg class="absolute inset-0 w-full h-full" viewBox="0 0 800 300" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <defs>
-                    <linearGradient id="logisticsSky" x1="0" y1="0" x2="1" y2="1">
-                        <stop offset="0%" stop-color="#1c1917"/>
-                        <stop offset="100%" stop-color="#1f2e22"/>
-                    </linearGradient>
-                </defs>
-                <rect width="800" height="300" fill="url(#logisticsSky)"/>
-                <circle cx="120" cy="60" r="30" fill="#fafaf9" opacity="0.1"/>
-                <path d="M600 300 C 630 200, 700 180, 740 90" fill="none" stroke="#166534" stroke-width="10" opacity="0.35"/>
-                <circle cx="742" cy="86" r="10" fill="#9f1239" opacity="0.45"/>
-                <circle cx="700" cy="130" r="7" fill="#9f1239" opacity="0.35"/>
-                <circle cx="660" cy="180" r="6" fill="#9f1239" opacity="0.3"/>
-            </svg>
+            <img src="img/fushimi-torii-tunnel.jpg" alt="Tunnel av röda torii-portar" class="absolute inset-0 w-full h-full object-cover">
+            <div class="absolute inset-0 bg-ink/85"></div>
             <div class="relative z-10">
                 <h2 class="text-3xl font-bold mb-2 text-center">🎫 Behöver Bokas</h2>
                 <p class="text-stone-400 text-center text-sm mb-10">Praktisk info och separata bokningar som lätt glöms bort.</p>
