@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kalle Schultz — Builder. Intrapreneur. Art of the possible.</title>
-<meta name="description" content="Kalle Schultz, Associate at Good Accelerator and part of Advania ALT. Driving the AI evolution — from digital transformation and private cloud to AWS and today's AI journey.">
+<meta name="description" content="Kalle Schultz, part of Advania ALT and Associate at Good Accelerator. Driving the AI evolution — from digital transformation and private cloud to AWS and today's AI journey.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230b0e14'/%3E%3Ctext x='50' y='68' font-size='52' font-family='sans-serif' font-weight='700' fill='%233c6cff' text-anchor='middle'%3EKS%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -190,6 +190,26 @@
   .alt-section .sec-head p{color:var(--ink-text-dim);}
   .alt-grid{display:grid; grid-template-columns:1.15fr 0.85fr; gap:48px; align-items:center;}
   .alt-grid p{color:var(--ink-text-dim); font-size:1.06rem; margin:0 0 16px;}
+  .alt-photo{
+    width:100%; max-width:420px; aspect-ratio:4/3; object-fit:cover;
+    border-radius:var(--radius); border:1px solid var(--line-dark); margin-bottom:24px;
+  }
+  .alt-card .alt-link{
+    display:inline-flex; align-items:center; gap:6px; margin-top:20px;
+    font-size:0.92rem; font-weight:600; color:var(--accent); text-decoration:none;
+  }
+  .alt-card .alt-link:hover{color:#fff;}
+
+  .voice-block{
+    margin-top:56px; padding-top:48px; border-top:1px solid var(--line-dark);
+    display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:center;
+  }
+  .voice-block h3{color:#fff; font-size:1.3rem; margin-bottom:14px;}
+  .voice-block p{color:var(--ink-text-dim); font-size:0.98rem; margin:0 0 12px; line-height:1.65;}
+  .voice-player{width:100%; accent-color:var(--accent);}
+  @media (max-width:860px){
+    .voice-block{grid-template-columns:1fr; gap:20px;}
+  }
   .alt-card{
     background:var(--ink-soft); border:1px solid var(--line-dark); border-radius:var(--radius);
     padding:30px;
@@ -272,7 +292,7 @@
   <div class="wrap">
     <div class="hero-grid">
       <div>
-        <span class="eyebrow">Associate, Good Accelerator — Advania ALT</span>
+        <span class="eyebrow">Advania ALT — Associate, Good Accelerator</span>
         <h1>Builder at heart. <em>Art of the possible</em> in practice.</h1>
         <p class="lead">
           I've helped drive digital transformation since the early 2000s — from building one of
@@ -366,7 +386,7 @@
       </div>
       <div class="t-item reveal">
         <div class="t-year">Today</div>
-        <h3>Associate, Good Accelerator — Advania ALT</h3>
+        <h3>Advania ALT — Associate, Good Accelerator</h3>
         <p>I'm helping drive the AI evolution, where the work on ALT — Advania AI Layer Technology
           — is central. As part of Advania ALT, my mission is to build a practice that helps our
           customers approach AI in a completely new way.</p>
@@ -414,6 +434,7 @@
     </div>
     <div class="alt-grid">
       <div class="reveal">
+        <img class="alt-photo" src="img/kalle-office.jpg" alt="Kalle Schultz at the office">
         <p>
           As part of Advania ALT, my mission is to build a practice that helps our customers
           approach AI in a completely new way — not as a single project, but as a capability
@@ -434,6 +455,28 @@
           <li>Builds AI capability across the whole organisation, not just in individual projects</li>
           <li>Connects leadership and change management to the technical journey</li>
         </ul>
+        <a href="https://www.advania.se/en/ai-innovation/advania-alt" target="_blank" rel="noopener" class="alt-link">Read more about Advania ALT ↗</a>
+      </div>
+    </div>
+
+    <div class="voice-block reveal">
+      <div>
+        <h3>I cloned my own voice with AI</h3>
+        <p>
+          The introduction to ALT you can listen to here is narrated by an AI clone of my own
+          voice. It took minutes to create, not a studio session — a small, personal example of
+          how close AI has brought us to fully synthetic media.
+        </p>
+        <p>
+          Your voice today. Your own avatar tomorrow — that's already possible too, just still a
+          little too expensive for everyday use. That won't last long.
+        </p>
+      </div>
+      <div>
+        <audio class="voice-player" controls preload="none">
+          <source src="audio/alt-intro.mp3" type="audio/mpeg">
+          Your browser does not support the audio element.
+        </audio>
       </div>
     </div>
   </div>
