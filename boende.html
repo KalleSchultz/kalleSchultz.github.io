@@ -82,7 +82,7 @@
         <div class="max-w-5xl mx-auto px-4 text-center relative z-10">
             <h1 class="text-4xl md:text-5xl font-bold mb-4">🏮 Boendeöversikt</h1>
             <p class="text-lg text-stone-200 max-w-2xl mx-auto font-light leading-relaxed">
-                Natt för natt, 1–14 november. Bokade boenden är märkta grönt — röda rader saknar fortfarande boende.
+                Natt för natt, 1–14 november. Alla nätter är nu bokade.
             </p>
         </div>
     </header>
@@ -124,16 +124,9 @@
         </section>
 
         <section id="gaps" class="mb-16">
-            <h2 class="text-2xl font-bold mb-4 border-l-8 border-momiji pl-4">Saknas: boende behöver bokas</h2>
-            <div class="space-y-4">
-                <div class="bg-momiji/5 border border-momiji/30 p-6 rounded-2xl">
-                    <h3 class="font-bold text-momiji">2–4 november · Kanazawa (enligt resplanen)</h3>
-                    <p class="text-sm text-stone-600 mt-1">2 nätter saknar bokat boende. Förslag: UAN Kanazawa, KUMU Kanazawa eller Kanazawa Hakuchoro — men inget är bokat än.</p>
-                </div>
-                <div class="bg-momiji/5 border border-momiji/30 p-6 rounded-2xl">
-                    <h3 class="font-bold text-momiji">8–10 november · Hakone</h3>
-                    <p class="text-sm text-stone-600 mt-1">2 nätter saknar bokat boende (checka in 8 nov, ut 10 nov). Förslag: Mount View Hakone, Hakone Yutowa eller Senkyoro (Ryokan) — men inget är bokat än.</p>
-                </div>
+            <div class="bg-matcha/5 border border-matcha/30 p-6 rounded-2xl text-center">
+                <h2 class="font-bold text-matcha text-lg">✓ Alla nätter är bokade!</h2>
+                <p class="text-sm text-stone-600 mt-1">1–14 november har nu bokat boende hela vägen — inga luckor kvar.</p>
             </div>
         </section>
 
@@ -148,14 +141,14 @@
         // Varje natt 1–13 nov (utcheckning 14 nov). booked=false markerar saknat boende.
         const nights = [
             { date: "1 nov", city: "Tokyo", name: "DoubleTree by Hilton Tokyo", address: "3-7-3 Ariake, Koto-ku, Tokyo 135-0063, Japan", booked: true },
-            { date: "2 nov", city: "Kanazawa (enligt resplan)", name: "—", address: "—", booked: false },
-            { date: "3 nov", city: "Kanazawa (enligt resplan)", name: "—", address: "—", booked: false },
+            { date: "2 nov", city: "Kanazawa", name: "UAN Kanazawa", address: "Oyamamachi 6-30, Kanazawa, 920-0918, Japan", booked: true },
+            { date: "3 nov", city: "Kanazawa", name: "UAN Kanazawa", address: "Oyamamachi 6-30, Kanazawa, 920-0918, Japan", booked: true },
             { date: "4 nov", city: "Kyoto", name: "Hilton Garden Inn Kyoto", address: "397 Gojokarasumacho, Shimogyo Ward, Kyoto 600-8418, Japan", booked: true },
             { date: "5 nov", city: "Kyoto", name: "Airbnb i Kyoto", address: "10 Imakumano Naginomorichō 3, Kyoto, Kyoto 605-0971, Japan", booked: true },
             { date: "6 nov", city: "Kyoto", name: "Airbnb i Kyoto", address: "10 Imakumano Naginomorichō 3, Kyoto, Kyoto 605-0971, Japan", booked: true },
             { date: "7 nov", city: "Kyoto", name: "Airbnb i Kyoto", address: "10 Imakumano Naginomorichō 3, Kyoto, Kyoto 605-0971, Japan", booked: true },
-            { date: "8 nov", city: "Hakone (enligt resplan)", name: "—", address: "—", booked: false },
-            { date: "9 nov", city: "Hakone (enligt resplan)", name: "—", address: "—", booked: false },
+            { date: "8 nov", city: "Hakone", name: "Mount View Hakone", address: "Sengokuhara 885, Hakone, 250-0631, Japan", booked: true },
+            { date: "9 nov", city: "Hakone", name: "Mount View Hakone", address: "Sengokuhara 885, Hakone, 250-0631, Japan", booked: true },
             { date: "10 nov", city: "Tokyo, Taitō-ku", name: "Airbnb i Taitō-ku", address: "1-chōme-15-4 Senzoku, Taito City, Tokyo 111-0031, Japan", booked: true },
             { date: "11 nov", city: "Tokyo, Taitō-ku", name: "Airbnb i Taitō-ku", address: "1-chōme-15-4 Senzoku, Taito City, Tokyo 111-0031, Japan", booked: true },
             { date: "12 nov", city: "Tokyo, Taitō-ku", name: "Airbnb i Taitō-ku", address: "1-chōme-15-4 Senzoku, Taito City, Tokyo 111-0031, Japan", booked: true },
