@@ -142,14 +142,28 @@
   /* ABOUT */
   .about-grid{display:grid; grid-template-columns:1.1fr 0.9fr; gap:56px; align-items:start;}
   .about-grid p{font-size:1.08rem; color:var(--body-text); margin:0 0 18px;}
-  .pillars{display:grid; gap:16px;}
+  .pillars{display:grid; gap:14px;}
   .pillar{
+    display:flex; gap:18px; align-items:flex-start;
     background:#fff; border:1px solid var(--line); border-radius:var(--radius);
-    padding:20px 22px;
+    padding:22px 24px;
+    transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
   }
-  .pillar .n{font-family:'Space Grotesk',sans-serif; font-weight:700; color:var(--accent); font-size:0.85rem;}
-  .pillar h4{margin:6px 0 6px; font-size:1.02rem; font-family:'Space Grotesk',sans-serif; color:var(--ink);}
-  .pillar p{margin:0; font-size:0.94rem; color:var(--body-text-dim);}
+  .pillar:hover{
+    transform:translateY(-3px);
+    box-shadow:0 16px 32px -12px rgba(11,14,20,0.14);
+    border-color:transparent;
+  }
+  .pillar-icon{
+    width:46px; height:46px; border-radius:13px; flex-shrink:0;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .pillar-icon svg{width:22px; height:22px;}
+  .pillar-icon.blue{background:var(--accent-soft); color:var(--accent);}
+  .pillar-icon.amber{background:rgba(255,176,32,0.18); color:#b3760a;}
+  .pillar-icon.ink{background:var(--ink); color:#fff;}
+  .pillar h4{margin:2px 0 5px; font-size:1.05rem; font-family:'Space Grotesk',sans-serif; color:var(--ink);}
+  .pillar p{margin:0; font-size:0.92rem; color:var(--body-text-dim); line-height:1.5;}
 
   /* TIMELINE */
   .timeline{position:relative; margin-top:8px;}
@@ -199,6 +213,13 @@
     font-size:0.92rem; font-weight:600; color:var(--accent); text-decoration:none;
   }
   .alt-card .alt-link:hover{color:#fff;}
+
+  .sovereignty-block{
+    margin-top:56px; padding-top:48px; border-top:1px solid var(--line-dark);
+    max-width:78ch;
+  }
+  .sovereignty-block h3{color:#fff; font-size:1.4rem; margin-bottom:16px;}
+  .sovereignty-block p{color:var(--ink-text-dim); font-size:1.03rem; line-height:1.75; margin:0 0 16px;}
 
   .voice-block{
     margin-top:56px; padding-top:48px; border-top:1px solid var(--line-dark);
@@ -338,19 +359,31 @@
       </div>
       <div class="pillars reveal">
         <div class="pillar">
-          <span class="n">01</span>
-          <h4>Builder</h4>
-          <p>From private cloud to AWS to AI — I build what doesn't exist yet.</p>
+          <span class="pillar-icon blue">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z"/><path d="M12 12v9M12 12l8-4.5M12 12L4 7.5"/></svg>
+          </span>
+          <div>
+            <h4>Builder</h4>
+            <p>From private cloud to AWS to AI — I build what doesn't exist yet.</p>
+          </div>
         </div>
         <div class="pillar">
-          <span class="n">02</span>
-          <h4>Intrapreneur</h4>
-          <p>New things are often best created from within, with existing scale and resources.</p>
+          <span class="pillar-icon amber">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"><path d="M12 21v-8"/><path d="M12 13c0-4-3-6-7-6 0 4 3 6 7 6z"/><path d="M12 13c0-5 4-8 8-8 0 5-4 8-8 8z"/></svg>
+          </span>
+          <div>
+            <h4>Intrapreneur</h4>
+            <p>New things are often best created from within, with existing scale and resources.</p>
+          </div>
         </div>
         <div class="pillar">
-          <span class="n">03</span>
-          <h4>Art of the possible</h4>
-          <p>I find the path that's actually possible to walk — not the perfect one that never happens.</p>
+          <span class="pillar-icon ink">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2.2 5.2-5.2 2.2 2.2-5.2 5.2-2.2z" fill="currentColor" stroke="none"/></svg>
+          </span>
+          <div>
+            <h4>Art of the possible</h4>
+            <p>I find the path that's actually possible to walk — not the perfect one that never happens.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -460,6 +493,25 @@
       </div>
     </div>
 
+    <div class="sovereignty-block reveal">
+      <h3>Why sovereignty matters now</h3>
+      <p>
+        One theme has only grown more urgent as AI has moved from pilot to production:
+        sovereignty — who actually controls the data, the models, and the infrastructure your AI
+        runs on. For Nordic and European organisations, that's no longer a compliance footnote.
+        It's a board-level question about resilience, trust, and independence from any single
+        vendor, cloud, or jurisdiction.
+      </p>
+      <p>
+        Having built one of the largest private clouds in Northern Europe, and later scaled
+        AWS's hyperscale infrastructure, I've stood on both sides of that trade-off — and it
+        shapes how we think about ALT. Sovereignty is built into ALT from day one, not bolted on
+        afterwards: we give our customers real choice over where their data and models live —
+        sovereign cloud, on-premise, or hyperscaler — so they can move at the speed AI demands
+        without giving up control of what matters most.
+      </p>
+    </div>
+
     <div class="voice-block reveal">
       <div>
         <h3>I cloned my own voice with AI</h3>
@@ -508,7 +560,7 @@
       <h2>Get in touch.</h2>
     </div>
     <div class="contact-links">
-      <a href="mailto:Kalle.schultz12@icloud.com" class="btn btn-primary">Kalle.schultz12@icloud.com</a>
+      <a href="mailto:Kalle.schultz12@icloud.com" class="btn btn-primary">Email me</a>
       <a href="https://linkedin.com/in/kalleschultz" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn ↗</a>
     </div>
   </div>
