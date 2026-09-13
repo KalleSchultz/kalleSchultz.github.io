@@ -106,6 +106,20 @@
   .body .byline{
     margin-top:32px; padding-top:22px; border-top:1px solid var(--line-dark);
     font-size:0.9rem; color:var(--ink-text-dim);
+    display:flex; align-items:center; justify-content:space-between; gap:20px; flex-wrap:wrap;
+  }
+  .body .byline .ga-logo{
+    text-decoration:none; display:inline-flex; align-items:center; opacity:0.9;
+    transition:opacity .15s ease;
+  }
+  .body .byline .ga-logo:hover{opacity:1;}
+  .body .byline .ga-logo img{height:28px; width:auto; display:block;}
+  .body figure{
+    margin:32px 0; background:#fff; border-radius:var(--radius); padding:24px;
+  }
+  .body figure img{display:block; width:100%; border-radius:8px;}
+  .body figure figcaption{
+    margin-top:14px; font-size:0.9rem; color:#6b6759; text-align:center;
   }
 
   footer{
@@ -182,6 +196,11 @@
         together, we risk building teams that are locally efficient and globally slow.
       </p>
 
+      <figure>
+        <img src="img/school-of-fish-diagram.jpg" alt="Diagram showing a scattered group of fish organising into one coordinated school, labelled Business Power, Action Power, People Power">
+        <figcaption>Scattered individuals vs. a school that moves as one — the shift we're after.</figcaption>
+      </figure>
+
       <h3>Three risks we named, straight out of the room</h3>
       <ul>
         <li><strong>Business power</strong> — Strategy stays on paper. Everything looks well
@@ -204,8 +223,11 @@
         <em>how do you lead a school of fish when AI is in the water?</em></p>
 
       <p class="byline">
-        With Anna Philipson, from a recent Good Accelerator leadership workshop on AI and
-        leadership in practice — the next session runs this autumn.
+        <span>With Anna Philipson, from a recent Good Accelerator leadership workshop on AI and
+          leadership in practice — the next session runs this autumn.</span>
+        <a href="https://www.goodaccelerator.com/om-oss" target="_blank" rel="noopener" class="ga-logo">
+          <img src="img/good-accelerator-logo.png" alt="Good Accelerator">
+        </a>
       </p>
     </div>
   </div>
