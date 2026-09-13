@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insights — Kalle Schultz</title>
+<meta name="description" content="Leadership in the age of AI, and why data and AI sovereignty matter now — two long-form pieces by Kalle Schultz.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230b0e14'/%3E%3Ctext x='50' y='68' font-size='52' font-family='sans-serif' font-weight='700' fill='%233c6cff' text-anchor='middle'%3EKS%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0b0e14;
+    --ink-soft:#121722;
+    --ink-text:#e9e6dd;
+    --ink-text-dim:#9aa1af;
+    --accent:#3c6cff;
+    --line-dark:#232a38;
+    --radius:18px;
+    --maxw:840px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--ink);
+    color:var(--ink-text);
+    font-family:'Inter',system-ui,-apple-system,sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.display{
+    font-family:'Space Grotesk',system-ui,sans-serif;
+    font-weight:700;
+    letter-spacing:-0.02em;
+    margin:0;
+  }
+  img{max-width:100%;}
+  a{color:inherit;}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding-inline:24px;}
+  section{padding-block:clamp(56px,9vw,104px);}
+
+  header.nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(11,14,20,0.86);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line-dark);
+  }
+  .nav-inner{
+    max-width:var(--maxw); margin:0 auto; padding:16px 24px;
+    display:flex; align-items:center; justify-content:space-between; gap:16px;
+  }
+  .brand{
+    display:flex; align-items:center; gap:10px;
+    font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:1.05rem;
+    text-decoration:none; color:#fff;
+  }
+  .brand .mark{
+    width:34px; height:34px; border-radius:9px; background:#fff;
+    color:var(--accent); display:flex; align-items:center; justify-content:center;
+    font-size:0.9rem; font-weight:700;
+  }
+  .back-link{
+    text-decoration:none; color:var(--ink-text-dim); font-size:0.92rem; font-weight:600;
+    display:inline-flex; align-items:center; gap:6px; transition:color .15s ease;
+  }
+  .back-link:hover{color:#fff;}
+
+  .page-hero{padding-block:clamp(56px,10vw,96px) clamp(24px,4vw,40px);}
+  .page-hero .kicker{
+    font-size:0.82rem; font-weight:600; letter-spacing:0.08em; text-transform:uppercase;
+    color:var(--accent); margin-bottom:16px; display:block;
+  }
+  .page-hero h1{font-size:clamp(2rem,4.4vw,2.9rem); color:#fff; line-height:1.1; max-width:20ch;}
+  .page-hero p{margin-top:18px; color:var(--ink-text-dim); font-size:1.08rem; max-width:60ch;}
+  .page-hero nav.toc{margin-top:32px; display:flex; gap:24px; flex-wrap:wrap;}
+  .page-hero nav.toc a{
+    text-decoration:none; color:var(--ink-text-dim); font-size:0.92rem; font-weight:600;
+    border-bottom:1px solid var(--line-dark); padding-bottom:2px;
+  }
+  .page-hero nav.toc a:hover{color:#fff; border-color:var(--accent);}
+
+  .article{border-top:1px solid var(--line-dark); padding-block:clamp(48px,8vw,88px);}
+  .article .kicker{
+    font-size:0.82rem; font-weight:600; letter-spacing:0.08em; text-transform:uppercase;
+    color:var(--accent); margin-bottom:14px; display:block;
+  }
+  .article > .wrap > h2{font-size:clamp(1.6rem,3vw,2.2rem); color:#fff; line-height:1.15; max-width:20ch;}
+  .article .dek{margin-top:14px; color:var(--ink-text-dim); font-size:1.05rem; max-width:60ch;}
+  .article .body{margin-top:36px;}
+
+  .body h3{font-size:1.3rem; color:#fff; margin:34px 0 14px;}
+  .body h3:first-child{margin-top:0;}
+  .body p{font-size:1.05rem; line-height:1.8; color:var(--ink-text-dim); margin:0 0 18px;}
+  .body ul{list-style:none; padding:0; margin:0 0 22px; display:grid; gap:14px;}
+  .body ul li{padding-left:24px; position:relative; font-size:1rem; color:var(--ink-text-dim); line-height:1.6;}
+  .body ul li::before{content:"→"; position:absolute; left:0; color:var(--accent); font-weight:700;}
+  .body ul li strong{color:#fff;}
+  .body .pull{
+    font-family:'Space Grotesk',sans-serif; font-size:1.45rem; font-weight:700;
+    color:#fff; margin:36px 0; line-height:1.45;
+    padding-left:22px; border-left:4px solid var(--accent);
+  }
+  .body .pull em{font-style:normal; color:var(--accent);}
+  .body .byline{
+    margin-top:32px; padding-top:22px; border-top:1px solid var(--line-dark);
+    font-size:0.9rem; color:var(--ink-text-dim);
+  }
+
+  footer{
+    padding:36px 0; text-align:center; color:var(--ink-text-dim); font-size:0.85rem;
+    border-top:1px solid var(--line-dark);
+  }
+  footer a{color:var(--accent); text-decoration:none; font-weight:600;}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="cv.html#top" class="brand"><span class="mark">KS</span> Kalle Schultz</a>
+    <a href="cv.html" class="back-link">← Back to profile</a>
+  </div>
+</header>
+
+<div class="page-hero wrap">
+  <span class="kicker">Insights</span>
+  <h1>Leadership, AI, and sovereignty — the long version</h1>
+  <p>
+    Two longer pieces that didn't fit on the profile page: notes from a leadership workshop on
+    AI, and why sovereignty has become a board-level question.
+  </p>
+  <nav class="toc">
+    <a href="#workshop">When AI does the work for you — who leads?</a>
+    <a href="#sovereignty">Why sovereignty matters now</a>
+  </nav>
+</div>
+
+<article class="article" id="workshop">
+  <div class="wrap">
+    <span class="kicker">Leadership &amp; AI</span>
+    <h2>When AI does the work for you — who leads?</h2>
+    <p class="dek">Notes from a recent leadership workshop I ran with Anna Philipson for the Good
+      Accelerator network.</p>
+
+    <div class="body">
+      <p>
+        We recently held a session with a room full of senior leaders. Not a seminar. Not a
+        lecture. A conversation — where experience was given room to speak.
+      </p>
+      <p>
+        One thing struck me harder than expected. Most people in the room had already started
+        using AI. Many were impressed. Some were worried. But almost everyone talked about AI as
+        a tool for personal efficiency — faster emails, better material, shorter meetings.
+        That's not wrong. It's just not enough.
+      </p>
+
+      <h3>The polished material isn't the problem. It's the asset.</h3>
+      <p>
+        During the workshop we used a case: you're handed a decision brief. It's well-structured,
+        logical, easy to follow. It covers every angle. How do you know if it's actually good?
+        How do you know if it's workable? How do you act on it?
+      </p>
+      <p>
+        The silence in the room said more than the answers did. Because the problem doesn't start
+        when the material is bad — it starts when it looks so complete that no one dares question
+        it. Your job as a leader isn't to distrust AI. It's to be the one who asks the questions
+        AI can't ask itself.
+      </p>
+
+      <h3>Growth isn't built in personal efficiency. It's built in what happens between people.</h3>
+      <p>
+        This is where I think most organisations get stuck. The AI journey starts with the
+        individual — and often stops there. But customer value is created along a journey.
+        Growth lives in how teams collaborate, how decisions get made together, how an
+        organisation moves fast as one — like a school of fish, not a group of faster individuals
+        pulling in different directions.
+      </p>
+      <p>
+        If AI only raises individual pace without strengthening how the organisation moves
+        together, we risk building teams that are locally efficient and globally slow.
+      </p>
+
+      <h3>Three risks we named, straight out of the room</h3>
+      <ul>
+        <li><strong>Business power</strong> — Strategy stays on paper. Everything looks well
+          thought through, but the organisation isn't moving with it.</li>
+        <li><strong>Action power</strong> — Agility drops. Teams stop training themselves to move
+          fast, because AI does it instead.</li>
+        <li><strong>People power</strong> — Collective strength weakens. Trust and culture are
+          built between people, in the room, not inside an algorithm.</li>
+      </ul>
+
+      <h3>What can you never hand to an algorithm?</h3>
+      <p>
+        That was our closing question to the group. The answers came fast: presence and
+        relationships, direction and meaning, judgement in the unclear, moral courage. Those
+        aren't soft values — they're the core of leadership, and what decides whether AI actually
+        creates value in your organisation, or just impresses you on your laptop.
+      </p>
+
+      <p class="pull">The question we're carrying into autumn isn't "are we using AI?" It's:
+        <em>how do you lead a school of fish when AI is in the water?</em></p>
+
+      <p class="byline">
+        With Anna Philipson, from a recent Good Accelerator leadership workshop on AI and
+        leadership in practice — the next session runs this autumn.
+      </p>
+    </div>
+  </div>
+</article>
+
+<article class="article" id="sovereignty">
+  <div class="wrap">
+    <span class="kicker">AI &amp; ALT</span>
+    <h2>Why sovereignty matters now</h2>
+    <p class="dek">Who actually controls the data, the models, and the infrastructure your AI
+      runs on.</p>
+
+    <div class="body">
+      <p>
+        One theme has only grown more urgent as AI has moved from pilot to production:
+        sovereignty — who actually controls the data, the models, and the infrastructure your AI
+        runs on. For Nordic and European organisations, that's no longer a compliance footnote.
+        It's a board-level question about resilience, trust, and independence from any single
+        vendor, cloud, or jurisdiction.
+      </p>
+      <p>
+        Having built one of the largest private clouds in Northern Europe, and later scaled
+        AWS's hyperscale infrastructure, I've stood on both sides of that trade-off — and it
+        shapes how we think about ALT. Sovereignty is built into ALT from day one, not bolted on
+        afterwards: we give our customers real choice over where their data and models live —
+        sovereign cloud, on-premise, or hyperscaler — so they can move at the speed AI demands
+        without giving up control of what matters most.
+      </p>
+    </div>
+  </div>
+</article>
+
+<footer>
+  <div class="wrap">
+    <a href="cv.html">← Back to Kalle Schultz's profile</a>
+  </div>
+</footer>
+
+</body>
+</html>
