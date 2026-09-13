@@ -49,7 +49,9 @@
                     <a href="boende.html" class="hover:text-momiji transition">Boendeöversikt</a>
                     <a href="restauranger.html" class="hover:text-momiji transition">Restauranger</a>
                     <a href="transporter.html" class="text-momiji transition">Transporter</a>
+                    <a href="lankar.html" class="hover:text-momiji transition">Bra Länkar</a>
                     <a href="japan.html#logistics" class="hover:text-momiji transition">Bokningar</a>
+                    <a href="japan.html#before-departure" class="hover:text-momiji transition">Innan Avresa</a>
                 </div>
                 <button id="mobile-menu-btn" class="md:hidden flex items-center justify-center w-10 h-10 -mr-2" aria-label="Öppna meny" aria-expanded="false" aria-controls="mobile-menu" onclick="const m=document.getElementById('mobile-menu');const exp=this.getAttribute('aria-expanded')==='true';this.setAttribute('aria-expanded',String(!exp));m.style.display=exp?'none':'flex';">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
@@ -62,7 +64,9 @@
                 <a href="boende.html" class="py-2 border-b border-stone-100 hover:text-momiji transition">Boendeöversikt</a>
                 <a href="restauranger.html" class="py-2 border-b border-stone-100 hover:text-momiji transition">Restauranger</a>
                 <a href="transporter.html" class="py-2 border-b border-stone-100 text-momiji transition">Transporter</a>
-                <a href="japan.html#logistics" class="py-2 hover:text-momiji transition">Bokningar</a>
+                <a href="lankar.html" class="py-2 border-b border-stone-100 hover:text-momiji transition">Bra Länkar</a>
+                <a href="japan.html#logistics" class="py-2 border-b border-stone-100 hover:text-momiji transition">Bokningar</a>
+                <a href="japan.html#before-departure" class="py-2 hover:text-momiji transition">Innan Avresa</a>
             </div>
         </div>
     </nav>
@@ -121,8 +125,13 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm space-y-2">
                     <h3 class="font-bold text-matcha">🎫 Smart-EX</h3>
-                    <p class="text-sm text-stone-600">Boka Shinkansen-biljetter (Tokyo–Kanazawa, Kanazawa–Kyoto, Kyoto–Odawara m.fl.) ca 30 dagar innan avresa. Reservera sittplats med bagageutrymme om ni har stora väskor.</p>
+                    <p class="text-sm text-stone-600">Boka Shinkansen-biljetter (Kanazawa–Kyoto, Kyoto–Odawara m.fl.) ca 30 dagar innan avresa. Reservera sittplats med bagageutrymme om ni har stora väskor. <strong>OBS:</strong> täcker inte Tokyo–Kanazawa (Hokuriku Shinkansen) — den bokas via JR-EAST (se länk nedan).</p>
                     <a href="https://smart-ex.jp/en/" target="_blank" class="inline-block text-xs font-bold text-momiji underline">Smart-EX Officiell →</a>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm space-y-2">
+                    <h3 class="font-bold text-matcha">🎫 JR-EAST (eki-net)</h3>
+                    <p class="text-sm text-stone-600">Bokar Hokuriku Shinkansen (Tokyo–Kanazawa, Kagayaki/Hakutaka) — täcks inte av Smart-EX. Separat bokningssystem.</p>
+                    <a href="https://www.eki-net.com/jreast-train-reservation/Top/Index" target="_blank" class="inline-block text-xs font-bold text-momiji underline">JR-EAST Train Reservation →</a>
                 </div>
                 <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm space-y-2">
                     <h3 class="font-bold text-matcha">💳 Suica / Pasmo</h3>
@@ -145,7 +154,7 @@
     <script>
         const legs = [
             { date: "1 nov", route: "Haneda (HND) → Ariake, Koto-ku", mode: "Tokyo Monorail + tåg / taxi", note: "Ankomst. Boende: DoubleTree by Hilton Tokyo.", missing: false },
-            { date: "2 nov", route: "Tokyo → Kanazawa", mode: "Hokuriku Shinkansen (~2,5h, ca 1 100 SEK)", note: "Boka i Smart-EX. Fönsterplats vänster för bergsvyer.", missing: false },
+            { date: "2 nov", route: "Tokyo → Kanazawa", mode: "Hokuriku Shinkansen (~2,5h, ca 1 100 SEK)", note: "Boka via JR-EAST (eki-net), inte Smart-EX. Fönsterplats vänster för bergsvyer.", missing: false },
             { date: "3 nov", route: "I Kanazawa", mode: "Promenad / lokal buss", note: "Ingen långdistans denna dag. Nationell helgdag (Bunka no Hi).", missing: false },
             { date: "4 nov", route: "Kanazawa → Kyoto", mode: "Limited Express Thunderbird (~2h, ca 550 SEK)", note: "Check-in Hilton Garden Inn Kyoto. Kväll: Gion Odori.", missing: false },
             { date: "5 nov", route: "Kyoto → Wazuka → Kyoto", mode: "Buss/tåg (heldagstur, ca 2 450 SEK)", note: "Retur samma kväll, incheckning Airbnb Kyoto.", missing: false },
