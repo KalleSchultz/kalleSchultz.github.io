@@ -192,7 +192,7 @@
         <!-- SECTION: BOENDE -->
         <section id="hotels" class="mb-24 scroll-mt-20">
             <h2 class="text-3xl font-bold mb-4 border-l-8 border-momiji pl-4">🏮 Boende</h2>
-            <p class="text-stone-500 mb-2">Utvalda för karaktär, läge och service (väskhantering). Boenden märkta <span class="font-bold text-matcha">✓ BOKAT</span> är bekräftade — resten är bara förslag.</p>
+            <p class="text-stone-500 mb-2">Utvalda för karaktär, läge och service (väskhantering). Alla boenden nedan är <span class="font-bold text-matcha">✓ BOKAT</span> — hela resan har nu bekräftat boende.</p>
             <p class="mb-10"><a href="boende.html" class="text-momiji font-bold underline">Se full boendeöversikt med datum, stad och adress →</a></p>
 
             <div id="hotel-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -227,20 +227,25 @@
                         <span class="block text-xs font-bold text-matcha uppercase mb-1">10–14 nov</span>
                         <span class="text-sm font-bold">Airbnb i Taitō-ku, Tokyo</span>
                     </div>
+                    <div class="bg-white/10 border border-matcha/40 rounded-2xl p-4">
+                        <span class="block text-xs font-bold text-matcha uppercase mb-1">2–4 nov</span>
+                        <span class="text-sm font-bold">UAN Kanazawa</span>
+                    </div>
+                    <div class="bg-white/10 border border-matcha/40 rounded-2xl p-4">
+                        <span class="block text-xs font-bold text-matcha uppercase mb-1">8–10 nov</span>
+                        <span class="text-sm font-bold">Mount View Hakone</span>
+                    </div>
+                    <div class="bg-white/10 border border-matcha/40 rounded-2xl p-4">
+                        <span class="block text-xs font-bold text-matcha uppercase mb-1">7 nov, kl 13:00</span>
+                        <span class="text-sm font-bold">Geisha & Maiko-show i Zen-tempel</span>
+                        <span class="block text-xs text-stone-400 mt-1">JTB-T146104222 · 4 vuxna</span>
+                    </div>
                 </div>
-                <p class="text-xs text-stone-400 mb-12">Se <a href="boende.html" class="underline text-momiji">boendeöversikten</a> för adresser och vilka nätter som fortfarande saknar boende.</p>
+                <p class="text-xs text-stone-400 mb-12">✓ Alla nätter 1–14 nov har nu bokat boende. Se <a href="boende.html" class="underline text-momiji">boendeöversikten</a> för adresser.</p>
 
                 <!-- UNDERKATEGORI: BEHÖVER BOKAS (TIDSLINJE) -->
                 <h3 class="text-lg font-bold uppercase tracking-widest text-momiji mb-4">🗓️ Behöver bokas (tidslinje)</h3>
                 <div class="space-y-4 mb-12">
-                    <div class="bg-white text-ink p-6 rounded-2xl flex flex-col md:flex-row justify-between items-center gap-4">
-                        <div>
-                            <span class="bg-momiji text-white text-xs font-bold px-2 py-1 rounded">6 MÅN INNAN</span>
-                            <h4 class="font-bold text-lg mt-1">Hakone Ryokan & Kanazawa Boende</h4>
-                            <p class="text-sm text-stone-500">Boka de mest populära Onsen-hotellen innan de tar slut — se <a href="boende.html" class="underline font-bold">boendeöversikten</a> för vilka nätter som saknar boende.</p>
-                        </div>
-                        <a href="https://www.booking.com" target="_blank" class="bg-ink text-white px-6 py-2 rounded-full font-bold text-sm hover:bg-momiji transition shrink-0">Gå till Booking.com</a>
-                    </div>
                     <div class="bg-white text-ink p-6 rounded-2xl flex flex-col md:flex-row justify-between items-center gap-4">
                         <div>
                             <span class="bg-matcha text-white text-xs font-bold px-2 py-1 rounded">3 MÅN INNAN</span>
@@ -360,12 +365,8 @@
             { city: "Tokyo", dates: "1–2 nov", name: "DoubleTree by Hilton Tokyo", type: "Hotell", booked: true, desc: "Bekväm start på resan nära Haneda.", link: "https://www.hilton.com/en/doubletree/" },
             { city: "Kyoto", dates: "4–5 nov", name: "Hilton Garden Inn Kyoto", type: "Hotell", booked: true, desc: "Pålitlig standard inför övergången till Airbnb-boendet.", link: "https://www.hilton.com/en/hilton-garden-inn/" },
             { city: "Kyoto", dates: "5–8 nov", name: "Airbnb i Kyoto", type: "Airbnb", booked: true, desc: "Eget boende mitt i Kyoto för den kulturtäta delen av resan.", link: "https://www.airbnb.se/rooms/1483717915831012225?unique_share_id=50c7c647-c8aa-48ec-a603-688d83e9d00a&viralityEntryPoint=1&s=76" },
-            { city: "Kanazawa", name: "UAN Kanazawa", type: "Kulturhotell", booked: false, desc: "Förslag (~1 500 SEK/natt) — inget boende bokat än för Kanazawa (2–4 nov). Mycket vacker modern-traditionell inredning.", link: "https://www.uan-kanazawa.com/en/" },
-            { city: "Kanazawa", name: "KUMU Kanazawa", type: "Designhotell", booked: false, desc: "Förslag (~1 200 SEK/natt) — minimalistisk design med fokus på te-kultur. Sök namnet för bokning.", link: null },
-            { city: "Kanazawa", name: "Kanazawa Hakuchoro", type: "Klassisk lyx", booked: false, desc: "Förslag (~1 700 SEK/natt) — klassisk lyx nära Kenrokuen. Sök namnet för bokning.", link: null },
-            { city: "Hakone", name: "Mount View Hakone", type: "Ryokan", booked: false, desc: "Förslag (~3 500 SEK/par inkl. middag) — inget boende bokat än för Hakone (8–10 nov). Berömt för sitt mjölkvita onsen-vatten.", link: "https://www.mvhakone.jp/en/" },
-            { city: "Hakone", name: "Hakone Yutowa", type: "Ryokan", booked: false, desc: "Förslag (~3 800 SEK/par inkl. middag) — modern och bekväm onsen-vistelse. Sök namnet för bokning.", link: null },
-            { city: "Hakone", name: "Senkyoro", type: "Ryokan", booked: false, desc: "Förslag (~5 500 SEK/par inkl. middag) — klassisk traditionell lyx för den ultimata upplevelsen. Sök namnet för bokning.", link: null },
+            { city: "Kanazawa", dates: "2–4 nov", name: "UAN Kanazawa", type: "Kulturhotell", booked: true, desc: "Mycket vacker modern-traditionell inredning.", link: "https://www.uan-kanazawa.com/en/" },
+            { city: "Hakone", dates: "8–10 nov", name: "Mount View Hakone", type: "Ryokan", booked: true, desc: "Berömt för sitt mjölkvita onsen-vatten.", link: "https://www.mvhakone.jp/en/" },
             { city: "Tokyo", dates: "10–14 nov", name: "Airbnb i Taitō-ku, Tokyo", type: "Airbnb", booked: true, desc: "Eget boende i Taitō-ku för den avslutande delen av resan i Tokyo.", link: "https://www.airbnb.se/properties/1715247060050778213?unique_share_id=6c6fd708-05ad-499a-8243-f298d4883119&viralityEntryPoint=1&s=76&anchor_room_id=1474498497601884034" }
         ];
 
