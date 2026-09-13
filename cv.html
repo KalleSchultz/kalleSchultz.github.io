@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kalle Schultz — Builder. Intrapreneur. Art of the possible.</title>
-<meta name="description" content="Kalle Schultz, Associate at Good Accelerator and part of Advania ALT. Driving the AI evolution — from digital transformation and private cloud to AWS and today's AI journey.">
+<meta name="description" content="Kalle Schultz, Head of Customer Solutions at Advania ALT. Driving the AI evolution — from digital transformation and private cloud to AWS and today's AI journey. Also active in Good Accelerator.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230b0e14'/%3E%3Ctext x='50' y='68' font-size='52' font-family='sans-serif' font-weight='700' fill='%233c6cff' text-anchor='middle'%3EKS%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -142,14 +142,28 @@
   /* ABOUT */
   .about-grid{display:grid; grid-template-columns:1.1fr 0.9fr; gap:56px; align-items:start;}
   .about-grid p{font-size:1.08rem; color:var(--body-text); margin:0 0 18px;}
-  .pillars{display:grid; gap:16px;}
+  .pillars{display:grid; gap:14px;}
   .pillar{
+    display:flex; gap:18px; align-items:flex-start;
     background:#fff; border:1px solid var(--line); border-radius:var(--radius);
-    padding:20px 22px;
+    padding:22px 24px;
+    transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
   }
-  .pillar .n{font-family:'Space Grotesk',sans-serif; font-weight:700; color:var(--accent); font-size:0.85rem;}
-  .pillar h4{margin:6px 0 6px; font-size:1.02rem; font-family:'Space Grotesk',sans-serif; color:var(--ink);}
-  .pillar p{margin:0; font-size:0.94rem; color:var(--body-text-dim);}
+  .pillar:hover{
+    transform:translateY(-3px);
+    box-shadow:0 16px 32px -12px rgba(11,14,20,0.14);
+    border-color:transparent;
+  }
+  .pillar-icon{
+    width:46px; height:46px; border-radius:13px; flex-shrink:0;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .pillar-icon svg{width:22px; height:22px;}
+  .pillar-icon.blue{background:var(--accent-soft); color:var(--accent);}
+  .pillar-icon.amber{background:rgba(255,176,32,0.18); color:#b3760a;}
+  .pillar-icon.ink{background:var(--ink); color:#fff;}
+  .pillar h4{margin:2px 0 5px; font-size:1.05rem; font-family:'Space Grotesk',sans-serif; color:var(--ink);}
+  .pillar p{margin:0; font-size:0.92rem; color:var(--body-text-dim); line-height:1.5;}
 
   /* TIMELINE */
   .timeline{position:relative; margin-top:8px;}
@@ -183,6 +197,25 @@
   .lcard h3{color:#fff; font-size:1.18rem; margin-bottom:12px; position:relative;}
   .lcard p{color:var(--ink-text-dim); font-size:0.96rem; margin:0; position:relative;}
 
+  .leadership-essay{margin-top:56px; padding-top:48px; border-top:1px solid var(--line); max-width:74ch;}
+  .leadership-essay h3{font-size:1.35rem; color:var(--ink); margin:34px 0 14px;}
+  .leadership-essay h3:first-child{margin-top:0;}
+  .leadership-essay p{font-size:1.03rem; line-height:1.75; color:var(--body-text); margin:0 0 16px;}
+  .leadership-essay ul{list-style:none; padding:0; margin:0 0 20px; display:grid; gap:14px;}
+  .leadership-essay ul li{padding-left:24px; position:relative; font-size:0.98rem; color:var(--body-text-dim); line-height:1.6;}
+  .leadership-essay ul li::before{content:"→"; position:absolute; left:0; color:var(--accent); font-weight:700;}
+  .leadership-essay ul li strong{color:var(--ink);}
+  .leadership-essay .pull{
+    font-family:'Space Grotesk',sans-serif; font-size:1.45rem; font-weight:700;
+    color:var(--ink); margin:34px 0; line-height:1.45;
+    padding-left:22px; border-left:4px solid var(--accent);
+  }
+  .leadership-essay .pull em{font-style:normal; color:var(--accent);}
+  .leadership-essay .byline{
+    margin-top:32px; padding-top:22px; border-top:1px solid var(--line);
+    font-size:0.9rem; color:var(--body-text-dim);
+  }
+
   /* ALT / AI */
   .alt-section{background:var(--ink); color:var(--ink-text);}
   .alt-section .kicker{color:var(--accent);}
@@ -190,6 +223,33 @@
   .alt-section .sec-head p{color:var(--ink-text-dim);}
   .alt-grid{display:grid; grid-template-columns:1.15fr 0.85fr; gap:48px; align-items:center;}
   .alt-grid p{color:var(--ink-text-dim); font-size:1.06rem; margin:0 0 16px;}
+  .alt-photo{
+    width:100%; max-width:420px; aspect-ratio:4/3; object-fit:cover;
+    border-radius:var(--radius); border:1px solid var(--line-dark); margin-bottom:24px;
+  }
+  .alt-card .alt-link{
+    display:inline-flex; align-items:center; gap:6px; margin-top:20px;
+    font-size:0.92rem; font-weight:600; color:var(--accent); text-decoration:none;
+  }
+  .alt-card .alt-link:hover{color:#fff;}
+
+  .sovereignty-block{
+    margin-top:56px; padding-top:48px; border-top:1px solid var(--line-dark);
+    max-width:78ch;
+  }
+  .sovereignty-block h3{color:#fff; font-size:1.4rem; margin-bottom:16px;}
+  .sovereignty-block p{color:var(--ink-text-dim); font-size:1.03rem; line-height:1.75; margin:0 0 16px;}
+
+  .voice-block{
+    margin-top:56px; padding-top:48px; border-top:1px solid var(--line-dark);
+    display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:center;
+  }
+  .voice-block h3{color:#fff; font-size:1.3rem; margin-bottom:14px;}
+  .voice-block p{color:var(--ink-text-dim); font-size:0.98rem; margin:0 0 12px; line-height:1.65;}
+  .voice-player{width:100%; accent-color:var(--accent);}
+  @media (max-width:860px){
+    .voice-block{grid-template-columns:1fr; gap:20px;}
+  }
   .alt-card{
     background:var(--ink-soft); border:1px solid var(--line-dark); border-radius:var(--radius);
     padding:30px;
@@ -272,7 +332,7 @@
   <div class="wrap">
     <div class="hero-grid">
       <div>
-        <span class="eyebrow">Associate, Good Accelerator — Advania ALT</span>
+        <span class="eyebrow">Head of Customer Solutions, Advania ALT</span>
         <h1>Builder at heart. <em>Art of the possible</em> in practice.</h1>
         <p class="lead">
           I've helped drive digital transformation since the early 2000s — from building one of
@@ -282,7 +342,7 @@
         <div class="cta-row">
           <a href="mailto:Kalle.schultz12@icloud.com" class="btn btn-primary">Email me</a>
           <a href="https://linkedin.com/in/kalleschultz" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn ↗</a>
-          <a href="https://www.goodaccelerator.com/om-oss" target="_blank" rel="noopener" class="btn btn-ghost">Good Accelerator ↗</a>
+          <a href="https://www.advania.se/en/ai-innovation/advania-alt" target="_blank" rel="noopener" class="btn btn-ghost">Advania ALT ↗</a>
         </div>
       </div>
       <div class="hero-photo-wrap">
@@ -318,19 +378,31 @@
       </div>
       <div class="pillars reveal">
         <div class="pillar">
-          <span class="n">01</span>
-          <h4>Builder</h4>
-          <p>From private cloud to AWS to AI — I build what doesn't exist yet.</p>
+          <span class="pillar-icon blue">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z"/><path d="M12 12v9M12 12l8-4.5M12 12L4 7.5"/></svg>
+          </span>
+          <div>
+            <h4>Builder</h4>
+            <p>From private cloud to AWS to AI — I build what doesn't exist yet.</p>
+          </div>
         </div>
         <div class="pillar">
-          <span class="n">02</span>
-          <h4>Intrapreneur</h4>
-          <p>New things are often best created from within, with existing scale and resources.</p>
+          <span class="pillar-icon amber">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"><path d="M12 21v-8"/><path d="M12 13c0-4-3-6-7-6 0 4 3 6 7 6z"/><path d="M12 13c0-5 4-8 8-8 0 5-4 8-8 8z"/></svg>
+          </span>
+          <div>
+            <h4>Intrapreneur</h4>
+            <p>New things are often best created from within, with existing scale and resources.</p>
+          </div>
         </div>
         <div class="pillar">
-          <span class="n">03</span>
-          <h4>Art of the possible</h4>
-          <p>I find the path that's actually possible to walk — not the perfect one that never happens.</p>
+          <span class="pillar-icon ink">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2.2 5.2-5.2 2.2 2.2-5.2 5.2-2.2z" fill="currentColor" stroke="none"/></svg>
+          </span>
+          <div>
+            <h4>Art of the possible</h4>
+            <p>I find the path that's actually possible to walk — not the perfect one that never happens.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -366,10 +438,11 @@
       </div>
       <div class="t-item reveal">
         <div class="t-year">Today</div>
-        <h3>Associate, Good Accelerator — Advania ALT</h3>
+        <h3>Head of Customer Solutions, Advania ALT</h3>
         <p>I'm helping drive the AI evolution, where the work on ALT — Advania AI Layer Technology
           — is central. As part of Advania ALT, my mission is to build a practice that helps our
-          customers approach AI in a completely new way.</p>
+          customers approach AI in a completely new way. Alongside this, I'm also active in
+          Good Accelerator.</p>
       </div>
     </div>
   </div>
@@ -402,6 +475,72 @@
           organisation along. That's who I am.</p>
       </div>
     </div>
+
+    <div class="leadership-essay reveal">
+      <h3>When AI does the work for you — who leads?</h3>
+      <p>
+        We recently held a session with a room full of senior leaders. Not a seminar. Not a
+        lecture. A conversation — where experience was given room to speak.
+      </p>
+      <p>
+        One thing struck me harder than expected. Most people in the room had already started
+        using AI. Many were impressed. Some were worried. But almost everyone talked about AI as
+        a tool for personal efficiency — faster emails, better material, shorter meetings.
+        That's not wrong. It's just not enough.
+      </p>
+
+      <h3>The polished material isn't the problem. It's the asset.</h3>
+      <p>
+        During the workshop we used a case: you're handed a decision brief. It's well-structured,
+        logical, easy to follow. It covers every angle. How do you know if it's actually good?
+        How do you know if it's workable? How do you act on it?
+      </p>
+      <p>
+        The silence in the room said more than the answers did. Because the problem doesn't start
+        when the material is bad — it starts when it looks so complete that no one dares question
+        it. Your job as a leader isn't to distrust AI. It's to be the one who asks the questions
+        AI can't ask itself.
+      </p>
+
+      <h3>Growth isn't built in personal efficiency. It's built in what happens between people.</h3>
+      <p>
+        This is where I think most organisations get stuck. The AI journey starts with the
+        individual — and often stops there. But customer value is created along a journey.
+        Growth lives in how teams collaborate, how decisions get made together, how an
+        organisation moves fast as one — like a school of fish, not a group of faster individuals
+        pulling in different directions.
+      </p>
+      <p>
+        If AI only raises individual pace without strengthening how the organisation moves
+        together, we risk building teams that are locally efficient and globally slow.
+      </p>
+
+      <h3>Three risks we named, straight out of the room</h3>
+      <ul>
+        <li><strong>Business power</strong> — Strategy stays on paper. Everything looks well
+          thought through, but the organisation isn't moving with it.</li>
+        <li><strong>Action power</strong> — Agility drops. Teams stop training themselves to move
+          fast, because AI does it instead.</li>
+        <li><strong>People power</strong> — Collective strength weakens. Trust and culture are
+          built between people, in the room, not inside an algorithm.</li>
+      </ul>
+
+      <h3>What can you never hand to an algorithm?</h3>
+      <p>
+        That was our closing question to the group. The answers came fast: presence and
+        relationships, direction and meaning, judgement in the unclear, moral courage. Those
+        aren't soft values — they're the core of leadership, and what decides whether AI actually
+        creates value in your organisation, or just impresses you on your laptop.
+      </p>
+
+      <p class="pull">The question we're carrying into autumn isn't "are we using AI?" It's:
+        <em>how do you lead a school of fish when AI is in the water?</em></p>
+
+      <p class="byline">
+        With Anna Philipson, from a recent Good Accelerator leadership workshop on AI and
+        leadership in practice — the next session runs this autumn.
+      </p>
+    </div>
   </div>
 </section>
 
@@ -414,6 +553,7 @@
     </div>
     <div class="alt-grid">
       <div class="reveal">
+        <img class="alt-photo" src="img/kalle-office.jpg" alt="Kalle Schultz at the office">
         <p>
           As part of Advania ALT, my mission is to build a practice that helps our customers
           approach AI in a completely new way — not as a single project, but as a capability
@@ -434,6 +574,47 @@
           <li>Builds AI capability across the whole organisation, not just in individual projects</li>
           <li>Connects leadership and change management to the technical journey</li>
         </ul>
+        <a href="https://www.advania.se/en/ai-innovation/advania-alt" target="_blank" rel="noopener" class="alt-link">Read more about Advania ALT ↗</a>
+      </div>
+    </div>
+
+    <div class="sovereignty-block reveal">
+      <h3>Why sovereignty matters now</h3>
+      <p>
+        One theme has only grown more urgent as AI has moved from pilot to production:
+        sovereignty — who actually controls the data, the models, and the infrastructure your AI
+        runs on. For Nordic and European organisations, that's no longer a compliance footnote.
+        It's a board-level question about resilience, trust, and independence from any single
+        vendor, cloud, or jurisdiction.
+      </p>
+      <p>
+        Having built one of the largest private clouds in Northern Europe, and later scaled
+        AWS's hyperscale infrastructure, I've stood on both sides of that trade-off — and it
+        shapes how we think about ALT. Sovereignty is built into ALT from day one, not bolted on
+        afterwards: we give our customers real choice over where their data and models live —
+        sovereign cloud, on-premise, or hyperscaler — so they can move at the speed AI demands
+        without giving up control of what matters most.
+      </p>
+    </div>
+
+    <div class="voice-block reveal">
+      <div>
+        <h3>I cloned my own voice with AI</h3>
+        <p>
+          The introduction to ALT you can listen to here is narrated by an AI clone of my own
+          voice. It took minutes to create, not a studio session — a small, personal example of
+          how close AI has brought us to fully synthetic media.
+        </p>
+        <p>
+          Your voice today. Your own avatar tomorrow — that's already possible too, just still a
+          little too expensive for everyday use. That won't last long.
+        </p>
+      </div>
+      <div>
+        <audio class="voice-player" controls preload="none">
+          <source src="audio/alt-intro.mp3" type="audio/mpeg">
+          Your browser does not support the audio element.
+        </audio>
       </div>
     </div>
   </div>
@@ -449,7 +630,8 @@
       <div>
         <h3>Active in the conversation, not just the operational work</h3>
         <p>Beyond driving the work with ALT, I'm active in the public conversation on AI,
-          leadership and change management — as a speaker, panellist and advisor.</p>
+          leadership and change management — as a speaker, panellist and advisor, including
+          through Good Accelerator, a network I'm part of alongside my work at Advania.</p>
       </div>
       <a href="https://www.goodaccelerator.com/om-oss" target="_blank" rel="noopener" class="btn btn-primary">About Good Accelerator ↗</a>
     </div>
@@ -463,7 +645,7 @@
       <h2>Get in touch.</h2>
     </div>
     <div class="contact-links">
-      <a href="mailto:Kalle.schultz12@icloud.com" class="btn btn-primary">Kalle.schultz12@icloud.com</a>
+      <a href="mailto:Kalle.schultz12@icloud.com" class="btn btn-primary">Email me</a>
       <a href="https://linkedin.com/in/kalleschultz" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn ↗</a>
     </div>
   </div>
