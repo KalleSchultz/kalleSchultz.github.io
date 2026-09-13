@@ -225,6 +225,11 @@
   }
   .voice-block h3{color:#fff; font-size:1.3rem; margin-bottom:14px;}
   .voice-block p{color:var(--ink-text-dim); font-size:0.98rem; margin:0 0 12px; line-height:1.65;}
+  .voice-avatar{
+    width:100%; max-width:280px; aspect-ratio:1/1; object-fit:cover;
+    border-radius:var(--radius); border:1px solid var(--line-dark);
+    display:block; margin:0 auto 24px;
+  }
   .voice-player{width:100%; accent-color:var(--accent);}
   @media (max-width:860px){
     .voice-block{grid-template-columns:1fr; gap:20px;}
@@ -495,7 +500,7 @@
         Accelerator network.</p>
     </div>
 
-    <div class="alt-card reveal" style="max-width:640px;">
+    <div class="alt-card reveal">
       <h3>How do you lead a school of fish when AI is in the water?</h3>
       <p>
         On AI-polished decisions nobody dares question, why growth lives between people rather
@@ -541,7 +546,7 @@
       </div>
     </div>
 
-    <div class="alt-card reveal" style="max-width:640px;">
+    <div class="alt-card reveal">
       <h3>Why sovereignty matters now</h3>
       <p>
         Who controls the data, models, and infrastructure your AI runs on has become a
@@ -565,6 +570,7 @@
         </p>
       </div>
       <div>
+        <img class="voice-avatar" src="img/kalle-ai-avatar.jpg" alt="Abstract digital avatar representing an AI voice clone">
         <audio class="voice-player" controls preload="none">
           <source src="audio/alt-intro.mp3" type="audio/mpeg">
           Your browser does not support the audio element.
@@ -588,6 +594,14 @@
           through Good Accelerator, a network I'm part of alongside my work at Advania.</p>
       </div>
       <a href="https://www.goodaccelerator.com/om-oss" target="_blank" rel="noopener" class="btn btn-primary">About Good Accelerator ↗</a>
+    </div>
+    <div class="talk-card reveal" style="margin-top:20px;">
+      <div>
+        <h3>Customer Focus at Heart</h3>
+        <p>An article I wrote for Betsson Group on building genuine customer-centricity into
+          how an organisation works.</p>
+      </div>
+      <a href="https://medium.com/betsson-group/customer-focus-at-heart-9801432d08bc" target="_blank" rel="noopener" class="btn btn-primary">Read on Medium ↗</a>
     </div>
   </div>
 </section>
