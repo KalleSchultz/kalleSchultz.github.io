@@ -44,13 +44,11 @@
                 </div>
                 <div class="hidden md:flex flex-wrap gap-x-5 gap-y-1 justify-end text-sm font-bold uppercase tracking-widest">
                     <a href="index.html" class="hover:text-momiji transition">Start</a>
+                    <a href="highlights.html" class="hover:text-momiji transition">Highlights</a>
                     <a href="resplan.html" class="hover:text-momiji transition">Resplan</a>
                     <a href="japan.html#hotels" class="hover:text-momiji transition">Boende</a>
-                    <a href="boende.html" class="hover:text-momiji transition">Boendeöversikt</a>
                     <a href="restauranger.html" class="hover:text-momiji transition">Restauranger</a>
                     <a href="transporter.html" class="text-momiji transition">Transporter</a>
-                    <a href="lankar.html" class="hover:text-momiji transition">Bra Länkar</a>
-                    <a href="japan.html#logistics" class="hover:text-momiji transition">Bokningar</a>
                     <a href="japan.html#before-departure" class="hover:text-momiji transition">Innan Avresa</a>
                 </div>
                 <button id="mobile-menu-btn" class="md:hidden flex items-center justify-center w-10 h-10 -mr-2" aria-label="Öppna meny" aria-expanded="false" aria-controls="mobile-menu" onclick="const m=document.getElementById('mobile-menu');const exp=this.getAttribute('aria-expanded')==='true';this.setAttribute('aria-expanded',String(!exp));m.style.display=exp?'none':'flex';">
@@ -59,13 +57,11 @@
             </div>
             <div id="mobile-menu" class="md:hidden pb-4 flex-col text-sm font-bold uppercase tracking-widest" style="display:none;">
                 <a href="index.html" class="py-2 border-b border-stone-100 hover:text-momiji transition">Start</a>
+                <a href="highlights.html" class="py-2 border-b border-stone-100 hover:text-momiji transition">Highlights</a>
                 <a href="resplan.html" class="py-2 border-b border-stone-100 hover:text-momiji transition">Resplan</a>
                 <a href="japan.html#hotels" class="py-2 border-b border-stone-100 hover:text-momiji transition">Boende</a>
-                <a href="boende.html" class="py-2 border-b border-stone-100 hover:text-momiji transition">Boendeöversikt</a>
                 <a href="restauranger.html" class="py-2 border-b border-stone-100 hover:text-momiji transition">Restauranger</a>
                 <a href="transporter.html" class="py-2 border-b border-stone-100 text-momiji transition">Transporter</a>
-                <a href="lankar.html" class="py-2 border-b border-stone-100 hover:text-momiji transition">Bra Länkar</a>
-                <a href="japan.html#logistics" class="py-2 border-b border-stone-100 hover:text-momiji transition">Bokningar</a>
                 <a href="japan.html#before-departure" class="py-2 hover:text-momiji transition">Innan Avresa</a>
             </div>
         </div>
@@ -120,26 +116,89 @@
             </div>
         </section>
 
+        <!-- BOKA TÅG -->
         <section class="mb-16">
-            <h2 class="text-2xl font-bold mb-6 border-l-8 border-matcha pl-4">Biljetter & appar</h2>
+            <h2 class="text-2xl font-bold mb-4 border-l-8 border-matcha pl-4">🎫 Boka tåg</h2>
+            <p class="text-stone-600 mb-6 leading-relaxed max-w-3xl">
+                Olika sträckor bokas via olika system — de täcker inte varandra. Viktigast: <strong>Smart-EX täcker inte Tokyo–Kanazawa</strong> (Hokuriku Shinkansen), den sträckan måste bokas separat via JR-EAST. Sittplatser släpps <strong>30 dagar innan avresa</strong> — boka då, särskilt om ni vill ha plats med bagageutrymme.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm space-y-2">
+                    <h3 class="font-bold text-matcha">Smart-EX</h3>
+                    <p class="text-sm text-stone-600">JR Central/JR West/JR Kyushu Shinkansen — täcker Kanazawa–Kyoto (4 nov) och Kyoto–Odawara (8 nov) på er resa.</p>
+                    <a href="https://smart-ex.jp/en/" target="_blank" class="inline-block text-xs font-bold text-momiji underline">smart-ex.jp →</a>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm space-y-2">
+                    <h3 class="font-bold text-matcha">JR-EAST Train Reservation (eki-net)</h3>
+                    <p class="text-sm text-stone-600">Bokar Hokuriku Shinkansen — er sträcka Tokyo–Kanazawa (2 nov). Separat system från Smart-EX.</p>
+                    <a href="https://www.eki-net.com/jreast-train-reservation/Top/Index" target="_blank" class="inline-block text-xs font-bold text-momiji underline">eki-net.com →</a>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm space-y-2">
+                    <h3 class="font-bold text-matcha">Odakyu e-Romancecar</h3>
+                    <p class="text-sm text-stone-600">Expresståget mellan Shinjuku och Odawara/Hakone-Yumoto — ett bekvämt alternativ för Hakone-resan. Här köper ni även <strong>Hakone Free Pass</strong> (ca 500 SEK), som täcker linbana, båt och buss under Loop-dagen 9 nov.</p>
+                    <a href="https://www.web-odakyu.com/e-romancecar/?language=en" target="_blank" class="inline-block text-xs font-bold text-momiji underline">web-odakyu.com →</a>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm space-y-2">
+                    <h3 class="font-bold text-matcha">Keisei Skyliner</h3>
+                    <p class="text-sm text-stone-600">E-biljett för Skyliner mellan Narita flygplats och Ueno/Nippori (~40 min) — relevant för hemresan 14 nov.</p>
+                    <a href="https://www.keisei.co.jp/keisei/tetudou/skyliner/e-ticket/en/eticket/index.html" target="_blank" class="inline-block text-xs font-bold text-momiji underline">keisei.co.jp →</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- TUNNELBANAN I TOKYO -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-bold mb-4 border-l-8 border-matcha pl-4">🚇 Tunnelbanan i Tokyo</h2>
+            <p class="text-stone-600 mb-6 leading-relaxed max-w-3xl">
+                Tokyo har 13 tunnelbanelinjer från två separata bolag — <strong>9 Tokyo Metro-linjer</strong> och <strong>4 Toei-linjer</strong> — plus JR East:s pendeltåg (t.ex. Yamanote-linjen som går i en ring runt centrala Tokyo). Varje linje är färgkodad med en bokstav + nummer för varje station (t.ex. Shinjuku = M8 på den röda Marunouchi-linjen), vilket gör det lätt att navigera även utan japanska.
+            </p>
+            <div class="bg-momiji/5 border border-momiji/30 p-5 rounded-2xl mb-8 max-w-3xl">
+                <p class="text-sm text-stone-700"><strong>Praktiskt att veta:</strong> Suica och Pasmo fungerar på både Tokyo Metro, Toei och JR East — samma kort, en tap in/tap ut. Men Tokyo Metro och Toei är separata bolag: ett byte mellan dem räknas som två separata resor (med liten rabatt), inte en genomgående biljett. Med IC-kort sker det automatiskt, men det blir en liten extra kostnad — värt att tänka på om ni gör 3+ resor per dag, då kan en dagsbiljett som täcker båda näten löna sig.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm space-y-2">
+                    <h3 class="font-bold text-matcha">Tokyo Metro (officiell)</h3>
+                    <p class="text-sm text-stone-600">Kartor, priser och engelskspråkig reseplanering för de 9 Tokyo Metro-linjerna.</p>
+                    <a href="https://www.tokyometro.jp/en/index.html" target="_blank" class="inline-block text-xs font-bold text-momiji underline">tokyometro.jp →</a>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm space-y-2">
+                    <h3 class="font-bold text-matcha">Toei Subway (officiell)</h3>
+                    <p class="text-sm text-stone-600">De 4 Toei-linjerna (bl.a. Asakusa- och Oedo-linjen), inklusive flygplatsanslutningar.</p>
+                    <a href="https://www.kotsu.metro.tokyo.jp/eng/" target="_blank" class="inline-block text-xs font-bold text-momiji underline">kotsu.metro.tokyo.jp →</a>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm space-y-2">
+                    <h3 class="font-bold text-matcha">Tokyo Metro For Tourists (app)</h3>
+                    <p class="text-sm text-stone-600">Officiell app som planerar rutter över både Tokyo Metro och Toei automatiskt, fungerar offline, visar stationsutgångar.</p>
+                    <a href="https://apps.apple.com/gb/app/tokyo-metro-for-tourists/id6654900993" target="_blank" class="inline-block text-xs font-bold text-momiji underline">Ladda ner appen →</a>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm space-y-2">
+                    <h3 class="font-bold text-matcha">Jorudan Transit Planner</h3>
+                    <p class="text-sm text-stone-600">Etablerad reseplanerare för hela Japan — bra när resan inkluderar Shinkansen och inte bara tunnelbana.</p>
+                    <a href="https://www.jorudan.co.jp/english/" target="_blank" class="inline-block text-xs font-bold text-momiji underline">jorudan.co.jp →</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- KORT, BAGAGE & APPAR -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-bold mb-6 border-l-8 border-matcha pl-4">💳 Kort, bagage & appar</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm space-y-2">
-                    <h3 class="font-bold text-matcha">🎫 Smart-EX</h3>
-                    <p class="text-sm text-stone-600">Boka Shinkansen-biljetter (Kanazawa–Kyoto, Kyoto–Odawara m.fl.) ca 30 dagar innan avresa. Reservera sittplats med bagageutrymme om ni har stora väskor. <strong>OBS:</strong> täcker inte Tokyo–Kanazawa (Hokuriku Shinkansen) — den bokas via JR-EAST (se länk nedan).</p>
-                    <a href="https://smart-ex.jp/en/" target="_blank" class="inline-block text-xs font-bold text-momiji underline">Smart-EX Officiell →</a>
-                </div>
-                <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm space-y-2">
-                    <h3 class="font-bold text-matcha">🎫 JR-EAST (eki-net)</h3>
-                    <p class="text-sm text-stone-600">Bokar Hokuriku Shinkansen (Tokyo–Kanazawa, Kagayaki/Hakutaka) — täcks inte av Smart-EX. Separat bokningssystem.</p>
-                    <a href="https://www.eki-net.com/jreast-train-reservation/Top/Index" target="_blank" class="inline-block text-xs font-bold text-momiji underline">JR-EAST Train Reservation →</a>
-                </div>
-                <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm space-y-2">
                     <h3 class="font-bold text-matcha">💳 Suica / Pasmo</h3>
-                    <p class="text-sm text-stone-600">Digitalt reskort i Apple/Google Wallet för alla lokaltåg, tunnelbana och bussar. Ladda på kort innan avresa så slipper ni köa vid automater.</p>
+                    <p class="text-sm text-stone-600">Digitalt reskort i Apple/Google Wallet för alla lokaltåg, tunnelbana och bussar. Lägg upp och ladda kortet innan avresa så slipper ni köa vid automater vid ankomst.</p>
                 </div>
                 <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm space-y-2">
                     <h3 class="font-bold text-matcha">📦 Takkyubin</h3>
-                    <p class="text-sm text-stone-600">Skicka de stora väskorna direkt mellan hotellen (ca 200 SEK/väska, ankommer dagen efter) så slipper ni släpa dem på tåg och trappor.</p>
+                    <p class="text-sm text-stone-600">Skicka de stora väskorna direkt mellan hotellen för ca 200 SEK/väska — de kommer fram dagen efter, så ni slipper släpa dem på tåg och i trappor. Maxstorlek 160 cm (L+B+H), fraktsedeln fylls i i receptionen.</p>
+                    <p class="text-sm text-stone-600"><strong>Strategi:</strong> skicka från Tokyo (2 nov) direkt till Kyoto och res lätt genom Kanazawa. Skicka sedan från Kyoto (8 nov) direkt till Tokyo och res lätt genom Hakone.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm space-y-2">
+                    <h3 class="font-bold text-matcha">📱 Appar</h3>
+                    <ul class="text-sm text-stone-600 space-y-2">
+                        <li>• <strong>Google Maps</strong> — oumbärlig för tågplattformar och utgångar.</li>
+                        <li>• <strong>Papago</strong> — bästa översättningsappen för japanska.</li>
+                        <li>• <strong>Ubigi / Airalo</strong> — eSIM-data, installera hemifrån innan avresa.</li>
+                    </ul>
                 </div>
             </div>
         </section>
@@ -148,7 +207,7 @@
 
     <footer class="bg-stone-200 py-12 text-center text-stone-500 text-sm">
         <p class="font-bold text-stone-800 mb-2 uppercase tracking-widest">Resa Japan 2026</p>
-        <p>Transportöversikt — komplement till <a href="resplan.html" class="underline">resplanen</a> och <a href="boende.html" class="underline">boendeöversikten</a>.</p>
+        <p>Transportöversikt — komplement till <a href="resplan.html" class="underline">resplanen</a> och <a href="highlights.html" class="underline">highlights</a>.</p>
     </footer>
 
     <script>

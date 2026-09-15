@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Highlights - Japanresa 2026</title>
+
+    <!-- Tailwind CSS för modern design -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'stone-bg': '#fafaf9',
+                        'matcha': '#166534',
+                        'momiji': '#9f1239',
+                        'ink': '#1c1917'
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { background-color: #fafaf9; scroll-behavior: smooth; color: #1c1917; }
+        .nav-sticky { position: sticky; top: 0; z-index: 50; backdrop-filter: blur(12px); background: rgba(250, 250, 249, 0.9); }
+    </style>
+</head>
+<body class="font-sans antialiased">
+
+    <!-- Navigation -->
+    <nav class="nav-sticky border-b border-stone-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center space-x-2">
+                    <span class="text-2xl">🍁</span>
+                    <span class="font-bold text-xl tracking-tight uppercase">Japan 2026</span>
+                </div>
+                <div class="hidden md:flex flex-wrap gap-x-5 gap-y-1 justify-end text-sm font-bold uppercase tracking-widest">
+                    <a href="index.html" class="hover:text-momiji transition">Start</a>
+                    <a href="highlights.html" class="text-momiji transition">Highlights</a>
+                    <a href="resplan.html" class="hover:text-momiji transition">Resplan</a>
+                    <a href="japan.html#hotels" class="hover:text-momiji transition">Boende</a>
+                    <a href="restauranger.html" class="hover:text-momiji transition">Restauranger</a>
+                    <a href="transporter.html" class="hover:text-momiji transition">Transporter</a>
+                    <a href="japan.html#before-departure" class="hover:text-momiji transition">Innan Avresa</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden flex items-center justify-center w-10 h-10 -mr-2" aria-label="Öppna meny" aria-expanded="false" aria-controls="mobile-menu" onclick="const m=document.getElementById('mobile-menu');const exp=this.getAttribute('aria-expanded')==='true';this.setAttribute('aria-expanded',String(!exp));m.style.display=exp?'none':'flex';">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+                </button>
+            </div>
+            <div id="mobile-menu" class="md:hidden pb-4 flex-col text-sm font-bold uppercase tracking-widest" style="display:none;">
+                <a href="index.html" class="py-2 border-b border-stone-100 hover:text-momiji transition">Start</a>
+                <a href="highlights.html" class="py-2 border-b border-stone-100 text-momiji transition">Highlights</a>
+                <a href="resplan.html" class="py-2 border-b border-stone-100 hover:text-momiji transition">Resplan</a>
+                <a href="japan.html#hotels" class="py-2 border-b border-stone-100 hover:text-momiji transition">Boende</a>
+                <a href="restauranger.html" class="py-2 border-b border-stone-100 hover:text-momiji transition">Restauranger</a>
+                <a href="transporter.html" class="py-2 border-b border-stone-100 hover:text-momiji transition">Transporter</a>
+                <a href="japan.html#before-departure" class="py-2 hover:text-momiji transition">Innan Avresa</a>
+            </div>
+        </div>
+    </nav>
+    <script>
+        document.querySelectorAll('#mobile-menu a').forEach(function(a) {
+            a.addEventListener('click', function() {
+                document.getElementById('mobile-menu').style.display = 'none';
+                document.getElementById('mobile-menu-btn').setAttribute('aria-expanded', 'false');
+            });
+        });
+    </script>
+
+    <!-- Hero -->
+    <header class="text-stone-bg py-20 relative overflow-hidden bg-ink">
+        <img src="img/kyoto-kiyomizu.jpg" alt="Kiyomizu-dera i höstfärger" class="absolute inset-0 w-full h-full object-cover">
+        <div class="absolute inset-0 bg-ink/78"></div>
+        <div class="max-w-5xl mx-auto px-4 text-center relative z-10">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4 uppercase tracking-tight">Highlights</h1>
+            <p class="text-lg text-stone-200 max-w-2xl mx-auto font-light leading-relaxed">
+                Det bästa i varje stad — trädgårdar, historiska kvarter, marknader och mat. Med länkar och vad som måste bokas i förväg.
+            </p>
+            <nav class="flex flex-wrap justify-center gap-3 mt-8 text-xs font-bold uppercase tracking-widest" id="city-nav">
+                <!-- JS populated -->
+            </nav>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-4 py-16">
+
+        <!-- OM PRIORITERINGEN -->
+        <section class="mb-16 grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm">
+                <h2 class="font-bold text-matcha mb-2">Så är listorna prioriterade</h2>
+                <p class="text-sm text-stone-600 leading-relaxed">
+                    <strong>Prio 1–3</strong> markerar de starkaste valen i varje stad, vägt efter hur genomgående högt omdömda de är bland besökare, hur väl de passar era datum och hur nära ert boende de ligger. Restaurangerna är valda i prisklassen vardag-till-medel med traditionell japansk mat och miljö — inga dyra kaiseki- eller omakase-krogar.
+                </p>
+            </div>
+            <div class="bg-momiji/5 border border-momiji/30 p-6 rounded-2xl">
+                <h2 class="font-bold text-momiji mb-2">🍁 Om höstfärgerna</h2>
+                <p class="text-sm text-stone-700 leading-relaxed">
+                    Enligt prognosen för 2026 toppar lövfärgerna i Tokyo först runt <strong>26–29 november</strong> — efter er hemresa. I Kyoto och Kanazawa ligger toppen normalt mitt i till slutet av november. Räkna alltså med tidig höst snarare än full momiji: trädgårdarna besöks bäst för sin form, stillhet och arkitektur. I bergen kring Hakone brukar färgerna komma tidigare och ligger närmare era datum.
+                </p>
+            </div>
+        </section>
+
+        <div id="cities"><!-- JS populated --></div>
+
+    </main>
+
+    <footer class="bg-stone-200 py-12 text-center text-stone-500 text-sm">
+        <p class="font-bold text-stone-800 mb-2 uppercase tracking-widest">Resa Japan 2026</p>
+        <p>Highlights — se <a href="resplan.html" class="underline">körschemat</a> för vilken dag ni gör vad.</p>
+    </footer>
+
+    <script>
+        // prio: 1-3 = topprioriterade, 0 = extra förslag.
+        // book: null = ingen förbokning behövs, annars texten som visas i röd badge.
+        const cities = [
+            {
+                id: "tokyo", name: "Tokyo", img: "img/tokyo-sensoji.jpg",
+                dates: "1–2 nov (Ariake) & 10–14 nov (Taitō-ku)",
+                intro: "Två skilda Tokyo-vistelser: först vid vattnet i Ariake/Toyosu, sedan fem nätter i gamla shitamachi kring Asakusa. Listan nedan utgår från just de två lägena.",
+                warn: "Måndag 2 nov är Shinjuku Gyoen och Kejsarpalatsets östra trädgårdar stängda. Fredag 13 nov är östra trädgårdarna stängda igen. Ingen sumo i Tokyo i november — novemberturneringen hålls i Fukuoka.",
+                activities: [
+                    { prio: 1, name: "teamLab Planets TOKYO", area: "Toyosu, Koto-ku", url: "https://www.teamlab.art/e/planets/",
+                      desc: "Barfota genom vatten, speglar och ljus — konsekvent rankad som Tokyos starkaste upplevelse bland utländska besökare. Ligger dessutom inom gångavstånd från hotellet i Ariake, så gör den 1–2 nov.",
+                      book: "Måste bokas i förväg — säljs inte på plats. Boka flera veckor innan." },
+                    { prio: 2, name: "Senso-ji & Nakamise-dori", area: "Asakusa", url: "https://www.gotokyo.org/en/spot/1/index.html",
+                      desc: "Tokyos äldsta tempel med den stora röda lyktan, och handelsgatan fram till den. Ligger på er egen gata under Tokyo-veckan — gå tidig morgon eller efter mörkrets inbrott när det är tomt.",
+                      book: null },
+                    { prio: 3, name: "Yanaka & Yanesen", area: "Taitō / Bunkyō", url: "https://www.gotokyo.org/en/destinations/northern-tokyo/yanaka-and-nezu/index.html",
+                      desc: "Det bäst bevarade shitamachi-kvarteret — trähus, katter, små hantverksbutiker och Yanaka Ginza-gatan. Två stationer från ert boende.",
+                      book: null },
+                    { prio: 0, name: "Hama-rikyu Onshi-teien", area: "Chūō-ku", url: "https://www.tokyo-park.or.jp/teien/en/hama-rikyu/",
+                      desc: "Shogunens gamla trädgård, den enda i Tokyo med tidvattendamm från havet. Tehuset Nakajima ute på vattnet serverar matcha med utsikt över skyskraporna.",
+                      book: null },
+                    { prio: 0, name: "Tsukiji Outer Market", area: "Chūō-ku", url: "https://www.gotokyo.org/en/spot/65/index.html",
+                      desc: "Cirka 460 stånd och butiker med gatumat, knivar och torkad fisk — familjeföretag i generationer. Gå på morgonen, det tynar av framåt eftermiddagen.",
+                      book: null },
+                    { prio: 0, name: "Koishikawa Kōrakuen", area: "Bunkyō", url: "https://www.gotokyo.org/en/spot/24/index.html",
+                      desc: "Färdigställd 1669 och ofta kallad Tokyos vackraste landskapsträdgård — kinesiskt influerad, med miniatyrlandskap kring en central damm.",
+                      book: null },
+                    { prio: 0, name: "Kejsarpalatsets östra trädgårdar", area: "Chiyoda", url: "https://www.kunaicho.go.jp/e-event/higashigyoen02.html",
+                      desc: "Ruinerna av Edo-borgen med fri entré och den formella Ninomaru-trädgården. Novemberöppet 9–16.",
+                      book: null, closed: "Stängt måndagar och fredagar." },
+                    { prio: 0, name: "Nezu-jinja", area: "Bunkyō", url: "https://www.gotokyo.org/en/spot/70/index.html",
+                      desc: "Helgedom från 1705 med byggnader klassade som viktiga kulturminnen och en egen tunnel av röda torii. Kombinera med Yanaka samma dag.",
+                      book: null },
+                    { prio: 0, name: "Toyosu-marknaden, tonfiskauktionen", area: "Koto-ku", url: "https://www.english.metro.tokyo.lg.jp/w/016-101-003992",
+                      desc: "Nära Ariake-hotellet. Övre observationsdäcket är fritt från kl 05, nedre däcket kräver lotteri.",
+                      book: "Nedre däcket lottas ut ca en månad innan. Auktionen körs mån–lör, stängt söndagar." },
+                    { prio: 0, name: "Ghibli-museet", area: "Mitaka", url: "https://www.ghibli-museum.jp/en/tickets/",
+                      desc: "Bara om ni är sugna — men då måste ni vara snabba, biljetterna tar slut på minuter.",
+                      book: "Endast förbokning. Novemberbiljetter släpps 10 oktober kl 10:00 japansk tid." }
+                ],
+                restaurants: [
+                    { prio: 1, name: "Daikokuya Tempura Honten", area: "Asakusa", price: "¥1 000–2 000", url: "https://tabelog.com/en/tokyo/A1311/A131102/13003696/",
+                      desc: "Tendon friterad i sesamolja efter samma recept sedan 1887. En institution i Asakusa — räkna med kö, men annexet runt hörnet tar emot överflödet." },
+                    { prio: 2, name: "Sometaro", area: "Asakusa / mot Kappabashi", price: "Billigt", url: "https://tabelog.com/en/tokyo/A1311/A131102/13003710/",
+                      desc: "Okonomiyaki som ni steker själva vid bordet, skorna av och tatami på golvet i ett ruffigt förkrigshus. Ligger på vägen mot Kappabashi." },
+                    { prio: 3, name: "Owariya Honten", area: "Asakusa / Tawaramachi", price: "¥1 000–2 000", url: "https://tabelog.com/en/tokyo/A1311/A131102/13003714/",
+                      desc: "Soba i Edo-stil sedan 1860, även utmärkt tendon. Stängt fredagar — tänk på det 13 nov." },
+                    { prio: 0, name: "Hantei", area: "Nezu", price: "Lunch ca ¥3 600", url: "https://www.tablecheck.com/en/hantei-nezu",
+                      desc: "Kushiage-spett serverade i omgångar i ett trähus från Meiji-tiden som är klassat kulturminne. Dyrast på listan men fortfarande rimligt — boka bord." },
+                    { prio: 0, name: "Stånden i Tsukiji Outer Market", area: "Chūō-ku", price: "Billigt", url: "https://www.gotokyo.org/en/spot/65/index.html",
+                      desc: "Ståsushi, tamagoyaki på pinne och grillade pilgrimsmusslor direkt över disk — billigaste sättet att äta riktigt bra i Tokyo." }
+                ]
+            },
+            {
+                id: "kanazawa", name: "Kanazawa", img: "img/kanazawa-chaya.jpg",
+                dates: "2–4 nov",
+                intro: "Liten stad, stort innehåll — Japans kanske finaste landskapsträdgård, tre bevarade geishakvarter, samurajkvarteret och en 300-årig fiskmarknad, allt inom promenadavstånd.",
+                warn: "Ni kommer 2 nov, dagen efter att arbetet med yukitsuri påbörjats i Kenrokuen — de koniska repställningarna som skyddar tallarna mot snö sätts upp 1 nov till mitten av december. Ni ser alltså arbetet pågå, vilket många tycker är vackrare än resultatet. 3 nov är Kulturdagen, då Kenrokuen brukar ha fri entré (och mer folk). Kvällsupplysningen i Kenrokuen/slottsparken börjar först 7 nov — den missar ni.",
+                activities: [
+                    { prio: 1, name: "Kenrokuen", area: "Kenrokuen / Hirosaka", url: "https://www.japan.travel/en/spot/1399/",
+                      desc: "En av Japans tre stora trädgårdar och rankad topp tre bland Kanazawas sevärdheter på TripAdvisor. Lönnarna toppar först mot slutet av november, så gå hit för formen och stillheten — och för yukitsuri-arbetet.",
+                      book: null },
+                    { prio: 2, name: "Higashi Chaya", area: "Higashiyama", url: "https://www.japan-guide.com/e/e2167.html",
+                      desc: "Kanazawas största och bäst bevarade geishakvarter — trähus med fina gallerfönster och butiker med bladguld. Tehusen Shima och Kaikaro går att gå in i utan bokning.",
+                      book: null },
+                    { prio: 3, name: "Omicho-marknaden", area: "Mellan stationen och Kōrinbō", url: "https://www.japan-guide.com/e/e4207.html",
+                      desc: "\"Kanazawas kök\" i trehundra år — krabba, söta räkor, nodoguro och ostron rakt över disk. Ungefär kl 08–18, men varje stånd har sina egna tider.",
+                      book: null },
+                    { prio: 0, name: "Nagamachi & Nomura-huset", area: "Nagamachi", url: "https://www.japan-guide.com/e/e2166.html",
+                      desc: "Samurajkvarteret med lergula murar och smala gränder. Det restaurerade Nomura-residenset har en berömd liten trädgård och ett terum en trappa upp (¥500 entré, ¥300 extra för te).",
+                      book: null },
+                    { prio: 0, name: "Kazue-machi Chaya", area: "Längs Asano-floden", url: "https://visitkanazawa.jp/en/attractions/detail_52358.html",
+                      desc: "Det minsta och tystaste av geishakvarteren, utmed flodkanten, skyddat som kulturhistoriskt område. Vackrast i skymningen när lyktorna tänds. Tre minuter från Higashi Chaya.",
+                      book: null },
+                    { prio: 0, name: "21st Century Museum of Contemporary Art", area: "Hirosaka", url: "https://www.kanazawa21.jp/data_list.php?g=7&lng=e",
+                      desc: "Rund glasbyggnad fem minuter från Kenrokuen. Mest känd för Leandro Erlichs \"The Swimming Pool\", där man går omkring under vattenytan.",
+                      book: "Utställningsbiljetter säljs online i förväg (rekommenderas på helger). Simbassängen har en egen tidsbokning som öppnar kl 09:00 samma dag — boka den på morgonen ni går dit." },
+                    { prio: 0, name: "Myōryū-ji (Ninjatemplet)", area: "Teramachi", url: "https://www.japan-guide.com/e/e4206.html",
+                      desc: "Tempel fullt av lönndörrar, dolda trappor och en gömd brunn. Guidad tur på ca 40 minuter, ¥1 200.",
+                      book: "Måste bokas per telefon: +81-76-241-0888 (kl 08:30–17:00 japansk tid, engelska går bra). Endast kontant på plats, ingen fotografering inne." },
+                    { prio: 0, name: "Gyokusen'inmaru-trädgården", area: "Kanazawa slottspark", url: "https://www.pref.ishikawa.jp/siro-niwa/kanazawajou/e/gyokusen-in/",
+                      desc: "Rekonstruerad 2015 och gratis att besöka. Lyses upp efter mörkrets inbrott på fredagar, lördagar och kvällar före helgdag — 2 nov är kvällen före Kulturdagen.",
+                      book: null }
+                ],
+                restaurants: [
+                    { prio: 1, name: "Kuroyuri", area: "Kanazawa station, Anto", price: "¥400–600/rätt", url: "https://www.kuroyuri-oden.net/en",
+                      desc: "Oden på Kanazawa-vis och kamo no jibuni — ankgryta som är stadens signaturrätt — på en buljong som hållits levande i femtio år. Ligger inne i stationen, praktiskt på ankomst- eller avresedagen." },
+                    { prio: 2, name: "Ikiiki-tei", area: "Omicho-marknaden", price: "Billigt", url: "https://tabelog.com/en/ishikawa/A1701/A170101/17001392/",
+                      desc: "Kaisendon — skål med ris under färsk sashimi — på marknadens bottenvåning. Kö tidigt, och de stänger när råvarorna är slut." },
+                    { prio: 3, name: "Sushi Ippei", area: "Centrala Kanazawa", price: "Prisvärt", url: null,
+                      desc: "Liten sushidisk driven av ett äldre par, med ovanligt högt betyg för priset. Vi hittade ingen egen hemsida att länka till — fråga på boendet efter adressen." },
+                    { prio: 0, name: "Kaisen-don Ichiba", area: "Omicho-marknaden", price: "Billigt", url: "https://tabelog.com/en/ishikawa/A1701/A170101/17005929/",
+                      desc: "Alternativ till Ikiiki-tei på samma marknad, med nodoguro och amaebi i skålen." }
+                ]
+            },
+            {
+                id: "kyoto", name: "Kyoto", img: "img/gion-maiko.jpg",
+                dates: "4–8 nov",
+                intro: "Fem nätter, först vid Gojo-Karasuma och sedan i Imakumano. Ni har redan Gion Odori (4 nov), teplantagen i Wazuka (5 nov) och maiko-showen på MAIKOYA (7 nov) bokade — det här är resten.",
+                warn: "Stadens lönnar toppar först runt 25 nov–5 dec, så räkna med grönt snarare än rött på era datum. Fördelen är att ni slipper trängseln, och Tofuku-jis höstavgift börjar först 15 nov. Kiyomizu-deras kvällsupplysning (21–30 nov) missar ni — men Kodai-jis pågår.",
+                activities: [
+                    { prio: 1, name: "Fushimi Inari Taisha", area: "Fushimi", url: "https://www.japan.travel/en/spot/1128/",
+                      desc: "Rankad som nummer ett bland sevärdheter i Kyoto på TripAdvisor. Tusentals röda torii uppför berget. Gratis och öppet dygnet runt — gå före kl 08 eller efter mörkrets inbrott, då är ni nästan ensamma.",
+                      book: null },
+                    { prio: 2, name: "Kodai-ji med kvällsupplysning", area: "Higashiyama", url: "https://en.japantravel.com/kyoto/kodai-ji-autumn-illumination/16526",
+                      desc: "Kobori Enshu-trädgård som lyses upp varje kväll med projektioner i Hojo-trädgården. Pågår 23 okt–13 dec, kl 17–22, ca ¥800. Ligger precis vid er Chawan-zaka-promenad — perfekt avslutning på den dagen.",
+                      book: null },
+                    { prio: 3, name: "Nishiki Market", area: "Nakagyō", url: "https://www.kyoto-nishiki.or.jp/en/about/",
+                      desc: "\"Kyotos kök\" — 390 meter täckt gata med runt 130 stånd, fyrahundra år gammal. Gå kl 09.30–11, senare blir det mycket folk.",
+                      book: null },
+                    { prio: 0, name: "Gion Hanamikoji & Pontochō", area: "Higashiyama / Nakagyō", url: "https://www.japan.travel/en/spot/79/",
+                      desc: "Pontochō är en 500 meter lång lyktbelyst gränd, på sina ställen två meter bred, nöjeskvarter sedan 1670. Kombinera med Hanamikoji i skymningen — passar era Gion-kvällar 4 och 7 nov.",
+                      book: null },
+                    { prio: 0, name: "Murin-an", area: "Okazaki, Higashiyama", url: "https://murin-an.jp/en/about/garden/",
+                      desc: "Liten Meiji-trädgård från 1890-talet av mästaren Ogawa Jihei, med vatten från Biwa-kanalen och Higashiyama-bergen som lånat landskap. Te serveras med utsikt över gräsmattan — den lugnaste pärlan på listan.",
+                      book: "Entrén är fri att gå in på, men te- och guidningsprogrammen har fasta tider och bör förbokas." },
+                    { prio: 0, name: "Nanzen-ji & Konchi-in", area: "Higashiyama", url: "https://www.japan.travel/en/spot/1175/",
+                      desc: "Tegelakvedukten Suirokaku från Meiji-tiden och torrträdgården \"tigerungarna som korsar vattnet\". Undertemplet Konchi-in har en Kobori Enshu-trädgård från 1610-talet. Fem minuter från Murin-an.",
+                      book: null },
+                    { prio: 0, name: "Ryōan-ji", area: "Ukyō", url: "http://www.ryoanji.jp/smph/eng/",
+                      desc: "Den berömda torrträdgården med femton stenar i vit grus — världsarv. Öppet 08–17.",
+                      book: null },
+                    { prio: 0, name: "Ginkaku-ji & Filosofens stig", area: "Sakyō", url: "https://kyoto.travel/en/getting-around/comfortable-access-to-ginkaku-ji-temple-philosophers-path/",
+                      desc: "Silverpaviljongen med sin sandkon och mossträdgård, och den två kilometer långa kanalstigen som leder därifrån ner till Nanzen-ji.",
+                      book: null },
+                    { prio: 0, name: "Fushimi sakedistrikt & Gekkeikan Okura", area: "Fushimi", url: "https://www.gekkeikan.com/museum/",
+                      desc: "Ett fyrtiotal bryggerier längs en pilkantad kanal. Museet ligger i en bryggeribyggnad från 1909 och avslutar besöket med provning av tre sorter. Enkelt att lägga till samma dag som Fushimi Inari.",
+                      book: null },
+                    { prio: 0, name: "Saihō-ji (Mossteplet)", area: "Nishikyō", url: "https://saihoji-kokedera.com/en/",
+                      desc: "Världsarvslistad mossträdgård där besöket inleds med att man skriver av en sutra. Extraordinärt — men kräver planering.",
+                      book: "Endast förbokning online, öppnar två månader innan (dvs. tidigt sept 2026). Max 2 personer per bokning, ¥4 000/person. Kom i tid — dörrarna stängs 5 min efter utsatt tid." },
+                    { prio: 0, name: "Katsura kejserliga villa", area: "Nishikyō", url: "https://sankan.kunaicho.go.jp/multilingual/lang/en/index.html",
+                      desc: "Måttstocken för japansk trädgårdskonst. Kräver mest framförhållning av allt på resan.",
+                      book: "Bokas via Kejserliga hovet från tre månader innan (dvs. tidigt aug 2026). Platserna lottas ut varje natt, inte först till kvarn — sök dagligen och håll utkik efter återbud. ¥1 000, pass krävs." }
+                ],
+                restaurants: [
+                    { prio: 1, name: "Honke Owariya", area: "Nakagyō", price: "¥1 000–3 000", url: "https://www.honke-owariya.co.jp/en",
+                      desc: "Soba sedan 1465 — Kyotos äldsta restaurang, driven i sextonde generationen i ett trähus från 1700-talet. Signaturrätten Ho-rai soba ¥2 160. Gångavstånd från hotellet vid Gojo-Karasuma." },
+                    { prio: 2, name: "Oryori Menami", area: "Kiyamachi-Sanjō", price: "ca ¥1 500", url: "https://tabelog.com/en/kyoto/A2601/A260201/26001266/",
+                      desc: "Obanzai — kyotesisk husmanskost som står uppradad på en lång trädisk där ni helt enkelt pekar. Grundad 1939, Bib Gourmand i Michelin. Öppet 15–22, stängt onsdagar. Boka bord." },
+                    { prio: 3, name: "Kyōgoku Kaneyo", area: "Nakagyō", price: "Lunch från ¥950", url: "https://tabelog.com/en/kyoto/A2601/A260201/26001330/",
+                      desc: "Kolgrillad ål under en väldig dashi-omelett (kinshi-don) i ett trähus från Meiji-tiden — be om tatamirummet på andra våningen." },
+                    { prio: 0, name: "Izuu", area: "Gion", price: "¥2 000–3 500", url: "https://www.izuu.jp/english/",
+                      desc: "Saba sugata-zushi, hel makrill pressad till sushi på kyotesiskt vis — på samma adress i Gion sedan 1781." },
+                    { prio: 0, name: "Omen Ginkakuji Honten", area: "Sakyō", price: "Udon ¥1 000", url: "https://www.omen.co.jp/",
+                      desc: "Handgjord udon utan tillsatser, serverad med ett fat råa säsongsgrönsaker och sesam att doppa och blanda själv. Ligger vid Filosofens stig." },
+                    { prio: 0, name: "Kasagiya", area: "Ninenzaka, Higashiyama", price: "¥650–800", url: "https://tabelog.com/en/kyoto/A2601/A260301/26000596/",
+                      desc: "Wagashi-tehus från 1914 halvvägs upp för Ninenzaka, med interiör kvar från Taisho-tiden. Zenzai, trefärgad ohagi och matcha — ligger mitt på er Chawan-zaka-promenad." },
+                    { prio: 0, name: "Kagizen Yoshifusa", area: "Gion, Shijō", price: "¥1 000–1 500", url: "https://www.kagizen.co.jp/en",
+                      desc: "Gamla Gion-konditoriet från 1710-talet. Kuzukiri — genomskinliga arrowrot-nudlar i svart sockerlag — serveras i ett tyst tatamirum bakom butiken. Fem minuter från MAIKOYA, bra före showen 7 nov." }
+                ]
+            },
+            {
+                id: "wazuka", name: "Wazuka", img: "img/wazuka-tea.jpg",
+                dates: "5 nov (dagstur, bokad)",
+                intro: "En timme söder om Kyoto ligger tedalen där en stor del av världens matcha har sitt ursprung. Ni har redan en guidad heldagstur hos d:matcha bokad — här är vad som är värt att veta om platsen.",
+                warn: "Bussarna går mindre än en i timmen (Kamo station → Nara Kotsu linje 66 → Higashi-Wazuka), så planera med marginal. På landsbygden är kontanter ofta enda betalmedlet.",
+                activities: [
+                    { prio: 1, name: "Teterrasserna i Wazuka", area: "Sōraku-gun", url: "https://www.kyototourism.org/en/column/8449/",
+                      desc: "Åttahundra år av Uji-teodling. Sluttningarna är klassade som natursköt område av Kyoto prefektur — utsiktspunkterna Ishitera och Harayama är de klassiska vyerna.",
+                      book: null },
+                    { prio: 0, name: "Kyoto Obubu Tea Farms", area: "Wazuka", url: "https://obubutea.com/guided-tea-tour/",
+                      desc: "Engelskspråkiga turer i tefälten och fabriken med provning, drivna av gårdens eget folk. Ett alternativ eller komplement om d:matcha-dagen lämnar tid över.",
+                      book: "Turerna går på fasta tider och kräver bokning." }
+                ],
+                restaurants: [
+                    { prio: 0, name: "Lunch ingår i d:matcha-turen", area: "Wazuka", price: "Ingår", url: "https://dmatcha.com/",
+                      desc: "Heldagsturen inkluderar mat — utbudet av restauranger i byn är litet, så planera inte in något eget denna dag." }
+                ]
+            },
+            {
+                id: "hakone", name: "Hakone", img: "img/hakone-ashi-fuji.jpg",
+                dates: "8–10 nov",
+                intro: "Bergen, sjön och de varma källorna — och den enda platsen på resan där höstfärgerna faktiskt ligger rätt i tid. Ni bor i Sengokuhara, högt upp, vilket är där färgerna kommer först.",
+                warn: "Höstfärgerna på hög höjd (Ōwakudani, Sengokuhara) toppar sent okt–mitten av nov, alltså precis era datum. Vid Ashisjön och Gōra är det några dagar kvar till toppen. Hakone-Yumoto längst ner blir inte färgstarkt förrän i slutet av november. Köp Hakone Free Pass i förväg — och boka Romancecar-platsen, 8 nov är en söndag i högsäsong.",
+                activities: [
+                    { prio: 1, name: "Hakone Open-Air Museum", area: "Ninotaira, vid Chōkoku-no-Mori station", url: "https://www.hakone-oam.or.jp/en/",
+                      desc: "Rankad som nummer ett bland sevärdheterna i Hakone på TripAdvisor. 70 000 kvadratmeter skulpturpark mot bergen, en stor Picasso-samling och ett fotbad att värma sig i. ¥1 600. Ligger direkt på Loop-rundan.",
+                      book: "Biljetter online är billigare än i kassan — köp ett par dagar innan." },
+                    { prio: 2, name: "Hakone-helgedomen & Heiwa-no-torii", area: "Moto-Hakone", url: "https://www.japan.travel/national-parks/parks/fuji-hakone-izu/see-and-do/hakone-jinja-shrine/",
+                      desc: "Tolv sekler gammal helgedom i cederskogen, och den röda torii-porten som står ute i Ashisjön. Gångavstånd från piratskeppets brygga, så den faller naturligt in i Loop-dagen.",
+                      book: null, closed: "Kön för att fotografera vid torii-porten är ofta 45 minuter — gå tidig morgon istället." },
+                    { prio: 3, name: "Ōwakudani", area: "Linbanans mittpunkt", url: "https://www.hakonenavi.jp/international/en/spot/246",
+                      desc: "Aktiv vulkandal med ångpelare och kokande källor, mitt på linbanesträckan. Här köper man kurotamago, de svarta äggen som kokats i svavelvattnet — ca ¥500 för fem.",
+                      book: null, closed: "Kan stängas med kort varsel vid förhöjda gasnivåer — kolla statusen samma morgon." },
+                    { prio: 0, name: "Hakone Museum of Art & mossträdgården", area: "Gōra", url: "https://hakone-japan.com/discover/history/hakone-history/hakone-museum-of-art-moss-garden-2/",
+                      desc: "130 mossarter under ett par hundra lönnar. Kontrasten mellan grön moss och röda nedfallna löv toppar i mitten av november — era datum ligger precis rätt, strax före ruschen. Ligger vid bergbanan i Gōra.",
+                      book: null, closed: "Museet har varit stängt för renovering och ska ha öppnat igen 30 okt 2026 — dubbelkolla närmare resan, sådana datum brukar glida." },
+                    { prio: 0, name: "Sengokuhara pampasgräsfält", area: "Sengokuhara — er egen bakgård", url: "https://hakone-japan.com/things-to-do/sightseeing/sengokuhara-pampas-grass-fields/",
+                      desc: "Arton hektar susuki-gräs som skiftar i silverguld, med en stig på en halvtimme tur och retur. Säsongen räknas sen september till början av november, så ni är i slutet av den — mer guldbrunt än silver, men vackert i morgon- eller kvällsljus.",
+                      book: null },
+                    { prio: 0, name: "Hakone Gōra-parken", area: "Gōra", url: "https://www.hakonenavi.jp/international/en/spot/198",
+                      desc: "Terrasserad park i fransk stil uppför Gōra-sluttningen med växthus och ett hantverkshus. Rabatt med Hakone Free Pass.",
+                      book: null },
+                    { prio: 0, name: "Tenzan Onsen", area: "10 min med buss från Hakone-Yumoto", url: "https://hakone-japan.com/plan-your-trip/stories/helpful-info/onsen-and-tattoos/",
+                      desc: "Utomhusbad byggda i natursten i en skogsdal — dagbesök, ingen bokning, betala på plats. Det är dessutom det badet i Hakone som har en tydlig och tillåtande tatueringspolicy, om det skulle vara aktuellt.",
+                      book: null }
+                ],
+                restaurants: [
+                    { prio: 1, name: "Tamura Ginkatsu-tei", area: "Gōra", price: "Teishoku ¥1 700", url: "https://www.hakonenavi.jp/international/en/spot/214",
+                      desc: "Öppnade 1973 i ett traditionellt trähus. Signaturrätten är tofu-katsuni: fläskfärs i Gōra-tofu, friterad och sedan puttrad i lergryta med ägg. Ligger på Loop-rundan och nära Sengokuhara — gå före kl 12, sedan blir det kö." },
+                    { prio: 2, name: "Hatsuhana Soba Honten", area: "Hakone-Yumoto", price: "¥1 000–1 300", url: "https://tabelog.com/en/kanagawa/A1410/A141001/14000133/",
+                      desc: "Grundad 1934. Soban görs på bovete, riven jams och ägg — utan en droppe vatten. Ligger vid Yumoto-bron, räkna med kö." },
+                    { prio: 3, name: "Amazake Chaya", area: "Hatajuku, gamla Tokaido-vägen", price: "Billigt", url: "https://www.hakonenavi.jp/international/en/spot/586",
+                      desc: "Fyrahundra år gammalt halmtakstehus vid den gamla vandringsleden, drivet i trettonde generationen. Alkoholfri amazake och nystött tofu-mochi. Så traditionell miljö det går att komma i Hakone." },
+                    { prio: 0, name: "Middag på boendet", area: "Sengokuhara", price: "—", url: null,
+                      desc: "Sengokuhara har begränsat med restauranger och de stänger tidigt. Hör med Mount View Hakone om halvpension för minst en av kvällarna — det är sannolikt det bekvämaste alternativet." }
+                ]
+            }
+        ];
+
+        function activityCard(a) {
+            const prio = a.prio > 0
+                ? `<span class="text-xs font-bold text-white bg-momiji px-2 py-1 rounded-full whitespace-nowrap">PRIO ${a.prio}</span>`
+                : '';
+            const title = a.url
+                ? `<a href="${a.url}" target="_blank" class="underline hover:text-momiji transition">${a.name}</a>`
+                : a.name;
+            const book = a.book
+                ? `<p class="text-xs font-bold text-momiji mt-3 bg-momiji/5 border border-momiji/25 rounded-xl px-3 py-2">📌 Boka i förväg: ${a.book}</p>`
+                : '';
+            const closed = a.closed
+                ? `<p class="text-xs text-stone-500 mt-2">⚠️ ${a.closed}</p>`
+                : '';
+            return `
+                <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm flex flex-col">
+                    <div class="flex items-start justify-between gap-3 mb-1">
+                        <h4 class="font-bold text-ink leading-snug">${title}</h4>
+                        ${prio}
+                    </div>
+                    <span class="text-xs uppercase tracking-widest text-stone-400 mb-3">${a.area}</span>
+                    <p class="text-sm text-stone-600 leading-relaxed flex-grow">${a.desc}</p>
+                    ${closed}
+                    ${book}
+                </div>`;
+        }
+
+        function restaurantCard(r) {
+            const prio = r.prio > 0
+                ? `<span class="text-xs font-bold text-white bg-matcha px-2 py-1 rounded-full whitespace-nowrap">PRIO ${r.prio}</span>`
+                : '';
+            const title = r.url
+                ? `<a href="${r.url}" target="_blank" class="underline hover:text-matcha transition">${r.name}</a>`
+                : r.name;
+            return `
+                <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm flex flex-col">
+                    <div class="flex items-start justify-between gap-3 mb-1">
+                        <h4 class="font-bold text-ink leading-snug">${title}</h4>
+                        ${prio}
+                    </div>
+                    <span class="text-xs uppercase tracking-widest text-stone-400 mb-3">${r.area} · ${r.price}</span>
+                    <p class="text-sm text-stone-600 leading-relaxed flex-grow">${r.desc}</p>
+                </div>`;
+        }
+
+        function renderCities() {
+            const nav = document.getElementById('city-nav');
+            const wrap = document.getElementById('cities');
+
+            cities.forEach(c => {
+                const a = document.createElement('a');
+                a.href = `#${c.id}`;
+                a.className = 'px-4 py-2 rounded-full border border-stone-bg/40 hover:bg-stone-bg hover:text-ink transition';
+                a.textContent = c.name;
+                nav.appendChild(a);
+
+                const section = document.createElement('section');
+                section.id = c.id;
+                section.className = 'mb-24 scroll-mt-20';
+                section.innerHTML = `
+                    <div class="relative overflow-hidden rounded-3xl mb-8 h-48 md:h-64">
+                        <img src="${c.img}" alt="${c.name}" class="absolute inset-0 w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-ink/55"></div>
+                        <div class="relative z-10 h-full flex flex-col justify-end p-8 text-stone-bg">
+                            <span class="text-xs font-bold uppercase tracking-widest text-stone-300">${c.dates}</span>
+                            <h2 class="text-3xl md:text-4xl font-bold">${c.name}</h2>
+                        </div>
+                    </div>
+                    <p class="text-stone-600 leading-relaxed max-w-3xl mb-6">${c.intro}</p>
+                    ${c.warn ? `<div class="bg-momiji/5 border border-momiji/30 p-5 rounded-2xl mb-10 max-w-3xl"><p class="text-sm text-stone-700"><strong>Tänk på:</strong> ${c.warn}</p></div>` : ''}
+
+                    <h3 class="text-lg font-bold uppercase tracking-widest text-matcha mb-4">Aktiviteter</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+                        ${c.activities.map(activityCard).join('')}
+                    </div>
+
+                    <h3 class="text-lg font-bold uppercase tracking-widest text-matcha mb-4">Restauranger</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        ${c.restaurants.map(restaurantCard).join('')}
+                    </div>`;
+                wrap.appendChild(section);
+            });
+        }
+
+        window.onload = renderCities;
+    </script>
+</body>
+</html>
