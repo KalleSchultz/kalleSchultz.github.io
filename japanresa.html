@@ -174,8 +174,20 @@
     line-height:2;
     opacity:0;
     animation:riseIn 1.2s cubic-bezier(.2,.75,.3,1) .92s both;
+    pointer-events:auto;
   }
   .places .dot{color:var(--vermilion); margin:0 .5em;}
+  .places a{
+    color:inherit;
+    text-decoration:none;
+    border-bottom:1px solid transparent;
+    transition:color .25s ease, border-color .25s ease;
+    padding:.3em 0;
+  }
+  .places a:hover, .places a:focus-visible{
+    color:var(--paper);
+    border-color:var(--vermilion);
+  }
 
   .cta{
     display:inline-flex; align-items:center; gap:12px;
@@ -296,7 +308,7 @@
 </head>
 <body>
 
-<a class="stage" href="japan.html" aria-label="Öppna Japanresan 2026 – resplan, boende och praktisk info">
+<div class="stage" id="stage" role="link" tabindex="0" aria-label="Öppna Japanresan 2026 – resplan, boende och praktisk info">
 
   <div class="mosaic" aria-hidden="true">
     <figure class="tile t-a"><img src="img/fushimi-torii-tunnel.jpg" alt="" decoding="async"></figure>
@@ -331,7 +343,22 @@
 
   <span class="footnote">Klicka var som helst</span>
 
-</a>
+</div>
+
+<script>
+  const stage = document.getElementById('stage');
+  function goToTrip(e) {
+    if (e.target.closest('a')) return; // låt stadslänkarna sköta sig själva
+    window.location.href = 'japan.html';
+  }
+  stage.addEventListener('click', goToTrip);
+  stage.addEventListener('keydown', function (e) {
+    if ((e.key === 'Enter' || e.key === ' ') && !e.target.closest('a')) {
+      e.preventDefault();
+      window.location.href = 'japan.html';
+    }
+  });
+</script>
 
 </body>
 </html>
