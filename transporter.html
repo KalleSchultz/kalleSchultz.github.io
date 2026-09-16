@@ -30,6 +30,12 @@
     <style>
         body { background-color: #fafaf9; scroll-behavior: smooth; color: #1c1917; }
         .nav-sticky { position: sticky; top: 0; z-index: 50; backdrop-filter: blur(12px); background: rgba(250, 250, 249, 0.9); }
+        #mobile-menu-btn .bar { transition: transform .25s ease, opacity .2s ease; transform-origin: 12px center; }
+        #mobile-menu-btn[aria-expanded="true"] .bar1 { transform: translateY(6px) rotate(45deg); }
+        #mobile-menu-btn[aria-expanded="true"] .bar2 { opacity: 0; }
+        #mobile-menu-btn[aria-expanded="true"] .bar3 { transform: translateY(-6px) rotate(-45deg); }
+        #mobile-menu { overflow: hidden; max-height: 0; opacity: 0; transition: max-height .3s ease, opacity .25s ease; }
+        #mobile-menu.open { max-height: 480px; opacity: 1; }
     </style>
 </head>
 <body class="font-sans antialiased">
@@ -51,11 +57,11 @@
                     <a href="transporter.html" class="text-momiji transition">Transporter</a>
                     <a href="japan.html#before-departure" class="hover:text-momiji transition">Innan Avresa</a>
                 </div>
-                <button id="mobile-menu-btn" class="md:hidden flex items-center justify-center w-10 h-10 -mr-2" aria-label="Öppna meny" aria-expanded="false" aria-controls="mobile-menu" onclick="const m=document.getElementById('mobile-menu');const exp=this.getAttribute('aria-expanded')==='true';this.setAttribute('aria-expanded',String(!exp));m.style.display=exp?'none':'flex';">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+                <button id="mobile-menu-btn" class="md:hidden flex items-center justify-center w-10 h-10 -mr-2" aria-label="Öppna meny" aria-expanded="false" aria-controls="mobile-menu" onclick="const m=document.getElementById('mobile-menu');const exp=this.getAttribute('aria-expanded')==='true';this.setAttribute('aria-expanded',String(!exp));m.classList.toggle('open',!exp);">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line class="bar bar1" x1="3" y1="6" x2="21" y2="6"/><line class="bar bar2" x1="3" y1="12" x2="21" y2="12"/><line class="bar bar3" x1="3" y1="18" x2="21" y2="18"/></svg>
                 </button>
             </div>
-            <div id="mobile-menu" class="md:hidden pb-4 flex-col text-sm font-bold uppercase tracking-widest" style="display:none;">
+            <div id="mobile-menu" class="md:hidden flex flex-col pb-4 text-sm font-bold uppercase tracking-widest">
                 <a href="index.html" class="py-2 border-b border-stone-100 hover:text-momiji transition">Start</a>
                 <a href="highlights.html" class="py-2 border-b border-stone-100 hover:text-momiji transition">Highlights</a>
                 <a href="resplan.html" class="py-2 border-b border-stone-100 hover:text-momiji transition">Resplan</a>
@@ -69,7 +75,7 @@
     <script>
         document.querySelectorAll('#mobile-menu a').forEach(function(a) {
             a.addEventListener('click', function() {
-                document.getElementById('mobile-menu').style.display = 'none';
+                document.getElementById('mobile-menu').classList.remove('open');
                 document.getElementById('mobile-menu-btn').setAttribute('aria-expanded', 'false');
             });
         });
@@ -120,12 +126,12 @@
         <section class="mb-16">
             <h2 class="text-2xl font-bold mb-4 border-l-8 border-matcha pl-4">🎫 Boka tåg</h2>
             <p class="text-stone-600 mb-6 leading-relaxed max-w-3xl">
-                Olika sträckor bokas via olika system — de täcker inte varandra. Viktigast: <strong>Smart-EX täcker inte Tokyo–Kanazawa</strong> (Hokuriku Shinkansen), den sträckan måste bokas separat via JR-EAST. Sittplatser släpps <strong>30 dagar innan avresa</strong> — boka då, särskilt om ni vill ha plats med bagageutrymme.
+                Fyra olika bokningssystem täcker er resa, och de täcker inte varandra. Viktigast: <strong>Smart-EX täcker varken Tokyo–Kanazawa eller Kanazawa–Kyoto</strong> — bara Kyoto–Odawara (8 nov) går via Smart-EX. Sittplatser släpps <strong>30 dagar innan avresa</strong> — boka då, särskilt om ni vill ha plats med bagageutrymme.
             </p>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm space-y-2">
                     <h3 class="font-bold text-matcha">Smart-EX</h3>
-                    <p class="text-sm text-stone-600">JR Central/JR West/JR Kyushu Shinkansen — täcker Kanazawa–Kyoto (4 nov) och Kyoto–Odawara (8 nov) på er resa.</p>
+                    <p class="text-sm text-stone-600">Tokaido/Sanyo/Kyushu Shinkansen, drivs av JR Central/West/Kyushu — täcker er sträcka Kyoto–Odawara (8 nov).</p>
                     <a href="https://smart-ex.jp/en/" target="_blank" class="inline-block text-xs font-bold text-momiji underline">smart-ex.jp →</a>
                 </div>
                 <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm space-y-2">
@@ -134,14 +140,54 @@
                     <a href="https://www.eki-net.com/jreast-train-reservation/Top/Index" target="_blank" class="inline-block text-xs font-bold text-momiji underline">eki-net.com →</a>
                 </div>
                 <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm space-y-2">
+                    <h3 class="font-bold text-matcha">JR-WEST e5489</h3>
+                    <p class="text-sm text-stone-600">Bokar Limited Express Thunderbird — er sträcka Kanazawa–Kyoto (4 nov). Thunderbird är helt platsbokat sedan mars 2024 och täcks varken av Smart-EX eller eki-net.</p>
+                    <a href="https://e5489.jr-odekake.net/e5489/ibsp/CBTopMenuSP?LANG=en" target="_blank" class="inline-block text-xs font-bold text-momiji underline">e5489.jr-odekake.net →</a>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm space-y-2">
                     <h3 class="font-bold text-matcha">Odakyu e-Romancecar</h3>
                     <p class="text-sm text-stone-600">Expresståget mellan Shinjuku och Odawara/Hakone-Yumoto — ett bekvämt alternativ för Hakone-resan. Här köper ni även <strong>Hakone Free Pass</strong> (ca 500 SEK), som täcker linbana, båt och buss under Loop-dagen 9 nov.</p>
                     <a href="https://www.web-odakyu.com/e-romancecar/?language=en" target="_blank" class="inline-block text-xs font-bold text-momiji underline">web-odakyu.com →</a>
                 </div>
                 <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm space-y-2">
+                    <h3 class="font-bold text-matcha">Tokyo Monorail</h3>
+                    <p class="text-sm text-stone-600">Från Haneda till Hamamatsucho vid ankomst 1 nov. Sista biten in till Ariake tar ni via JR till Shimbashi och sedan Yurikamome.</p>
+                    <a href="https://www.tokyo-monorail.co.jp/english/" target="_blank" class="inline-block text-xs font-bold text-momiji underline">tokyo-monorail.co.jp →</a>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm space-y-2">
                     <h3 class="font-bold text-matcha">Keisei Skyliner</h3>
                     <p class="text-sm text-stone-600">E-biljett för Skyliner mellan Narita flygplats och Ueno/Nippori (~40 min) — relevant för hemresan 14 nov.</p>
                     <a href="https://www.keisei.co.jp/keisei/tetudou/skyliner/e-ticket/en/eticket/index.html" target="_blank" class="inline-block text-xs font-bold text-momiji underline">keisei.co.jp →</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- HAKONE LOOP -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-bold mb-4 border-l-8 border-matcha pl-4">🚡 Hakone Loop</h2>
+            <p class="text-stone-600 mb-6 leading-relaxed max-w-3xl">
+                Loop-dagen (9 nov) knyter ihop tre olika operatörer — bergbana, linbana och båt — alla ägda av Odakyu-koncernen. Hakone Free Pass (köps via Odakyu ovan) täcker alla tre, men här är varje operatörs egen sida om ni vill kolla tider eller driftstörningar (t.ex. vid förhöjd gasnivå i Ōwakudani).
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm space-y-2">
+                    <h3 class="font-bold text-matcha">Hakone Navi (samlad översikt)</h3>
+                    <p class="text-sm text-stone-600">Officiell portal för hela Hakone — rutter, tidtabeller och länkar vidare till samtliga operatörer nedan. Bäst startpunkt om ni bara vill ha en sida.</p>
+                    <a href="https://www.hakonenavi.jp/international/en/" target="_blank" class="inline-block text-xs font-bold text-momiji underline">hakonenavi.jp →</a>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm space-y-2">
+                    <h3 class="font-bold text-matcha">Hakone Tozan Railway</h3>
+                    <p class="text-sm text-stone-600">Bergbanan och kabelbanan upp genom Gōra.</p>
+                    <a href="https://www.hakone-tozan.co.jp/en/" target="_blank" class="inline-block text-xs font-bold text-momiji underline">hakone-tozan.co.jp →</a>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm space-y-2">
+                    <h3 class="font-bold text-matcha">Hakone Ropeway</h3>
+                    <p class="text-sm text-stone-600">Linbanan över Ōwakudani — kolla driftstatus samma morgon.</p>
+                    <a href="https://www.hakoneropeway.co.jp/foreign/en/" target="_blank" class="inline-block text-xs font-bold text-momiji underline">hakoneropeway.co.jp →</a>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm space-y-2">
+                    <h3 class="font-bold text-matcha">Hakone Sightseeing Cruise</h3>
+                    <p class="text-sm text-stone-600">"Piratskeppet" över Ashisjön till Hakone-helgedomen.</p>
+                    <a href="https://www.hakone-kankosen.co.jp/foreign/en/" target="_blank" class="inline-block text-xs font-bold text-momiji underline">hakone-kankosen.co.jp →</a>
                 </div>
             </div>
         </section>
