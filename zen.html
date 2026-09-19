@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zen & Trädgårdar - Japanresa 2026</title>
+
+    <!-- Tailwind CSS för modern design -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'stone-bg': '#fafaf9',
+                        'matcha': '#166534',
+                        'momiji': '#9f1239',
+                        'ink': '#1c1917'
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { background-color: #fafaf9; scroll-behavior: smooth; color: #1c1917; }
+        .nav-sticky { position: sticky; top: 0; z-index: 50; backdrop-filter: blur(12px); background: rgba(250, 250, 249, 0.9); }
+        #mobile-menu-btn .bar { transition: transform .25s ease, opacity .2s ease; transform-origin: 12px center; }
+        #mobile-menu-btn[aria-expanded="true"] .bar1 { transform: translateY(6px) rotate(45deg); }
+        #mobile-menu-btn[aria-expanded="true"] .bar2 { opacity: 0; }
+        #mobile-menu-btn[aria-expanded="true"] .bar3 { transform: translateY(-6px) rotate(-45deg); }
+        #mobile-menu { overflow: hidden; max-height: 0; opacity: 0; transition: max-height .3s ease, opacity .25s ease; }
+        #mobile-menu.open { max-height: 480px; opacity: 1; }
+    </style>
+</head>
+<body class="font-sans antialiased">
+
+    <!-- Navigation -->
+    <nav class="nav-sticky border-b border-stone-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center space-x-2">
+                    <span class="text-2xl">🍁</span>
+                    <span class="font-bold text-xl tracking-tight uppercase">Japan 2026</span>
+                </div>
+                <div class="hidden md:flex flex-wrap gap-x-5 gap-y-1 justify-end text-sm font-bold uppercase tracking-widest">
+                    <a href="index.html" class="hover:text-momiji transition">Start</a>
+                    <a href="highlights.html" class="hover:text-momiji transition">Highlights</a>
+                    <a href="zen.html" class="text-momiji transition">Zen &amp; Trädgårdar</a>
+                    <a href="resplan.html" class="hover:text-momiji transition">Resplan</a>
+                    <a href="japan.html#hotels" class="hover:text-momiji transition">Boende</a>
+                    <a href="restauranger.html" class="hover:text-momiji transition">Restauranger</a>
+                    <a href="transporter.html" class="hover:text-momiji transition">Transporter</a>
+                    <a href="japan.html#before-departure" class="hover:text-momiji transition">Innan Avresa</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden flex items-center justify-center w-10 h-10 -mr-2" aria-label="Öppna meny" aria-expanded="false" aria-controls="mobile-menu" onclick="const m=document.getElementById('mobile-menu');const exp=this.getAttribute('aria-expanded')==='true';this.setAttribute('aria-expanded',String(!exp));m.classList.toggle('open',!exp);">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line class="bar bar1" x1="3" y1="6" x2="21" y2="6"/><line class="bar bar2" x1="3" y1="12" x2="21" y2="12"/><line class="bar bar3" x1="3" y1="18" x2="21" y2="18"/></svg>
+                </button>
+            </div>
+            <div id="mobile-menu" class="md:hidden flex flex-col pb-4 text-sm font-bold uppercase tracking-widest">
+                <a href="index.html" class="py-2 border-b border-stone-100 hover:text-momiji transition">Start</a>
+                <a href="highlights.html" class="py-2 border-b border-stone-100 hover:text-momiji transition">Highlights</a>
+                <a href="zen.html" class="py-2 border-b border-stone-100 text-momiji transition">Zen &amp; Trädgårdar</a>
+                <a href="resplan.html" class="py-2 border-b border-stone-100 hover:text-momiji transition">Resplan</a>
+                <a href="japan.html#hotels" class="py-2 border-b border-stone-100 hover:text-momiji transition">Boende</a>
+                <a href="restauranger.html" class="py-2 border-b border-stone-100 hover:text-momiji transition">Restauranger</a>
+                <a href="transporter.html" class="py-2 border-b border-stone-100 hover:text-momiji transition">Transporter</a>
+                <a href="japan.html#before-departure" class="py-2 hover:text-momiji transition">Innan Avresa</a>
+            </div>
+        </div>
+    </nav>
+    <script>
+        document.querySelectorAll('#mobile-menu a').forEach(function(a) {
+            a.addEventListener('click', function() {
+                document.getElementById('mobile-menu').classList.remove('open');
+                document.getElementById('mobile-menu-btn').setAttribute('aria-expanded', 'false');
+            });
+        });
+    </script>
+
+    <!-- Hero -->
+    <header class="text-stone-bg py-20 relative overflow-hidden bg-ink">
+        <img src="img/kyoto-bamboo.jpg" alt="Bambuskogen i Arashiyama" class="absolute inset-0 w-full h-full object-cover">
+        <div class="absolute inset-0 bg-ink/78"></div>
+        <div class="max-w-5xl mx-auto px-4 text-center relative z-10">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4 uppercase tracking-tight">禅 Zen &amp; Trädgårdar</h1>
+            <p class="text-lg text-stone-200 max-w-2xl mx-auto font-light leading-relaxed">
+                Varför japanska trädgårdar ser ut som de gör — och hur det kopplar till platserna ni faktiskt besöker.
+            </p>
+        </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-4 py-16">
+
+        <!-- ZEN I KORTHET -->
+        <section class="mb-20">
+            <h2 class="text-3xl font-bold mb-4 border-l-8 border-matcha pl-4">Zen i korthet</h2>
+            <p class="text-stone-600 leading-relaxed max-w-3xl mb-8">
+                Zen-buddhismen kom till Japan på 1200-talet och betonar meditation (zazen), enkelhet och närvaro i stunden snarare än skrifter och ritualer. Ur zen växte en egen estetik som genomsyrar allt från trädgårdar till teceremonier — tre begrepp förklarar varför trädgårdarna ni besöker ser ut som de gör.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm">
+                    <h3 class="font-bold text-matcha mb-2">侘寂 Wabi-sabi</h3>
+                    <p class="text-sm text-stone-600 leading-relaxed">Skönhet i det ofullkomliga, förgängliga och asymmetriska. Därför är japanska trädgårdar aldrig symmetriska eller "färdiga".</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm">
+                    <h3 class="font-bold text-matcha mb-2">間 Ma</h3>
+                    <p class="text-sm text-stone-600 leading-relaxed">Den meningsfulla tomrymden. Grus, vatten eller bar yta är inte "tomt" — det är en aktiv del av kompositionen.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm">
+                    <h3 class="font-bold text-matcha mb-2">借景 Shakkei</h3>
+                    <p class="text-sm text-stone-600 leading-relaxed">"Lånat landskap" — trädgården designas så att bergen eller himlen bakom smälter in som en del av verket.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- KOPPLAT TILL ER RESA -->
+        <section class="mb-20">
+            <h2 class="text-3xl font-bold mb-4 border-l-8 border-momiji pl-4">Kopplat till er resa</h2>
+            <p class="text-stone-600 leading-relaxed max-w-3xl mb-8">Samma tre begrepp igen, den här gången på plats — dag för dag genom resan.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm">
+                    <span class="text-xs font-bold text-momiji uppercase tracking-widest">Dag 3 · Kanazawa</span>
+                    <h3 class="font-bold text-lg mt-1 mb-2"><a href="https://www.japan.travel/en/spot/1399/" target="_blank" class="underline hover:text-momiji">Kenrokuen</a></h3>
+                    <p class="text-sm text-stone-600 leading-relaxed">En <em>kaiyu-shiki</em> (strövträdgård): byggd för att upplevas i rörelse, varje vy komponerad som en egen bild när ni rundar en kulle eller damm.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm">
+                    <span class="text-xs font-bold text-momiji uppercase tracking-widest">Dag 6 · Kyoto</span>
+                    <h3 class="font-bold text-lg mt-1 mb-2"><a href="https://murin-an.jp/en/about/garden/" target="_blank" class="underline hover:text-momiji">Nanzen-ji &amp; Murin-an</a></h3>
+                    <p class="text-sm text-stone-600 leading-relaxed">Murin-an är ett läroboksexempel på shakkei: Higashiyama-bergen "lånas in" som fond bakom gräsmattan.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm">
+                    <span class="text-xs font-bold text-momiji uppercase tracking-widest">Dag 6 · Kyoto</span>
+                    <h3 class="font-bold text-lg mt-1 mb-2"><a href="https://kyoto.travel/en/getting-around/comfortable-access-to-ginkaku-ji-temple-philosophers-path/" target="_blank" class="underline hover:text-momiji">Ginkaku-ji</a></h3>
+                    <p class="text-sm text-stone-600 leading-relaxed">Sandkonen och det räfsade sandhavet framför Silverpaviljongen ska föreställa månljus och Fuji — ren zen-abstraktion, inget växer där.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm">
+                    <span class="text-xs font-bold text-momiji uppercase tracking-widest">Dag 6 · Kyoto (valfritt tillägg)</span>
+                    <h3 class="font-bold text-lg mt-1 mb-2"><a href="http://www.ryoanji.jp/smph/eng/" target="_blank" class="underline hover:text-momiji">Ryōan-ji</a></h3>
+                    <p class="text-sm text-stone-600 leading-relaxed">Den mest kända <em>karesansui</em> (torra stenträdgården) i Japan: femton stenar på vitt grus, men från vilken vinkel ni än står ser ni bara fjorton. Ofullständigheten är poängen.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm">
+                    <span class="text-xs font-bold text-momiji uppercase tracking-widest">Dag 7 · Kyoto, kl 13:00</span>
+                    <h3 class="font-bold text-lg mt-1 mb-2"><a href="https://www.getyourguide.com/japan-geisha-maiko-experience-kyoto-s305298/" target="_blank" class="underline hover:text-momiji">Geisha/Maiko-showen</a></h3>
+                    <p class="text-sm text-stone-600 leading-relaxed">Hålls i ett riktigt zen-tempel (Kōun-ji) — ni sitter bokstavligen i den miljön showen är döpt efter.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm">
+                    <span class="text-xs font-bold text-momiji uppercase tracking-widest">Dag 5 · Wazuka</span>
+                    <h3 class="font-bold text-lg mt-1 mb-2"><a href="https://dmatcha.com/" target="_blank" class="underline hover:text-momiji">Teceremonins ursprung</a></h3>
+                    <p class="text-sm text-stone-600 leading-relaxed"><em>Chanoyu</em> (teceremonin) utvecklades av zen-munkar, mest känt genom Sen no Rikyū på 1500-talet, som formaliserade wabi-sabi-idealet i en enkel skål te.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm md:col-span-2">
+                    <span class="text-xs font-bold text-momiji uppercase tracking-widest">Dag 9 · Hakone</span>
+                    <h3 class="font-bold text-lg mt-1 mb-2"><a href="https://hakone-japan.com/discover/history/hakone-history/hakone-museum-of-art-moss-garden-2/" target="_blank" class="underline hover:text-momiji">Hakone Museum of Art</a></h3>
+                    <p class="text-sm text-stone-600 leading-relaxed">Mosskompositionen under lönnarna är en senare, mer romantisk gren av samma stillsamma estetik — kontrasten mellan grön moss och röda nedfallna löv toppar just i mitten av november.</p>
+                </div>
+            </div>
+            <div class="bg-ink text-stone-bg p-6 rounded-2xl mt-6">
+                <h3 class="font-bold mb-2">⛩️ Zen vs. Shinto — värt att känna till</h3>
+                <p class="text-sm text-stone-400 leading-relaxed">
+                    <a href="https://www.japan.travel/en/spot/1128/" target="_blank" class="underline text-momiji">Fushimi Inari</a> (dag 6) och <a href="https://www.japan.travel/national-parks/parks/fuji-hakone-izu/see-and-do/hakone-jinja-shrine/" target="_blank" class="underline text-momiji">Hakone-helgedomen</a> (dag 9) är <strong>shinto</strong>, inte zen — färgstarka, röda torii snarare än stillsam gråton och räfsat grus. Kontrasten mellan de två religiösa traditionerna är faktiskt en fin sak att reflektera över under resan: shinto firar naturandar med färg och fest, zen söker stillhet genom enkelhet.
+                </p>
+            </div>
+        </section>
+
+        <!-- GUIDADE VANDRINGAR -->
+        <section>
+            <h2 class="text-3xl font-bold mb-4 border-l-8 border-matcha pl-4">Guidade vandringar &amp; meditation</h2>
+            <p class="text-stone-600 leading-relaxed max-w-3xl mb-8">
+                Korta, bokningsbara upplevelser om ni vill ha en guide eller munk som sätter ord på det ni ser — de flesta 1–2 timmar, inget heldagsåtagande. Alla passar er Kyoto-vecka (4–8 nov), flera direkt på er egen rutt genom Nanzen-ji/Filosofens stig dag 6.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm space-y-2">
+                    <h3 class="font-bold text-matcha">Filosofens stig — guidad vandring</h3>
+                    <p class="text-sm text-stone-600">1,5 timme från Ginkaku-ji till Nanzen-ji med en före detta historielärare som guide — wabi-sabi, shinto och zen-teman längs precis er egen rutt dag 6. Från ca $31/person.</p>
+                    <a href="https://www.getyourguide.com/kyoto-l96826/kyoto-ginkaku-ji-philosopher-s-path-nanzen-ji-walk-t1362485/" target="_blank" class="inline-block text-xs font-bold text-momiji underline">getyourguide.com →</a>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm space-y-2">
+                    <h3 class="font-bold text-matcha">Shunkoin Temple — zenmeditation</h3>
+                    <p class="text-sm text-stone-600">90 minuters engelskledd zazen-instruktion plus ett kort dharmatal, lett av tempelets biträdande abbot. Ca ¥3 000. Ligger vid Myoshin-ji, ca 20 min från centrala Kyoto.</p>
+                    <a href="https://shunkoin.com/en/zen-meditation" target="_blank" class="inline-block text-xs font-bold text-momiji underline">shunkoin.com →</a>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm space-y-2">
+                    <h3 class="font-bold text-matcha">Context Travel — Beyond Zen Garden Tour</h3>
+                    <p class="text-sm text-stone-600">Historikerledd, liten grupp (max 12), fokuserad specifikt på zen-trädgårdarnas designprinciper snarare än en allmän sightseeingtur.</p>
+                    <a href="https://www.contexttravel.com/cities/kyoto/tours/beyond-zen-kyoto-garden-tour" target="_blank" class="inline-block text-xs font-bold text-momiji underline">contexttravel.com →</a>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm space-y-2">
+                    <h3 class="font-bold text-matcha">Gesshin-in — privat zazen &amp; trädgårdspromenad</h3>
+                    <p class="text-sm text-stone-600">Tempelpräst-ledd zazen i huvudsalen (nybörjarvänlig instruktion) följt av en promenad längs Nene-no-michi med utsikt mot Yasaka-pagoden. Higashiyama, nära Kennin-ji.</p>
+                    <a href="https://wabunka-lux.jp/experiences/en_gesshinin-akagane/" target="_blank" class="inline-block text-xs font-bold text-momiji underline">wabunka-lux.jp →</a>
+                </div>
+            </div>
+            <div class="bg-momiji/5 border border-momiji/30 p-5 rounded-2xl mt-6">
+                <p class="text-sm text-stone-700"><strong>Boka i förväg:</strong> samtliga ovan rekommenderas bokas innan avresa — Context Travel och Gesshin-in är privata/småskaliga och kräver bokning, Shunkoins schema varierar från vecka till vecka så kolla aktuella tider på deras sida innan ni planerar in det.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-stone-200 py-12 text-center text-stone-500 text-sm">
+        <p class="font-bold text-stone-800 mb-2 uppercase tracking-widest">Resa Japan 2026</p>
+        <p>Zen &amp; Trädgårdar — bakgrund till <a href="highlights.html#kyoto" class="underline">Kyoto-highlights</a> och <a href="resplan.html" class="underline">dag 6 i resplanen</a>.</p>
+    </footer>
+
+</body>
+</html>
