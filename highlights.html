@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none';">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
     <title>Highlights - Japanresa 2026</title>
 
     <!-- Tailwind CSS för modern design -->
@@ -344,7 +346,7 @@
                 ? `<span class="text-xs font-bold text-white bg-momiji px-2 py-1 rounded-full whitespace-nowrap">PRIO ${a.prio}</span>`
                 : '';
             const title = a.url
-                ? `<a href="${a.url}" target="_blank" class="underline hover:text-momiji transition">${a.name}</a>`
+                ? `<a href="${a.url}" target="_blank" rel="noopener" class="underline hover:text-momiji transition">${a.name}</a>`
                 : a.name;
             const book = a.book
                 ? `<p class="text-xs font-bold text-momiji mt-3 bg-momiji/5 border border-momiji/25 rounded-xl px-3 py-2">📌 Boka i förväg: ${a.book}</p>`
@@ -370,7 +372,7 @@
                 ? `<span class="text-xs font-bold text-white bg-matcha px-2 py-1 rounded-full whitespace-nowrap">PRIO ${r.prio}</span>`
                 : '';
             const title = r.url
-                ? `<a href="${r.url}" target="_blank" class="underline hover:text-matcha transition">${r.name}</a>`
+                ? `<a href="${r.url}" target="_blank" rel="noopener" class="underline hover:text-matcha transition">${r.name}</a>`
                 : r.name;
             return `
                 <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm flex flex-col">
