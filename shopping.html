@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping - Japanresa 2026</title>
+
+    <!-- Tailwind CSS för modern design -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'stone-bg': '#fafaf9',
+                        'matcha': '#166534',
+                        'momiji': '#9f1239',
+                        'ink': '#1c1917'
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { background-color: #fafaf9; scroll-behavior: smooth; color: #1c1917; }
+        .nav-sticky { position: sticky; top: 0; z-index: 50; backdrop-filter: blur(12px); background: rgba(250, 250, 249, 0.9); }
+        #mobile-menu-btn .bar { transition: transform .25s ease, opacity .2s ease; transform-origin: 12px center; }
+        #mobile-menu-btn[aria-expanded="true"] .bar1 { transform: translateY(6px) rotate(45deg); }
+        #mobile-menu-btn[aria-expanded="true"] .bar2 { opacity: 0; }
+        #mobile-menu-btn[aria-expanded="true"] .bar3 { transform: translateY(-6px) rotate(-45deg); }
+        #mobile-menu { overflow: hidden; max-height: 0; opacity: 0; transition: max-height .3s ease, opacity .25s ease; }
+        #mobile-menu.open { max-height: 480px; opacity: 1; }
+    </style>
+</head>
+<body class="font-sans antialiased">
+
+    <!-- Navigation -->
+    <nav class="nav-sticky border-b border-stone-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center space-x-2">
+                    <span class="text-2xl">🍁</span>
+                    <span class="font-bold text-xl tracking-tight uppercase">Japan 2026</span>
+                </div>
+                <div class="hidden md:flex flex-wrap gap-x-5 gap-y-1 justify-end text-sm font-bold uppercase tracking-widest">
+                    <a href="index.html" class="hover:text-momiji transition">Start</a>
+                    <a href="highlights.html" class="hover:text-momiji transition">Highlights</a>
+                    <a href="zen.html" class="hover:text-momiji transition">Zen &amp; Trädgårdar</a>
+                    <a href="shopping.html" class="text-momiji transition">Shopping</a>
+                    <a href="resplan.html" class="hover:text-momiji transition">Resplan</a>
+                    <a href="resplan.html#dagfordag" class="hover:text-momiji transition">Dag för dag</a>
+                    <a href="japan.html#hotels" class="hover:text-momiji transition">Boende</a>
+                    <a href="restauranger.html" class="hover:text-momiji transition">Restauranger</a>
+                    <a href="transporter.html" class="hover:text-momiji transition">Transporter</a>
+                    <a href="japan.html#before-departure" class="hover:text-momiji transition">Innan Avresa</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden flex items-center justify-center w-10 h-10 -mr-2" aria-label="Öppna meny" aria-expanded="false" aria-controls="mobile-menu" onclick="const m=document.getElementById('mobile-menu');const exp=this.getAttribute('aria-expanded')==='true';this.setAttribute('aria-expanded',String(!exp));m.classList.toggle('open',!exp);">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line class="bar bar1" x1="3" y1="6" x2="21" y2="6"/><line class="bar bar2" x1="3" y1="12" x2="21" y2="12"/><line class="bar bar3" x1="3" y1="18" x2="21" y2="18"/></svg>
+                </button>
+            </div>
+            <div id="mobile-menu" class="md:hidden flex flex-col pb-4 text-sm font-bold uppercase tracking-widest">
+                <a href="index.html" class="py-2 border-b border-stone-100 hover:text-momiji transition">Start</a>
+                <a href="highlights.html" class="py-2 border-b border-stone-100 hover:text-momiji transition">Highlights</a>
+                <a href="zen.html" class="py-2 border-b border-stone-100 hover:text-momiji transition">Zen &amp; Trädgårdar</a>
+                <a href="shopping.html" class="py-2 border-b border-stone-100 text-momiji transition">Shopping</a>
+                <a href="resplan.html" class="py-2 border-b border-stone-100 hover:text-momiji transition">Resplan</a>
+                <a href="resplan.html#dagfordag" class="py-2 border-b border-stone-100 hover:text-momiji transition">Dag för dag</a>
+                <a href="japan.html#hotels" class="py-2 border-b border-stone-100 hover:text-momiji transition">Boende</a>
+                <a href="restauranger.html" class="py-2 border-b border-stone-100 hover:text-momiji transition">Restauranger</a>
+                <a href="transporter.html" class="py-2 border-b border-stone-100 hover:text-momiji transition">Transporter</a>
+                <a href="japan.html#before-departure" class="py-2 hover:text-momiji transition">Innan Avresa</a>
+            </div>
+        </div>
+    </nav>
+    <script>
+        document.querySelectorAll('#mobile-menu a').forEach(function(a) {
+            a.addEventListener('click', function() {
+                document.getElementById('mobile-menu').classList.remove('open');
+                document.getElementById('mobile-menu-btn').setAttribute('aria-expanded', 'false');
+            });
+        });
+    </script>
+
+    <!-- Hero -->
+    <header class="text-stone-bg py-20 relative overflow-hidden bg-ink">
+        <img src="img/kanazawa-chaya.jpg" alt="Gata i Kanazawa" class="absolute inset-0 w-full h-full object-cover">
+        <div class="absolute inset-0 bg-ink/78"></div>
+        <div class="max-w-5xl mx-auto px-4 text-center relative z-10">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4 uppercase tracking-tight">🛍️ Shopping</h1>
+            <p class="text-lg text-stone-200 max-w-2xl mx-auto font-light leading-relaxed">
+                Kimono, köksknivar och vintageklockor — verifierade butiker inom er budget, sorterade efter stad.
+            </p>
+        </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-4 py-16">
+
+        <!-- KIMONO -->
+        <section id="kimono" class="mb-20 scroll-mt-20">
+            <h2 class="text-3xl font-bold mb-2 border-l-8 border-matcha pl-4">👘 Kimono</h2>
+            <p class="text-stone-500 mb-8 max-w-3xl">Budget ca 3 000 kr (~¥50 000). Secondhand-/vintagebutiker i Kyoto och Asakusa har gott om kimono långt under det taket — nya kimono kostar betydligt mer, så återbruk är rätt väg att gå.</p>
+
+            <h3 class="text-lg font-bold uppercase tracking-widest text-momiji mb-4">Kyoto (4–8 nov)</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+                <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm space-y-2">
+                    <h4 class="font-bold text-matcha">Ochikochiya</h4>
+                    <p class="text-sm text-stone-600">Antika och återbrukade kimono, inrymd i en tempelbyggnad vid Karasuma-dori — nära er Hilton Garden Inn vid Gojo-Karasuma. Uträningsplagg från ¥1 000.</p>
+                    <a href="https://www.ochicochiya.com/en/recycle/" target="_blank" class="inline-block text-xs font-bold text-momiji underline">ochicochiya.com →</a>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm space-y-2">
+                    <h4 class="font-bold text-matcha">Harajuku Chicago Kyoto</h4>
+                    <p class="text-sm text-stone-600">Vintage kimono, haori och obi på andra våningen i Teramachi-arkaden, både herr och dam. Del av den kända Chicago-secondhand-kedjan. Öppet 11–20 dagligen.</p>
+                    <a href="https://www.tokyochuko.com/shops/chicago-kyoto" target="_blank" class="inline-block text-xs font-bold text-momiji underline">tokyochuko.com →</a>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm space-y-2">
+                    <h4 class="font-bold text-matcha">Ichi-man-ben</h4>
+                    <p class="text-sm text-stone-600">Återbrukade kimono från olika tidsepoker vid Sanjo-dori, populärt bland utländska besökare. Kimono och obi från ¥10 000.</p>
+                    <a href="https://livejapan.com/en/in-kansai/in-pref-kyoto/in-gion_kawaramachi_kiyomizu-dera-temple/article-a2000019/" target="_blank" class="inline-block text-xs font-bold text-momiji underline">livejapan.com →</a>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm space-y-2">
+                    <h4 class="font-bold text-matcha">Daiyasu</h4>
+                    <p class="text-sm text-stone-600">Bra förstagångsbutik — plagg och tyger utställda på ställ att bläddra bland, brett urval av återbrukade kimono. Teramachi-gatan.</p>
+                    <a href="https://japanobjects.com/features/kyoto-kimono" target="_blank" class="inline-block text-xs font-bold text-momiji underline">japanobjects.com →</a>
+                </div>
+            </div>
+
+            <h3 class="text-lg font-bold uppercase tracking-widest text-momiji mb-4">Tokyo / Asakusa (10–14 nov)</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm space-y-2">
+                    <h4 class="font-bold text-matcha">Tansu-ya</h4>
+                    <p class="text-sm text-stone-600">Säljer (hyr inte ut) nya och återbrukade kimono. Enskilt plagg ¥2 000–40 000, kompletta set ¥8 000–60 000 — håll er till de lägre prislägena för att stanna inom budget. Flera butiker i Asakusa, engelsk service.</p>
+                    <a href="https://tokyocheapo.com/place/tansu-ya-asakusakokaidomae-shop/" target="_blank" class="inline-block text-xs font-bold text-momiji underline">tokyocheapo.com →</a>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm space-y-2">
+                    <h4 class="font-bold text-matcha">Kirakuya Asakusa</h4>
+                    <p class="text-sm text-stone-600">Återbrukade kimono, yukata och obi — över 4 000 plagg i lager. Kimono ¥1 100–33 000, gott om alternativ under budget. Ca 7 minuters promenad från Asakusa station.</p>
+                    <a href="https://livejapan.com/en/in-tokyo/in-pref-tokyo/in-asakusa/spot-lj0060734/" target="_blank" class="inline-block text-xs font-bold text-momiji underline">livejapan.com →</a>
+                </div>
+            </div>
+            <div class="bg-momiji/5 border border-momiji/30 p-5 rounded-2xl mt-6">
+                <p class="text-sm text-stone-700"><strong>Obs:</strong> Asakusa har även gott om uthyrningsstudior (t.ex. för en dags fotografering i kimono) — det är inte samma sak som att köpa och ta hem plagget, så dubbelkolla att butiken faktiskt säljer innan ni går dit.</p>
+            </div>
+        </section>
+
+        <!-- KÖKSKNIVAR -->
+        <section id="knivar" class="mb-20 scroll-mt-20">
+            <h2 class="text-3xl font-bold mb-2 border-l-8 border-matcha pl-4">🔪 Köksknivar</h2>
+            <p class="text-stone-500 mb-8 max-w-3xl">Budget ca 4 500 kr (~¥70 000–80 000). Ni har redan Kappabashi — köksredskapsgatan i Asakusa — på schemat dag 11, så det är bara att kombinera. Budgeten räcker gott till en genuin handsmidd kniv hos vilken som helst av de fyra första nedan.</p>
+
+            <h3 class="text-lg font-bold uppercase tracking-widest text-momiji mb-4">Kappabashi, Tokyo/Asakusa (dag 11)</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm space-y-2">
+                    <h4 class="font-bold text-matcha">Kama-Asa Shoten</h4>
+                    <p class="text-sm text-stone-600">Grundad 1908. Brett urval från eget märke till namngivna smeder, engelsk- och franskspråkig personal. Gratis gravyr och slipning ingår. Bra hemmakockskvalitet ¥7 000–30 000, håller er bekvämt inom budget.</p>
+                    <a href="https://www.kama-asa.co.jp/en-us" target="_blank" class="inline-block text-xs font-bold text-momiji underline">kama-asa.co.jp →</a>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm space-y-2">
+                    <h4 class="font-bold text-matcha">Tsubaya</h4>
+                    <p class="text-sm text-stone-600">Grundad 1956, över 1 000 modeller i lager, många japanska kockar handlar här. Enkelslipade knivar (yanagiba) ¥15 000–30 000 — precis i er prisklass. Gratis lasergravyr på plats.</p>
+                    <a href="https://tsubaya.jp/en" target="_blank" class="inline-block text-xs font-bold text-momiji underline">tsubaya.jp →</a>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm space-y-2">
+                    <h4 class="font-bold text-matcha">Kamata Hakensha</h4>
+                    <p class="text-sm text-stone-600">Öppnade 1923 som sliperi. Tredje generationens ägare Seiichi Kamata är en erkänd mästerslipare som handfinishar varje egg. Över 800 knivar i lager, från ¥10 000. Gratis gravyr och slipning på köpta knivar.</p>
+                    <a href="https://kap-kam.com/en" target="_blank" class="inline-block text-xs font-bold text-momiji underline">kap-kam.com →</a>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm space-y-2">
+                    <h4 class="font-bold text-matcha">Washin-Do</h4>
+                    <p class="text-sm text-stone-600">Över 1 000 varianter, specialiserade på kurouchi (svartsmidda) knivar. Flerspråkig personal, två butiker i Kappabashi. Proffskvalitet i samma ¥15 000–40 000-spann.</p>
+                    <a href="https://kappabashi.or.jp/en/shops/172" target="_blank" class="inline-block text-xs font-bold text-momiji underline">kappabashi.or.jp →</a>
+                </div>
+            </div>
+            <div class="bg-momiji/5 border border-momiji/30 p-5 rounded-2xl mt-6">
+                <p class="text-sm text-stone-700"><strong>Tax-free:</strong> Endast butiker med skylt för "tax-free" kvalificerar (pass + minst ¥5 500 i köp) — knivarna måste vara oöppnade fram till avresan, spara kvittot ihop med passet. Kama-Asa och Washin-Do är bekräftat pålitliga för detta.</p>
+            </div>
+        </section>
+
+        <!-- VINTAGEKLOCKOR -->
+        <section id="klockor" class="scroll-mt-20">
+            <h2 class="text-3xl font-bold mb-2 border-l-8 border-matcha pl-4">⌚ Vintageklockor</h2>
+            <p class="text-stone-500 mb-8 max-w-3xl">Tokyo är den självklara staden för det här — Kyoto har ingen etablerad vintageklockscen. Störst utbud finns i Nakano Broadway, nära nog vart som helst ni bor i Tokyo.</p>
+
+            <h3 class="text-lg font-bold uppercase tracking-widest text-momiji mb-4">Nakano Broadway, Tokyo</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+                <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm space-y-2">
+                    <h4 class="font-bold text-matcha">Fire Kids</h4>
+                    <p class="text-sm text-stone-600">Ofta kallad Japans bästa butik för vintage japanska klockor — Seiko, King Seiko, Grand Seiko, Orient, Citizen från 1970-talet och tidigare, plus ett bra urval vintage schweiziska märken. Brett prisspann, från några hundra kronor och uppåt. Öppet 11:30–19:30, stängt onsdagar.</p>
+                    <a href="https://firekids.jp/" target="_blank" class="inline-block text-xs font-bold text-momiji underline">firekids.jp →</a>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm space-y-2">
+                    <h4 class="font-bold text-matcha">Jackroad</h4>
+                    <p class="text-sm text-stone-600">Bred generalist — nya, begagnade och antika klockor: Rolex, Omega, Seiko, Cartier, IWC. Flerspråkig personal (engelska, kinesiska, koreanska, thailändska), garanti och tax-free för turister.</p>
+                    <a href="https://www.jackroad.co.jp/" target="_blank" class="inline-block text-xs font-bold text-momiji underline">jackroad.co.jp →</a>
+                </div>
+            </div>
+            <p class="text-sm text-stone-500 mb-6 max-w-3xl">Utöver dessa två har tredje våningen i Nakano Broadway ytterligare ett tiotal oberoende klockhandlare sida vid sida (bl.a. Universal Value, Watchnian, Belle Monde) — enklast är att gå dit och botanisera på plats.</p>
+
+            <h3 class="text-lg font-bold uppercase tracking-widest text-momiji mb-4">Om budgeten tillåter mer — Ginza</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm space-y-2">
+                    <h4 class="font-bold text-matcha">Shellman Ginza</h4>
+                    <p class="text-sm text-stone-600">Högklassig vintage schweizisk specialist — Patek Philippe, Rolex, Omega, Cartier, Breguet. Över 500 klockor, museal känsla. Grundad 1971. Betydligt högre prisnivå än budgeten ovan — mest för browsing.</p>
+                    <a href="https://www.shellman-online.jp" target="_blank" class="inline-block text-xs font-bold text-momiji underline">shellman-online.jp →</a>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm space-y-2">
+                    <h4 class="font-bold text-matcha">Antiqurious</h4>
+                    <p class="text-sm text-stone-600">Vintage klänningsklockor, över 500 objekt, bl.a. Rolex, Cartier, Patek Philippe. Ligger i Ginza Five, en minuts promenad från Ginza station.</p>
+                    <a href="https://antiqurious.com/en" target="_blank" class="inline-block text-xs font-bold text-momiji underline">antiqurious.com →</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-stone-200 py-12 text-center text-stone-500 text-sm">
+        <p class="font-bold text-stone-800 mb-2 uppercase tracking-widest">Resa Japan 2026</p>
+        <p>Shopping — komplement till <a href="highlights.html" class="underline">highlights</a> och <a href="resplan.html" class="underline">resplanen</a>.</p>
+    </footer>
+
+</body>
+</html>
