@@ -134,7 +134,7 @@
         <section class="mb-16">
             <h2 class="text-2xl font-bold mb-4 border-l-8 border-matcha pl-4">🎫 Boka tåg</h2>
             <p class="text-stone-600 mb-6 leading-relaxed max-w-3xl">
-                Fyra olika bokningssystem täcker er resa, och de täcker inte varandra. Viktigast: <strong>Smart-EX täcker varken Tokyo–Kanazawa eller Kanazawa–Kyoto</strong> — bara Kyoto–Odawara (8 nov) går via Smart-EX. Sittplatser släpps <strong>30 dagar innan avresa</strong> — boka då, särskilt om ni vill ha plats med bagageutrymme.
+                Fyra olika bokningssystem täcker er resa, och de täcker inte varandra. Viktigast: <strong>Smart-EX täcker varken Tokyo–Kanazawa eller Kanazawa–Kyoto</strong> — bara Kyoto–Odawara (8 nov) går via Smart-EX. Tokyo–Kanazawa (2 nov) och Kanazawa–Kyoto (4 nov) är redan <strong>✓ bokade via Klook</strong>, se körschemat och tabellen nedan.
             </p>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm space-y-2">
@@ -144,12 +144,12 @@
                 </div>
                 <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm space-y-2">
                     <h3 class="font-bold text-matcha">JR-EAST Train Reservation (eki-net)</h3>
-                    <p class="text-sm text-stone-600">Bokar Hokuriku Shinkansen — er sträcka Tokyo–Kanazawa (2 nov). Separat system från Smart-EX.</p>
+                    <p class="text-sm text-stone-600">Bokar Hokuriku Shinkansen — er sträcka Tokyo–Kanazawa (2 nov) är redan ✓ bokad via Klook (Kagayaki 527). Separat system från Smart-EX.</p>
                     <a href="https://www.eki-net.com/jreast-train-reservation/Top/Index" target="_blank" rel="noopener" class="inline-block text-xs font-bold text-momiji underline">eki-net.com →</a>
                 </div>
                 <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm space-y-2">
                     <h3 class="font-bold text-matcha">JR-WEST e5489</h3>
-                    <p class="text-sm text-stone-600">Bokar Limited Express Thunderbird — er sträcka Kanazawa–Kyoto (4 nov). Thunderbird är helt platsbokat sedan mars 2024 och täcks varken av Smart-EX eller eki-net.</p>
+                    <p class="text-sm text-stone-600">Bokar Hokuriku Shinkansen + Limited Express Thunderbird via Tsuruga — er sträcka Kanazawa–Kyoto (4 nov) är redan ✓ bokad via Klook (Tsurugi 15 + Thunderbird 18). Thunderbird är helt platsbokat sedan mars 2024 och täcks varken av Smart-EX eller eki-net.</p>
                     <a href="https://e5489.jr-odekake.net/e5489/ibsp/CBTopMenuSP?LANG=en" target="_blank" rel="noopener" class="inline-block text-xs font-bold text-momiji underline">e5489.jr-odekake.net →</a>
                 </div>
                 <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm space-y-2">
@@ -267,9 +267,9 @@
     <script>
         const legs = [
             { date: "1 nov", route: "Haneda (HND) → Ariake, Koto-ku", mode: "Tokyo Monorail + tåg / taxi", note: "Ankomst. Boende: DoubleTree by Hilton Tokyo.", missing: false },
-            { date: "2 nov", route: "Tokyo → Kanazawa", mode: "Hokuriku Shinkansen (~2,5h, ca 1 100 SEK)", note: "Boka via JR-EAST (eki-net), inte Smart-EX. Fönsterplats vänster för bergsvyer.", missing: false },
+            { date: "2 nov", route: "Tokyo → Kanazawa", mode: "✓ Bokat: Kagayaki 527, 09:56–12:30, Green Car", note: "Fönsterplats vänster för bergsvyer. Väntar på officiell biljettförsäljning (bekräftas 2 okt 2026).", missing: false },
             { date: "3 nov", route: "I Kanazawa", mode: "Promenad / lokal buss", note: "Ingen långdistans denna dag. Nationell helgdag (Bunka no Hi).", missing: false },
-            { date: "4 nov", route: "Kanazawa → Kyoto", mode: "Limited Express Thunderbird (~2h, ca 550 SEK)", note: "Check-in Hilton Garden Inn Kyoto. Kväll: Gion Odori.", missing: false },
+            { date: "4 nov", route: "Kanazawa → Kyoto (byte i Tsuruga)", mode: "✓ Bokat: Tsurugi 15 + Thunderbird 18, 09:55–12:09", note: "Check-in Hilton Garden Inn Kyoto. Kväll: Gion Odori. Väntar på officiell biljettförsäljning (bekräftas 4 okt 2026).", missing: false },
             { date: "5 nov", route: "Kyoto → Wazuka → Kyoto", mode: "Buss/tåg (heldagstur, ca 2 450 SEK)", note: "Retur samma kväll, incheckning Airbnb Kyoto.", missing: false },
             { date: "6 nov", route: "I Kyoto", mode: "Lokaltåg/buss/promenad", note: "Heldag i Kyoto — Nanzen-ji, Filosofens stig, Ginkaku-ji, Fushimi Inari på kvällen.", missing: false },
             { date: "7 nov", route: "I Kyoto (Arashiyama)", mode: "Lokaltåg/buss till Arashiyama", note: "Bambuskog + keramikshopping vid Chawan-zaka.", missing: false },
