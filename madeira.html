@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none';">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <title>Madeiraresa 2027 - Levadas, Natur & Vandring</title>
+    <meta name="description" content="Madeiraresa våren 2027 — en vecka med lätta och medelsvåra levada-vandringar, urskog, vulkaniska toppar och Atlanten.">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8C%BA%3C/text%3E%3C/svg%3E">
+
+    <!-- Tailwind CSS för modern design -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'stone-bg': '#fafaf9',
+                        'laurel': '#166534',
+                        'atlantic': '#0c4a6e',
+                        'strelitzia': '#c2410c',
+                        'ink': '#1c1917'
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { background-color: #fafaf9; scroll-behavior: smooth; color: #1c1917; }
+        .nav-sticky { position: sticky; top: 0; z-index: 50; backdrop-filter: blur(12px); background: rgba(250, 250, 249, 0.9); }
+        #mobile-menu-btn .bar { transition: transform .25s ease, opacity .2s ease; transform-origin: 12px center; }
+        #mobile-menu-btn[aria-expanded="true"] .bar1 { transform: translateY(6px) rotate(45deg); }
+        #mobile-menu-btn[aria-expanded="true"] .bar2 { opacity: 0; }
+        #mobile-menu-btn[aria-expanded="true"] .bar3 { transform: translateY(-6px) rotate(-45deg); }
+        #mobile-menu { overflow: hidden; max-height: 0; opacity: 0; transition: max-height .3s ease, opacity .25s ease; }
+        #mobile-menu.open { max-height: 480px; opacity: 1; }
+        .link-card:hover { border-color: #c2410c; transform: translateY(-2px); }
+        .hero-bg {
+            background:
+                radial-gradient(ellipse 60% 50% at 80% 20%, rgba(251, 146, 60, .35) 0%, transparent 60%),
+                radial-gradient(ellipse 70% 60% at 10% 90%, rgba(22, 101, 52, .55) 0%, transparent 65%),
+                linear-gradient(160deg, #082f49 0%, #0c4a6e 45%, #155e75 75%, #14532d 100%);
+        }
+        .day-tab-content { display: none; }
+        .day-tab-content.active { display: block; animation: fadeIn 0.4s ease-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .day-btn[aria-selected="true"] { background: #0c4a6e; color: #fff; border-color: #0c4a6e; }
+    </style>
+</head>
+<body class="font-sans antialiased">
+
+    <!-- Chosen Palette: Stone (Neutral), Atlantic (Havsblå), Laurel (Laurisilva-grön), Strelitzia (Paradisfågelblomma-orange) -->
+    <!-- Application Structure Plan: Samma upplägg som Japan-sidan: sticky header, översikt, dag-för-dag-flikar, boendekort, praktiskt innan avresa. -->
+
+    <!-- Navigation -->
+    <nav class="nav-sticky border-b border-stone-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center space-x-2">
+                    <span class="text-2xl">🌺</span>
+                    <span class="font-bold text-xl tracking-tight uppercase">Madeira 2027</span>
+                </div>
+                <div class="hidden md:flex flex-wrap gap-x-5 gap-y-1 justify-end text-sm font-bold uppercase tracking-widest">
+                    <a href="index.html" class="hover:text-strelitzia transition">Start</a>
+                    <a href="#overview" class="hover:text-strelitzia transition">Översikt</a>
+                    <a href="#hikes" class="hover:text-strelitzia transition">Vandring</a>
+                    <a href="#when" class="hover:text-strelitzia transition">När?</a>
+                    <a href="#itinerary" class="hover:text-strelitzia transition">Dag för dag</a>
+                    <a href="#hotels" class="hover:text-strelitzia transition">Boende</a>
+                    <a href="#food" class="hover:text-strelitzia transition">Mat</a>
+                    <a href="#before-departure" class="hover:text-strelitzia transition">Innan Avresa</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden flex items-center justify-center w-10 h-10 -mr-2" aria-label="Öppna meny" aria-expanded="false" aria-controls="mobile-menu" onclick="const m=document.getElementById('mobile-menu');const exp=this.getAttribute('aria-expanded')==='true';this.setAttribute('aria-expanded',String(!exp));m.classList.toggle('open',!exp);">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line class="bar bar1" x1="3" y1="6" x2="21" y2="6"/><line class="bar bar2" x1="3" y1="12" x2="21" y2="12"/><line class="bar bar3" x1="3" y1="18" x2="21" y2="18"/></svg>
+                </button>
+            </div>
+            <div id="mobile-menu" class="md:hidden flex flex-col pb-4 text-sm font-bold uppercase tracking-widest">
+                <a href="index.html" class="py-2 border-b border-stone-100 hover:text-strelitzia transition">Start</a>
+                <a href="#overview" class="py-2 border-b border-stone-100 hover:text-strelitzia transition">Översikt</a>
+                <a href="#hikes" class="py-2 border-b border-stone-100 hover:text-strelitzia transition">Vandring</a>
+                <a href="#when" class="py-2 border-b border-stone-100 hover:text-strelitzia transition">När?</a>
+                <a href="#itinerary" class="py-2 border-b border-stone-100 hover:text-strelitzia transition">Dag för dag</a>
+                <a href="#hotels" class="py-2 border-b border-stone-100 hover:text-strelitzia transition">Boende</a>
+                <a href="#food" class="py-2 border-b border-stone-100 hover:text-strelitzia transition">Mat</a>
+                <a href="#before-departure" class="py-2 hover:text-strelitzia transition">Innan Avresa</a>
+            </div>
+        </div>
+    </nav>
+    <script>
+        document.querySelectorAll('#mobile-menu a').forEach(function(a) {
+            a.addEventListener('click', function() {
+                document.getElementById('mobile-menu').classList.remove('open');
+                document.getElementById('mobile-menu-btn').setAttribute('aria-expanded', 'false');
+            });
+        });
+    </script>
+
+    <!-- Hero -->
+    <header class="hero-bg text-stone-bg py-32 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10 flex items-center justify-center text-[200px] md:text-[280px] font-serif select-none pointer-events-none" aria-hidden="true">🌺</div>
+        <div class="max-w-7xl mx-auto px-4 text-center relative z-10">
+            <p class="text-xs md:text-sm font-bold uppercase tracking-[0.4em] text-orange-200 mb-6">Våren 2027 · en vecka</p>
+            <h1 class="text-5xl md:text-7xl font-bold mb-6">Atlantens trädgård</h1>
+            <p class="text-xl md:text-2xl text-stone-200 max-w-3xl mx-auto font-light leading-relaxed">
+                En vandringsvecka i lagom tempo: levadas genom tusenårig urskog, soluppgång över molnen, vattenfall, vulkaniska klippor och val i Atlanten.
+            </p>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 py-16">
+
+        <!-- SECTION: ÖVERSIKT -->
+        <section id="overview" class="mb-24 scroll-mt-20">
+            <div class="max-w-3xl">
+                <h2 class="text-3xl font-bold mb-6 border-l-8 border-laurel pl-4">🌿 Resans Strategi</h2>
+                <p class="text-lg text-stone-600 mb-6 leading-relaxed">
+                    Resan handlar om <strong>vandring och naturupplevelser</strong> — med fokus på <strong>lätta och medelsvåra leder</strong> (3–13 km, inga exponerade bergskammar). Vi <strong>bor på ett ställe — Funchal</strong> — och gör dagsturer med <strong>hyrbil</strong>; inget mål ligger mer än ~1 timme bort. Vandringarna läggs på <strong>tidiga morgnar</strong> innan molnen drar in över bergen, eftermiddagarna går till hav, bad och vila.
+                </p>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+                    <div class="bg-white p-4 rounded-xl shadow-sm border border-stone-100">
+                        <span class="block font-bold text-atlantic">FLYG</span>
+                        <span class="text-sm">Funchal (FNC)</span>
+                    </div>
+                    <div class="bg-white p-4 rounded-xl shadow-sm border border-stone-100">
+                        <span class="block font-bold text-laurel">BAS</span>
+                        <span class="text-sm">Funchal, 7 nätter</span>
+                    </div>
+                    <div class="bg-white p-4 rounded-xl shadow-sm border border-stone-100">
+                        <span class="block font-bold text-strelitzia">VÄDER</span>
+                        <span class="text-sm">~19–21°C dagtid</span>
+                    </div>
+                    <div class="bg-white p-4 rounded-xl shadow-sm border border-stone-100">
+                        <span class="block font-bold text-atlantic">VANDRING</span>
+                        <span class="text-sm">6 leder, lätt–medel</span>
+                    </div>
+                </div>
+                <h3 class="font-bold text-sm uppercase tracking-widest text-stone-400 mb-3">Veckan i korthet</h3>
+                <div class="flex flex-col divide-y divide-stone-100 bg-white rounded-xl border border-stone-100 overflow-hidden">
+                    <div class="flex justify-between gap-4 px-4 py-3 text-sm"><span class="font-bold whitespace-nowrap">Dag 1–2</span><span class="text-stone-600 text-right">Funchal — Ankomst, Monte-trädgårdarna & valsafari</span></div>
+                    <div class="flex justify-between gap-4 px-4 py-3 text-sm"><span class="font-bold whitespace-nowrap">Dag 3</span><span class="text-stone-600 text-right">Östra udden — PR8 São Lourenço & PR11 Balcões</span></div>
+                    <div class="flex justify-between gap-4 px-4 py-3 text-sm"><span class="font-bold whitespace-nowrap">Dag 4</span><span class="text-stone-600 text-right">Bergen — Soluppgång Arieiro & PR1.2 till Pico Ruivo</span></div>
+                    <div class="flex justify-between gap-4 px-4 py-3 text-sm"><span class="font-bold whitespace-nowrap">Dag 5</span><span class="text-stone-600 text-right">Nordväst — Fanal-urskogen, lavapooler & vattenfall</span></div>
+                    <div class="flex justify-between gap-4 px-4 py-3 text-sm"><span class="font-bold whitespace-nowrap">Dag 6</span><span class="text-stone-600 text-right">Väst — PR6 25 Fontes & Risco-vattenfallet</span></div>
+                    <div class="flex justify-between gap-4 px-4 py-3 text-sm"><span class="font-bold whitespace-nowrap">Dag 7–8</span><span class="text-stone-600 text-right">PR9 Caldeirão Verde, avslutningsmiddag & avresa</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- DIVIDER: VÅG -->
+        <div class="flex justify-center mb-16" aria-hidden="true">
+            <svg width="320" height="60" viewBox="0 0 320 60" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 30 C 40 10, 80 50, 120 30 S 200 10, 240 30 S 300 50, 320 30" fill="none" stroke="#0c4a6e" stroke-width="2" opacity="0.5"/>
+                <path d="M0 42 C 40 22, 80 62, 120 42 S 200 22, 240 42 S 300 62, 320 42" fill="none" stroke="#0c4a6e" stroke-width="1.5" opacity="0.25"/>
+                <g fill="#c2410c" opacity="0.6">
+                    <circle cx="60" cy="18" r="5"/><circle cx="160" cy="14" r="4"/><circle cx="270" cy="20" r="5"/>
+                </g>
+            </svg>
+        </div>
+
+        <!-- SECTION: VANDRING -->
+        <section id="hikes" class="mb-24 scroll-mt-20">
+            <h2 class="text-3xl font-bold mb-4 border-l-8 border-laurel pl-4">🥾 Levadas & vandringar</h2>
+            <p class="text-stone-500 mb-4 max-w-3xl">Utvalda för att vara <strong>lätta till medelsvåra</strong>: tydliga stigar, måttlig stigning och inga svindlande kammar. Levadas är 1500-talets bevattningskanaler med smala gångstigar längs kanten — platta, lummiga och unika för Madeira. De officiella lederna heter PR + nummer och de flesta kräver numera <strong>förbokning och avgift (~3–10,50 € p.p.)</strong> via <a href="https://simplifica.madeira.gov.pt/" target="_blank" rel="noopener" class="underline text-strelitzia">SIMplifica</a>.</p>
+            <div class="flex flex-wrap gap-3 mb-8 text-xs font-bold">
+                <span class="px-3 py-1 rounded-full bg-emerald-100 text-laurel">LÄTT — platt, 2–5 km, för alla</span>
+                <span class="px-3 py-1 rounded-full bg-sky-100 text-atlantic">MEDEL — 5–13 km, några backar/trappor, bra skor</span>
+            </div>
+            <div id="hike-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"><!-- JS populated --></div>
+            <p class="text-xs text-stone-400 mt-6">Leder stängs ibland efter ras eller brand. Kolla status hos IFCN/SIMplifica några dagar innan — särskilt PR1-området, som har varit stängt i perioder.<br>Medvetet bortvalt: <strong>PR1 Arieiro → Ruivo</strong> längs bergskammen — fantastisk men krävande (branta trappor, exponerade partier, ~7 km enkel väg). Vi tar Pico Ruivo den lätta vägen via PR1.2 i stället.</p>
+        </section>
+
+        <!-- SECTION: NÄR -->
+        <section id="when" class="mb-24 scroll-mt-20">
+            <h2 class="text-3xl font-bold mb-4 border-l-8 border-strelitzia pl-4">📅 Mars eller april?</h2>
+            <p class="text-stone-500 mb-8 max-w-3xl">Madeira kallas "den eviga vårens ö" — temperaturen skiljer bara någon grad, men för en vandringsresa avgör regnet: regnsäsongen klingar av i mitten av april, så <strong>sista veckan i april</strong> ger torrast stigar.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm space-y-3">
+                    <div class="flex items-center justify-between">
+                        <h3 class="font-bold text-atlantic text-lg">Mars — t.ex. påskveckan</h3>
+                        <span class="text-xs font-bold text-stone-400">27 mars – 3 april</span>
+                    </div>
+                    <ul class="text-sm text-stone-600 space-y-1 list-disc pl-5">
+                        <li>~19°C dagtid i Funchal, ~13–14°C nätter. Havet ~18°C.</li>
+                        <li>Fortfarande regnsäsong: ~60 mm regn fördelat på ~12 dagar — leriga, hala stigar och fler stängda leder efter skyfall.</li>
+                        <li>Färre turister än i april, grönt och frodigt efter vinterregnen.</li>
+                        <li>Påsk (påskdagen 28 mars 2027) — processioner och stängda butiker långfredag/påskdag.</li>
+                        <li>Passar svenskt påsklov, men flyg och hyrbil dyrare just den veckan.</li>
+                                            </ul>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border-2 border-strelitzia shadow-sm space-y-3">
+                    <div class="flex items-center justify-between">
+                        <h3 class="font-bold text-strelitzia text-lg">April — vårt förslag ★</h3>
+                        <span class="text-xs font-bold text-stone-400">26 april – 3 maj</span>
+                    </div>
+                    <ul class="text-sm text-stone-600 space-y-1 list-disc pl-5">
+                        <li>~20–21°C dagtid, ungefär halva regnmängden (~30 mm på ~6 dagar) och längre dagar (sol ner ~20.30) — bättre vandringsförhållanden.</li>
+                        <li><a href="https://www.visitmadeira.com/en-gb/what-to-do/events/search/flower-festival" target="_blank" rel="noopener" class="underline text-strelitzia">Blomsterfestivalen</a> startar 29 april 2027 — blomstermattor och installationer i hela centrala Funchal.</li>
+                        <li>Stora blomsterparaden (<em>Cortejo Alegórico</em>) söndag 2 maj — därför hem måndag 3 maj.</li>
+                        <li>Jakaranda börjar blomma lila längs Funchals gator i slutet av april/maj.</li>
+                        <li>Festivalveckan är populär — boka boende tidigt.</li>
+                    </ul>
+                </div>
+            </div>
+            <p class="text-xs text-stone-400">Festivaldatum från Madeiras officiella evenemangskalender 2026–2028; bekräfta närmare avresan. Temperaturer och regn är ungefärliga medelvärden för Funchal — i bergen regnar det betydligt mer.</p>
+        </section>
+
+        <!-- SECTION: DAG FÖR DAG -->
+        <section id="itinerary" class="mb-24 scroll-mt-20">
+            <h2 class="text-3xl font-bold mb-4 border-l-8 border-atlantic pl-4">🗺️ Förslag: Dag för dag</h2>
+            <p class="text-stone-500 mb-8 max-w-3xl">Ett utkast, inget är bokat ännu. En vandring per dag, max medelsvår, med vila och natur på eftermiddagen. Bergsdagarna går att byta plats med varandra beroende på väderprognosen — kolla webbkameran på Pico do Arieiro kvällen innan.</p>
+            <div id="day-tabs" class="flex flex-wrap gap-2 mb-8" role="tablist"><!-- JS populated --></div>
+            <div id="day-content"><!-- JS populated --></div>
+        </section>
+
+        <!-- SECTION: BOENDE -->
+        <section id="hotels" class="mb-24 scroll-mt-20">
+            <h2 class="text-3xl font-bold mb-4 border-l-8 border-strelitzia pl-4">🏡 Boende — förslag</h2>
+            <p class="text-stone-500 mb-10">En bas i Funchal för hela veckan ger mest restauranger och kvällsliv och kortast väg till alla dagsturer. Inget är <span class="font-bold text-strelitzia">BOKAT</span> än — välj ett och boka tidigt om vi åker under blomsterfestivalen.</p>
+            <div id="hotel-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"><!-- JS populated --></div>
+        </section>
+
+        <!-- SECTION: MAT -->
+        <section id="food" class="mb-24 scroll-mt-20">
+            <h2 class="text-3xl font-bold mb-4 border-l-8 border-atlantic pl-4">🍷 Mat & dryck att prova</h2>
+            <p class="text-stone-500 mb-8 max-w-3xl">Madeirisk mat är rustik, havsnära och full av tropisk frukt. Det här ska vi inte missa:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm space-y-2">
+                    <h3 class="font-bold text-atlantic">🍢 Espetada</h3>
+                    <p class="text-sm text-stone-600">Oxkött marinerat i vitlök och lagerblad, grillat på lagerträspett och hängt över bordet. Klassiskt på bergskrogar i Estreito de Câmara de Lobos.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm space-y-2">
+                    <h3 class="font-bold text-atlantic">🐟 Espada com banana</h3>
+                    <p class="text-sm text-stone-600">Svart hårstjärtfisk från djuphavet — ser skräckinjagande ut, smakar mild. Serveras friterad med stekt banan och ibland passionsfruktsås.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm space-y-2">
+                    <h3 class="font-bold text-atlantic">🐚 Lapas</h3>
+                    <p class="text-sm text-stone-600">Skålsnäckor grillade i järnpanna med vitlöksmör och citron. Bäst vid havet — t.ex. i Câmara de Lobos eller Porto Moniz.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm space-y-2">
+                    <h3 class="font-bold text-atlantic">🍞 Bolo do caco</h3>
+                    <p class="text-sm text-stone-600">Platt sötpotatisbröd bakat på stenhäll, serverat varmt med vitlökssmör. Kommer till nästan varje måltid.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm space-y-2">
+                    <h3 class="font-bold text-atlantic">🍹 Poncha</h3>
+                    <p class="text-sm text-stone-600">Sockerrörsbrännvin (aguardente), honung och citron vispat med en <em>caralhinho</em>-stav. Stark! Klassikern är Taberna da Poncha i Serra de Água.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm space-y-2">
+                    <h3 class="font-bold text-atlantic">🍷 Madeiravin</h3>
+                    <p class="text-sm text-stone-600">Starkvin i fyra stilar från torr Sercial till söt Malvasia. Provning på Blandy's Wine Lodge mitt i Funchal — gärna en 10-årig Malmsey till efterrätten.</p>
+                </div>
+            </div>
+            <div class="mt-8 bg-white p-6 rounded-2xl border border-stone-200 shadow-sm">
+                <h3 class="font-bold text-sm uppercase tracking-widest text-stone-400 mb-4">Restauranger att kolla upp</h3>
+                <div id="restaurant-list" class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-3 text-sm"><!-- JS populated --></div>
+                <p class="text-xs text-stone-400 mt-4">Förslag att verifiera — öppettider och bokningsläge ändras. Finkrogarna behöver bokas veckor i förväg.</p>
+            </div>
+        </section>
+
+        <!-- SECTION: BRA ATT VETA INNAN AVRESA -->
+        <section id="before-departure" class="mb-24 scroll-mt-20">
+            <h2 class="text-3xl font-bold mb-4 border-l-8 border-laurel pl-4">🎒 Bra att veta innan avresa</h2>
+            <p class="text-stone-500 mb-8">Praktiska baskunskaper inför resan.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm space-y-2">
+                    <h3 class="font-bold text-laurel">✈️ Flyg</h3>
+                    <p class="text-sm text-stone-600">Direktflyg Sverige–Funchal går främst säsongsvis på vintern och upphör ofta i april — kolla SAS, Norwegian och charterbolagen. Annars en mellanlandning via Lissabon (TAP) eller Centraleuropa. Funchals flygplats är känd för fallvindar; förseningar och omdirigeringar händer, så planera inget viktigt första kvällen.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm space-y-2">
+                    <h3 class="font-bold text-laurel">🚗 Hyrbil</h3>
+                    <p class="text-sm text-stone-600">Nästan ett måste för dagsturerna. Välj en liten bil med lite kraft — backarna är brutalt branta. Automat kostar extra men är värt det i Funchals backar. Hämta bilen dag 3, så slipper vi parkera i centrum första dagarna.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm space-y-2">
+                    <h3 class="font-bold text-laurel">🎟️ Boka leder i SIMplifica</h3>
+                    <p class="text-sm text-stone-600">Skapa konto och boka PR6, PR9, PR1.2 och övriga leder i förväg — man väljer datum och ett 30-minutersfönster. Populära tider på PR6 (25 Fontes) tar slut först. Kvitto/QR i mobilen räcker.</p>
+                    <a href="https://simplifica.madeira.gov.pt/" target="_blank" rel="noopener" class="inline-block text-xs font-bold text-strelitzia underline">simplifica.madeira.gov.pt →</a>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm space-y-2">
+                    <h3 class="font-bold text-laurel">💶 Valuta, dricks & el</h3>
+                    <p class="text-sm text-stone-600">Euro, kort fungerar nästan överallt (ha lite kontanter till parkering och små barer). Dricks är frivilligt — avrunda eller ~5–10 % på restaurang. Samma eluttag (typ F) och 230 V som hemma — ingen adapter behövs.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm space-y-2">
+                    <h3 class="font-bold text-laurel">📶 Mobil & dokument</h3>
+                    <p class="text-sm text-stone-600">EU-roaming — svenska abonnemanget fungerar som hemma. Pass eller nationellt ID-kort räcker. Ta med EU-kortet (europeiska sjukförsäkringskortet) från Försäkringskassan.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm space-y-2">
+                    <h3 class="font-bold text-laurel">⛅ Mikroklimat</h3>
+                    <p class="text-sm text-stone-600">Södra kusten är solig medan norra sidan och bergen kan ligga i regn och moln. Är det molnigt i Funchal kan det vara klart ovanför molnen på Pico do Arieiro — och tvärtom. Kolla webbkameror och <a href="https://www.ipma.pt/en/" target="_blank" rel="noopener" class="underline text-strelitzia">IPMA</a> varje kväll.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm space-y-2 lg:col-span-3">
+                    <h3 class="font-bold text-laurel">🧥 Packning för vår på Madeira</h3>
+                    <p class="text-sm text-stone-600">Lager på lager. Funchal är t-shirtväder på dagen men svalt på kvällen (~14°C). På Pico do Arieiro (1 818 m) kan det vara nära nollgradigt vid soluppgång — mössa, handskar och dunjacka. Vandringsskor med bra grepp (levadakanterna kan vara hala), regnjacka, liten dagsryggsäck, vandringsstavar om ni brukar använda, pannlampa (tunnlarna på PR9), badkläder till lavapoolerna och solskydd — UV-strålningen är stark även när det känns svalt.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-stone-200 py-12 text-center text-stone-500 text-sm">
+        <p class="font-bold text-stone-800 mb-2 uppercase tracking-widest">Resa Madeira 2027</p>
+        <p>Skapad för levadas, havsluft och långa middagar.</p>
+    </footer>
+
+    <script>
+        // --- DATA ---
+        const days = [
+            {
+                label: "Dag 1", title: "Ankomst & strandpromenad", place: "Funchal",
+                morning: "Flyg till Funchal (FNC). Taxi eller Aerobus in till stan (~25 min).",
+                afternoon: "Checka in. Promenad längs havet och marinan — första mötet med Atlanten.",
+                evening: "Gamla stan (Zona Velha): de målade dörrarna på Rua de Santa Maria och middag i gränderna. Tidigt i säng.",
+                tip: "Vindarna vid flygplatsen kan försena landningen — håll första kvällen fri från bokningar."
+            },
+            {
+                label: "Dag 2", title: "Trädgårdar & valar", place: "Funchal",
+                morning: "Linbanan (Teleférico) upp till Monte → Monte Palace Tropical Garden: koi-dammar, cykader och inhemsk laurisilva. Åk korgkälke (carreiros) ner.",
+                afternoon: "Val- och delfinsafari från Funchals marina (~2–3 h). Grindvalar, öresvin och delfiner ses nästan alltid — ibland kaskelot.",
+                evening: "Provning på Blandy's Wine Lodge eller lugn middag i centrum.",
+                tip: "Välj en operatör med marinbiolog ombord och 'ingen val — åk igen gratis'-garanti. Lugnt hav på eftermiddagen är vanligast."
+            },
+            {
+                label: "Dag 3", title: "Östra udden — PR8 & PR11", place: "Öst · Medel + Lätt",
+                morning: "Hämta hyrbil. <strong>PR8 Ponta de São Lourenço</strong> (medel, ~8 km t/r): kal halvö med röda och svarta vulkanklippor, hav på båda sidor. Start före kl. 9 — ingen skugga.",
+                afternoon: "Lunch i Caniçal eller Machico. Vidare till Ribeiro Frio och <strong>PR11 Vereda dos Balcões</strong> (lätt, ~3 km t/r) till utsiktsbalkongen över den gröna dalen — buchfinkar äter ur handen.",
+                evening: "Förbi Santanas halmtakshus på hemvägen, middag i Funchal.",
+                tip: "Ta med mycket vatten och solskydd på PR8 — det blåser ofta friskt längst ut."
+            },
+            {
+                label: "Dag 4", title: "Ovanför molnen — PR1.2", place: "Bergen · Lätt–medel",
+                morning: "Kör upp till Pico do Arieiro (1 818 m) för soluppgång över molnhavet — utsikten nås direkt från parkeringen. Kort promenad (~1 km) till utsiktsplatsen Ninho da Manta.",
+                afternoon: "Kör vidare till Achada do Teixeira och gå <strong>PR1.2 till Pico Ruivo</strong> (lätt–medel, ~5,6 km t/r, välbyggd stenstig) — öns högsta topp, 1 862 m, utan de krävande kammarna.",
+                evening: "Vila. Poncha på Taberna da Poncha i Serra de Água och middag på en espetada-krog.",
+                tip: "Kolla webbkameran på Pico do Arieiro kvällen innan — ligger molnen över toppen, byt med dag 6. Kallt vid soluppgång: mössa och dunjacka."
+            },
+            {
+                label: "Dag 5", title: "Fanal & lavapooler", place: "Nordväst · Lätt",
+                morning: "<strong>Fanal</strong>: ströva bland tusenåriga, vridna lagerträd i laurisilva-skogen (UNESCO-världsarv) — helst i lätt dimma, då är det sagolikt.",
+                afternoon: "Porto Moniz: bad i de naturliga lavapoolerna. Lunch med lapas vid havet.",
+                evening: "Kustvägen förbi Seixal (svart sandstrand) och vattenfallet Véu da Noiva. Hem via São Vicente.",
+                tip: "Ta med badkläder och handduk — poolerna har omklädningsrum och liten entré."
+            },
+            {
+                label: "Dag 6", title: "25 Fontes & Risco — PR6", place: "Väst · Lätt–medel",
+                morning: "Rabaçal: <strong>PR6.1 till Risco-vattenfallet</strong> (lätt, platt) och <strong>PR6 Levada das 25 Fontes</strong> (lätt–medel, ~4,5 km t/r) till en grön sjö med dussintals små vattenfall.",
+                afternoon: "Ner till kusten: sen lunch och bad i Calheta eller Ponta do Sol.",
+                evening: "Solnedgång i Ponta do Sol eller på Cabo Girão-skywalken (580 m rakt ner) på vägen hem.",
+                tip: "Var på plats tidigt — levadan blir trång mitt på dagen. Skyttelbussen från parkeringen spar ~2 km asfaltbacke."
+            },
+            {
+                label: "Dag 7", title: "Caldeirão Verde — PR9", place: "Nord · Medel",
+                morning: "<strong>PR9 Levada do Caldeirão Verde</strong> (medel, ~13 km t/r, platt men lång) från Queimadas: mossiga väggar, korta tunnlar och ett 100 m högt vattenfall i en grön kittel. Veckans höjdpunkt i urskogen.",
+                afternoon: "Picknick vid vattenfallet, åter till bilen. Lämna tillbaka hyrbilen i Funchal.",
+                evening: "Avslutningsmiddag. Åker vi 26 april–3 maj: blomsterparaden går i Funchal på söndagen (2 maj).",
+                tip: "Pannlampa till tunnlarna. Vill ni korta: vänd när ni vill — leden är en ren fram-och-tillbaka-tur."
+            },
+            {
+                label: "Dag 8", title: "Avresa", place: "Funchal",
+                morning: "Lugn frukost. Botaniska trädgården (Jardim Botânico) om tid finns — fin utsikt över Funchal.",
+                afternoon: "Köp Madeiravin och honungskaka (bolo de mel) som presenter. Till flygplatsen.",
+                evening: "Hemma.",
+                tip: "Madeiravin tål resan väl — packa i incheckat bagage eller köp efter säkerhetskontrollen."
+            }
+        ];
+
+        const hikes = [
+            { code: "PR6 / PR6.1", name: "25 Fontes & Risco", level: "Lätt–medel", dist: "~4,5 km t/r", desc: "Klassikern i Rabaçal: platt levada genom mossig urskog till en sjö med 25 små vattenfall, plus en kort avstickare till det 100 m höga Risco-fallet.", day: "Dag 6" },
+            { code: "PR11", name: "Vereda dos Balcões", level: "Lätt", dist: "~3 km t/r", desc: "Kort och platt till en balkong med vy över Ribeira da Metade-dalen och de högsta topparna. Perfekt för fågelskådning.", day: "Dag 3" },
+            { code: "PR1.2", name: "Vereda do Pico Ruivo", level: "Lätt–medel", dist: "~5,6 km t/r", desc: "Välbyggd stenstig från Achada do Teixeira till öns högsta topp (1 862 m). Hela utsikten från PR1 — utan de krävande kammarna.", day: "Dag 4" },
+            { code: "PR8", name: "Ponta de São Lourenço", level: "Medel", dist: "~8 km t/r", desc: "Torr, vindpinad halvö med färgsprakande vulkanklippor och hav på båda sidor. Helt olik resten av ön. Några trappor mot slutet.", day: "Dag 3" },
+            { code: "PR9", name: "Levada do Caldeirão Verde", level: "Medel", dist: "~13 km t/r", desc: "Lång men nästan platt levada genom laurisilva, med korta tunnlar och ett 100 m högt vattenfall i en grön kittel. Pannlampa!", day: "Dag 7" },
+            { code: "—", name: "Fanal", level: "Lätt", dist: "Strövområde", desc: "Inga markerade mål — bara att vandra runt bland jättelika, vridna lagerträd på högplatån. Magiskt i dimma.", day: "Dag 5" },
+            { code: "PR18", name: "Levada do Rei", level: "Lätt–medel", dist: "~10 km t/r", desc: "Reservalternativ: lugn levada från Quebradas till en mossig källa, genom några av öns mest orörda urskogspartier.", day: "Reserv" },
+            { code: "PR10", name: "Levada do Furado", level: "Medel", dist: "~11 km enkel väg", desc: "Reservalternativ: Ribeiro Frio → Portela genom tät skog med utsikt mot nordkusten. Kräver transport tillbaka.", day: "Reserv" }
+        ];
+
+        const hotels = [
+            { area: "Funchal · Lyx", name: "Belmond Reid's Palace", type: "Klassiskt grandhotell", desc: "Legendariskt hotell från 1891 på klippan över havet, berömt afternoon tea och trädgårdar. Gångavstånd till centrum.", address: "Belmond Reid's Palace, Estrada Monumental 139, Funchal" },
+            { area: "Funchal · Gamla stan", name: "Castanheiro Boutique Hotel", type: "Boutiquehotell", desc: "Restaurerade stadshus mitt i centrum med takpool. Perfekt läge för kvällar i Zona Velha.", address: "Castanheiro Boutique Hotel, Rua do Castanheiro 31, Funchal" },
+            { area: "Funchal · Lido", name: "Quinta da Casa Branca", type: "Quinta / designhotell", desc: "Modern arkitektur i en lugn trädgård från en gammal vingård. Bra mellanläge mellan lugn och stad.", address: "Quinta da Casa Branca, Rua da Casa Branca 7, Funchal" },
+            { area: "Ponta do Sol · Alternativ", name: "Estalagem da Ponta do Sol", type: "Designhotell", desc: "Minimalistiskt hotell på klippkanten med infinitypool. Alternativ för 2–3 nätter på solsidan nära västra vandringarna.", address: "Estalagem da Ponta do Sol, Quinta da Rochinha, Ponta do Sol, Madeira" }
+        ];
+
+        const restaurants = [
+            { name: "Il Gallo d'Oro", note: "Funchal · Michelin-stjärnor, avslutningsmiddagen" },
+            { name: "Armazém do Sal", note: "Funchal · modern madeirisk i gammalt saltlager" },
+            { name: "Restaurante Santo António", note: "Estreito de Câmara de Lobos · klassisk espetada" },
+            { name: "Taberna da Poncha", note: "Serra de Água · ponchans högborg" },
+            { name: "Mercado dos Lavradores", note: "Funchal · frukt, fisk och lunchstånd" },
+            { name: "Blandy's Wine Lodge", note: "Funchal · provning och vinkällare" }
+        ];
+
+        // --- RENDER ---
+        function renderDays() {
+            const tabs = document.getElementById('day-tabs');
+            const content = document.getElementById('day-content');
+            days.forEach((d, i) => {
+                const btn = document.createElement('button');
+                btn.className = "day-btn px-4 py-2 rounded-full border border-stone-300 text-xs font-bold uppercase tracking-widest hover:border-atlantic transition";
+                btn.setAttribute('role', 'tab');
+                btn.setAttribute('aria-selected', i === 0 ? 'true' : 'false');
+                btn.textContent = d.label;
+                btn.addEventListener('click', () => showDay(i));
+                tabs.appendChild(btn);
+
+                const panel = document.createElement('div');
+                panel.className = "day-tab-content" + (i === 0 ? " active" : "");
+                panel.setAttribute('role', 'tabpanel');
+                panel.innerHTML = `
+                    <div class="bg-white rounded-3xl border border-stone-200 shadow-sm p-6 md:p-10">
+                        <div class="flex flex-wrap items-baseline justify-between gap-2 mb-6">
+                            <h3 class="text-2xl md:text-3xl font-bold">${d.title}</h3>
+                            <span class="text-xs font-bold uppercase tracking-widest text-strelitzia">${d.place}</span>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+                            <div><div class="text-xs font-bold uppercase tracking-widest text-stone-400 mb-2">☀️ Förmiddag</div><p class="text-sm text-stone-600">${d.morning}</p></div>
+                            <div><div class="text-xs font-bold uppercase tracking-widest text-stone-400 mb-2">🌤️ Eftermiddag</div><p class="text-sm text-stone-600">${d.afternoon}</p></div>
+                            <div><div class="text-xs font-bold uppercase tracking-widest text-stone-400 mb-2">🌙 Kväll</div><p class="text-sm text-stone-600">${d.evening}</p></div>
+                        </div>
+                        <div class="bg-orange-50 border-l-4 border-strelitzia rounded-r-xl px-4 py-3 text-sm text-stone-700"><strong>Tips:</strong> ${d.tip}</div>
+                    </div>
+                `;
+                content.appendChild(panel);
+            });
+        }
+
+        function showDay(i) {
+            document.querySelectorAll('#day-tabs .day-btn').forEach((b, j) => b.setAttribute('aria-selected', String(i === j)));
+            document.querySelectorAll('#day-content .day-tab-content').forEach((p, j) => p.classList.toggle('active', i === j));
+        }
+
+        function renderHikes() {
+            const grid = document.getElementById('hike-grid');
+            hikes.forEach(h => {
+                const card = document.createElement('div');
+                card.className = "bg-white p-6 rounded-2xl shadow-sm border border-stone-100 flex flex-col link-card transition duration-300";
+                card.innerHTML = `
+                    <div class="flex items-center justify-between mb-1">
+                        <div class="text-xs font-bold text-laurel uppercase">${h.code}</div>
+                        <div class="text-xs font-bold text-stone-400">${h.day}</div>
+                    </div>
+                    <h4 class="text-xl font-bold mb-2">${h.name}</h4>
+                    <div class="flex items-center gap-2 mb-4">
+                        <span class="text-xs font-bold px-2 py-0.5 rounded-full ${h.level === 'Lätt' ? 'bg-emerald-100 text-laurel' : h.level === 'Medel' ? 'bg-sky-100 text-atlantic' : 'bg-teal-100 text-teal-800'}">${h.level}</span>
+                        <span class="text-xs font-bold text-stone-400">${h.dist}</span>
+                    </div>
+                    <p class="text-sm text-stone-600 flex-grow">${h.desc}</p>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function renderHotels() {
+            const grid = document.getElementById('hotel-grid');
+            hotels.forEach(h => {
+                const mapUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(h.address)}`;
+                const card = document.createElement('div');
+                card.className = "bg-white p-6 rounded-2xl shadow-sm border border-stone-100 flex flex-col link-card transition duration-300";
+                card.innerHTML = `
+                    <div class="text-xs font-bold text-strelitzia uppercase mb-1">${h.area}</div>
+                    <h4 class="text-xl font-bold mb-2">${h.name}</h4>
+                    <div class="flex items-center gap-2 mb-4">
+                        <div class="text-xs font-bold text-stone-400">${h.type}</div>
+                        <span class="text-xs font-bold text-white bg-strelitzia px-2 py-0.5 rounded-full">EJ BOKAT</span>
+                    </div>
+                    <p class="text-sm text-stone-600 mb-4 flex-grow">${h.desc}</p>
+                    <a href="${mapUrl}" target="_blank" rel="noopener" class="text-center py-2 rounded-full border border-laurel text-laurel font-bold text-xs hover:bg-laurel hover:text-white transition uppercase tracking-widest">🗺️ Karta</a>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function renderRestaurants() {
+            const list = document.getElementById('restaurant-list');
+            restaurants.forEach(r => {
+                const mapUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(r.name + ', Madeira')}`;
+                const row = document.createElement('div');
+                row.className = "flex justify-between gap-4 border-b border-stone-100 pb-2";
+                row.innerHTML = `
+                    <div><a href="${mapUrl}" target="_blank" rel="noopener" class="font-bold hover:text-strelitzia underline decoration-stone-300">${r.name}</a><div class="text-xs text-stone-500">${r.note}</div></div>
+                `;
+                list.appendChild(row);
+            });
+        }
+
+        window.onload = () => {
+            renderDays();
+            renderHikes();
+            renderHotels();
+            renderRestaurants();
+        };
+    </script>
+</body>
+</html>
