@@ -40,7 +40,7 @@
         #mobile-menu-btn[aria-expanded="true"] .bar2 { opacity: 0; }
         #mobile-menu-btn[aria-expanded="true"] .bar3 { transform: translateY(-6px) rotate(-45deg); }
         #mobile-menu { overflow: hidden; max-height: 0; opacity: 0; transition: max-height .3s ease, opacity .25s ease; }
-        #mobile-menu.open { max-height: 480px; opacity: 1; }
+        #mobile-menu.open { max-height: 560px; opacity: 1; }
         .link-card:hover { border-color: #c2410c; transform: translateY(-2px); }
         .hero-bg {
             background:
@@ -71,6 +71,7 @@
                     <a href="index.html" class="hover:text-strelitzia transition">Start</a>
                     <a href="#overview" class="hover:text-strelitzia transition">Översikt</a>
                     <a href="#hikes" class="hover:text-strelitzia transition">Vandring</a>
+                    <a href="#tickets" class="hover:text-strelitzia transition">Biljetter</a>
                     <a href="#when" class="hover:text-strelitzia transition">När?</a>
                     <a href="#itinerary" class="hover:text-strelitzia transition">Dag för dag</a>
                     <a href="#hotels" class="hover:text-strelitzia transition">Boende</a>
@@ -85,6 +86,7 @@
                 <a href="index.html" class="py-2 border-b border-stone-100 hover:text-strelitzia transition">Start</a>
                 <a href="#overview" class="py-2 border-b border-stone-100 hover:text-strelitzia transition">Översikt</a>
                 <a href="#hikes" class="py-2 border-b border-stone-100 hover:text-strelitzia transition">Vandring</a>
+                <a href="#tickets" class="py-2 border-b border-stone-100 hover:text-strelitzia transition">Biljetter</a>
                 <a href="#when" class="py-2 border-b border-stone-100 hover:text-strelitzia transition">När?</a>
                 <a href="#itinerary" class="py-2 border-b border-stone-100 hover:text-strelitzia transition">Dag för dag</a>
                 <a href="#hotels" class="py-2 border-b border-stone-100 hover:text-strelitzia transition">Boende</a>
@@ -167,13 +169,59 @@
         <!-- SECTION: VANDRING -->
         <section id="hikes" class="mb-24 scroll-mt-20">
             <h2 class="text-3xl font-bold mb-4 border-l-8 border-laurel pl-4">🥾 Levadas & vandringar</h2>
-            <p class="text-stone-500 mb-4 max-w-3xl">Utvalda för att vara <strong>lätta till medelsvåra</strong>: tydliga stigar, måttlig stigning och inga svindlande kammar. Levadas är 1500-talets bevattningskanaler med smala gångstigar längs kanten — platta, lummiga och unika för Madeira. De officiella lederna heter PR + nummer och de flesta kräver numera <strong>förbokning och avgift (~3–10,50 € p.p.)</strong> via <a href="https://simplifica.madeira.gov.pt/" target="_blank" rel="noopener" class="underline text-strelitzia">SIMplifica</a>.</p>
+            <p class="text-stone-500 mb-4 max-w-3xl">Utvalda för att vara <strong>lätta till medelsvåra</strong>: tydliga stigar, måttlig stigning och inga svindlande kammar. Levadas är 1500-talets bevattningskanaler med smala gångstigar längs kanten — platta, lummiga och unika för Madeira. De officiella lederna heter PR + nummer och nästan alla kräver sedan 2026 <strong>förbokad tid och avgift (4,50 € p.p.)</strong> via <a href="https://simplifica.madeira.gov.pt/" target="_blank" rel="noopener" class="underline text-strelitzia">SIMplifica</a>.</p>
             <div class="flex flex-wrap gap-3 mb-8 text-xs font-bold">
                 <span class="px-3 py-1 rounded-full bg-emerald-100 text-laurel">LÄTT — platt, 2–5 km, för alla</span>
                 <span class="px-3 py-1 rounded-full bg-sky-100 text-atlantic">MEDEL — 5–13 km, några backar/trappor, bra skor</span>
             </div>
             <div id="hike-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"><!-- JS populated --></div>
             <p class="text-xs text-stone-400 mt-6">Leder stängs ibland efter ras eller brand. Kolla status hos IFCN/SIMplifica några dagar innan — särskilt PR1-området, som har varit stängt i perioder.<br>Medvetet bortvalt: <strong>PR1 Arieiro → Ruivo</strong> längs bergskammen — fantastisk men krävande (branta trappor, exponerade partier, ~7 km enkel väg). Vi tar Pico Ruivo den lätta vägen via PR1.2 i stället.</p>
+        </section>
+
+        <!-- SECTION: BILJETTER -->
+        <section id="tickets" class="mb-24 scroll-mt-20">
+            <h2 class="text-3xl font-bold mb-4 border-l-8 border-strelitzia pl-4">🎟️ Biljetter & bokningar</h2>
+            <p class="text-stone-500 mb-8 max-w-3xl">Sedan 1 januari 2026 måste man <strong>boka tid och betala i förväg</strong> för Madeiras officiella vandringsleder (PR) — betalning sker bara online, och kontroller och böter förekommer. Så här ser det ut för leder och upplevelser i vår plan:</p>
+
+            <div class="overflow-x-auto bg-white rounded-2xl border border-stone-200 shadow-sm mb-6">
+                <table class="w-full text-left text-sm">
+                    <thead class="bg-stone-100 text-stone-500 uppercase text-xs tracking-widest">
+                        <tr><th class="px-4 py-3">Vad</th><th class="px-4 py-3">Dag</th><th class="px-4 py-3">Biljett</th><th class="px-4 py-3">Var / när boka</th></tr>
+                    </thead>
+                    <tbody class="divide-y divide-stone-100">
+                        <tr><td class="px-4 py-3 font-bold">PR8 São Lourenço</td><td class="px-4 py-3">3</td><td class="px-4 py-3">4,50 € p.p.</td><td class="px-4 py-3">SIMplifica, 30-min-fönster</td></tr>
+                        <tr><td class="px-4 py-3 font-bold">PR11 Balcões</td><td class="px-4 py-3">3</td><td class="px-4 py-3">4,50 € p.p.*</td><td class="px-4 py-3">SIMplifica</td></tr>
+                        <tr><td class="px-4 py-3 font-bold">Pico do Arieiro, utsikten</td><td class="px-4 py-3">4</td><td class="px-4 py-3">Gratis</td><td class="px-4 py-3">Bilväg ända upp — ingen bokning</td></tr>
+                        <tr><td class="px-4 py-3 font-bold">Ninho da Manta</td><td class="px-4 py-3">4</td><td class="px-4 py-3">Troligen PR1-biljett (10,50 €)</td><td class="px-4 py-3">Ligger på PR1-leden — hoppa över om vi inte bokar PR1</td></tr>
+                        <tr><td class="px-4 py-3 font-bold">PR1.2 Pico Ruivo</td><td class="px-4 py-3">4</td><td class="px-4 py-3">4,50 € p.p.</td><td class="px-4 py-3">SIMplifica · gratis parkering i Achada do Teixeira</td></tr>
+                        <tr><td class="px-4 py-3 font-bold">Fanal</td><td class="px-4 py-3">5</td><td class="px-4 py-3">Gratis*</td><td class="px-4 py-3">Ströva fritt i skogen; själva leden PR13 kan kräva biljett</td></tr>
+                        <tr><td class="px-4 py-3 font-bold">Porto Moniz lavapooler</td><td class="px-4 py-3">5</td><td class="px-4 py-3">Liten entré</td><td class="px-4 py-3">Betalas på plats</td></tr>
+                        <tr><td class="px-4 py-3 font-bold">PR6 25 Fontes / PR6.1 Risco</td><td class="px-4 py-3">6</td><td class="px-4 py-3">4,50 € p.p.</td><td class="px-4 py-3">SIMplifica — boka tidig tid, populärast av alla</td></tr>
+                        <tr><td class="px-4 py-3 font-bold">Rabaçal-skytteln</td><td class="px-4 py-3">6</td><td class="px-4 py-3">~5 € enkel / 8 € t/r</td><td class="px-4 py-3">På plats, ofta bara kontanter · går ca 10–18</td></tr>
+                        <tr><td class="px-4 py-3 font-bold">PR9 Caldeirão Verde</td><td class="px-4 py-3">7</td><td class="px-4 py-3">4,50 € p.p.</td><td class="px-4 py-3">SIMplifica</td></tr>
+                        <tr><td class="px-4 py-3 font-bold">Valsafari</td><td class="px-4 py-3">2</td><td class="px-4 py-3">Operatörens pris</td><td class="px-4 py-3">Boka några dagar innan, välj dag med lugnt hav</td></tr>
+                        <tr><td class="px-4 py-3 font-bold">Linbana, Monte Palace & korgkälke</td><td class="px-4 py-3">2</td><td class="px-4 py-3">Separata biljetter</td><td class="px-4 py-3">På plats</td></tr>
+                        <tr><td class="px-4 py-3 font-bold">Blomsterparaden 2 maj</td><td class="px-4 py-3">7</td><td class="px-4 py-3">Gratis att stå · sittplats kostar</td><td class="px-4 py-3">Läktarbiljetter säljs i förväg</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-4">
+                <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm space-y-2">
+                    <h3 class="font-bold text-strelitzia">Så funkar SIMplifica</h3>
+                    <p class="text-sm text-stone-600">Välj led, datum och ett 30-minutersfönster för start. Alla i sällskapet ska vara med i bokningen. Spara QR/kvitto i mobilen. Ändring eller återbetalning går i regel bara om leden stängs av myndigheten.</p>
+                    <a href="https://simplifica.madeira.gov.pt/" target="_blank" rel="noopener" class="inline-block text-xs font-bold text-strelitzia underline">simplifica.madeira.gov.pt →</a>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm space-y-2">
+                    <h3 class="font-bold text-strelitzia">Dagspass eller styckvis?</h3>
+                    <p class="text-sm text-stone-600">Det finns pass: 1 dag 9 €, 3 dagar 22,50 €, 7 dagar 52,50 €. Med vår plan (fem betalleder på fyra dagar) blir det billigare att köpa styckvis: ~22,50 € p.p. för hela veckan. Dag 3 (två leder) går jämnt ut med dagspass.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm space-y-2">
+                    <h3 class="font-bold text-strelitzia">När boka?</h3>
+                    <p class="text-sm text-stone-600">Boka lederna när veckoplanen är spikad, gärna 1–2 veckor innan. Men eftersom pengarna i regel inte återbetalas vid dåligt väder: kolla prognosen och boka bergsdagarna (PR1.2, PR9) några dagar innan. Barn under 12 är gratis men ska ändå registreras.</p>
+                </div>
+            </div>
+            <p class="text-xs text-stone-400">* Källorna är oense om PR11 (gratis eller 4,50 €) och om Fanal/PR13. Avgifter enligt Visit Madeira och SIMplifica 2026 (Portaria 801/2025, ändrad 48/2026); med certifierad guide är avgiften lägre (3 €). Dubbelkolla i SIMplifica innan avresa — reglerna har ändrats flera gånger.</p>
         </section>
 
         <!-- SECTION: NÄR -->
@@ -278,7 +326,7 @@
                 </div>
                 <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm space-y-2">
                     <h3 class="font-bold text-laurel">🎟️ Boka leder i SIMplifica</h3>
-                    <p class="text-sm text-stone-600">Skapa konto och boka PR6, PR9, PR1.2 och övriga leder i förväg — man väljer datum och ett 30-minutersfönster. Populära tider på PR6 (25 Fontes) tar slut först. Kvitto/QR i mobilen räcker.</p>
+                    <p class="text-sm text-stone-600">Skapa konto och boka lederna i förväg (4,50 € p.p. per led) — se <a href="#tickets" class="underline text-strelitzia">Biljetter & bokningar</a> för hela listan.</p>
                     <a href="https://simplifica.madeira.gov.pt/" target="_blank" rel="noopener" class="inline-block text-xs font-bold text-strelitzia underline">simplifica.madeira.gov.pt →</a>
                 </div>
                 <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm space-y-2">
@@ -333,7 +381,7 @@
             },
             {
                 label: "Dag 4", title: "Ovanför molnen — PR1.2", place: "Bergen · Lätt–medel",
-                morning: "Kör upp till Pico do Arieiro (1 818 m) för soluppgång över molnhavet — utsikten nås direkt från parkeringen. Kort promenad (~1 km) till utsiktsplatsen Ninho da Manta.",
+                morning: "Kör upp till Pico do Arieiro (1 818 m) för soluppgång över molnhavet — utsikten nås direkt från parkeringen. Utsikten nås gratis direkt från parkeringen (Ninho da Manta ligger på PR1-leden och kräver troligen PR1-biljett — hoppa över den).",
                 afternoon: "Kör vidare till Achada do Teixeira och gå <strong>PR1.2 till Pico Ruivo</strong> (lätt–medel, ~5,6 km t/r, välbyggd stenstig) — öns högsta topp, 1 862 m, utan de krävande kammarna.",
                 evening: "Vila. Poncha på Taberna da Poncha i Serra de Água och middag på en espetada-krog.",
                 tip: "Kolla webbkameran på Pico do Arieiro kvällen innan — ligger molnen över toppen, byt med dag 6. Kallt vid soluppgång: mössa och dunjacka."
@@ -350,7 +398,7 @@
                 morning: "Rabaçal: <strong>PR6.1 till Risco-vattenfallet</strong> (lätt, platt) och <strong>PR6 Levada das 25 Fontes</strong> (lätt–medel, ~4,5 km t/r) till en grön sjö med dussintals små vattenfall.",
                 afternoon: "Ner till kusten: sen lunch och bad i Calheta eller Ponta do Sol.",
                 evening: "Solnedgång i Ponta do Sol eller på Cabo Girão-skywalken (580 m rakt ner) på vägen hem.",
-                tip: "Var på plats tidigt — levadan blir trång mitt på dagen. Skyttelbussen från parkeringen spar ~2 km asfaltbacke."
+                tip: "Var på plats tidigt — levadan blir trång mitt på dagen. Skyttelbussen från parkeringen (~5 € enkel, ofta bara kontanter) spar ~2 km asfaltbacke — eller gå, det är lätt nedför."
             },
             {
                 label: "Dag 7", title: "Caldeirão Verde — PR9", place: "Nord · Medel",
@@ -369,14 +417,14 @@
         ];
 
         const hikes = [
-            { code: "PR6 / PR6.1", name: "25 Fontes & Risco", level: "Lätt–medel", dist: "~4,5 km t/r", desc: "Klassikern i Rabaçal: platt levada genom mossig urskog till en sjö med 25 små vattenfall, plus en kort avstickare till det 100 m höga Risco-fallet.", day: "Dag 6" },
-            { code: "PR11", name: "Vereda dos Balcões", level: "Lätt", dist: "~3 km t/r", desc: "Kort och platt till en balkong med vy över Ribeira da Metade-dalen och de högsta topparna. Perfekt för fågelskådning.", day: "Dag 3" },
-            { code: "PR1.2", name: "Vereda do Pico Ruivo", level: "Lätt–medel", dist: "~5,6 km t/r", desc: "Välbyggd stenstig från Achada do Teixeira till öns högsta topp (1 862 m). Hela utsikten från PR1 — utan de krävande kammarna.", day: "Dag 4" },
-            { code: "PR8", name: "Ponta de São Lourenço", level: "Medel", dist: "~8 km t/r", desc: "Torr, vindpinad halvö med färgsprakande vulkanklippor och hav på båda sidor. Helt olik resten av ön. Några trappor mot slutet.", day: "Dag 3" },
-            { code: "PR9", name: "Levada do Caldeirão Verde", level: "Medel", dist: "~13 km t/r", desc: "Lång men nästan platt levada genom laurisilva, med korta tunnlar och ett 100 m högt vattenfall i en grön kittel. Pannlampa!", day: "Dag 7" },
-            { code: "—", name: "Fanal", level: "Lätt", dist: "Strövområde", desc: "Inga markerade mål — bara att vandra runt bland jättelika, vridna lagerträd på högplatån. Magiskt i dimma.", day: "Dag 5" },
-            { code: "PR18", name: "Levada do Rei", level: "Lätt–medel", dist: "~10 km t/r", desc: "Reservalternativ: lugn levada från Quebradas till en mossig källa, genom några av öns mest orörda urskogspartier.", day: "Reserv" },
-            { code: "PR10", name: "Levada do Furado", level: "Medel", dist: "~11 km enkel väg", desc: "Reservalternativ: Ribeiro Frio → Portela genom tät skog med utsikt mot nordkusten. Kräver transport tillbaka.", day: "Reserv" }
+            { code: "PR6 / PR6.1", name: "25 Fontes & Risco", level: "Lätt–medel", dist: "~4,5 km t/r", desc: "Klassikern i Rabaçal: platt levada genom mossig urskog till en sjö med 25 små vattenfall, plus en kort avstickare till det 100 m höga Risco-fallet.", day: "Dag 6", fee: "4,50 € · boka tid" },
+            { code: "PR11", name: "Vereda dos Balcões", level: "Lätt", dist: "~3 km t/r", desc: "Kort och platt till en balkong med vy över Ribeira da Metade-dalen och de högsta topparna. Perfekt för fågelskådning.", day: "Dag 3", fee: "4,50 € · boka tid*" },
+            { code: "PR1.2", name: "Vereda do Pico Ruivo", level: "Lätt–medel", dist: "~5,6 km t/r", desc: "Välbyggd stenstig från Achada do Teixeira till öns högsta topp (1 862 m). Hela utsikten från PR1 — utan de krävande kammarna.", day: "Dag 4", fee: "4,50 € · boka tid" },
+            { code: "PR8", name: "Ponta de São Lourenço", level: "Medel", dist: "~8 km t/r", desc: "Torr, vindpinad halvö med färgsprakande vulkanklippor och hav på båda sidor. Helt olik resten av ön. Några trappor mot slutet.", day: "Dag 3", fee: "4,50 € · boka tid" },
+            { code: "PR9", name: "Levada do Caldeirão Verde", level: "Medel", dist: "~13 km t/r", desc: "Lång men nästan platt levada genom laurisilva, med korta tunnlar och ett 100 m högt vattenfall i en grön kittel. Pannlampa!", day: "Dag 7", fee: "4,50 € · boka tid" },
+            { code: "—", name: "Fanal", level: "Lätt", dist: "Strövområde", desc: "Inga markerade mål — bara att vandra runt bland jättelika, vridna lagerträd på högplatån. Magiskt i dimma.", day: "Dag 5", fee: "Gratis att ströva*" },
+            { code: "PR18", name: "Levada do Rei", level: "Lätt–medel", dist: "~10 km t/r", desc: "Reservalternativ: lugn levada från Quebradas till en mossig källa, genom några av öns mest orörda urskogspartier.", day: "Reserv", fee: "4,50 € · boka tid" },
+            { code: "PR10", name: "Levada do Furado", level: "Medel", dist: "~11 km enkel väg", desc: "Reservalternativ: Ribeiro Frio → Portela genom tät skog med utsikt mot nordkusten. Kräver transport tillbaka. Har varit stängd i perioder.", day: "Reserv", fee: "4,50 € · boka tid" }
         ];
 
         const hotels = [
@@ -450,6 +498,7 @@
                         <span class="text-xs font-bold text-stone-400">${h.dist}</span>
                     </div>
                     <p class="text-sm text-stone-600 flex-grow">${h.desc}</p>
+                    <div class="mt-4 pt-3 border-t border-stone-100 text-xs font-bold text-strelitzia">🎟️ ${h.fee}</div>
                 `;
                 grid.appendChild(card);
             });
