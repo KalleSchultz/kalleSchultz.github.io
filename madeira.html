@@ -75,7 +75,7 @@
                     <a href="#when" class="hover:text-strelitzia transition">När?</a>
                     <a href="#itinerary" class="hover:text-strelitzia transition">Dag för dag</a>
                     <a href="#hotels" class="hover:text-strelitzia transition">Boende</a>
-                    <a href="#food" class="hover:text-strelitzia transition">Mat</a>
+                    <a href="#restaurants" class="hover:text-strelitzia transition">Restauranger</a>
                     <a href="#before-departure" class="hover:text-strelitzia transition">Innan Avresa</a>
                 </div>
                 <button id="mobile-menu-btn" class="md:hidden flex items-center justify-center w-10 h-10 -mr-2" aria-label="Öppna meny" aria-expanded="false" aria-controls="mobile-menu" onclick="const m=document.getElementById('mobile-menu');const exp=this.getAttribute('aria-expanded')==='true';this.setAttribute('aria-expanded',String(!exp));m.classList.toggle('open',!exp);">
@@ -90,7 +90,7 @@
                 <a href="#when" class="py-2 border-b border-stone-100 hover:text-strelitzia transition">När?</a>
                 <a href="#itinerary" class="py-2 border-b border-stone-100 hover:text-strelitzia transition">Dag för dag</a>
                 <a href="#hotels" class="py-2 border-b border-stone-100 hover:text-strelitzia transition">Boende</a>
-                <a href="#food" class="py-2 border-b border-stone-100 hover:text-strelitzia transition">Mat</a>
+                <a href="#restaurants" class="py-2 border-b border-stone-100 hover:text-strelitzia transition">Restauranger</a>
                 <a href="#before-departure" class="py-2 hover:text-strelitzia transition">Innan Avresa</a>
             </div>
         </div>
@@ -304,10 +304,35 @@
                     <p class="text-sm text-stone-600">Starkvin i fyra stilar från torr Sercial till söt Malvasia. Provning på Blandy's Wine Lodge mitt i Funchal — gärna en 10-årig Malmsey till efterrätten.</p>
                 </div>
             </div>
-            <div class="mt-8 bg-white p-6 rounded-2xl border border-stone-200 shadow-sm">
-                <h3 class="font-bold text-sm uppercase tracking-widest text-stone-400 mb-4">Restauranger att kolla upp</h3>
-                <div id="restaurant-list" class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-3 text-sm"><!-- JS populated --></div>
-                <p class="text-xs text-stone-400 mt-4">Förslag att verifiera — öppettider och bokningsläge ändras. Finkrogarna behöver bokas veckor i förväg.</p>
+
+            <!-- Restaurangtips: fiskkrogen -->
+            <div id="restaurants" class="mt-12 scroll-mt-20 bg-white rounded-3xl border border-stone-200 shadow-sm overflow-hidden">
+                <div class="grid grid-cols-2 gap-1 bg-stone-200">
+                    <img src="img/madeira-fish-counter.jpg" alt="Fiskdisk med dagens fångst framför öppet kök och vedgrill, priser per kilo på griffeltavlor" class="col-span-2 w-full h-56 md:h-80 object-cover" loading="lazy">
+                    <img src="img/madeira-fish-dining.jpg" alt="Ljus matsal med glasväggar och utsikt över Funchals hustak" class="w-full h-40 md:h-64 object-cover" loading="lazy">
+                    <img src="img/madeira-fish-grilled.jpg" alt="Två helgrillade fiskar på vit tallrik" class="w-full h-40 md:h-64 object-cover" loading="lazy">
+                </div>
+                <div class="p-6 md:p-10">
+                    <div class="flex flex-wrap items-center gap-2 mb-3">
+                        <span class="text-xs font-bold text-white bg-strelitzia px-2 py-0.5 rounded-full">★ RESTAURANGTIPS</span>
+                        <span class="text-xs font-bold text-stone-400 uppercase tracking-widest">Funchal · Fisk & skaldjur</span>
+                    </div>
+                    <h3 class="text-2xl md:text-3xl font-bold mb-3">"Förmodligen Madeiras bästa fiskrestaurang"</h3>
+                    <p class="text-stone-600 mb-4 max-w-3xl">Ett tips från Facebook: dagens fångst ligger på is i disken, man pekar ut sin fisk, den vägs och läggs direkt på vedgrillen. Ljus matsal med glasväggar och utsikt över Funchal. På tavlan: <em>pargo</em>, <em>garoupa</em>, <em>espadarte</em>, bläckfisk och tonfisk för ~45–60 €/kg (cherne ~99 €/kg) — en grillad fisk per person hamnar oftast runt 15–25 €.</p>
+                    <p class="text-sm text-stone-500 mb-6">Namnet stod inte i inlägget. Bilderna stämmer bäst med <strong>Peixaria no Mercado</strong> i Mercado dos Lavradores, som ofta kallas stans bästa fiskkrog — där vägs fisken och priset bekräftas före tillagningen. Kolla namnet innan vi bokar. Perfekt till avslutningsmiddagen dag 7.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <a href="https://www.tripadvisor.com/Restaurant_Review-g189167-d23766709-Reviews-Peixaria_no_Mercado-Funchal_Madeira_Madeira_Islands.html" target="_blank" rel="noopener" class="px-5 py-2 rounded-full border border-ink text-ink font-bold text-xs hover:bg-ink hover:text-white transition uppercase tracking-widest">Recensioner</a>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Peixaria%20no%20Mercado%2C%20Mercado%20dos%20Lavradores%2C%20Funchal" target="_blank" rel="noopener" class="px-5 py-2 rounded-full border border-laurel text-laurel font-bold text-xs hover:bg-laurel hover:text-white transition uppercase tracking-widest">🗺️ Karta</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Prisvärda restauranger -->
+            <div class="mt-8">
+                <h3 class="text-2xl font-bold mb-2">🍽️ Prisvärda favoriter — där lokalbefolkningen äter</h3>
+                <p class="text-stone-500 mb-6 max-w-3xl">Utvalda för bra mat till rimligt pris — inga turistfällor eller stjärnkrogar. Räkna med ~12–25 € för en huvudrätt på en tasca, lite mer för fisk. Sorterade efter var vi är under vandringsdagarna.</p>
+                <div id="restaurant-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"><!-- JS populated --></div>
+                <p class="text-xs text-stone-400 mt-4">Prisnivå: € = billigt, €€ = mellan. Öppettider ändras — kolla Google Maps innan, många tascor har stängt en dag i veckan. Fråga alltid om kilopriset innan fisken grillas.</p>
             </div>
         </section>
 
@@ -404,7 +429,7 @@
                 label: "Dag 7", title: "Caldeirão Verde — PR9", place: "Nord · Medel",
                 morning: "<strong>PR9 Levada do Caldeirão Verde</strong> (medel, ~13 km t/r, platt men lång) från Queimadas: mossiga väggar, korta tunnlar och ett 100 m högt vattenfall i en grön kittel. Veckans höjdpunkt i urskogen.",
                 afternoon: "Picknick vid vattenfallet, åter till bilen. Lämna tillbaka hyrbilen i Funchal.",
-                evening: "Avslutningsmiddag. Åker vi 26 april–3 maj: blomsterparaden går i Funchal på söndagen (2 maj).",
+                evening: "Avslutningsmiddag på fiskkrogen från restaurangtipset — välj fisken i disken. Åker vi 26 april–3 maj: blomsterparaden går i Funchal på söndagen (2 maj).",
                 tip: "Pannlampa till tunnlarna. Vill ni korta: vänd när ni vill — leden är en ren fram-och-tillbaka-tur."
             },
             {
@@ -435,12 +460,18 @@
         ];
 
         const restaurants = [
-            { name: "Il Gallo d'Oro", note: "Funchal · Michelin-stjärnor, avslutningsmiddagen" },
-            { name: "Armazém do Sal", note: "Funchal · modern madeirisk i gammalt saltlager" },
-            { name: "Restaurante Santo António", note: "Estreito de Câmara de Lobos · klassisk espetada" },
-            { name: "Taberna da Poncha", note: "Serra de Água · ponchans högborg" },
-            { name: "Mercado dos Lavradores", note: "Funchal · frukt, fisk och lunchstånd" },
-            { name: "Blandy's Wine Lodge", note: "Funchal · provning och vinkällare" }
+            { name: "Peixaria no Mercado", area: "Funchal", price: "€€", when: "Dag 7", note: "Fisk från disken, vägd och grillad. Restaurangtipset ovan.", q: "Peixaria no Mercado, Funchal" },
+            { name: "Rustikus", area: "Funchal", price: "€", when: "Lunch", note: "Bara lunch på vardagar, två fisk- och två kötträtter per dag. Kallas stans bästa lunch för pengarna.", q: "Rustikus, Funchal" },
+            { name: "A Tasquinha", area: "Funchal · Gamla stan", price: "€", when: "Dag 1", note: "Familjedriven tasca i Zona Velha. Boka under festivalveckan.", q: "A Tasquinha, Zona Velha, Funchal" },
+            { name: "Taberna Madeira", area: "Funchal · Gamla stan", price: "€€", when: "Kväll", note: "Espada com banana och espetada i mysig taverna.", q: "Taberna Madeira, Funchal" },
+            { name: "O Calhau", area: "Funchal · Gamla stan", price: "€€", when: "Kväll", note: "Signaturrätten: tonfisk som man steker själv på het sten.", q: "O Calhau, Funchal" },
+            { name: "A Tendinha", area: "Funchal", price: "€", when: "Lunch", note: "Anspråkslöst lokalhak i en lugn gränd — beställ rolo de espada.", q: "A Tendinha, Funchal" },
+            { name: "Restaurante Bar Amarelo", area: "Caniçal", price: "€€", when: "Dag 3", note: "Lunch efter PR8: lapas, bläckfisk och färsk fisk per kilo. Stängt tisdagar.", q: "Restaurante Bar Amarelo, Caniçal" },
+            { name: "Restaurante Santo António", area: "Estreito de Câmara de Lobos", price: "€€", when: "Dag 4", note: "Klassisk espetada sedan 1966, spetten hängs över bordet.", q: "Restaurante Santo António, Estreito de Câmara de Lobos" },
+            { name: "Taberna da Poncha", area: "Serra de Água", price: "€", when: "Dag 4", note: "Ponchans högborg — jordnötter på golvet och poncha vispad vid disken.", q: "Taberna da Poncha, Serra de Água" },
+            { name: "Vila do Peixe", area: "Câmara de Lobos", price: "€€", when: "Dag 6", note: "Välj fisken i disken, grillas på kol. Utsikt över fiskehamnen.", q: "Vila do Peixe, Câmara de Lobos" },
+            { name: "Sea View Restaurante", area: "Porto Moniz", price: "€€", when: "Dag 5", note: "Vid lavapoolerna. Fisksoppan får beröm för pris och smak.", q: "Sea View Restaurante, Porto Moniz" },
+            { name: "Leme Marisqueira", area: "Calheta", price: "€€", when: "Dag 6", note: "Avslappnat skaldjurshak vid marinan, förvånansvärt rimliga priser.", q: "Leme Marisqueira, Calheta, Madeira" }
         ];
 
         // --- RENDER ---
@@ -527,13 +558,22 @@
         function renderRestaurants() {
             const list = document.getElementById('restaurant-list');
             restaurants.forEach(r => {
-                const mapUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(r.name + ', Madeira')}`;
-                const row = document.createElement('div');
-                row.className = "flex justify-between gap-4 border-b border-stone-100 pb-2";
-                row.innerHTML = `
-                    <div><a href="${mapUrl}" target="_blank" rel="noopener" class="font-bold hover:text-strelitzia underline decoration-stone-300">${r.name}</a><div class="text-xs text-stone-500">${r.note}</div></div>
+                const mapUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(r.q)}`;
+                const card = document.createElement('a');
+                card.href = mapUrl;
+                card.target = "_blank";
+                card.rel = "noopener";
+                card.className = "bg-white p-5 rounded-2xl shadow-sm border border-stone-100 flex flex-col link-card transition duration-300";
+                card.innerHTML = `
+                    <div class="flex items-center justify-between mb-1">
+                        <div class="text-xs font-bold text-strelitzia uppercase">${r.area}</div>
+                        <div class="text-xs font-bold text-stone-400">${r.when}</div>
+                    </div>
+                    <h4 class="text-lg font-bold mb-1">${r.name} <span class="text-sm font-bold text-laurel">${r.price}</span></h4>
+                    <p class="text-sm text-stone-600 flex-grow">${r.note}</p>
+                    <div class="mt-3 text-xs font-bold text-laurel uppercase tracking-widest">🗺️ Visa på karta →</div>
                 `;
-                list.appendChild(row);
+                list.appendChild(card);
             });
         }
 
