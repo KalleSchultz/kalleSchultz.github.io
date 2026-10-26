@@ -132,7 +132,7 @@
                     </div>
                     <div class="bg-white p-4 rounded-xl shadow-sm border border-stone-100">
                         <span class="block font-bold text-laurel">BAS</span>
-                        <span class="text-sm">Funchal, 7 nätter</span>
+                        <span class="text-sm">Hotel Madeira ✓, 7 nätter</span>
                     </div>
                     <div class="bg-white p-4 rounded-xl shadow-sm border border-stone-100">
                         <span class="block font-bold text-strelitzia">VÄDER</span>
@@ -279,11 +279,11 @@
 
         <!-- SECTION: BOENDE -->
         <section id="hotels" class="mb-24 scroll-mt-20">
-            <h2 class="text-3xl font-bold mb-4 border-l-8 border-strelitzia pl-4">🏡 Boende — förslag</h2>
-            <p class="text-stone-500 mb-6 max-w-3xl"><strong>Beslut: vi bor i Funchal hela veckan</strong> (12–19 april, 7 nätter). Med bil ligger alla utflykter inom ~40–60 min, och vi slipper packa om. Vi bor i eller nära <strong>gamla stan</strong> för att kunna gå till restaurangerna på kvällen. Inget är <span class="font-bold text-strelitzia">BOKAT</span> än.</p>
+            <h2 class="text-3xl font-bold mb-4 border-l-8 border-strelitzia pl-4">🏡 Boende</h2>
+            <p class="text-stone-500 mb-6 max-w-3xl">Vi bor i Funchal hela veckan — <span class="font-bold text-laurel">✓ BOKAT</span> på Hotel Madeira i centrum, med promenadavstånd till gamla stan, saluhallen och fiskkrogen. Med bil ligger alla utflykter inom ~40–60 min.</p>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
-                <div class="bg-white p-4 rounded-xl border border-stone-200 shadow-sm text-sm"><span class="block font-bold text-laurel mb-1">🚶 Gångavstånd</span>Gamla stan och centrum — inte Lido-hotellzonen, som ligger 25–40 min promenad (och uppförsbacke) bort.</div>
-                <div class="bg-white p-4 rounded-xl border border-stone-200 shadow-sm text-sm"><span class="block font-bold text-laurel mb-1">🅿️ Parkering</span>Bara 4 nätter (dag 3–6). Fråga hotellet innan bokning — gatuparkering i gamla stan är nästan omöjlig och kontrolleras hårt.</div>
+                <div class="bg-white p-4 rounded-xl border border-stone-200 shadow-sm text-sm"><span class="block font-bold text-laurel mb-1">🚶 Gångavstånd</span>Hotellet ligger i centrum: ~10 min promenad till gamla stan, ~5 min till saluhallen och strandpromenaden.</div>
+                <div class="bg-white p-4 rounded-xl border border-stone-200 shadow-sm text-sm"><span class="block font-bold text-laurel mb-1">🅿️ Parkering</span>✓ Bokad parkering på hotellet. Gatuparkering i gamla stan är nästan omöjlig och kontrolleras hårt — ställ bilen vid hotellet och gå.</div>
                 <div class="bg-white p-4 rounded-xl border border-stone-200 shadow-sm text-sm"><span class="block font-bold text-laurel mb-1">🚗 Bil dag 3–7</span>Levereras till hotellet morgonen dag 3, lämnas tillbaka dag 7 efter PR9. Dag 1–2 och 8 klarar vi oss till fots och med taxi.</div>
             </div>
             <div id="hotel-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"><!-- JS populated --></div>
@@ -401,7 +401,7 @@
             {
                 label: "Dag 1 · Mån 12/4", title: "Ankomst & strandpromenad", place: "Funchal",
                 morning: "08.00 från Arlanda via Helsingfors, landning i Funchal 15.50. Taxi eller Aerobus in till stan (~25 min).",
-                afternoon: "Checka in. Promenad längs havet och marinan — första mötet med Atlanten.",
+                afternoon: "Checka in på Hotel Madeira (från 14.00). Promenad längs havet och marinan — första mötet med Atlanten.",
                 evening: "Gamla stan (Zona Velha): de målade dörrarna på Rua de Santa Maria och middag i gränderna. Tidigt i säng.",
                 tip: "Vindarna vid flygplatsen kan försena landningen — håll första kvällen fri från bokningar."
             },
@@ -449,7 +449,7 @@
             },
             {
                 label: "Dag 8 · Mån 19/4", title: "Sista förmiddagen & avresa", place: "Funchal → Helsingfors",
-                morning: "Lugn frukost. Botaniska trädgården (Jardim Botânico) eller en sista promenad längs havet.",
+                morning: "Lugn frukost, utcheckning senast 12.00 — lämna väskorna i receptionen. Botaniska trädgården (Jardim Botânico) eller en sista promenad längs havet.",
                 afternoon: "Köp Madeiravin och honungskaka (bolo de mel) som presenter. Taxi till flygplatsen (~25 min), var där ~14.40 — <strong>flyg 16.40</strong> till Helsingfors.",
                 evening: "Landar i Helsingfors sent på kvällen (finsk tid, 2 h före Madeira). Tåg eller taxi till hotellet.",
                 tip: "Flygplatsen ligger ~25 min från Funchal. Madeiravin tål resan väl — packa i incheckat bagage eller köp efter säkerhetskontrollen."
@@ -475,26 +475,20 @@
         ];
 
         const hotels = [
-            { area: "Zona Velha · Gamla stan", name: "Barceló Funchal Oldtown", type: "Designhotell", pick: true,
-              desc: "Mitt i gamla stan med takpool och utsikt över havet. Tascorna på Rua de Santa Maria, linbanan och strandpromenaden ligger runt hörnet — bästa läget för promenadkvällar.",
-              walk: "0–5 min till gamla stan · ~10 min till saluhallen",
-              parking: "Kolla med hotellet. Annars parkeringshuset vid Almirante Reis/Rua Bela São Tiago intill gamla stan (~8–15 €/dygn).",
-              address: "Barceló Funchal Oldtown, Funchal" },
-            { area: "Centrum · vid katedralen", name: "Hotel Madeira", type: "Mellanklasshotell", pick: false,
-              desc: "Prisvärt, centralt hotell vid stadsparken med liten takpool. Kort promenad till både katedralen, saluhallen och gamla stan.",
+            { area: "Funchal · Centrum", dates: "12–19 april · 7 nätter", name: "Hotel Madeira", type: "Hotell", booked: true,
+              desc: "Standard Balcony Room för 2 personer. Centralt vid stadsparken med liten takpool, nära katedralen, saluhallen och gamla stan.",
               walk: "~10 min till gamla stan · ~5 min till saluhallen",
-              parking: "Egen parkering framför hotellet, ca 11 €/dygn — få platser, boka i förväg.",
+              parking: "✓ Parkering på hotellet bokad.",
+              times: "Incheckning från 14.00 · utcheckning senast 12.00",
+              link: "https://www.hotelmadeira.com/",
               address: "Hotel Madeira, Rua Ivens 21, Funchal" },
-            { area: "Centrum", name: "Castanheiro Boutique Hotel", type: "Boutiquehotell", pick: false,
-              desc: "Restaurerade stadshus mitt i centrum med takpool. Stilfullt och lugnt, nära allt.",
-              walk: "~5–10 min till gamla stan och saluhallen",
-              parking: "Garage under hotellet, men gäster beskriver infarten som mycket trång för en vanlig bil — välj liten hyrbil eller använd parkeringshus i närheten.",
-              address: "Castanheiro Boutique Hotel, Rua do Castanheiro 31, Funchal" },
-            { area: "Gamla stan · ovanför", name: "Three House Hotel", type: "Lägenhetshotell", pick: false,
-              desc: "Lägenheter med kök, pool och takbar med utsikt över Funchal. Bra om vi vill laga frukost själva och ha mer utrymme.",
-              walk: "Gångavstånd till gamla stan — kolla backen tillbaka upp",
-              parking: "Gratis parkering enligt flera guider — bekräfta vid bokning.",
-              address: "Three House Hotel, Funchal" }
+            { area: "Helsingfors", dates: "19–20 april · 1 natt", name: "Hotell i Helsingfors", type: "Övernattning på hemvägen", booked: false,
+              desc: "Landar sent på kvällen, hela tisdagen ledig, flyg hem 20.25. Välj centralt nära centralstationen — tåget från flygplatsen tar ~30 min.",
+              walk: "Nära centralstationen",
+              parking: "Behövs inte",
+              times: "",
+              link: null,
+              address: "Helsinki Central Station" }
         ];
 
         const restaurants = [
@@ -582,19 +576,25 @@
                 card.innerHTML = `
                     <div class="flex items-center justify-between mb-1">
                         <div class="text-xs font-bold text-strelitzia uppercase">${h.area}</div>
-                        ${h.pick ? '<div class="text-xs font-bold text-laurel">★ Vårt förstahandsval</div>' : ''}
+                        <div class="text-xs font-bold text-stone-400">${h.dates}</div>
                     </div>
                     <h4 class="text-xl font-bold mb-2">${h.name}</h4>
                     <div class="flex items-center gap-2 mb-4">
                         <div class="text-xs font-bold text-stone-400">${h.type}</div>
-                        <span class="text-xs font-bold text-white bg-strelitzia px-2 py-0.5 rounded-full">EJ BOKAT</span>
+                        ${h.booked
+                            ? `<span class="text-xs font-bold text-white bg-laurel px-2 py-0.5 rounded-full">✓ BOKAT</span>`
+                            : `<span class="text-xs font-bold text-white bg-strelitzia px-2 py-0.5 rounded-full">EJ BOKAT</span>`}
                     </div>
                     <p class="text-sm text-stone-600 mb-4 flex-grow">${h.desc}</p>
                     <div class="text-xs text-stone-600 space-y-1 mb-4 bg-stone-50 rounded-xl p-3">
                         <div><span class="font-bold">🚶 Läge:</span> ${h.walk}</div>
                         <div><span class="font-bold">🅿️ Parkering:</span> ${h.parking}</div>
+                        ${h.times ? `<div><span class="font-bold">🕑 Tider:</span> ${h.times}</div>` : ''}
                     </div>
-                    <a href="${mapUrl}" target="_blank" rel="noopener" class="text-center py-2 rounded-full border border-laurel text-laurel font-bold text-xs hover:bg-laurel hover:text-white transition uppercase tracking-widest">🗺️ Karta</a>
+                    <div class="flex gap-2">
+                        ${h.link ? `<a href="${h.link}" target="_blank" rel="noopener" class="flex-1 text-center py-2 rounded-full border border-ink text-ink font-bold text-xs hover:bg-ink hover:text-white transition uppercase tracking-widest">Visa</a>` : ''}
+                        <a href="${mapUrl}" target="_blank" rel="noopener" class="flex-1 text-center py-2 rounded-full border border-laurel text-laurel font-bold text-xs hover:bg-laurel hover:text-white transition uppercase tracking-widest">🗺️ Karta</a>
+                    </div>
                 `;
                 grid.appendChild(card);
             });
